@@ -50,6 +50,9 @@ months:
 news:
   titles:
     news2: Um anúncio longo com detalhes
+pagination:
+  newer: Recentes
+  older: Antigas
 projects:
   titles:
     project1: Projeto 1

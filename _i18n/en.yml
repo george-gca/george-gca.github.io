@@ -50,6 +50,9 @@ months:
 news:
   titles:
     news2: A long announcement with details
+pagination:
+  newer: Newer
+  older: Older
 projects:
   titles:
     project1: Project 1
