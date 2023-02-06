@@ -23,8 +23,10 @@
     {%- elsif page.title != "blank" and page.url != "/" -%}
         {%- if page.title == nil or page.title == "" -%}
             {{ page.date | date: "%Y" }} | {{ title }}
-        {%- else -%}
+        {%- elsif page.title contains 'Announcement' -%}
             {{ page.title }} | {{ title }}
+        {%- else -%}
+            {% t page.title %} | {{ title }}
         {%- endif -%}
     {%- else -%}
         {{ title }}
