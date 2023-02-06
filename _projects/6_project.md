@@ -1,7 +1,7 @@
 ---
 layout: page
-title: project 6
-description: a project with no image
+title: projects.titles.project6
+description: projects.descriptions.project6
 img:
 importance: 4
 category: fun
