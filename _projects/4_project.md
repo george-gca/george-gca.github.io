@@ -7,4 +7,4 @@ importance: 3
 category: fun
 ---
 
-{% translate_file projects/4_project.md %}
+{% translate_file _projects/4_project.md %}
