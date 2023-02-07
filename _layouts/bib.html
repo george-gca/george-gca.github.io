@@ -135,6 +135,9 @@
 
           <!-- Links/Buttons -->
           <div class="links">
+          {%- if entry.tldr %}
+            <a class="tldr btn btn-sm z-depth-0" role="button">TLDR</a>
+          {%- endif %}
           {%- if entry.abstract %}
             <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
           {%- endif %}
@@ -220,6 +223,13 @@
           <!-- Hidden abstract block -->
           <div class="abstract hidden">
             <p>{{ entry.abstract }}</p>
+          </div>
+          {%- endif -%}
+
+          {% if entry.tldr -%}
+          <!-- Hidden tldr block -->
+          <div class="tldr hidden">
+            <p>{{ entry.tldr }}</p>
           </div>
           {%- endif -%}
 
