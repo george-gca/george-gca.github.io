@@ -13,3 +13,35 @@ $max-content-width: {{ site.max_width }};
   "base",
   "distill"
 ;
+
+tr th
+{
+  padding: .5em .5em;
+}
+
+th
+{
+  padding: .5em 0;
+}
+
+td
+{
+  padding: .2em .7em;
+}
+
+table
+{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: .9em;
+}
+
+h2
+{
+  margin-top: 1.5em;
+}
+
+h3
+{
+  margin-top: 1em;
+}
