@@ -19,7 +19,7 @@
         {%- capture title -%}{{ site.title }}{%- endcapture -%}
     {%- endif -%}
     {% if page.url == '/blog/index.html' %}
-        {{ site.blog_nav_title }} | {{ title }}
+        {% t blog.nav_title %} | {{ title }}
     {% elsif page.url contains '/blog/' %}
         {%- capture blog_year -%}{{ page.url | slice: 0, 11 }}{%- endcapture -%}
         {%- if page.url == blog_year -%}
