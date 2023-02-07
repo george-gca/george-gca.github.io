@@ -97,7 +97,7 @@
               {% endfor -%}
 
               <!-- Toogle language -->
-              {%- if site.languages.size >= 2 %}
+              {%- if site.enable_localization and site.languages.size >= 2 -%}
                 {%- if site.languages.size == 2 %}
                 <li class="nav-item active">
                   {% if site.lang == site.languages.first %}
@@ -117,17 +117,17 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                       {%- assign language_set = false -%}
                       {%- for l in site.languages -%}
-                      {%- if l != site.lang -%}
-                      {%- if language_set %}
-                      <div class="dropdown-divider"></div>
-                      {%- endif -%}
-                      {% if l == site.languages.first %}
-                      <a class="dropdown-item" href="{{site.baseurl_root}}{{page.url}}">{{l | upcase}}</a>
-                      {% else %}
-                      <a class="dropdown-item" href="{{site.baseurl_root}}/{{l}}{{page.url}}">{{l | upcase}}</a>
-                      {% endif %}
-                      {%- assign language_set = true -%}
-                      {%- endif -%}
+                        {%- if l != site.lang -%}
+                          {%- if language_set %}
+                          <div class="dropdown-divider"></div>
+                          {%- endif -%}
+                          {% if l == site.languages.first %}
+                          <a class="dropdown-item" href="{{site.baseurl_root}}{{page.url}}">{{l | upcase}}</a>
+                          {% else %}
+                          <a class="dropdown-item" href="{{site.baseurl_root}}/{{l}}{{page.url}}">{{l | upcase}}</a>
+                          {% endif %}
+                          {%- assign language_set = true -%}
+                        {%- endif -%}
                       {% endfor %}
                     </div>
                   </li>
