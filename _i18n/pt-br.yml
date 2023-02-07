@@ -1,9 +1,15 @@
 main:
+  address: >
+    <p>555 seu telefone do trabalho</p>
+    <p>123 seu endereço</p>
+    <p>Sua cidade, estado 12345</p>
+  contact_note: Você pode até adicionar uma pequena observação sobre qual dessas é a melhor maneira de entrar em contato com você.
   description: Um tema simples para acadêmicos. Baseado no design do [*folio](https://github.com/bogoli/-folio).
   footer_text: > # the ">" symbol means to ignore newlines until "titles:"
     Desenvolvido em <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> com o tema <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>.
     Hospedado por <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
     Fotos do <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+  subtitle: <a href='#'>Afiliações</a>. Endereço. Contatos. Lema. Etc.
 titles:
   about: sobre
   blog: blog
@@ -27,6 +33,10 @@ descriptions:
   repositories: Edite o `_data/repositories.yml` e mude as listas `github_users` e `github_repos` para incluir seu próprio perfil do GitHub e repositórios.
   teaching: Materiais de cursos que você ministrou. Substitua esse texto com sua descrição.
   unk: Parece que ocorreu um erro. Não existe nada aqui.
+blog:
+  description: um tema simples para acadêmicos
+  name: blog al-folio em português brasileiro # blog_name will be displayed in your blog page
+  nav_title: blog # your blog must have a title for it to be displayed in the nav bar
 months:
   long:
     january: Janeiro
