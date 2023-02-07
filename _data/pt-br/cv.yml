@@ -41,7 +41,7 @@
           contents:
             - Sub-descrição 1.
             - Sub-descrição 2.
-    - title: Visiting Professor
+    - title: Professor Visitante
       institution: California Institute of Technology, Pasadena, Califórnia, EUA
       year: 1933
       description:
@@ -64,11 +64,15 @@
 - title: Projetos de Código Aberto
   type: time_table
   contents:
+    - title: <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>
+      year: 2023-atual
+      description: Uma variação do tema al-folio com suporte a múltiplos idiomas.
+
     - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
       year: 2015-atual
       description: Um tema Jekyll bonito, simples, limpo e responsivo para acadêmicos.
 
-- title: Honras e Prêmios
+- title: Honrarias e Prêmios
   type: time_table
   contents:
     - year: 1921
