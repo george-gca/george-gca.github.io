@@ -127,10 +127,10 @@ related_blog_posts:
 # Follow instructions on https://giscus.app/ to setup for your repo to fill out
 # the information below.
 giscus:
-  repo: george-gca/multi-language-al-folio      # <your-github-user-name>/<your-github-repo-name>
-  repo_id: R_kgDOI6hBvA
+  repo: george-gca/george-gca.github.io      # <your-github-user-name>/<your-github-repo-name>
+  repo_id: R_kgDOI66tbw
   category: Announcements             # name of the category under which discussions will be created
-  category_id: DIC_kwDOI6hBvM4CUML1
+  category_id: DIC_kwDOI66tb84CUDq6
   mapping: title                 # identify discussions by post title
   strict: 1                      # use strict identification mode
   reactions_enabled: 1           # enable (1) or disable (0) emoji reactions
