@@ -302,8 +302,8 @@ blockquote {
   text-align: center;
 
   .contact-icons {
-    font-size: 4rem;
-
+    font-size: 2rem;
+    letter-spacing: 0.4rem;
     a {
       i::before {
         color: var(--global-text-color);
@@ -328,7 +328,7 @@ blockquote {
 footer.fixed-bottom {
   background-color: var(--global-footer-bg-color);
   font-size: 0.75rem;
-
+  text-align: center;
   .container {
     color: var(--global-footer-text-color);
     padding-top: 9px;
@@ -350,6 +350,7 @@ footer.sticky-bottom {
   padding-top: 40px;
   padding-bottom: 40px;
   font-size: 0.9rem;
+  text-align: center;
 }
 
 // CV
@@ -696,6 +697,12 @@ footer.sticky-bottom {
       }
 
       div.abstract.hidden.open {
+        border-color: var(--global-text-color);
+      }
+      div.tldr.hidden {
+        border: dashed 1px var(--global-bg-color);
+      }
+      div.tldr.hidden.open {
         border-color: var(--global-text-color);
       }
     }
