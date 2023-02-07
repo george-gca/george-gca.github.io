@@ -2,100 +2,82 @@
   type: map
   contents:
     - name: Nome Completo
-      value: Albert Einstein
+      value: George Corrêa de Araújo
     - name: Data de Nascimento
-      value: 14 de março de 1879
+      value: 11 de agosto de 1987
     - name: Idiomas
-      value: Inglês, Alemão
+      value: Português, Inglês
 
 - title: Educação
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurique, Suíça
-      year: 1905
+    - title: Doutorado em Ciência da Computação
+      institution: Universidade Estadual de Campinas, Campinas, Brasil
+      year: atual
+
+    - title: Mestrado em Ciência da Computação
+      institution: Universidade Estadual de Campinas, Campinas, Brasil
+      year: 2019
       description:
-        - Descrição 1.
-        - Descrição 2.
-        - title: Descrição 3.
+        - 'Dissertação: <a href="https://repositorio.unicamp.br/acervo/detalhe/1091235?guid=1665060444695&returnUrl=%2fresultado%2flistar%3fguid%3d1665060444695%26quantidadePaginas%3d1%26codigoRegistro%3d1091235%231091235&i=1">Super-Resolução de Imagem Única baseada em Redes Neurais de Cápsulas</a>'
+
+    - title: Bacharelado em Engenharia da Computação
+      institution: Universidade Federal do Amazonas, Manaus, Brazil
+      year: 2012
+      description:
+        - 'Projeto Final: Desenvolvimento de um Plug-in do Eclipse para Ferramenta ESBMC utilizando o Toolkit Zest'
+        - title: Projeto de Extensão (Hiwi Job)
           contents:
-            - Sub-descrição 1.
-            - Sub-descrição 2.
-    - title: Diploma de ensino federal
-      institution: Eidgenössische Technische Hochschule, Zurique, Suíça
-      year: 1900
-      description:
-        - Descrição 1.
-        - Descrição 2.
-
-- title: Experiência
-  type: time_table
-  contents:
-    - title: Professor de Física Teórica
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
-      description:
-        - Descrição 1.
-        - Descrição 2.
-        - title: Descrição 3.
+            - 'Institut für Automatisierungs- und Softwaretechnik - Universität Stuttgart'
+            - 'Projeto: Melhoria do Uso Acadêmico do Microsoft Office através de Macros em VBA'
+        - title: Treinamento de Jovens Engenheiros para Desenvolvimento de Software para TV Digital
           contents:
-            - Sub-descrição 1.
-            - Sub-descrição 2.
-    - title: Professor Visitante
-      institution: California Institute of Technology, Pasadena, Califórnia, EUA
-      year: 1933
-      description:
-        - Descrição 1.
-        - Descrição 2.
+            - Universidade Federal do Amazonas | CETELI - Centro de P&D em Tecnologia Eletrônica e da Informação
 
-    - title: Diretor
-      institution: Kaiser Wilhelm Institute for Physics, Berlim, Alemanha.
-      year: 1917-1933
-
-    - title: Professor de Física Teórica
-      institution: Karl-Ferdinand University, Praga, Tchecoslováquia
-      year: 1911 - 1917
-      description:
-
-    - title: Professor Associado de Física Teórica
-      institution: University of Zurich, Zurique, Suíça
-      year: 1909 - 1911
-
-- title: Projetos de Código Aberto
+- title: Experiência Profissional
   type: time_table
   contents:
-    - title: <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>
-      year: 2023-atual
-      description: Uma variação do tema al-folio com suporte a múltiplos idiomas.
+    - title: Engenheiro de Software Júnior
+      institution: Instituto de Pesquisas Eldorado
+      year: 2015 - 2016
+      description:
+        - Desenvolvi aplicativos para a plataforma Android utilizando as linguagens Java e C++, além de uma aplicação web com as tecnologias AngularJS e Bootstrap.
 
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-atual
-      description: Um tema Jekyll bonito, simples, limpo e responsivo para acadêmicos.
+    - title: Desenvolvedor de Software I
+      institution: INDT - Instituto Nokia de Tecnologia
+      year: 2012 - 2015
+      description:
+        - Atuei no desenvolvimento do ambiente de apresentação Ginga-NCL da TV Digital para as plataformas Nokia, tendo também desenvolvido alguns aplicativos para as plataformas Windows Phone e Android.
 
-- title: Honrarias e Prêmios
-  type: time_table
-  contents:
-    - year: 1921
-      items:
-        - Prêmio Nobel de Física
-        - Medalha Matteucci
-    - year: 2029
-      items:
-        - Medalha Max Planck
+    - title: Desenvolvedor de Software Trainee
+      institution: INDT - Instituto Nokia de Tecnologia
+      year: 2011 - 2012
+      description:
+        - Trabalhei no desenvolvimento do ambiente de apresentação Ginga-NCL da TV Digital para as plataformas Nokia S40 e Windows Phone.
+
+    - title: Estágio
+      institution: INDT - Instituto Nokia de Tecnologia
+      year: 2011
+      description:
+        - Desenvolvi aplicativos Symbian 3 e Symbian Anna que usaram a tecnologia NFC com o framework Qt.
+
+    - title: Estágio
+      institution: CETELI - Centro de P&D em Tecnologia Eletrônica e da Informação
+      year: 2009 - 2010
+      description:
+        - Trabalhei com as plataformas Nokia S60 e Maemo, desenvolvendo aplicativos com framework Qt.
 
 - title: Interesses Acadêmicos
   type: nested_list
   contents:
-    - title: Tópico 1.
+    - title: Inteligência Artificial
       items:
-        - Descrição 1.
-        - Descrição 2.
-    - title: Tópico 2.
+        - Aprendizado Contínuo
+        - Entendimento de Conceitos
+    - title: Redes Neurais Multimodais
       items:
-        - Descrição 1.
-        - Descrição 2.
-
-- title: Outros Interesses
-  type: list
-  contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+        - Visão Computacional
+        - Processamento de Linguagem Natural
+    - title: Tarefas Multimodais
+      items:
+        - Resposta a Perguntas Visuais
