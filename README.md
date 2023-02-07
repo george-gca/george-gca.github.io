@@ -19,6 +19,17 @@
 A multilingual version of the [al-folio theme](https://github.com/alshedivat/al-folio), a simple, clean, and responsive [Jekyll](https://jekyllrb.com/) theme for academics.
 If you like the theme, give it a star!
 
+The default language will be the first in the list of languages in the `_config.yml` file. When using two languages, the theme will show a button in the header that switches to the other language directly.
+
+![Switch language](https://raw.githubusercontent.com/george-gca/multi-language-al-folio/master/assets/img/multi-language-diff-1.png)
+![Switch back language](https://raw.githubusercontent.com/george-gca/multi-language-al-folio/master/assets/img/multi-language-diff-2.png)
+
+When using three or more, it will be created a dropdown menu with all the available languages.
+
+![Switch language between 3 or more](https://raw.githubusercontent.com/george-gca/multi-language-al-folio/master/assets/img/multi-language-3-or-more.png)
+
+---
+
 [![Preview](https://raw.githubusercontent.com/alshedivat/al-folio/master/assets/img/al-folio-preview.png)](https://alshedivat.github.io/al-folio/)
 
 
