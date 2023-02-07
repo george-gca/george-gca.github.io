@@ -8,4 +8,4 @@ importance: 3
 category: work
 ---
 
-{% translate_file projects/3_project.md %}
+{% translate_file _projects/3_project.md %}
