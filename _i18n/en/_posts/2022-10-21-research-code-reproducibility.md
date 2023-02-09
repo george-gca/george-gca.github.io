@@ -6,6 +6,7 @@ description: A brief overview of the problem of research code reproducibility.
 tags: research programming reproducibility code
 categories: research-code
 giscus_comments: true
+related_posts: true
 ---
 
 Everyone in the research community had that problem already:

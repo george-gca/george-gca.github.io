@@ -6,6 +6,7 @@ description: Uma breve visão geral do problema da reproducibilidade de códigos
 tags: research programming reproducibility code
 categories: research-code
 giscus_comments: true
+related_posts: true
 ---
 
 Todo mundo no meio de pesquisa já passou por esse problema:

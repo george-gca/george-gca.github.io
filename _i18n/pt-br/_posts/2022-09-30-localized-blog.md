@@ -6,6 +6,7 @@ description: Como criar um blog traduzido no seu site al-folio.
 tags: al-folio website jekyll localization languages
 categories: website development
 giscus_comments: true
+related_posts: false
 ---
 
 Este post faz parte de uma série de posts que explicam como configurar seu próprio site baseado no tema al-folio e adicionar suporte a uma segunda língua:

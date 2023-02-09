@@ -6,6 +6,7 @@ description: Adding support for another language in your al-folio.
 tags: al-folio website jekyll localization languages
 categories: website development
 giscus_comments: true
+related_posts: false
 ---
 
 This post is part of a series of posts that explain how to set up your own site based on the al-folio theme and add support for a second language:
