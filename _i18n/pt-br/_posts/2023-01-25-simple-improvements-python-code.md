@@ -6,6 +6,7 @@ description: Como usar funções da biblioteca padrão para melhorar seu código
 tags: programming code improvement python
 categories: python
 giscus_comments: true
+related_posts: true
 ---
 
 Nosso código às vezes está lento. Às vezes, está consumindo muita memória. Talvez não esteja tão legível quanto gostaríamos que fosse. Neste post, veremos como utilizar algumas funções da biblioteca padrão para melhorar o nosso código. Todo o código usado neste post [está disponível aqui](https://gist.github.com/george-gca/bea9d8c23a0932a22d6b1b80006629f4). Embora eu apresente apenas algumas funções que uso com frequência, há muitas mais que podem ser usadas para melhorar seu código. Encorajo você a verificar a [documentação oficial](https://docs.python.org/3/library/) para descobrir o que mais está disponível.

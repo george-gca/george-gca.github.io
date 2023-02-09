@@ -6,6 +6,7 @@ description: How to create localized CV pages on your al-folio website.
 tags: al-folio website jekyll localization languages
 categories: website development
 giscus_comments: true
+related_posts: false
 ---
 
 This post is part of a series of posts that explain how to set up your own site based on the al-folio theme and add support for a second language:

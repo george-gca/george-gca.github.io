@@ -6,6 +6,7 @@ description: Step by step on how to run your own al-folio locally.
 tags: al-folio website jekyll local
 categories: website development
 giscus_comments: true
+related_posts: false
 ---
 
 This post is part of a series of posts that explain how to set up your own site based on the al-folio theme and add support for a second language:
