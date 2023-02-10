@@ -1,4 +1,6 @@
 name: Sync from template
+permissions:
+  workflows: write
 on:
     # cronjob trigger
   schedule:
@@ -8,8 +10,6 @@ on:
 jobs:
   repo-sync:
     runs-on: ubuntu-latest
-    permissions:
-      workflows: write
     steps:
       # To use this repository's private action, you must check out the repository
       - name: Checkout
