@@ -1,6 +1,6 @@
 name: Sync from template
 on:
-  # cronjob trigger
+    # cronjob trigger
   schedule:
   - cron:  "0 0 1 * *"
   # manual trigger
@@ -10,20 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Generate token to read from source repo # see: https://github.com/tibdex/github-app-token
-        id: generate_token
-        uses: tibdex/github-app-token@v1
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.PRIVATE_KEY }}
-
       # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v3
-
       - name: actions-template-sync
         uses: AndreasAugustin/actions-template-sync@v0.7.0-draft
         with:
-          github_token: ${{ steps.generate_token.outputs.token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           source_repo_path: george-gca/multi-language-al-folio
           upstream_branch: main
