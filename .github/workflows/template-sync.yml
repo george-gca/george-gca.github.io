@@ -1,6 +1,4 @@
 name: Sync from template
-permissions:
-  workflows: write
 on:
     # cronjob trigger
   schedule:
