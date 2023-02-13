@@ -8,6 +8,21 @@
     - name: Languages
       value: Portuguese, English
 
+- title: Academic Interests
+  type: nested_list
+  contents:
+    - title: Artificial Intelligence
+      items:
+        - Continual Learning
+        - Concepts Understanding
+    - title: Multimodal Neural Networks
+      items:
+        - Computer Vision
+        - Natural Language Processing
+    - title: Multimodal Tasks
+      items:
+        - Visual Question Answering
+
 - title: Education
   type: time_table
   contents:
@@ -66,18 +81,3 @@
       year: 2009 - 2010
       description:
         - Worked with Nokia S60 and Maemo platforms, developing apps with Qt framework.
-
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Artificial Intelligence
-      items:
-        - Continual Learning
-        - Concepts Understanding
-    - title: Multimodal Neural Networks
-      items:
-        - Computer Vision
-        - Natural Language Processing
-    - title: Multimodal Tasks
-      items:
-        - Visual Question Answering
