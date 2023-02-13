@@ -3,7 +3,7 @@ github_users:
 
 github_repos:
   - george-gca/sr-pytorch-lightning
-  - george-gca/dotfiles-utils
+  - george-gca/multi-language-al-folio
   - george-gca/ai_papers_scrapper
   - george-gca/ai_papers_cleaner
   - george-gca/ai_papers_search_tool
