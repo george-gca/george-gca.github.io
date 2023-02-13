@@ -8,6 +8,21 @@
     - name: Idiomas
       value: Português, Inglês
 
+- title: Interesses Acadêmicos
+  type: nested_list
+  contents:
+    - title: Inteligência Artificial
+      items:
+        - Aprendizado Contínuo
+        - Entendimento de Conceitos
+    - title: Redes Neurais Multimodais
+      items:
+        - Visão Computacional
+        - Processamento de Linguagem Natural
+    - title: Tarefas Multimodais
+      items:
+        - Resposta a Perguntas Visuais
+
 - title: Educação
   type: time_table
   contents:
@@ -66,18 +81,3 @@
       year: 2009 - 2010
       description:
         - Trabalhei com as plataformas Nokia S60 e Maemo, desenvolvendo aplicativos com framework Qt.
-
-- title: Interesses Acadêmicos
-  type: nested_list
-  contents:
-    - title: Inteligência Artificial
-      items:
-        - Aprendizado Contínuo
-        - Entendimento de Conceitos
-    - title: Redes Neurais Multimodais
-      items:
-        - Visão Computacional
-        - Processamento de Linguagem Natural
-    - title: Tarefas Multimodais
-      items:
-        - Resposta a Perguntas Visuais
