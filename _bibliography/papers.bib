@@ -1,25 +1,12 @@
 ---
 ---
 
-@mastersthesis{araujo2019super,
-  title={Super-resolução de imagem única baseada em redes neurais de cápsulas},
-  author={de Araújo, George Corrêa},
-  year={2019},
-  school={Universidade Estadual de Campinas},
-  abstract={Single image super-resolution (SISR) is the process of obtaining one high-resolution version of a low-resolution image by increasing the number of pixels per unit area. This method has been under active study from the research community, due to the wide variety of real-world problems where it can be employed, from aerial and satellite imaging to compressed image and video enhancement. Despite the improvements achieved by deep learning in the field, the large majority of the networks employed are based on traditional convolutions, with the solutions focusing on going deeper and/or wider, and innovations coming from jointly employing successful concepts from other fields. In this work, we decided to step up from the traditional convolutions and employ the concept of capsules. Since their overwhelming results both in image classification and segmentation problems, we question how suitable they are for SISR. We also verify that recent solutions share most of their configurations, and argue that this trend leads to fewer explorations of network varieties. During our experiments, we check various strategies to improve results, ranging from new and different loss functions to changes in the convolutional layers. Our network achieved competitive results with the state-of-the-art with fewer convolutional-based layers, showing that capsules might be a concept worth applying in the image super-resolution problem. We also found that a new loss function increases the results for all models it was applied to, demonstrating its effectiveness. For the best of our knowledge, our network Super-Resolution Capsules (SRCaps) is the first time capsules are successfully employed in single image super-resolution solutions.},
-  doi = {10.47749/T/UNICAMP.2019.1091235},
-  tldr = {Our network achieved competitive results with the state-of-the-art with fewer convolutional-based layers, showing that capsules might be a concept worth applying in the image super-resolution problem.},
-  pdf={https://repositorio.unicamp.br/Busca/Download?codigoArquivo=489684},
-  html={https://repositorio.unicamp.br/Acervo/Detalhe/1091235},
-  url={https://repositorio.unicamp.br/Acervo/Detalhe/1091235},
-  preview={modelo_srcaps.png}
-}
-
 @misc{https://doi.org/10.48550/arxiv.2210.03743,
   abbr={arXiv},
   abstract={Single image super-resolution (SISR) is the process of obtaining one high-resolution version of a low-resolution image by increasing the number of pixels per unit area. This method has been actively investigated by the research community, due to the wide variety of real-world problems where it can be applied, from aerial and satellite imaging to compressed image and video enhancement. Despite the improvements achieved by deep learning in the field, the vast majority of the used networks are based on traditional convolutions, with the solutions focusing on going deeper and/or wider, and innovations coming from jointly employing successful concepts from other fields. In this work, we decided to step up from the traditional convolutions and adopt the concept of capsules. Since their overwhelming results both in image classification and segmentation problems, we question how suitable they are for SISR. We also verify that different solutions share most of their configurations, and argue that this trend leads to fewer explorations of network varieties. During our experiments, we check various strategies to improve results, ranging from new and different loss functions to changes in the capsule layers. Our network achieved good results with fewer convolutional-based layers, showing that capsules might be a concept worth applying in the image super-resolution problem.},
   author = {de Araújo, George Corrêa and Pedrini, Helio},
   doi = {10.48550/ARXIV.2210.03743},
+  eprint={2210.03743},
   html={https://arxiv.org/abs/2210.03743},
   pdf={https://arxiv.org/pdf/2210.03743},
   preview={srcaps.png},
@@ -35,6 +22,7 @@
   abstract={Pruning is a standard technique for reducing the computational cost of deep networks. Many advances in pruning leverage concepts from the Lottery Ticket Hypothesis (LTH). LTH reveals that inside a trained dense network exists sparse subnetworks (tickets) able to achieve similar accuracy (i.e., win the lottery - winning tickets). Pruning at initialization focuses on finding winning tickets without training a dense network. Studies on these concepts share the trend that subnetworks come from weight or filter pruning. In this work, we investigate LTH and pruning at initialization from the lens of layer pruning. First, we confirm the existence of winning tickets when the pruning process removes layers. Leveraged by this observation, we propose to discover these winning tickets at initialization, eliminating the requirement of heavy computational resources for training the initial (over-parameterized) dense network. Extensive experiments show that our winning tickets notably speed up the training phase and reduce up to 51% of carbon emission, an important step towards democratization and green Artificial Intelligence. Beyond computational benefits, our winning tickets exhibit robustness against adversarial and out-of-distribution examples. Finally, we show that our subnetworks easily win the lottery at initialization while tickets from filter removal (the standard structured LTH) hardly become winning tickets.},
   author = {Jordao, Artur and de Araujo, George Correa and Maia, Helena de Almeida and Pedrini, Helio},
   doi = {10.48550/ARXIV.2301.10835},
+  eprint = {2301.10835},
   html={https://arxiv.org/abs/2301.10835},
   pdf={https://arxiv.org/pdf/2301.10835},
   preview={layers_lottery.png},
