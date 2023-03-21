@@ -91,3 +91,6 @@ projects:
   categories:
     fun: diversão
     work: trabalho
+repositories:
+  users: Usuários do GitHub
+  repos: Repositórios do GitHub
