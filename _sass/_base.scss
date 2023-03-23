@@ -857,3 +857,8 @@ progress::-moz-progress-bar {
     opacity: 1;
   }
 }
+
+mark {
+  background-color: var(--global-bg-color);
+  color: var(--global-theme-color);
+}
