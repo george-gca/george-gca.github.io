@@ -91,3 +91,6 @@ projects:
   categories:
     fun: fun
     work: work
+repositories:
+  users: GitHub Users
+  repos: GitHub Repositories
