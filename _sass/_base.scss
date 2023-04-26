@@ -303,7 +303,8 @@ blockquote {
 
   .contact-icons {
     font-size: 2rem;
-    letter-spacing: 0.4rem;
+    letter-spacing: 0.3rem;
+    margin-top: 1rem;
     a {
       i::before {
         color: var(--global-text-color);
@@ -849,7 +850,7 @@ progress::-moz-progress-bar {
     right: .15rem;
     top: .15rem;
   }
-  
+
   &:active .copy,
   &:focus .copy,
   &:hover .copy {
