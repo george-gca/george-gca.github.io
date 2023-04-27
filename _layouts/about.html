@@ -43,7 +43,7 @@ layout: default
           <!-- News -->
           {% if page.news -%}
             <h2><a href="{{ '/news/' | prepend: site.baseurl }}" style="color: inherit;">{%t titles.news %}</a></h2>
-            {%- include news.html %}
+            {%- include news.html limit=true %}
           {%- endif %}
 
           <!-- Latest posts -->
