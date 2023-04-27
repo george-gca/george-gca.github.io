@@ -41,6 +41,9 @@ blog:
   description: a simple whitespace theme for academics
   name: al-folio blog in english # blog_name will be displayed in your blog page
   nav_title: blog # your blog must have a title for it to be displayed in the nav bar
+  related_posts:
+    description: "Here are some more articles you might like to read next:"
+    title: Enjoy Reading This Article?
 months:
   long:
     january: January
