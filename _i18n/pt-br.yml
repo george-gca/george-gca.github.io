@@ -41,6 +41,9 @@ blog:
   description: um tema simples para acadêmicos
   name: blog al-folio em português brasileiro # blog_name will be displayed in your blog page
   nav_title: blog # your blog must have a title for it to be displayed in the nav bar
+  related_posts:
+    description: "Aqui estão alguns artigos relacionados que você pode gostar de ler:"
+    title: Gostou de Ler este Artigo?
 months:
   long:
     january: Janeiro
