@@ -12,7 +12,7 @@
               {% endif %}
               {% for item in latest_posts limit: latest_posts_limit %}
                 <tr>
-                  <th scope="row">{{ item.date | date: "%b %-d, %Y" }}</th>
+                  <th scope="row">{% include date_format.html format="short" date_from=item %}</th>
                   <td>
                     <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
                   </td>
