@@ -7,6 +7,8 @@ tags: programming code improvement python
 categories: python
 giscus_comments: true
 related_posts: true
+toc:
+  sidebar: left
 ---
 
 Sometimes our code is running slow. Sometimes it is eating up memory. Maybe it is just not as readable as we would like it to be. In this post, we will see how to use some functions from the default library to improve our code. All the code used in this post [is available here](https://gist.github.com/george-gca/bea9d8c23a0932a22d6b1b80006629f4). While I only presented a few functions that I use frequently, there are many more that can be used to improve your code. I encourage you to check the [official documentation](https://docs.python.org/3/library/) to see what else is available.
