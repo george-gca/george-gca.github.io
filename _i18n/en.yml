@@ -38,8 +38,9 @@ blog:
   description: ''
   name: '' # blog_name will be displayed in your blog page
   nav_title: Blog # your blog must have a title for it to be displayed in the nav bar
-  related_text: 'Here are some more articles you might like to read next:'
-  related_title: Enjoy Reading This Article?
+  related_posts:
+    description: "Here are some more articles you might like to read next:"
+    title: Enjoy Reading This Article?
 months:
   long:
     january: January
