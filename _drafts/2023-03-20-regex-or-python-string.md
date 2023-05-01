@@ -44,7 +44,7 @@ def get_string(length):
 
 For searching in a small string, we used a string of size 30 with substrings with size 10.
 
-<table
+<!-- <table
   data-height="460"
   data-search="true"
   data-toggle="table"
@@ -56,6 +56,34 @@ For searching in a small string, we used a string of size 30 with substrings wit
       <th data-field="Doesn't exist" data-sortable="true">Substring doesnt't exist</th>
       <th data-field="Exists (-i)" data-sortable="true">Substring exists (-i)</th>
       <th data-field="Doesn't exist (-i)" data-sortable="true">Substring doesnt't exist (-i)</th>
+    </tr>
+  </thead>
+</table> -->
+
+<table
+  data-height="460"
+  data-search="true"
+  data-show-columns="true"
+  data-toggle="table"
+  data-url="{{ '/assets/json/blog/2023-03-20-regex-or-python-string/small_str_small_sub.json' | relative_url }}">
+  <thead>
+    <tr>
+      <th data-field="case" rowspan="2" data-valign="middle">Case</th>
+      <th colspan="4" data-halign="center">Search in the beginning</th>
+      <th colspan="2" data-halign="center">Search everywhere</th>
+      <th colspan="4" data-halign="center">Search in the ending</th>
+    </tr>
+    <tr>
+      <th data-field="regex^">Regex (^)</th>
+      <th data-field="startswith">startswith</th>
+      <th data-field="slice==start">slice then ==</th>
+      <th data-field="slice_startswith">slice then startswith</th>
+      <th data-field="regex">Regex</th>
+      <th data-field="in">in</th>
+      <th data-field="regex$">Regex ($)</th>
+      <th data-field="endswith">endswith</th>
+      <th data-field="slice==end">slice then ==</th>
+      <th data-field="slice_endswith">slice then endswith</th>
     </tr>
   </thead>
 </table>
