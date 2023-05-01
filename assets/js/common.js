@@ -1,3 +1,4 @@
+// add toggle functionality to abstract and bibtex buttons
 $(document).ready(function() {
     $('a.abstract').click(function() {
         $(this).parent().parent().find(".abstract.hidden").toggleClass('open');
@@ -14,7 +15,7 @@ $(document).ready(function() {
 });
 
 // bootstrap-toc
-$(function () {
+$(document).ready(function () {
     if($('#toc-sidebar').length){
         var navSelector = "#toc-sidebar";
         var $myNav = $(navSelector);
@@ -24,3 +25,4 @@ $(function () {
         });
     }
 });
+
