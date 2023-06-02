@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  Sli.dev for non-web developers
+title:  sli.dev for non-web developers
 date:   2023-06-01 17:19:10
-description: How to setup and use Sli.dev for non-web developers
+description: How to setup and use sli.dev for non-web developers
 tags: programming code slides sli.dev web
 categories: web
 giscus_comments: true
@@ -11,7 +11,7 @@ related_posts: true
 
 I always struggled every time I had to do a new presentation. Don't get me wrong, Google Slides is good, and suffices for most common use cases. The problem is when the slides keeps changing, and you want to do some versioning on them. I made some slides in the past using LaTeX with the Beamer class. A friend even showed me a [nicer template](https://github.com/deuslirio/UFGTeX-Presentation) than the default ones. The problem is, though this solution is portable (you can generate a PDF file), it lacks some features that I wanted, like animations and transitions.
 
-I took a look at [Reveal.js](https://revealjs.com/), but it was too much work to setup and maintain. I also went for [Remark](https://remarkjs.com/), but the [last update](https://github.com/gnab/remark) was more than 2 years ago. That's when I found [Sli.dev](https://sli.dev/). It's a framework [under constant development](https://github.com/slidevjs/slidev) for creating slides using Markdown. It's based on a lot of web technologies, but you don't need to be fluent on them to use it.
+I took a look at [Reveal.js](https://revealjs.com/), but it was too much work to setup and maintain. I also went for [Remark](https://remarkjs.com/), but the [last update](https://github.com/gnab/remark) was more than 2 years ago. That's when I found [sli.dev](https://sli.dev/). It's a framework [under constant development](https://github.com/slidevjs/slidev) for creating slides using [Markdown](https://sli.dev/guide/syntax.html). It's based on a lot of web technologies, but you don't need to be fluent on them to use it.
 
 ## Installing node version manager (nvm)
 
@@ -44,7 +44,7 @@ if [ -d "$HOME/.nvm" ]; then
 fi
 ```
 
-And restart your terminal, or just reload the `~/.bashrc` file:
+Restart your terminal, or just reload the `~/.bashrc` file:
 
 ```bash
 . ~/.bashrc
@@ -55,18 +55,19 @@ And restart your terminal, or just reload the `~/.bashrc` file:
 To install the latest node version, run the following command:
 
 ```bash
-nvm install $(nvm ls-remote | grep -i latest | tail -n 1 | sed -ne 's/[^v0-9]*\(\([0-9]*\.\)\{0,4\}[0-9][^.]\).*/\1/p' | xargs)
+nvm install $(nvm ls-remote | grep -i latest | tail -n 1 |
+  sed -ne 's/[^v0-9]*\(\([0-9]*\.\)\{0,4\}[0-9][^.]\).*/\1/p' | xargs)
 ```
 
-In my case, the latest version in `v20.2.0`. You can check your version by running:
+In my case, the latest version available is `v20.2.0`. You can check your version by running:
 
 ```bash
 node --version
 ```
 
-## Installing Sli.dev
+## Installing sli.dev
 
-To install Sli.dev, simply run:
+To install sli.dev, simply run:
 
 ```bash
 npm init slidev
@@ -74,7 +75,7 @@ npm init slidev
 
 This command will install everything you need, ask for the project name, and start the template project. After the installation, you should see the following lines in your terminal:
 
-```bash
+```
 public slide show   > http://localhost:3030/
   presenter mode      > http://localhost:3030/presenter/
   remote control      > pass --remote to enable
@@ -82,8 +83,57 @@ public slide show   > http://localhost:3030/
   shortcuts           > restart | open | edit
 ```
 
-If the browser did not open automatically, you can open it manually by accessing the URL `http://localhost:3030/`. To stop running the server, just press `Ctrl+C` in the terminal. After stopped, you can start the development server again by running:
+If the browser did not open automatically, you can open it manually by accessing the URL `http://localhost:3030/`. To stop running the server, just press `Ctrl+C` in the terminal. After stopped, you can start the development server again by entering the created directory and running:
 
 ```bash
 npm run-script dev
+```
+
+To see a list of scripts, run `npm run`:
+
+```
+Scripts available in XXXXXXXXX via `npm run-script`:
+  build
+    slidev build
+  dev
+    slidev --open
+  export
+    slidev export
+```
+
+If you want to modify any of these commands (or create more, like exporting presenter notes), you can edit the `package.json` file. For example, to add a command to export presenter notes, add the following lines to the `scripts` section:
+
+```json
+"export_notes": "slidev export-notes"
+```
+
+## Changing sli.dev template
+
+You can change the presentation theme simply by editing the `theme` attribute on the front matter of `slides.md` file. When you change and save it, the cli interface will automatically download and apply the new theme.
+
+```yaml
+theme: academic
+```
+
+{% include figure.html path="assets/img/blog/2023-06-01-slidev_for_non_web_devs/change_theme.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+<div class="caption">
+    sli.dev installing new theme.
+</div>
+
+## Basic usage
+
+I am not a hardcore sli.dev user or web developer. Since I started using it, The first one is forcing the slides to be in dark mode. To do that, I add the following line to the front matter of `slides.md` file:
+
+```yaml
+colorSchema: 'dark'
+```
+
+```yaml
+hideInToc: true
+```
+
+```yaml
+---
+src: slides/other_slide.md
+---
 ```
