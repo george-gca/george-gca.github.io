@@ -9,9 +9,9 @@ giscus_comments: true
 related_posts: true
 ---
 
-I always struggled every time I had to do a new presentation. Don't get me wrong, Google Slides is good, and suffices for most common use cases. The problem is when the slides keeps changing, and you want to do some versioning on them. I made some slides in the past using LaTeX with the Beamer class. A friend even showed me a [nicer template](https://github.com/deuslirio/UFGTeX-Presentation) than the default ones. The problem is, though this solution is portable (you can generate a PDF file), it lacks some features that I wanted, like animations and transitions.
+I always struggled every time I had to do a new presentation. Don't get me wrong, Google Slides is good, and suffices for most common use cases. The problem is when the slides keeps changing, and you want to do some versioning on them. I made some slides in the past using LaTeX with the Beamer class. A friend even showed me a [nicer template](https://github.com/deuslirio/UFGTeX-Presentation) than the default ones. The problem is, though this solution is portable (you can generate a PDF file), it lacks some features that I wanted, like animations, transitions, and support for drawing.
 
-I took a look at [Reveal.js](https://revealjs.com/), but it was too much work to setup and maintain. I also went for [Remark](https://remarkjs.com/), but the [last update](https://github.com/gnab/remark) was more than 2 years ago. That's when I found [sli.dev](https://sli.dev/). It's a framework [under constant development](https://github.com/slidevjs/slidev) for creating slides using [Markdown](https://sli.dev/guide/syntax.html). It's based on a lot of web technologies, but you don't need to be fluent on them to use it.
+I took a look at [Reveal.js](https://revealjs.com/), but it was too much work to setup and maintain. I also went for [Remark](https://remarkjs.com/), but the [last update](https://github.com/gnab/remark) was more than 2 years ago. That's when I found [sli.dev](https://sli.dev/). It's a framework [under constant development](https://github.com/slidevjs/slidev) for creating slides using [Markdown](https://sli.dev/guide/syntax.html). It's based on a lot of web technologies, but you don't need to be fluent on them to use it. Here is everything that you'll need to get started.
 
 ## Installing node version manager (nvm)
 
@@ -59,7 +59,7 @@ nvm install $(nvm ls-remote | grep -i latest | tail -n 1 |
   sed -ne 's/[^v0-9]*\(\([0-9]*\.\)\{0,4\}[0-9][^.]\).*/\1/p' | xargs)
 ```
 
-In my case, the latest version available is `v20.2.0`. You can check your version by running:
+In my case, the latest version available is `v20.2.0`. You can check the installed version by running:
 
 ```bash
 node --version
@@ -109,7 +109,7 @@ If you want to modify any of these commands (or create more, like exporting pres
 
 ## Changing sli.dev template
 
-You can change the presentation theme simply by editing the `theme` attribute on the front matter of `slides.md` file. When you change and save it, the cli interface will automatically download and apply the new theme.
+You can change the presentation theme simply by editing the `theme` attribute on the [front matter](https://daily-dev-tips.com/posts/what-exactly-is-frontmatter/) of `slides.md` file. When you change and save it, the cli interface will automatically download and apply the new theme.
 
 ```yaml
 theme: academic
@@ -120,17 +120,21 @@ theme: academic
     sli.dev installing new theme.
 </div>
 
-## Basic usage
+## Basic settings
 
-I am not a hardcore sli.dev user or web developer. Since I started using it, The first one is forcing the slides to be in dark mode. To do that, I add the following line to the front matter of `slides.md` file:
+I am not a hardcore sli.dev user or web developer. So there were some things that took some time for me to figure out, and I think it is worth mentioning. The first one is forcing the slides to be in dark mode. To do that, I add the following line to the front matter of `slides.md` file:
 
 ```yaml
 colorSchema: 'dark'
 ```
 
+While using the `academic` theme, by default every slide with a `# title` will be added to the table of contents. To hide a slide from the table of contents, add the following line to the front matter of the slide:
+
 ```yaml
 hideInToc: true
 ```
+
+For the sake of organization, I like to create a different file for each section in my presentation, then import these files in my main `slides.md`. To do that, create a new file with the markdown extension, then add the following lines to `slides.md` for each file to be included:
 
 ```yaml
 ---

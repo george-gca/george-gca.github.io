@@ -1,0 +1,962 @@
+[
+  {
+    "setup": "Small String<br>Substring exists",
+    "regex": "361 ns ± 124 ns",
+    "startswith": "250 ns ± 73 ns",
+    "slice then ==": "362 ns ± 19.1 ns",
+    "slice then startswith": "544 ns ± 53.9 ns"
+  },
+  {
+    "setup": "Small String<br>Substring doesn't exist",
+    "regex": "1 us ± 302 ns",
+    "startswith": "241 ns ± 12 ns",
+    "slice then ==": "361 ns ± 17 ns",
+    "slice then startswith": "475 ns ± 16.5 ns"
+  },
+  {
+    "setup": "Small String<br>Substring exists<br>(ignoring case)",
+    "regex": "707 ns ± 12.1 ns",
+    "startswith": "539 ns ± 195 ns",
+    "slice then ==": "512 ns ± 18.3 ns",
+    "slice then startswith": "636 ns ± 19.9 ns"
+  },
+  {
+    "setup": "Small String<br>Substring doesn't exist<br>(ignoring case)",
+    "regex": "1.03 us ± 349 ns",
+    "startswith": "379 ns ± 17.3 ns",
+    "slice then ==": "332 ns ± 118 ns",
+    "slice then startswith": "309 ns ± 12.8 ns"
+  },
+  {
+    "setup": "Large String<br>Small substring exists",
+    "regex": "322 ns ± 8.73 ns",
+    "startswith": "143 ns ± 48 ns",
+    "slice then ==": "209 ns ± 34.8 ns",
+    "slice then startswith": "352 ns ± 129 ns"
+  },
+  {
+    "setup": "Large String<br>Small substring doesn't exist",
+    "regex": "69 us ± 796 ns",
+    "startswith": "136 ns ± 35.2 ns",
+    "slice then ==": "209 ns ± 36.2 ns",
+    "slice then startswith": "248 ns ± 7.97 ns"
+  }
+]
+
+setup,regex,startswith,slice then ==,slice then startswith
+Small string<br>Substring exists,361 ns ± 124 ns,250 ns ± 73 ns,362 ns ± 19.1 ns,544 ns ± 53.9 ns
+Small string<br>Substring doesn't exist,1 us ± 302 ns,241 ns ± 12 ns,361 ns ± 17 ns,475 ns ± 16.5 ns
+Small string<br>Substring exists<br>(ignoring case),707 ns ± 12.1 ns,539 ns ± 195 ns,512 ns ± 18.3 ns,636 ns ± 19.9 ns
+Small string<br>Substring doesn't exist<br>(ignoring case),1.03 us ± 349 ns,379 ns ± 17.3 ns,332 ns ± 118 ns,309 ns ± 12.8 ns
+Large string<br>Small substring exists,322 ns ± 8.73 ns,143 ns ± 48 ns,209 ns ± 34.8 ns,352 ns ± 129 ns
+Large string<br>Small substring doesn't exist,69 us ± 796 ns,136 ns ± 35.2 ns,209 ns ± 36.2 ns,248 ns ± 7.97 ns
+Large string<br>Small substring exists<br>(ignoring case),385 ns ± 9.36 ns,7.96 us ± 1.78 us,238 ns ± 11.2 ns,320 ns ± 13 ns
+Large string<br>Small substring doesn't exist<br>(ignoring case),73.9 us ± 12.4 us,6.26 us ± 134 ns,473 ns ± 95.5 ns,306 ns ± 12.4 ns
+
+
+
+## Small String
+
+### Substring exists
+
+|         Using         |                   Result                  |
+|:---------------------:|:-----------------------------------------:|
+|         regex         |  361 ns ± 124 ns |
+|       startswith      |  250 ns ± 73 ns |
+|     slice then ==     | 362 ns ± 19.1 ns |
+| slice then startswith | 544 ns ± 53.9 ns |
+|      -----------      |               -------------               |
+|         regex         |  541 ns ± 185 ns |
+|    string in phrase   | 242 ns ± 79.1 ns |
+|      -----------      |               -------------               |
+|         regex         | 611 ns ± 23.2 ns |
+|        endswith       | 293 ns ± 16.2 ns |
+|     slice then ==     |  627 ns ± 182 ns |
+|  slice then endswith  | 572 ns ± 32.9 ns |
+
+### Substring doesn't exist
+
+|         Using         |                   Result                  |
+|:---------------------:|:-----------------------------------------:|
+|         regex         |   1 us ± 302 ns  |
+|       startswith      |  241 ns ± 12 ns  |
+|     slice then ==     |  361 ns ± 17 ns  |
+| slice then startswith | 475 ns ± 16.5 ns |
+|      -----------      |               -------------               |
+|         regex         |  491 ns ± 165 ns |
+|    string in phrase   | 179 ns ± 62.2 ns |
+|      -----------      |               -------------               |
+|         regex         | 345 ns ± 13.8 ns |
+|        endswith       | 277 ns ± 12.8 ns |
+|     slice then ==     | 427 ns ± 18.9 ns |
+|  slice then endswith  |  820 ns ± 293 ns |
+
+### Substring exists (ignoring case)
+
+|         Using         |                   Result                  |
+|:---------------------:|:-----------------------------------------:|
+|         regex         | 707 ns ± 12.1 ns |
+|       startswith      |  539 ns ± 195 ns |
+|     slice then ==     | 512 ns ± 18.3 ns |
+| slice then startswith | 636 ns ± 19.9 ns |
+|      -----------      |               -------------               |
+|         regex         | 1.09 us ± 366 ns |
+|    string in phrase   | 342 ns ± 28.5 ns |
+|      -----------      |               -------------               |
+|         regex         | 1.29 us ± 365 ns |
+|        endswith       | 437 ns ± 18.4 ns |
+|     slice then ==     |  758 ns ± 261 ns |
+|  slice then endswith  |  716 ns ± 16 ns  |
+
+### Substring doesn't exist (ignoring case)
+
+|         Using         |                   Result                   |
+|:---------------------:|:------------------------------------------:|
+|         regex         | 1.03 us ± 349 ns  |
+|       startswith      | 379 ns ± 17.3 ns  |
+|     slice then ==     |  332 ns ± 118 ns  |
+| slice then startswith | 309 ns ± 12.8 ns  |
+|      -----------      |               -------------                |
+|         regex         |  622 ns ± 218 ns  |
+|    string in phrase   | 155 ns ± 35.9 ns |
+|      -----------      |               -------------                |
+|         regex         | 471 ns ± 11.6 ns  |
+|        endswith       | 217 ns ± 57.6 ns |
+|     slice then ==     |  444 ns ± 149 ns  |
+|  slice then endswith  | 344 ns ± 7.54 ns  |
+
+## Large String, Small Substring
+
+### Substring exists
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         |  322 ns ± 8.73 ns   |
+|       startswith      |   143 ns ± 48 ns   |
+|     slice then ==     |  209 ns ± 34.8 ns  |
+| slice then startswith |   352 ns ± 129 ns   |
+|      -----------      |                -------------                 |
+|         regex         |  292 ns ± 93.4 ns   |
+|    string in phrase   | 82.6 ns ± 1.29 ns  |
+|      -----------      |                -------------                 |
+|         regex         | 15.2 us ± 4.23 us |
+|        endswith       |  162 ns ± 48.2 ns  |
+|     slice then ==     |  203 ns ± 8.03 ns   |
+|  slice then endswith  |   438 ns ± 164 ns   |
+
+### Substring doesn't exist
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         |   69 us ± 796 ns   |
+|       startswith      |  136 ns ± 35.2 ns  |
+|     slice then ==     |  209 ns ± 36.2 ns  |
+| slice then startswith |  248 ns ± 7.97 ns   |
+|      -----------      |                -------------                 |
+|         regex         | 7.45 us ± 2.03 us |
+|    string in phrase   | 4.29 us ± 103 ns  |
+|      -----------      |                -------------                 |
+|         regex         |  5.7 us ± 146 ns  |
+|        endswith       |  135 ns ± 5.52 ns  |
+|     slice then ==     |  220 ns ± 56.6 ns  |
+|  slice then endswith  |  287 ns ± 9.79 ns   |
+
+### Substring exists (ignoring case)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         |  385 ns ± 9.36 ns   |
+|       startswith      | 7.96 us ± 1.78 us |
+|     slice then ==     |  238 ns ± 11.2 ns   |
+| slice then startswith |   320 ns ± 13 ns    |
+|      -----------      |                -------------                 |
+|         regex         |  353 ns ± 12.6 ns   |
+|    string in phrase   | 7.73 us ± 1.78 us |
+|      -----------      |                -------------                 |
+|         regex         |  140 us ± 32.2 us  |
+|        endswith       | 6.23 us ± 83.5 ns |
+|     slice then ==     |  272 ns ± 10.1 ns   |
+|  slice then endswith  |   420 ns ± 149 ns   |
+
+### Substring doesn't exist (ignoring case)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         | 73.9 us ± 12.4 us  |
+|       startswith      | 6.26 us ± 134 ns  |
+|     slice then ==     |  473 ns ± 95.5 ns   |
+| slice then startswith |  306 ns ± 12.4 ns   |
+|      -----------      |                -------------                 |
+|         regex         |  111 us ± 23.4 us  |
+|    string in phrase   | 10.3 us ± 63.5 ns |
+|      -----------      |                -------------                 |
+|         regex         |  121 us ± 32.6 us  |
+|        endswith       | 6.28 us ± 96.2 ns |
+|     slice then ==     |   489 ns ± 118 ns   |
+|  slice then endswith  |  340 ns ± 11.7 ns   |
+
+## Large String, Large Substring
+
+### Substring exists
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         | 14.7 us ± 2.14 us |
+|       startswith      |  215 ns ± 11.6 ns   |
+|     slice then ==     |  446 ns ± 13.3 ns   |
+| slice then startswith |   728 ns ± 245 ns   |
+|      -----------      |                -------------                 |
+|         regex         | 11.8 us ± 115 ns  |
+|    string in phrase   | 11.7 us ± 1.93 us |
+|      -----------      |                -------------                 |
+|         regex         |  22.1 us ± 399 ns  |
+|        endswith       |   357 ns ± 102 ns   |
+|     slice then ==     |  461 ns ± 59.5 ns   |
+|  slice then endswith  |  543 ns ± 5.74 ns   |
+
+### Substring doesn't exist
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         | 38.1 us ± 7.23 us  |
+|       startswith      |  244 ns ± 7.36 ns   |
+|     slice then ==     |  315 ns ± 10.5 ns   |
+| slice then startswith |   422 ns ± 8.1 ns   |
+|      -----------      |                -------------                 |
+|         regex         | 11.4 us ± 2.98 us |
+|    string in phrase   | 5.63 us ± 134 ns  |
+|      -----------      |                -------------                 |
+|         regex         | 11.4 us ± 2.93 us |
+|        endswith       |  153 ns ± 34.8 ns  |
+|     slice then ==     |  332 ns ± 15.4 ns   |
+|  slice then endswith  |   407 ns ± 14 ns    |
+
+### Substring exists (ignoring case)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         | 50.9 us ± 13.8 us  |
+|       startswith      |  6.38 us ± 74 ns  |
+|     slice then ==     | 3.61 us ± 80.2 ns |
+| slice then startswith | 4.31 us ± 1.01 us |
+|      -----------      |                -------------                 |
+|         regex         |  40 us ± 11.5 us   |
+|    string in phrase   | 19.1 us ± 3.53 us |
+|      -----------      |                -------------                 |
+|         regex         | 6.22 ms ± 86.7 us (7 x 100 loops)  |
+|        endswith       | 7.95 us ± 1.83 us |
+|     slice then ==     | 3.62 us ± 118 ns  |
+|  slice then endswith  | 3.69 us ± 82.1 ns |
+
+### Substring doesn't exist (ignoring case)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         | 52.2 us ± 13.3 us  |
+|       startswith      | 6.33 us ± 113 ns  |
+|     slice then ==     | 3.5 us ± 74.8 ns  |
+| slice then startswith | 4.13 us ± 987 ns  |
+|      -----------      |                -------------                 |
+|         regex         |  57 us ± 15.1 us   |
+|    string in phrase   | 13.4 us ± 3.14 us |
+|      -----------      |                -------------                 |
+|         regex         |  51.4 us ± 686 ns  |
+|        endswith       | 6.65 us ± 746 ns  |
+|     slice then ==     | 4.39 us ± 1.15 us |
+|  slice then endswith  | 3.58 us ± 51.9 ns |
+
+## Passing a List of Substrings
+
+### Small String
+
+#### Few Possibilities
+
+##### Substring found (1st one)
+
+|         Using         |                   Result                   |
+|:---------------------:|:------------------------------------------:|
+|         regex         | 301 ns ± 6.63 ns  |
+|       startswith      | 148 ns ± 36.1 ns |
+|     slice then ==     | 207 ns ± 53.3 ns |
+| slice then startswith |  482 ns ± 121 ns  |
+|      -----------      |               -------------                |
+|         regex         | 393 ns ± 10.3 ns  |
+|    string in phrase   | 469 ns ± 13.1 ns  |
+|      -----------      |               -------------                |
+|         regex         |  823 ns ± 268 ns  |
+|        endswith       | 159 ns ± 45.2 ns |
+|     slice then ==     | 207 ns ± 55.1 ns |
+|  slice then endswith  | 287 ns ± 7.39 ns  |
+
+##### Substring found (middle)
+
+|         Using         |                   Result                   |
+|:---------------------:|:------------------------------------------:|
+|         regex         | 330 ns ± 8.39 ns  |
+|       startswith      | 148 ns ± 37.3 ns |
+|     slice then ==     | 220 ns ± 59.7 ns |
+| slice then startswith |  262 ns ± 5.4 ns  |
+|      -----------      |               -------------                |
+|         regex         |  437 ns ± 8.7 ns  |
+|    string in phrase   |  631 ns ± 203 ns  |
+|      -----------      |               -------------                |
+|         regex         | 655 ns ± 77.7 ns  |
+|        endswith       |  170 ns ± 45 ns  |
+|     slice then ==     | 206 ns ± 36.9 ns |
+|  slice then endswith  |  384 ns ± 148 ns  |
+
+##### Substring found (last one)
+
+|         Using         |                   Result                   |
+|:---------------------:|:------------------------------------------:|
+|         regex         |  393 ns ± 120 ns  |
+|       startswith      | 164 ns ± 36.3 ns |
+|     slice then ==     |  205 ns ± 53 ns  |
+| slice then startswith | 266 ns ± 8.44 ns  |
+|      -----------      |               -------------                |
+|         regex         |  624 ns ± 216 ns  |
+|    string in phrase   | 611 ns ± 10.3 ns  |
+|      -----------      |               -------------                |
+|         regex         | 612 ns ± 8.32 ns  |
+|        endswith       | 173 ns ± 41.8 ns |
+|     slice then ==     |  212 ns ± 60 ns   |
+|  slice then endswith  | 283 ns ± 8.89 ns  |
+
+##### Substrings not found
+
+|         Using         |                   Result                   |
+|:---------------------:|:------------------------------------------:|
+|         regex         |  422 ns ± 8.1 ns  |
+|       startswith      | 158 ns ± 47.9 ns |
+|     slice then ==     | 199 ns ± 42.5 ns |
+| slice then startswith |  488 ns ± 119 ns  |
+|      -----------      |               -------------                |
+|         regex         | 597 ns ± 8.32 ns  |
+|    string in phrase   | 470 ns ± 6.28 ns  |
+|      -----------      |               -------------                |
+|         regex         |  857 ns ± 280 ns  |
+|        endswith       | 173 ns ± 42.5 ns |
+|     slice then ==     | 208 ns ± 44.4 ns |
+|  slice then endswith  | 283 ns ± 9.99 ns  |
+
+##### Substring found ignoring case (1st one)
+
+|         Using         |                   Result                   |
+|:---------------------:|:------------------------------------------:|
+|         regex         |  592 ns ± 180 ns  |
+|       startswith      | 209 ns ± 36.5 ns |
+|     slice then ==     | 239 ns ± 9.71 ns  |
+| slice then startswith | 310 ns ± 12.7 ns  |
+|      -----------      |               -------------                |
+|         regex         | 1.01 us ± 328 ns  |
+|    string in phrase   | 613 ns ± 9.71 ns  |
+|      -----------      |               -------------                |
+|         regex         | 1.68 us ± 207 ns  |
+|        endswith       |  315 ns ± 113 ns  |
+|     slice then ==     | 250 ns ± 11.3 ns  |
+|  slice then endswith  | 338 ns ± 7.64 ns  |
+
+##### Substring found ignoring case (middle)
+
+|         Using         |                   Result                   |
+|:---------------------:|:------------------------------------------:|
+|         regex         | 382 ns ± 9.13 ns  |
+|       startswith      | 224 ns ± 49.1 ns |
+|     slice then ==     | 233 ns ± 10.9 ns  |
+| slice then startswith | 310 ns ± 12.1 ns  |
+|      -----------      |               -------------                |
+|         regex         | 1.07 us ± 333 ns  |
+|    string in phrase   | 683 ns ± 10.9 ns  |
+|      -----------      |               -------------                |
+|         regex         | 1.79 us ± 336 ns  |
+|        endswith       |  280 ns ± 102 ns  |
+|     slice then ==     |  375 ns ± 133 ns  |
+|  slice then endswith  | 334 ns ± 13.1 ns  |
+
+##### Substring found ignoring case (last one)
+
+|         Using         |                   Result                  |
+|:---------------------:|:-----------------------------------------:|
+|         regex         | 391 ns ± 9.93 ns |
+|       startswith      | 209 ns ± 7.44 ns |
+|     slice then ==     |  316 ns ± 108 ns |
+| slice then startswith |  402 ns ± 158 ns |
+|      -----------      |               -------------               |
+|         regex         | 865 ns ± 7.33 ns |
+|    string in phrase   |  976 ns ± 321 ns |
+|      -----------      |               -------------               |
+|         regex         |  1.8 us ± 514 ns |
+|        endswith       | 227 ns ± 8.53 ns |
+|     slice then ==     | 249 ns ± 6.56 ns |
+|  slice then endswith  |  577 ns ± 186 ns |
+
+##### Substrings not found ignoring case
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         |  454 ns ± 13.7 ns   |
+|       startswith      |  205 ns ± 8.02 ns   |
+|     slice then ==     |  244 ns ± 8.55 ns   |
+| slice then startswith |  316 ns ± 10.6 ns   |
+|      -----------      |                -------------                 |
+|         regex         | 2.59 us ± 69.1 ns |
+|    string in phrase   |  634 ns ± 3.33 ns   |
+|      -----------      |                -------------                 |
+|         regex         |  1.88 us ± 490 ns   |
+|        endswith       |  227 ns ± 11.5 ns   |
+|     slice then ==     |   368 ns ± 133 ns   |
+|  slice then endswith  |   392 ns ± 115 ns   |
+
+### Large String
+
+#### Small Substring, Few Possibilities
+
+##### Substring found (1st one)
+
+|         Using         |                   Result                   |
+|:---------------------:|:------------------------------------------:|
+|         regex         | 326 ns ± 3.98 ns  |
+|       startswith      | 148 ns ± 49.5 ns |
+|     slice then ==     | 195 ns ± 36.1 ns |
+| slice then startswith | 252 ns ± 8.78 ns  |
+|      -----------      |               -------------                |
+|         regex         |  523 ns ± 188 ns  |
+|    string in phrase   | 445 ns ± 7.58 ns  |
+|      -----------      |               -------------                |
+|         regex         | 420 us ± 11.9 us   |
+|        endswith       | 160 ns ± 43.8 ns |
+|     slice then ==     | 229 ns ± 42.7 ns |
+|  slice then endswith  | 323 ns ± 97.6 ns  |
+
+##### Substring found (middle)
+
+|         Using         |                    Result                   |
+|:---------------------:|:-------------------------------------------:|
+|         regex         |  327 ns ± 10.8 ns  |
+|       startswith      |  156 ns ± 52.9 ns |
+|     slice then ==     |   194 ns ± 43 ns  |
+| slice then startswith |  259 ns ± 6.78 ns  |
+|      -----------      |                -------------                |
+|         regex         |   577 ns ± 177 ns  |
+|    string in phrase   | 4.82 us ± 103 ns |
+|      -----------      |                -------------                |
+|         regex         |  418 us ± 12.7 us   |
+|        endswith       |  169 ns ± 37.4 ns |
+|     slice then ==     |   236 ns ± 62 ns  |
+|  slice then endswith  |  300 ns ± 9.86 ns  |
+
+##### Substring found (last one)
+
+|         Using         |                   Result                   |
+|:---------------------:|:------------------------------------------:|
+|         regex         | 360 ns ± 9.72 ns  |
+|       startswith      | 236 ns ± 45.8 ns |
+|     slice then ==     | 215 ns ± 69.1 ns  |
+| slice then startswith | 329 ns ± 7.38 ns  |
+|      -----------      |               -------------                |
+|         regex         | 383 ns ± 8.88 ns  |
+|    string in phrase   | 39.3 us ± 525 ns |
+|      -----------      |               -------------                |
+|         regex         |  545 us ± 137 us   |
+|        endswith       | 229 ns ± 8.11 ns  |
+|     slice then ==     |  214 ns ± 54 ns  |
+|  slice then endswith  |  488 ns ± 172 ns  |
+
+##### Substrings not found
+
+|         Using         |                   Result                   |
+|:---------------------:|:------------------------------------------:|
+|         regex         | 70 us ± 4.26 us  |
+|       startswith      | 214 ns ± 33.7 ns |
+|     slice then ==     | 200 ns ± 56.7 ns |
+| slice then startswith | 319 ns ± 6.47 ns  |
+|      -----------      |               -------------                |
+|         regex         | 273 us ± 8.26 us   |
+|    string in phrase   | 43.6 us ± 859 ns |
+|      -----------      |               -------------                |
+|         regex         |  589 us ± 122 us   |
+|        endswith       | 223 ns ± 7.81 ns  |
+|     slice then ==     | 215 ns ± 55.2 ns |
+|  slice then endswith  | 370 ns ± 11.6 ns  |
+
+##### Substring found ignoring case (1st one)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         |   599 ns ± 182 ns   |
+|       startswith      | 6.22 us ± 76.1 ns |
+|     slice then ==     |  239 ns ± 10.2 ns   |
+| slice then startswith |  346 ns ± 85.1 ns   |
+|      -----------      |                -------------                 |
+|         regex         |  999 ns ± 92.8 ns   |
+|    string in phrase   | 8.36 us ± 1.92 us |
+|      -----------      |                -------------                 |
+|         regex         |  1.86 ms ± 344 us    |
+|        endswith       | 6.35 us ± 150 ns  |
+|     slice then ==     |  253 ns ± 5.39 ns   |
+|  slice then endswith  |   578 ns ± 186 ns   |
+
+##### Substring found ignoring case (middle)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         |   387 ns ± 13 ns    |
+|       startswith      | 6.31 us ± 75.6 ns |
+|     slice then ==     |   405 ns ± 116 ns   |
+| slice then startswith |  323 ns ± 24.6 ns   |
+|      -----------      |                -------------                 |
+|         regex         |  995 ns ± 12.8 ns   |
+|    string in phrase   | 11.3 us ± 830 ns  |
+|      -----------      |                -------------                 |
+|         regex         |  1.84 ms ± 323 us    |
+|        endswith       | 7.86 us ± 1.97 us |
+|     slice then ==     |  256 ns ± 15.8 ns   |
+|  slice then endswith  |   356 ns ± 6.4 ns   |
+
+##### Substring found ignoring case (last one)
+
+|         Using         |                    Result                   |
+|:---------------------:|:-------------------------------------------:|
+|         regex         |   727 ns ± 201 ns  |
+|       startswith      | 6.38 us ± 136 ns |
+|     slice then ==     |  233 ns ± 16.3 ns  |
+| slice then startswith |   446 ns ± 141 ns  |
+|      -----------      |                -------------                |
+|         regex         |  1.14 us ± 17.9 ns |
+|    string in phrase   |  65.1 us ± 18 us  |
+|      -----------      |                -------------                |
+|         regex         |  1.87 ms ± 394 us   |
+|        endswith       |  6.4 us ± 123 ns |
+|     slice then ==     |  252 ns ± 11.8 ns  |
+|  slice then endswith  |   662 ns ± 238 ns  |
+
+##### Substrings not found ignoring case
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         |  69.4 us ± 799 ns  |
+|       startswith      | 7.96 us ± 1.78 us |
+|     slice then ==     |  234 ns ± 10.9 ns   |
+| slice then startswith |  376 ns ± 6.68 ns   |
+|      -----------      |                -------------                 |
+|         regex         |  1.78 ms ± 320 us    |
+|    string in phrase   | 59.8 us ± 16.9 us  |
+|      -----------      |                -------------                 |
+|         regex         |  2.43 ms ± 642 us (7 x 100 loops)  |
+|        endswith       | 6.46 us ± 171 ns  |
+|     slice then ==     |  255 ns ± 6.08 ns   |
+|  slice then endswith  |   656 ns ± 260 ns   |
+
+#### Small Substring, Many Possibilities
+
+##### Substring found (1st one)
+
+|         Using         |                    Result                   |
+|:---------------------:|:-------------------------------------------:|
+|         regex         |   366 ns ± 83 ns   |
+|       startswith      |   148 ns ± 38 ns  |
+|     slice then ==     |  347 ns ± 11.3 ns  |
+| slice then startswith |   455 ns ± 88 ns   |
+|      -----------      |                -------------                |
+|         regex         | 94.4 us ± 6.43 us |
+|    string in phrase   |  444 ns ± 9.36 ns  |
+|      -----------      |                -------------                |
+|         regex         |   413 ms ± 23.3 ms    |
+|        endswith       |  160 ns ± 18.4 ns  |
+|     slice then ==     |  365 ns ± 9.43 ns  |
+|  slice then endswith  |  439 ns ± 14.7 ns  |
+
+##### Substring found (middle)
+
+|         Using         |                    Result                   |
+|:---------------------:|:-------------------------------------------:|
+|         regex         |   528 ns ± 165 ns  |
+|       startswith      |  148 ns ± 26.2 ns  |
+|     slice then ==     |   344 ns ± 10 ns   |
+| slice then startswith |  423 ns ± 4.64 ns  |
+|      -----------      |                -------------                |
+|         regex         | 96.4 us ± 5.78 us |
+|    string in phrase   | 4.87 us ± 132 ns |
+|      -----------      |                -------------                |
+|         regex         |   355 ms ± 4.13 ms    |
+|        endswith       |   162 ns ± 33 ns  |
+|     slice then ==     |   613 ns ± 170 ns  |
+|  slice then endswith  |  517 ns ± 9.23 ns  |
+
+##### Substring found (last one)
+
+|         Using         |                   Result                   |
+|:---------------------:|:------------------------------------------:|
+|         regex         |  503 ns ± 132 ns  |
+|       startswith      |  425 ns ± 147 ns  |
+|     slice then ==     | 361 ns ± 7.04 ns  |
+| slice then startswith |  858 ns ± 220 ns  |
+|      -----------      |               -------------                |
+|         regex         | 122 us ± 1.09 us |
+|    string in phrase   | 27.8 ms ± 8.65 ms  |
+|      -----------      |               -------------                |
+|         regex         |  392 ms ± 38.5 ms    |
+|        endswith       | 405 ns ± 15.3 ns  |
+|     slice then ==     | 372 ns ± 11.9 ns  |
+|  slice then endswith  |  934 ns ± 312 ns  |
+
+##### Substrings not found
+
+|         Using         |                    Result                   |
+|:---------------------:|:-------------------------------------------:|
+|         regex         |  108 us ± 21.3 us |
+|       startswith      | 42.3 us ± 4.27 us |
+|     slice then ==     |  350 ns ± 12.6 ns  |
+| slice then startswith |  41.3 us ± 674 ns |
+|      -----------      |                -------------                |
+|         regex         |   301 ms ± 17.8 ms    |
+|    string in phrase   |  28.8 ms ± 8.72 ms  |
+|      -----------      |                -------------                |
+|         regex         |   326 ms ± 4.06 ms    |
+|        endswith       | 48.5 us ± 1.47 us |
+|     slice then ==     |   422 ns ± 130 ns  |
+|  slice then endswith  | 57.2 us ± 16.1 us |
+
+##### Substring found ignoring case (1st one)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         |  363 ns ± 10.8 ns   |
+|       startswith      | 7.84 us ± 1.83 us |
+|     slice then ==     | 3.56 us ± 82.3 ns |
+| slice then startswith | 3.71 us ± 79.2 ns |
+|      -----------      |                -------------                 |
+|         regex         |  222 us ± 8.25 us    |
+|    string in phrase   | 8.43 us ± 1.97 us |
+|      -----------      |                -------------                 |
+|         regex         |   840 ms ± 11.5 ms     |
+|        endswith       | 7.82 us ± 1.84 us |
+|     slice then ==     | 3.62 us ± 91.4 ns |
+|  slice then endswith  | 3.68 us ± 109 ns  |
+
+##### Substring found ignoring case (middle)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         |   578 ns ± 194 ns   |
+|       startswith      | 6.26 us ± 129 ns  |
+|     slice then ==     | 3.58 us ± 94.2 ns |
+| slice then startswith | 5.34 us ± 1.07 us |
+|      -----------      |                -------------                 |
+|         regex         |  223 us ± 8.66 us    |
+|    string in phrase   | 12.5 us ± 3.13 us |
+|      -----------      |                -------------                 |
+|         regex         |   828 ms ± 8.88 ms     |
+|        endswith       | 7.67 us ± 1.73 us |
+|     slice then ==     | 3.58 us ± 131 ns  |
+|  slice then endswith  | 3.67 us ± 133 ns  |
+
+##### Substring found ignoring case (last one)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         |   944 ns ± 277 ns   |
+|       startswith      | 6.54 us ± 169 ns  |
+|     slice then ==     | 3.56 us ± 77.3 ns |
+| slice then startswith | 5.3 us ± 1.32 us  |
+|      -----------      |                -------------                 |
+|         regex         |  297 us ± 14.6 us    |
+|    string in phrase   |  21.9 ms ± 869 us    |
+|      -----------      |                -------------                 |
+|         regex         |    1.01 s ± 244 ms     |
+|        endswith       | 6.56 us ± 114 ns  |
+|     slice then ==     |  3.6 us ± 121 ns  |
+|  slice then endswith  | 5.73 us ± 1.24 us |
+
+##### Substrings not found ignoring case
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         |  97.9 us ± 804 ns  |
+|       startswith      | 68.3 us ± 19.1 us  |
+|     slice then ==     | 3.44 us ± 84.2 ns |
+| slice then startswith | 44.7 us ± 1.04 us  |
+|      -----------      |                -------------                 |
+|         regex         |  116 us ± 34.3 us  |
+|    string in phrase   |  20.8 ms ± 672 us    |
+|      -----------      |                -------------                 |
+|         regex         |  116 us ± 34.4 us  |
+|        endswith       |  54.4 us ± 916 ns  |
+|     slice then ==     | 3.42 us ± 65.3 ns |
+|  slice then endswith  |  74 us ± 21.9 us   |
+
+#### Large Substring, Few Possibilities
+
+##### Substring found (1st one)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         | 14.8 us ± 2.29 us |
+|       startswith      |  217 ns ± 10.8 ns   |
+|     slice then ==     |  192 ns ± 54.8 ns  |
+| slice then startswith |  294 ns ± 12.3 ns   |
+|      -----------      |                -------------                 |
+|         regex         | 14.8 us ± 2.25 us |
+|    string in phrase   | 13.7 us ± 3.59 us |
+|      -----------      |                -------------                 |
+|         regex         |  25.6 ms ± 704 us    |
+|        endswith       |  232 ns ± 12.9 ns   |
+|     slice then ==     |  220 ns ± 46.7 ns  |
+|  slice then endswith  |  328 ns ± 7.64 ns   |
+
+##### Substring found (middle)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         | 14.8 us ± 2.41 us |
+|       startswith      |   228 ns ± 11 ns    |
+|     slice then ==     |  192 ns ± 50.3 ns  |
+| slice then startswith |   404 ns ± 163 ns   |
+|      -----------      |                -------------                 |
+|         regex         | 13.4 us ± 98.8 ns |
+|    string in phrase   |  35.7 us ± 770 ns  |
+|      -----------      |                -------------                 |
+|         regex         |  25.7 ms ± 805 us    |
+|        endswith       |  243 ns ± 10.8 ns   |
+|     slice then ==     |  213 ns ± 55.5 ns  |
+|  slice then endswith  |   439 ns ± 162 ns   |
+
+##### Substring found (last one)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         | 17.5 us ± 3.41 us  |
+|       startswith      |  291 ns ± 9.59 ns   |
+|     slice then ==     |  192 ns ± 56.9 ns  |
+| slice then startswith |  288 ns ± 8.99 ns   |
+|      -----------      |                -------------                 |
+|         regex         | 14.9 us ± 2.47 us |
+|    string in phrase   |  81.7 us ± 24 us   |
+|      -----------      |                -------------                 |
+|         regex         |  26.2 ms ± 508 us    |
+|        endswith       |  327 ns ± 5.74 ns   |
+|     slice then ==     |  221 ns ± 55.5 ns  |
+|  slice then endswith  |   530 ns ± 182 ns   |
+
+##### Substrings not found
+
+|         Using         |                    Result                   |
+|:---------------------:|:-------------------------------------------:|
+|         regex         |   35 us ± 1.1 us  |
+|       startswith      |  215 ns ± 36.4 ns |
+|     slice then ==     |  210 ns ± 59.5 ns |
+| slice then startswith |  302 ns ± 13.6 ns  |
+|      -----------      |                -------------                |
+|         regex         |  269 us ± 10.3 us   |
+|    string in phrase   | 56.9 us ± 1.68 us |
+|      -----------      |                -------------                |
+|         regex         |   52 ms ± 8.81 ms   |
+|        endswith       |  229 ns ± 12.6 ns  |
+|     slice then ==     |  221 ns ± 38.1 ns |
+|  slice then endswith  |  358 ns ± 59.8 ns  |
+
+##### Substring found ignoring case (1st one)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         | 43.5 us ± 11.7 us  |
+|       startswith      | 6.48 us ± 112 ns  |
+|     slice then ==     |  246 ns ± 8.85 ns   |
+| slice then startswith |   586 ns ± 198 ns   |
+|      -----------      |                -------------                 |
+|         regex         |  33.1 us ± 617 ns  |
+|    string in phrase   | 19.7 us ± 3.2 us  |
+|      -----------      |                -------------                 |
+|         regex         |  78.6 ms ± 22.1 ms   |
+|        endswith       | 6.39 us ± 62.2 ns |
+|     slice then ==     |  258 ns ± 9.48 ns   |
+|  slice then endswith  |   451 ns ± 117 ns   |
+
+##### Substring found ignoring case (middle)
+
+|         Using         |                   Result                   |
+|:---------------------:|:------------------------------------------:|
+|         regex         | 42 us ± 10.9 us  |
+|       startswith      | 6.4 us ± 145 ns |
+|     slice then ==     | 244 ns ± 8.71 ns  |
+| slice then startswith |  585 ns ± 187 ns  |
+|      -----------      |               -------------                |
+|         regex         |  33.5 us ± 1 us  |
+|    string in phrase   | 24.1 us ± 936 ns |
+|      -----------      |               -------------                |
+|         regex         | 67.8 ms ± 14.8 ms  |
+|        endswith       | 6.8 us ± 1.1 us |
+|     slice then ==     | 262 ns ± 11.2 ns  |
+|  slice then endswith  | 392 ns ± 13.3 ns  |
+
+##### Substring found ignoring case (last one)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         |  54 us ± 15.5 us   |
+|       startswith      | 6.52 us ± 98.8 ns |
+|     slice then ==     |  245 ns ± 12.6 ns   |
+| slice then startswith |   579 ns ± 188 ns   |
+|      -----------      |                -------------                 |
+|         regex         |  33.2 us ± 528 ns  |
+|    string in phrase   |   68 us ± 868 ns   |
+|      -----------      |                -------------                 |
+|         regex         |  81.3 ms ± 21.2 ms   |
+|        endswith       | 6.52 us ± 77.2 ns |
+|     slice then ==     |  263 ns ± 10.8 ns   |
+|  slice then endswith  |   627 ns ± 214 ns   |
+
+##### Substrings not found ignoring case
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         | 35.5 us ± 1.13 us  |
+|       startswith      | 6.36 us ± 119 ns  |
+|     slice then ==     |   435 ns ± 118 ns   |
+| slice then startswith |  359 ns ± 12.5 ns   |
+|      -----------      |                -------------                 |
+|         regex         |  71.3 us ± 633 ns  |
+|    string in phrase   |  81.6 us ± 23 us   |
+|      -----------      |                -------------                 |
+|         regex         |  94.5 us ± 779 ns  |
+|        endswith       | 7.43 us ± 1.86 us |
+|     slice then ==     |  262 ns ± 9.47 ns   |
+|  slice then endswith  |  391 ns ± 13.1 ns   |
+
+#### Large Substring, Many Possibilities
+
+##### Substring found (1st one)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         | 15.4 us ± 2.42 us  |
+|       startswith      |  203 ns ± 13.9 ns   |
+|     slice then ==     |  362 ns ± 10.3 ns   |
+| slice then startswith |  527 ns ± 7.14 ns   |
+|      -----------      |                -------------                 |
+|         regex         |  585 us ± 62.8 us    |
+|    string in phrase   | 13.8 us ± 3.51 us |
+|      -----------      |                -------------                 |
+|         regex         |    16.4 s ± 305 ms     |
+|        endswith       |  229 ns ± 6.87 ns   |
+|     slice then ==     |  365 ns ± 6.45 ns   |
+|  slice then endswith  |   730 ns ± 266 ns   |
+
+##### Substring found (middle)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         | 14.9 us ± 2.31 us |
+|       startswith      |  222 ns ± 9.18 ns   |
+|     slice then ==     |  358 ns ± 36.3 ns   |
+| slice then startswith |   610 ns ± 198 ns   |
+|      -----------      |                -------------                 |
+|         regex         |  1.05 ms ± 64.6 us   |
+|    string in phrase   | 24.7 us ± 8.27 us  |
+|      -----------      |                -------------                 |
+|         regex         |    16.5 s ± 226 ms     |
+|        endswith       |  247 ns ± 12.4 ns   |
+|     slice then ==     |   536 ns ± 181 ns   |
+|  slice then endswith  |  539 ns ± 12.7 ns   |
+
+##### Substring found (last one)
+
+|         Using         |                   Result                   |
+|:---------------------:|:------------------------------------------:|
+|         regex         | 15 us ± 2.07 us |
+|       startswith      | 407 ns ± 11.2 ns  |
+|     slice then ==     |  363 ns ± 105 ns  |
+| slice then startswith |  727 ns ± 159 ns  |
+|      -----------      |               -------------                |
+|         regex         | 897 us ± 50.4 us   |
+|    string in phrase   | 30.6 ms ± 3.43 ms  |
+|      -----------      |               -------------                |
+|         regex         |   17.1 s ± 1.24 s    |
+|        endswith       |  712 ns ± 215 ns  |
+|     slice then ==     | 343 ns ± 9.85 ns  |
+|  slice then endswith  |  975 ns ± 293 ns  |
+
+##### Substrings not found
+
+|         Using         |                    Result                   |
+|:---------------------:|:-------------------------------------------:|
+|         regex         |   213 us ± 6.5 us   |
+|       startswith      | 91.9 us ± 27.6 us |
+|     slice then ==     |  312 ns ± 10.3 ns  |
+| slice then startswith | 56.1 us ± 1.89 us |
+|      -----------      |                -------------                |
+|         regex         |   1.26 s ± 86.9 ms    |
+|    string in phrase   |  28.7 ms ± 1.49 ms  |
+|      -----------      |                -------------                |
+|         regex         |   24.4 s ± 75.9 ms    |
+|        endswith       | 88.8 us ± 1.86 us |
+|     slice then ==     |   553 ns ± 176 ns  |
+|  slice then endswith  | 58.7 us ± 1.49 us |
+
+##### Substring found ignoring case (1st one)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         | 43.7 us ± 11.7 us  |
+|       startswith      | 6.38 us ± 117 ns  |
+|     slice then ==     | 3.44 us ± 89.2 ns |
+| slice then startswith | 4.93 us ± 1.22 us |
+|      -----------      |                -------------                 |
+|         regex         |  707 us ± 11.8 us    |
+|    string in phrase   | 19.8 us ± 3.34 us |
+|      -----------      |                -------------                 |
+|         regex         |    39.2 s ± 193 ms     |
+|        endswith       | 6.52 us ± 160 ns  |
+|     slice then ==     | 3.51 us ± 165 ns  |
+|  slice then endswith  | 4.85 us ± 1.25 us |
+
+##### Substring found ignoring case (middle)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         | 37.4 us ± 1.22 us  |
+|       startswith      | 7.68 us ± 1.82 us |
+|     slice then ==     | 3.46 us ± 90.3 ns |
+| slice then startswith | 3.64 us ± 110 ns  |
+|      -----------      |                -------------                 |
+|         regex         |  1.1 ms ± 99.5 us    |
+|    string in phrase   | 24.2 us ± 1.29 us  |
+|      -----------      |                -------------                 |
+|         regex         |    37.6 s ± 288 ms     |
+|        endswith       | 8.04 us ± 1.81 us |
+|     slice then ==     | 3.52 us ± 131 ns  |
+|  slice then endswith  | 3.72 us ± 85.9 ns |
+
+##### Substring found ignoring case (last one)
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         |  37.8 us ± 628 ns  |
+|       startswith      | 6.64 us ± 150 ns  |
+|     slice then ==     | 4.55 us ± 1.07 us |
+| slice then startswith | 4.05 us ± 415 ns  |
+|      -----------      |                -------------                 |
+|         regex         |   1.5 ms ± 103 us    |
+|    string in phrase   |  29.8 ms ± 1.09 ms   |
+|      -----------      |                -------------                 |
+|         regex         |    37.9 s ± 261 ms     |
+|        endswith       | 7.16 us ± 1.28 us |
+|     slice then ==     | 3.48 us ± 83.4 ns |
+|  slice then endswith  | 4.14 us ± 398 ns  |
+
+##### Substrings not found ignoring case
+
+|         Using         |                    Result                    |
+|:---------------------:|:--------------------------------------------:|
+|         regex         |  239 us ± 35.8 us  |
+|       startswith      |  88.9 us ± 9.3 us  |
+|     slice then ==     | 3.49 us ± 84.9 ns |
+| slice then startswith | 78.5 us ± 16.7 us  |
+|      -----------      |                -------------                 |
+|         regex         |  94.7 us ± 974 ns  |
+|    string in phrase   |   46 ms ± 11.6 ms    |
+|      -----------      |                -------------                 |
+|         regex         |  94.9 us ± 950 ns  |
+|        endswith       |  117 us ± 23.8 us  |
+|     slice then ==     | 3.46 us ± 48.4 ns |
+|  slice then endswith  | 80.2 us ± 17.7 us  |

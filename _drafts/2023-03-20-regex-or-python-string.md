@@ -15,30 +15,30 @@ In this post we will investigate the performance of regex and Python string meth
 
 To generate the string I created a function that cycles through all the lowercase letters of the alphabet and returns a string of the desired length. This way we can test the performance of the search in a string of a given size.
 
-To generate the substrings, I simply selected a slice of the string in the desired position and size. To use substrings that could not be found in the string, I simply reversed the substrings. Since they are generated in alphabetical order, this is the best way to ensure that it will not be found.
-
-For all the runs I decided to let the `timeit` function decide the number of loops to run, and it ran 7 times to get the average and standard deviation. Basically, 10 experiments were made for each case, being 3 using regexes and the rest pure python string methods. The experiments were made for the following cases:
-
-- substring `starts_with` exists in the beginning of the string
-  - using `rf'^{starts_with}'` regex
-  - using python `startswith` string method
-  - slicing the beginning of the string with the same size as `starts_with` then using `==` operator
-  - slicing the beginning of the string with the same size as `starts_with` then using `startswith`
-- substring `has_string` exists in the middle of the string
-  - using `rf'{has_string}'` regex
-  - using python `in` operator
-- substring `ends_with` exists in the end of the string
-  - using `rf'{ends_with}$'` regex
-  - using python `endswith` string method
-  - slicing the end of the string with the same size as `ends_with` then using `==` operator
-  - slicing the end of the string with the same size as `ends_with` then using `endswith`
-
-All the columns in the tables that have `(-i)` in the name are the same as the ones without it, but the search is case insensitive. Every run that has an asterisk in it means that the slowest run took way longer than the fastest. This could mean that an intermediate result is being cached.
-
 ```python
 def get_string(length):
   return  ''.join(c for c in islice(cycle(ascii_lowercase), length))
 ```
+
+To generate the substrings, I simply selected a slice of the string in the desired position and size. To use substrings that could not be found in the string, I simply reversed the substrings. Since they are generated in alphabetical order, this is the best way to ensure that it will not be found.
+
+For all the runs I decided to let the `timeit` function decide the number of loops to run, and it ran 7 times to get the average and standard deviation. Basically, 10 experiments were made for each case, being 3 using regexes and the rest pure python string methods. The experiments were made for the following cases:
+
+- substring `sub` exists in the beginning of the string
+  - using `rf'^{sub}'` regex
+  - using python `startswith` string method
+  - slicing the beginning of the string with the same size as `sub` then using `==` operator
+  - slicing the beginning of the string with the same size as `sub` then using `startswith`
+- substring `sub` exists in the middle of the string
+  - using `rf'{sub}'` regex
+  - using python `in` operator
+- substring `sub` exists in the end of the string
+  - using `rf'{sub}$'` regex
+  - using python `endswith` string method
+  - slicing the end of the string with the same size as `sub` then using `==` operator
+  - slicing the end of the string with the same size as `sub` then using `endswith`
+
+All the columns in the tables that have `(-i)` in the name are the same as the ones without it, but the search is case insensitive. Every run that has an asterisk `*` in it means that the slowest run took way longer than the fastest. This could mean that an intermediate result is being cached.
 
 ## Small string
 
@@ -60,10 +60,9 @@ For searching in a small string, we used a string of size 30 with substrings wit
   </thead>
 </table> -->
 
-<table
+<!-- <table
   data-height="460"
   data-search="true"
-  data-show-columns="true"
   data-toggle="table"
   data-url="{{ '/assets/json/blog/2023-03-20-regex-or-python-string/small_str_small_sub.json' | relative_url }}">
   <thead>
@@ -86,11 +85,68 @@ For searching in a small string, we used a string of size 30 with substrings wit
       <th data-field="slice_endswith">slice then endswith</th>
     </tr>
   </thead>
+</table> -->
+
+<table
+  data-height="460"
+  data-search="true"
+  data-toggle="table"
+  data-url="{{ '/assets/json/blog/2023-03-20-regex-or-python-string/one_substring_beginning.json' | relative_url }}">
+  <thead>
+    <tr>
+      <th data-field="setup" rowspan="2" data-valign="middle">Setup</th>
+      <th colspan="4" data-halign="center">Search in the beginning</th>
+    </tr>
+    <tr>
+      <th data-field="regex">Regex (^)</th>
+      <th data-field="startswith">startswith</th>
+      <th data-field="slice then ==">slice then ==</th>
+      <th data-field="slice then startswith">slice then startswith</th>
+    </tr>
+  </thead>
+</table>
+
+
+<table
+  data-height="460"
+  data-search="true"
+  data-toggle="table"
+  data-url="{{ '/assets/json/blog/2023-03-20-regex-or-python-string/small_str_small_sub.json' | relative_url }}">
+  <thead>
+    <tr>
+      <th data-field="setup" rowspan="2" data-valign="middle">Setup</th>
+      <th colspan="2" data-halign="center">Search everywhere</th>
+    </tr>
+    <tr>
+      <th data-field="regex">Regex</th>
+      <th data-field="in">in</th>
+    </tr>
+  </thead>
+</table>
+
+
+<table
+  data-height="460"
+  data-search="true"
+  data-toggle="table"
+  data-url="{{ '/assets/json/blog/2023-03-20-regex-or-python-string/small_str_small_sub.json' | relative_url }}">
+  <thead>
+    <tr>
+      <th data-field="setup" rowspan="2" data-valign="middle">Setup</th>
+      <th colspan="4" data-halign="center">Search in the ending</th>
+    </tr>
+    <tr>
+      <th data-field="regex">Regex ($)</th>
+      <th data-field="endswith">endswith</th>
+      <th data-field="slice then ==">slice then ==</th>
+      <th data-field="slice then endswith">slice then endswith</th>
+    </tr>
+  </thead>
 </table>
 
 <!-- https://csvjson.com/csv2json -->
 
-| Using                 | Substring exists | Substring doesn't exist | Substring exists (-i) | Substring doesn't exist (-i)  |
+<!-- | Using                 | Substring exists | Substring doesn't exist | Substring exists (-i) | Substring doesn't exist (-i)  |
 |:---------------------:|:----------------:|:-----------------------:|:---------------------:|:-----------------------------:|
 |         regex         | 623 ns ± 108 ns  | 970 ns ± 85.2 ns      | 735 ns ± 18.6 ns        | 1.16 us ± 358 ns              |
 |       startswith      | 558 ns ± 185 ns  | 260 ns ± 10.3 ns      | 414 ns ± 22 ns          | 409 ns ± 28.9 ns              |
@@ -881,4 +937,238 @@ For searching in a small string, we used a string of size 30 with substrings wit
 |        endswith       |  96.5 us ± 26.7 us |
 |     slice then ==     | 3.54 us ± 42.5 ns |
 |  slice then endswith  |  76.3 us ± 15.2 us |
+ -->
 
+small string
+    substring exists
+        search the beginning
+        search it all
+        search the end
+    doesn't exist
+        search the beginning
+        search it all
+        search the end
+    substring exists -i
+        search the beginning
+        search it all
+        search the end
+    doesn't exist -i
+        search the beginning
+        search it all
+        search the end
+
+large string, small substring
+    substring exists
+        search the beginning
+        search it all
+        search the end
+    doesn't exist
+        search the beginning
+        search it all
+        search the end
+    substring exists -i
+        search the beginning
+        search it all
+        search the end
+    doesn't exist -i
+        search the beginning
+        search it all
+        search the end
+
+large string, large substring
+    substring exists
+        search the beginning
+        search it all
+        search the end
+    doesn't exist
+        search the beginning
+        search it all
+        search the end
+    substring exists -i
+        search the beginning
+        search it all
+        search the end
+    doesn't exist -i
+        search the beginning
+        search it all
+        search the end
+
+small string
+    substring exists from a list
+        is the first one of the list
+            search the beginning
+            search it all
+            search the end
+        is the middle one
+            search the beginning
+            search it all
+            search the end
+        is the last one
+            search the beginning
+            search it all
+            search the end
+    doesn't exist from a list
+        search the beginning
+        search it all
+        search the end
+    substring exists -i from a list
+        is the first one of the list
+            search the beginning
+            search it all
+            search the end
+        is the middle one
+            search the beginning
+            search it all
+            search the end
+        is the last one
+            search the beginning
+            search it all
+            search the end
+    doesn't exist -i from a list
+        search the beginning
+        search it all
+        search the end
+
+large string, small number of possibilities, small substring
+    substring exists from a list
+        is the first one of the list
+            search the beginning
+            search it all
+            search the end
+        is the middle one
+            search the beginning
+            search it all
+            search the end
+        is the last one
+            search the beginning
+            search it all
+            search the end
+    doesn't exist from a list
+        search the beginning
+        search it all
+        search the end
+    substring exists -i from a list
+        is the first one of the list
+            search the beginning
+            search it all
+            search the end
+        is the middle one
+            search the beginning
+            search it all
+            search the end
+        is the last one
+            search the beginning
+            search it all
+            search the end
+    doesn't exist -i from a list
+        search the beginning
+        search it all
+        search the end
+
+large string, large number of possibilities, small substring
+    substring exists from a list
+        is the first one of the list
+            search the beginning
+            search it all
+            search the end
+        is the middle one
+            search the beginning
+            search it all
+            search the end
+        is the last one
+            search the beginning
+            search it all
+            search the end
+    doesn't exist from a list
+        search the beginning
+        search it all
+        search the end
+    substring exists -i from a list
+        is the first one of the list
+            search the beginning
+            search it all
+            search the end
+        is the middle one
+            search the beginning
+            search it all
+            search the end
+        is the last one
+            search the beginning
+            search it all
+            search the end
+    doesn't exist -i from a list
+        search the beginning
+        search it all
+        search the end
+
+large string, small number of possibilities, large substring
+    substring exists from a list
+        is the first one of the list
+            search the beginning
+            search it all
+            search the end
+        is the middle one
+            search the beginning
+            search it all
+            search the end
+        is the last one
+            search the beginning
+            search it all
+            search the end
+    doesn't exist from a list
+        search the beginning
+        search it all
+        search the end
+    substring exists -i from a list
+        is the first one of the list
+            search the beginning
+            search it all
+            search the end
+        is the middle one
+            search the beginning
+            search it all
+            search the end
+        is the last one
+            search the beginning
+            search it all
+            search the end
+    doesn't exist -i from a list
+        search the beginning
+        search it all
+        search the end
+
+large string, large number of possibilities, large substring
+    substring exists from a list
+        is the first one of the list
+            search the beginning
+            search it all
+            search the end
+        is the middle one
+            search the beginning
+            search it all
+            search the end
+        is the last one
+            search the beginning
+            search it all
+            search the end
+    doesn't exist from a list
+        search the beginning
+        search it all
+        search the end
+    substring exists -i from a list
+        is the first one of the list
+            search the beginning
+            search it all
+            search the end
+        is the middle one
+            search the beginning
+            search it all
+            search the end
+        is the last one
+            search the beginning
+            search it all
+            search the end
+    doesn't exist -i from a list
+        search the beginning
+        search it all
+        search the end
