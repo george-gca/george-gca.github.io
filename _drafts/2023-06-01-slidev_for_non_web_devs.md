@@ -91,7 +91,7 @@ npm run-script dev
 
 To see a list of scripts, run `npm run`:
 
-```
+```txt
 Scripts available in XXXXXXXXX via `npm run-script`:
   build
     slidev build
@@ -122,7 +122,7 @@ theme: academic
 
 ## Basic settings
 
-I am not a hardcore sli.dev user or web developer. So there were some things that took some time for me to figure out, and I think it is worth mentioning. The first one is forcing the slides to be in dark mode. To do that, I add the following line to the front matter of `slides.md` file:
+I am not a hardcore sli.dev user or web developer. So there were some things that took some time for me to figure out, and I think it is worth mentioning. The first one is forcing the slides to be in dark mode. To do that, add the following line to the front matter of `slides.md`:
 
 ```yaml
 colorSchema: 'dark'
