@@ -1,0 +1,62 @@
+[
+  {
+    "setup": "Small string<br>Substring exists",
+    "regex": "541 ns ± 185 ns",
+    "string in": "242 ns ± 79.1 ns"
+  },
+  {
+    "setup": "Small string<br>Substring doesn't exist",
+    "regex": "491 ns ± 165 ns",
+    "string in": "179 ns ± 62.2 ns"
+  },
+  {
+    "setup": "Small string<br>Substring exists<br>(ignoring case)",
+    "regex": "1.09 us ± 366 ns",
+    "string in": "342 ns ± 28.5 ns"
+  },
+  {
+    "setup": "Small string<br>Substring doesn't exist<br>(ignoring case)",
+    "regex": "622 ns ± 218 ns",
+    "string in": "155 ns ± 35.9 ns"
+  },
+  {
+    "setup": "Large string<br>Small substring exists",
+    "regex": "292 ns ± 93.4 ns",
+    "string in": "82.6 ns ± 1.29 ns"
+  },
+  {
+    "setup": "Large string<br>Small substring doesn't exist",
+    "regex": "7.45 us ± 2.03 us",
+    "string in": "4.29 us ± 103 ns"
+  },
+  {
+    "setup": "Large string<br>Small substring exists<br>(ignoring case)",
+    "regex": "353 ns ± 12.6 ns",
+    "string in": "7.73 us ± 1.78 us"
+  },
+  {
+    "setup": "Large string<br>Small substring doesn't exist<br>(ignoring case)",
+    "regex": "111 us ± 23.4 us",
+    "string in": "10.3 us ± 63.5 ns"
+  },
+  {
+    "setup": "Large string<br>Large substring exists",
+    "regex": "11.8 us ± 115 ns",
+    "string in": "11.7 us ± 1.93 us"
+  },
+  {
+    "setup": "Large string<br>Large substring doesn't exist",
+    "regex": "11.4 us ± 2.98 us",
+    "string in": "5.63 us ± 134 ns"
+  },
+  {
+    "setup": "Large string<br>Large substring exists<br>(ignoring case)",
+    "regex": "40 us ± 11.5 us",
+    "string in": "19.1 us ± 3.53 us"
+  },
+  {
+    "setup": "Large string<br>Large substring doesn't exist<br>(ignoring case)",
+    "regex": "57 us ± 15.1 us",
+    "string in": "13.4 us ± 3.14 us"
+  }
+]

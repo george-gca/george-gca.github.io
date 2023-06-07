@@ -1,0 +1,202 @@
+[
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring found (1st one)",
+    "regex": "393 ns ± 10.3 ns",
+    "string in": "469 ns ± 13.1 ns"
+  },
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring found (middle)",
+    "regex": "437 ns ± 8.7 ns",
+    "string in": "631 ns ± 203 ns"
+  },
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring found (last one)",
+    "regex": "624 ns ± 216 ns",
+    "string in": "611 ns ± 10.3 ns"
+  },
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring not found",
+    "regex": "597 ns ± 8.32 ns",
+    "string in": "470 ns ± 6.28 ns"
+  },
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring found (1st one)<br>(ignoring case)",
+    "regex": "1.01 us ± 328 ns",
+    "string in": "613 ns ± 9.71 ns"
+  },
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring found (middle)<br>(ignoring case)",
+    "regex": "1.07 us ± 333 ns",
+    "string in": "683 ns ± 10.9 ns"
+  },
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring found (last one)<br>(ignoring case)",
+    "regex": "865 ns ± 7.33 ns",
+    "string in": "976 ns ± 321 ns"
+  },
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring not found<br>(ignoring case)",
+    "regex": "2.59 us ± 69.1 ns",
+    "string in": "634 ns ± 3.33 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring found (1st one)",
+    "string in": "523 ns ± 188 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring found (middle)",
+    "string in": "577 ns ± 177 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring found (last one)",
+    "string in": "383 ns ± 8.88 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring not found",
+    "string in": "273 us ± 8.26 us"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring found (1st one)<br>(ignoring case)",
+    "string in": "999 ns ± 92.8 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring found (middle)<br>(ignoring case)",
+    "string in": "995 ns ± 12.8 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring found (last one)<br>(ignoring case)",
+    "string in": "1.14 us ± 17.9 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring not found<br>(ignoring case)",
+    "string in": "1.78 ms ± 320 us"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring found (1st one)",
+    "string in": "94.4 us ± 6.43 us"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring found (middle)",
+    "string in": "96.4 us ± 5.78 us"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring found (last one)",
+    "string in": "122 us ± 1.09 us"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring not found",
+    "string in": "301 ms ± 17.8 ms"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring found (1st one)<br>(ignoring case)",
+    "string in": "222 us ± 8.25 us"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring found (middle)<br>(ignoring case)",
+    "string in": "223 us ± 8.66 us"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring found (last one)<br>(ignoring case)",
+    "string in": "297 us ± 14.6 us"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring not found<br>(ignoring case)",
+    "string in": "116 us ± 34.3 us"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring found (1st one)",
+    "string in": "14.8 us ± 2.25 us"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring found (middle)",
+    "string in": "13.4 us ± 98.8 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring found (last one)",
+    "string in": "14.9 us ± 2.47 us"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring not found",
+    "string in": "269 us ± 10.3 us"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring found (1st one)<br>(ignoring case)",
+    "string in": "33.1 us ± 617 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring found (middle)<br>(ignoring case)",
+    "string in": "33.5 us ± 1 us"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring found (last one)<br>(ignoring case)",
+    "string in": "33.2 us ± 528 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring not found<br>(ignoring case)",
+    "string in": "71.3 us ± 633 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring found (1st one)",
+    "string in": "585 us ± 62.8 us"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring found (middle)",
+    "string in": "1.05 ms ± 64.6 us"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring found (last one)",
+    "string in": "897 us ± 50.4 us"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring not found",
+    "string in": "1.26 s ± 86.9 ms"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring found (1st one)<br>(ignoring case)",
+    "string in": "707 us ± 11.8 us"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring found (middle)<br>(ignoring case)",
+    "string in": "1.1 ms ± 99.5 us"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring found (last one)<br>(ignoring case)",
+    "string in": "1.5 ms ± 103 us"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring not found<br>(ignoring case)",
+    "string in": "94.7 us ± 974 ns"
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "setup": "Small string<br>Substring exists",
+    "regex": "611 ns ± 23.2 ns",
+    "endswith": "293 ns ± 16.2 ns",
+    "slice then ==": "627 ns ± 182 ns",
+    "slice then endswith": "572 ns ± 32.9 ns"
+  },
+  {
+    "setup": "Small string<br>Substring doesn't exist",
+    "regex": "345 ns ± 13.8 ns",
+    "endswith": "277 ns ± 12.8 ns",
+    "slice then ==": "427 ns ± 18.9 ns",
+    "slice then endswith": "820 ns ± 293 ns"
+  },
+  {
+    "setup": "Small string<br>Substring exists<br>(ignoring case)",
+    "regex": "1.29 us ± 365 ns",
+    "endswith": "437 ns ± 18.4 ns",
+    "slice then ==": "758 ns ± 261 ns",
+    "slice then endswith": "716 ns ± 16 ns"
+  },
+  {
+    "setup": "Small string<br>Substring doesn't exist<br>(ignoring case)",
+    "regex": "471 ns ± 11.6 ns",
+    "endswith": "217 ns ± 57.6 ns",
+    "slice then ==": "444 ns ± 149 ns",
+    "slice then endswith": "344 ns ± 7.54 ns"
+  },
+  {
+    "setup": "Large string<br>Small substring exists",
+    "regex": "15.2 us ± 4.23 us",
+    "endswith": "162 ns ± 48.2 ns",
+    "slice then ==": "203 ns ± 8.03 ns",
+    "slice then endswith": "438 ns ± 164 ns"
+  },
+  {
+    "setup": "Large string<br>Small substring doesn't exist",
+    "regex": "5.7 us ± 146 ns",
+    "endswith": "135 ns ± 5.52 ns",
+    "slice then ==": "220 ns ± 56.6 ns",
+    "slice then endswith": "287 ns ± 9.79 ns"
+  },
+  {
+    "setup": "Large string<br>Small substring exists<br>(ignoring case)",
+    "regex": "140 us ± 32.2 us",
+    "endswith": "6.23 us ± 83.5 ns",
+    "slice then ==": "272 ns ± 10.1 ns",
+    "slice then endswith": "420 ns ± 149 ns"
+  },
+  {
+    "setup": "Large string<br>Small substring doesn't exist<br>(ignoring case)",
+    "regex": "121 us ± 32.6 us",
+    "endswith": "6.28 us ± 96.2 ns",
+    "slice then ==": "489 ns ± 118 ns",
+    "slice then endswith": "340 ns ± 11.7 ns"
+  },
+  {
+    "setup": "Large string<br>Large substring exists",
+    "regex": "22.1 us ± 399 ns",
+    "endswith": "357 ns ± 102 ns",
+    "slice then ==": "461 ns ± 59.5 ns",
+    "slice then endswith": "543 ns ± 5.74 ns"
+  },
+  {
+    "setup": "Large string<br>Large substring doesn't exist",
+    "regex": "11.4 us ± 2.93 us",
+    "endswith": "153 ns ± 34.8 ns",
+    "slice then ==": "332 ns ± 15.4 ns",
+    "slice then endswith": "407 ns ± 14 ns"
+  },
+  {
+    "setup": "Large string<br>Large substring exists<br>(ignoring case)",
+    "regex": "6.22 ms ± 86.7 us",
+    "endswith": "7.95 us ± 1.83 us",
+    "slice then ==": "3.62 us ± 118 ns",
+    "slice then endswith": "3.69 us ± 82.1 ns"
+  },
+  {
+    "setup": "Large string<br>Large substring doesn't exist<br>(ignoring case)",
+    "regex": "51.4 us ± 686 ns",
+    "endswith": "6.65 us ± 746 ns",
+    "slice then ==": "4.39 us ± 1.15 us",
+    "slice then endswith": "3.58 us ± 51.9 ns"
+  }
+]

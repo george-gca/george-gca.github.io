@@ -1,0 +1,282 @@
+[
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring found (1st one)",
+    "regex": "823 ns ± 268 ns",
+    "endswith": "159 ns ± 45.2 ns",
+    "slice then ==": "207 ns ± 55.1 ns",
+    "slice then endswith": "287 ns ± 7.39 ns"
+  },
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring found (middle)",
+    "regex": "655 ns ± 77.7 ns",
+    "endswith": "170 ns ± 45 ns",
+    "slice then ==": "206 ns ± 36.9 ns",
+    "slice then endswith": "384 ns ± 148 ns"
+  },
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring found (last one)",
+    "regex": "612 ns ± 8.32 ns",
+    "endswith": "173 ns ± 41.8 ns",
+    "slice then ==": "212 ns ± 60 ns",
+    "slice then endswith": "283 ns ± 8.89 ns"
+  },
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring not found",
+    "regex": "857 ns ± 280 ns",
+    "endswith": "173 ns ± 42.5 ns",
+    "slice then ==": "208 ns ± 44.4 ns",
+    "slice then endswith": "283 ns ± 9.99 ns"
+  },
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring found (1st one)<br>(ignoring case)",
+    "regex": "1.68 us ± 207 ns",
+    "endswith": "315 ns ± 113 ns",
+    "slice then ==": "250 ns ± 11.3 ns",
+    "slice then endswith": "338 ns ± 7.64 ns"
+  },
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring found (middle)<br>(ignoring case)",
+    "regex": "1.79 us ± 336 ns",
+    "endswith": "280 ns ± 102 ns",
+    "slice then ==": "375 ns ± 133 ns",
+    "slice then endswith": "334 ns ± 13.1 ns"
+  },
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring found (last one)<br>(ignoring case)",
+    "regex": "1.8 us ± 514 ns",
+    "endswith": "227 ns ± 8.53 ns",
+    "slice then ==": "249 ns ± 6.56 ns",
+    "slice then endswith": "577 ns ± 186 ns"
+  },
+  {
+    "setup": "Small string<br>Few possibilities<br>Substring not found<br>(ignoring case)",
+    "regex": "1.88 us ± 490 ns",
+    "endswith": "227 ns ± 11.5 ns",
+    "slice then ==": "368 ns ± 133 ns",
+    "slice then endswith": "392 ns ± 115 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring found (1st one)",
+    "endswith": "420 us ± 11.9 us",
+    "slice then ==": "160 ns ± 43.8 ns",
+    "slice then endswith": "229 ns ± 42.7 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring found (middle)",
+    "endswith": "418 us ± 12.7 us",
+    "slice then ==": "169 ns ± 37.4 ns",
+    "slice then endswith": "236 ns ± 62 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring found (last one)",
+    "endswith": "545 us ± 137 us",
+    "slice then ==": "229 ns ± 8.11 ns",
+    "slice then endswith": "214 ns ± 54 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring not found",
+    "endswith": "589 us ± 122 us",
+    "slice then ==": "223 ns ± 7.81 ns",
+    "slice then endswith": "215 ns ± 55.2 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring found (1st one)<br>(ignoring case)",
+    "endswith": "1.86 ms ± 344 us",
+    "slice then ==": "6.35 us ± 150 ns",
+    "slice then endswith": "253 ns ± 5.39 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring found (middle)<br>(ignoring case)",
+    "endswith": "1.84 ms ± 323 us",
+    "slice then ==": "7.86 us ± 1.97 us",
+    "slice then endswith": "256 ns ± 15.8 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring found (last one)<br>(ignoring case)",
+    "endswith": "1.87 ms ± 394 us",
+    "slice then ==": "6.4 us ± 123 ns",
+    "slice then endswith": "252 ns ± 11.8 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Few possibilities<br>Substring not found<br>(ignoring case)",
+    "endswith": "2.43 ms ± 642 us",
+    "slice then ==": "6.46 us ± 171 ns",
+    "slice then endswith": "255 ns ± 6.08 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring found (1st one)",
+    "endswith": "413 ms ± 23.3 ms",
+    "slice then ==": "160 ns ± 18.4 ns",
+    "slice then endswith": "365 ns ± 9.43 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring found (middle)",
+    "endswith": "355 ms ± 4.13 ms",
+    "slice then ==": "162 ns ± 33 ns",
+    "slice then endswith": "613 ns ± 170 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring found (last one)",
+    "endswith": "392 ms ± 38.5 ms",
+    "slice then ==": "405 ns ± 15.3 ns",
+    "slice then endswith": "372 ns ± 11.9 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring not found",
+    "endswith": "326 ms ± 4.06 ms",
+    "slice then ==": "48.5 us ± 1.47 us",
+    "slice then endswith": "422 ns ± 130 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring found (1st one)<br>(ignoring case)",
+    "endswith": "840 ms ± 11.5 ms",
+    "slice then ==": "7.82 us ± 1.84 us",
+    "slice then endswith": "3.62 us ± 91.4 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring found (middle)<br>(ignoring case)",
+    "endswith": "828 ms ± 8.88 ms",
+    "slice then ==": "7.67 us ± 1.73 us",
+    "slice then endswith": "3.58 us ± 131 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring found (last one)<br>(ignoring case)",
+    "endswith": "1.01 s ± 244 ms",
+    "slice then ==": "6.56 us ± 114 ns",
+    "slice then endswith": "3.6 us ± 121 ns"
+  },
+  {
+    "setup": "Large string<br>Small substrings",
+    "regex": "Many possibilities<br>Substring not found<br>(ignoring case)",
+    "endswith": "116 us ± 34.4 us",
+    "slice then ==": "54.4 us ± 916 ns",
+    "slice then endswith": "3.42 us ± 65.3 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring found (1st one)",
+    "endswith": "25.6 ms ± 704 us",
+    "slice then ==": "232 ns ± 12.9 ns",
+    "slice then endswith": "220 ns ± 46.7 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring found (middle)",
+    "endswith": "25.7 ms ± 805 us",
+    "slice then ==": "243 ns ± 10.8 ns",
+    "slice then endswith": "213 ns ± 55.5 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring found (last one)",
+    "endswith": "26.2 ms ± 508 us",
+    "slice then ==": "327 ns ± 5.74 ns",
+    "slice then endswith": "221 ns ± 55.5 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring not found",
+    "endswith": "52 ms ± 8.81 ms",
+    "slice then ==": "229 ns ± 12.6 ns",
+    "slice then endswith": "221 ns ± 38.1 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring found (1st one)<br>(ignoring case)",
+    "endswith": "78.6 ms ± 22.1 ms",
+    "slice then ==": "6.39 us ± 62.2 ns",
+    "slice then endswith": "258 ns ± 9.48 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring found (middle)<br>(ignoring case)",
+    "endswith": "67.8 ms ± 14.8 ms",
+    "slice then ==": "6.8 us ± 1.1 us",
+    "slice then endswith": "262 ns ± 11.2 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring found (last one)<br>(ignoring case)",
+    "endswith": "81.3 ms ± 21.2 ms",
+    "slice then ==": "6.52 us ± 77.2 ns",
+    "slice then endswith": "263 ns ± 10.8 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Few possibilities<br>Substring not found<br>(ignoring case)",
+    "endswith": "94.5 us ± 779 ns",
+    "slice then ==": "7.43 us ± 1.86 us",
+    "slice then endswith": "262 ns ± 9.47 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring found (1st one)",
+    "endswith": "16.4 s ± 305 ms",
+    "slice then ==": "229 ns ± 6.87 ns",
+    "slice then endswith": "365 ns ± 6.45 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring found (middle)",
+    "endswith": "16.5 s ± 226 ms",
+    "slice then ==": "247 ns ± 12.4 ns",
+    "slice then endswith": "536 ns ± 181 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring found (last one)",
+    "endswith": "17.1 s ± 1.24 s",
+    "slice then ==": "712 ns ± 215 ns",
+    "slice then endswith": "343 ns ± 9.85 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring not found",
+    "endswith": "24.4 s ± 75.9 ms",
+    "slice then ==": "88.8 us ± 1.86 us",
+    "slice then endswith": "553 ns ± 176 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring found (1st one)<br>(ignoring case)",
+    "endswith": "39.2 s ± 193 ms",
+    "slice then ==": "6.52 us ± 160 ns",
+    "slice then endswith": "3.51 us ± 165 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring found (middle)<br>(ignoring case)",
+    "endswith": "37.6 s ± 288 ms",
+    "slice then ==": "8.04 us ± 1.81 us",
+    "slice then endswith": "3.52 us ± 131 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring found (last one)<br>(ignoring case)",
+    "endswith": "37.9 s ± 261 ms",
+    "slice then ==": "7.16 us ± 1.28 us",
+    "slice then endswith": "3.48 us ± 83.4 ns"
+  },
+  {
+    "setup": "Large string<br>Large substrings",
+    "regex": "Many possibilities<br>Substring not found<br>(ignoring case)",
+    "endswith": "94.9 us ± 950 ns",
+    "slice then ==": "117 us ± 23.8 us",
+    "slice then endswith": "3.46 us ± 48.4 ns"
+  }
+]
