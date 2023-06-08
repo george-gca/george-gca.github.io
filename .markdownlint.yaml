@@ -67,6 +67,7 @@ MD033:
   # Allowed elements
   allowed_elements: [
     div,
+    script,
     table,
     thead,
     th,
