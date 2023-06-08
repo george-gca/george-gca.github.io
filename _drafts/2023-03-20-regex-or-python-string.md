@@ -44,10 +44,55 @@ For all the runs I let the `timeit` function decide the number of loops to run, 
 
 ## Searching for a single substring
 
+<script>
+  function convertScale(value) {
+    let splittedNumber = value.split(" ");
+
+    let scale = 1;
+    if (splittedNumber[1] == "s") {
+      scale = 1000000000;
+    } else if (splittedNumber[1] == "ms") {
+      scale = 1000000;
+    } else if (splittedNumber[1] == "us") {
+      scale = 1000;
+    } else if (splittedNumber[1] == "ns") {
+      scale = 1;
+    }
+
+    return parseFloat(splittedNumber[0]) * scale;
+  }
+
+  function convertToNumber(value) {
+    let splittedValue = value.split(" ± ");
+    return convertScale(splittedValue[0]) + convertScale(splittedValue[1]);
+  }
+
+  function highlightLowest(value, row) {
+    let lowestValue = "";
+    let lowestConvertedValue = 999999999999999;
+
+    for (const [key, value] of Object.entries(row)) {
+      if (key != "setup") {
+        let convertedValue = convertToNumber(value);
+        if (convertedValue < lowestConvertedValue) {
+          lowestValue = value;
+          lowestConvertedValue = convertedValue;
+        }
+      }
+    }
+
+    if (value == lowestValue) {
+      return "<u>" + value + "</u>";
+    } else {
+      return value;
+    }
+  }
+</script>
+
 ### Searching in the beginning of the string
 
 <table
-  data-height="460"
+  data-height="800"
   data-search="true"
   data-toggle="table"
   data-url="{{ '/assets/json/blog/2023-03-20-regex-or-python-string/one_substring_beginning.json' | relative_url }}">
@@ -57,10 +102,10 @@ For all the runs I let the `timeit` function decide the number of loops to run, 
       <th colspan="4" data-halign="center">Search in the beginning</th>
     </tr>
     <tr>
-      <th data-field="regex">Regex (^)</th>
-      <th data-field="startswith">startswith</th>
-      <th data-field="slice then ==">slice then ==</th>
-      <th data-field="slice then startswith">slice then startswith</th>
+      <th data-field="regex" data-formatter="highlightLowest">Regex (^)</th>
+      <th data-field="startswith" data-formatter="highlightLowest">startswith</th>
+      <th data-field="slice then ==" data-formatter="highlightLowest">slice then ==</th>
+      <th data-field="slice then startswith" data-formatter="highlightLowest">slice then startswith</th>
     </tr>
   </thead>
 </table>
@@ -68,7 +113,7 @@ For all the runs I let the `timeit` function decide the number of loops to run, 
 ### Searching in the middle of the string
 
 <table
-  data-height="460"
+  data-height="800"
   data-search="true"
   data-toggle="table"
   data-url="{{ '/assets/json/blog/2023-03-20-regex-or-python-string/one_substring_middle.json' | relative_url }}">
@@ -78,8 +123,8 @@ For all the runs I let the `timeit` function decide the number of loops to run, 
       <th colspan="2" data-halign="center">Search in the middle</th>
     </tr>
     <tr>
-      <th data-field="regex">Regex</th>
-      <th data-field="string in">String in</th>
+      <th data-field="regex" data-formatter="highlightLowest">Regex</th>
+      <th data-field="string in" data-formatter="highlightLowest">String in</th>
     </tr>
   </thead>
 </table>
@@ -87,7 +132,7 @@ For all the runs I let the `timeit` function decide the number of loops to run, 
 ### Searching in the end of the string
 
 <table
-  data-height="460"
+  data-height="800"
   data-search="true"
   data-toggle="table"
   data-url="{{ '/assets/json/blog/2023-03-20-regex-or-python-string/one_substring_ending.json' | relative_url }}">
@@ -97,10 +142,10 @@ For all the runs I let the `timeit` function decide the number of loops to run, 
       <th colspan="4" data-halign="center">Search in the ending</th>
     </tr>
     <tr>
-      <th data-field="regex">Regex ($)</th>
-      <th data-field="endswith">endswith</th>
-      <th data-field="slice then ==">slice then ==</th>
-      <th data-field="slice then endswith">slice then endswith</th>
+      <th data-field="regex" data-formatter="highlightLowest">Regex ($)</th>
+      <th data-field="endswith" data-formatter="highlightLowest">endswith</th>
+      <th data-field="slice then ==" data-formatter="highlightLowest">slice then ==</th>
+      <th data-field="slice then endswith" data-formatter="highlightLowest">slice then endswith</th>
     </tr>
   </thead>
 </table>
@@ -110,7 +155,7 @@ For all the runs I let the `timeit` function decide the number of loops to run, 
 ### Searching in the beginning of the string
 
 <table
-  data-height="460"
+  data-height="800"
   data-search="true"
   data-toggle="table"
   data-url="{{ '/assets/json/blog/2023-03-20-regex-or-python-string/multiple_substrings_beginning.json' | relative_url }}">
@@ -120,10 +165,10 @@ For all the runs I let the `timeit` function decide the number of loops to run, 
       <th colspan="4" data-halign="center">Search in the beginning</th>
     </tr>
     <tr>
-      <th data-field="regex">Regex (^)</th>
-      <th data-field="startswith">startswith</th>
-      <th data-field="slice then ==">slice then ==</th>
-      <th data-field="slice then startswith">slice then startswith</th>
+      <th data-field="regex" data-formatter="highlightLowest">Regex (^)</th>
+      <th data-field="startswith" data-formatter="highlightLowest">startswith</th>
+      <th data-field="slice then ==" data-formatter="highlightLowest">slice then ==</th>
+      <th data-field="slice then startswith" data-formatter="highlightLowest">slice then startswith</th>
     </tr>
   </thead>
 </table>
@@ -131,7 +176,7 @@ For all the runs I let the `timeit` function decide the number of loops to run, 
 ### Searching in the middle of the string
 
 <table
-  data-height="460"
+  data-height="800"
   data-search="true"
   data-toggle="table"
   data-url="{{ '/assets/json/blog/2023-03-20-regex-or-python-string/multiple_substrings_middle.json' | relative_url }}">
@@ -141,8 +186,8 @@ For all the runs I let the `timeit` function decide the number of loops to run, 
       <th colspan="2" data-halign="center">Search in the middle</th>
     </tr>
     <tr>
-      <th data-field="regex">Regex</th>
-      <th data-field="string in">String in</th>
+      <th data-field="regex" data-formatter="highlightLowest">Regex</th>
+      <th data-field="string in" data-formatter="highlightLowest">String in</th>
     </tr>
   </thead>
 </table>
@@ -150,7 +195,7 @@ For all the runs I let the `timeit` function decide the number of loops to run, 
 ### Searching in the end of the string
 
 <table
-  data-height="460"
+  data-height="800"
   data-search="true"
   data-toggle="table"
   data-url="{{ '/assets/json/blog/2023-03-20-regex-or-python-string/multiple_substrings_ending.json' | relative_url }}">
@@ -160,10 +205,10 @@ For all the runs I let the `timeit` function decide the number of loops to run, 
       <th colspan="4" data-halign="center">Search in the ending</th>
     </tr>
     <tr>
-      <th data-field="regex">Regex ($)</th>
-      <th data-field="endswith">endswith</th>
-      <th data-field="slice then ==">slice then ==</th>
-      <th data-field="slice then endswith">slice then endswith</th>
+      <th data-field="regex" data-formatter="highlightLowest">Regex ($)</th>
+      <th data-field="endswith" data-formatter="highlightLowest">endswith</th>
+      <th data-field="slice then ==" data-formatter="highlightLowest">slice then ==</th>
+      <th data-field="slice then endswith" data-formatter="highlightLowest">slice then endswith</th>
     </tr>
   </thead>
 </table>
