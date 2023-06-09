@@ -4,7 +4,7 @@ title:  sli.dev for non-web developers
 date:   2023-06-01 17:19:10
 description: How to setup and use sli.dev for non-web developers
 tags: programming code slides sli.dev web
-categories: web
+categories: web presentation
 giscus_comments: true
 related_posts: true
 ---
@@ -136,8 +136,32 @@ hideInToc: true
 
 For the sake of organization, I like to create a different file for each section in my presentation, then import these files in my main `slides.md`. To do that, create a new file with the markdown extension, then add the following lines to `slides.md` for each file to be included:
 
+{%raw%}
+
 ```yaml
 ---
 src: slides/other_slide.md
 ---
+```
+
+{% endraw %}
+
+## Exporting slides
+
+[Exporting to PDF or PNG](https://sli.dev/guide/exporting.html) relies on `Playwright` for rendering. You will therefore need to install `playwright-chromium` to use this feature. For this, run:
+
+```bash
+npm i -D playwright-chromium
+```
+
+Then, add the following lines to the `scripts` section of the `package.json` file:
+
+```json
+"export_slides": "slidev export --with-toc --with-clicks"
+```
+
+To export the slides, run:
+
+```bash
+npm run-script export_slides
 ```
