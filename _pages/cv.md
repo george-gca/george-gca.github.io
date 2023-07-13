@@ -1,6 +1,7 @@
 ---
 layout: cv
 title: titles.cv
+description: descriptions.cv
 permalink: /cv/
 nav: true
 nav_order: 4

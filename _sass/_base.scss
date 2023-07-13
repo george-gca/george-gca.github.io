@@ -378,6 +378,12 @@ footer.sticky-bottom {
   }
 }
 
+.table-cv-map {
+  background-color: transparent;
+  border: none;
+  color: var(--global-text-color);
+}
+
 // Repositories
 
 @media (min-width: 768px) {
@@ -400,7 +406,7 @@ footer.sticky-bottom {
   }
 }
 
-.tag-list {
+.tag-category-list {
   border-bottom: 1px solid var(--global-divider-color);
   text-align: center;
   padding-top: 1rem;
@@ -563,7 +569,7 @@ footer.sticky-bottom {
     }
   }
 
-  h2.year {
+  h2.bibliography {
     color: var(--global-divider-color);
     border-top: 1px solid var(--global-divider-color);
     padding-top: 1rem;
@@ -1011,5 +1017,37 @@ nav[data-toggle="toc"] {
     h1, h2, h3, h4, h5, h6 {
       color: var(--global-danger-block-title);
     }
+  }
+}
+
+.featured-posts {
+  a {
+    color: var(--global-text-color-light);
+    text-decoration: none;
+
+    .card-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &:hover {
+      color: var(--global-theme-color);
+
+      .card-title {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+
+  .card-item {
+    margin-bottom: 10px;
+  }
+
+  .post-meta {
+    color: var(--global-text-color-light);
+    font-size: 0.875rem;
+    margin-bottom: 0;
+    padding-top: 0.5rem;
   }
 }
