@@ -32,6 +32,7 @@ descriptions:
   archive-tag: um arquivo de postagens com este marcador
   archive-year: um arquivo de postagens deste ano
   blog: blogging
+  cv: Esta é uma descrição da página. Você pode modificá-la em '_pages/cv.md'. Também pode alterar ou remover o botão no topo de download de pdf.
   publications: publicações por categoria em ordem cronológica reversa. gerado pelo jekyll-scholar.
   projects: Uma crescente coleção de seus projetos interessantes.
   repositories: Edite o `_data/repositories.yml` e mude as listas `github_users` e `github_repos` para incluir seu próprio perfil do GitHub e repositórios.
@@ -98,3 +99,54 @@ projects:
 repositories:
   users: Usuários do GitHub
   repos: Repositórios do GitHub
+cv:
+  address: Endereço
+  area: Área
+  awarder: Premiado por
+  awards: Prêmios
+  basics: Informações gerais
+  certificates: Certificados
+  city: Cidade
+  countryCode: Código do país
+  courses: Cursos
+  date: Data
+  education: Educação
+  email: Email
+  endDate: Data de término
+  fluency: Fluência
+  highlights: Destaques
+  image: Imagem
+  institution: Instituição
+  interests: Interesses
+  issuer: Emissor
+  keywords: Palavras chave
+  label: Título
+  language: Idioma
+  languages: Idiomas
+  level: Nível
+  location: Localização
+  name: Nome
+  network: Rede
+  organization: Organização
+  phone: Telefone
+  position: Posição
+  postalCode: Código postal
+  profiles: Perfis
+  projects: Projetos
+  publications: Publicações
+  publisher: Editora
+  reference: Referência
+  references: Referências
+  region: Região
+  releaseDate: Data de lançamento
+  score: Pontuação
+  skills: Habilidades
+  startDate: Data de início
+  studyType: Tipo de estudo
+  summary: Resumo
+  table_of_contents: Tópicos
+  title: Título
+  url: Url
+  username: Usuário
+  volunteer: Voluntário
+  work: Trabalho
