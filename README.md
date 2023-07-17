@@ -434,7 +434,7 @@ If you have a different question, please ask using [Discussions](https://github.
    If you are deploying a project page, set `baseurl: /<your-project-name>/`.
    If all previous steps were done correctly, all is missing is
    [for your browser to fetch again the site stylesheet](https://github.com/alshedivat/al-folio/issues/1398#issuecomment-1609518404).
-   
+
 5. **Q:** Atom feed doesn't work. Why?
    <br>
    **A:** Make sure to correctly specify the `url` and `baseurl` paths in `_config.yml`.
@@ -546,17 +546,17 @@ To do this, edit the collections in the `_config.yml` file, create a correspondi
 
 The theme allows you to create blog posts in the [distill.pub](https://distill.pub/) style:
 
-<p align="center"><a href="https://alshedivat.github.io/al-folio/blog/2021/distill/" target="_blank"><img src="https://raw.githubusercontent.com/alshedivat/al-folio/master/assets/img/distill-screenshot.png" width=700></a></p>
+<p align="center"><a href="https://george-gca.github.io/multi-language-al-folio/blog/2021/distill/" target="_blank"><img src="https://raw.githubusercontent.com/alshedivat/al-folio/master/assets/img/distill-screenshot.png" width=700></a></p>
 
-For more details on how to create distill-styled posts using `<d-*>` tags, please refer to [the example](https://alshedivat.github.io/al-folio/blog/2021/distill/).
+For more details on how to create distill-styled posts using `<d-*>` tags, please refer to [the example](https://george-gca.github.io/multi-language-al-folio/blog/2021/distill/).
 
 #### Full support for math & code
 
 **al-folio** supports fast math typesetting through [MathJax](https://www.mathjax.org/) and code syntax highlighting using [GitHub style](https://github.com/jwarby/jekyll-pygments-themes):
 
 <p align="center">
-<a href="https://alshedivat.github.io/al-folio/blog/2015/math/" target="_blank"><img src="https://raw.githubusercontent.com/alshedivat/al-folio/master/assets/img/math-screenshot.png" width=400></a>
-<a href="https://alshedivat.github.io/al-folio/blog/2015/code/" target="_blank"><img src="https://raw.githubusercontent.com/alshedivat/al-folio/master/assets/img/code-screenshot.png" width=400></a>
+<a href="https://george-gca.github.io/multi-language-al-folio/blog/2015/math/" target="_blank"><img src="https://raw.githubusercontent.com/alshedivat/al-folio/master/assets/img/math-screenshot.png" width=400></a>
+<a href="https://george-gca.github.io/multi-language-al-folio/blog/2015/code/" target="_blank"><img src="https://raw.githubusercontent.com/alshedivat/al-folio/master/assets/img/code-screenshot.png" width=400></a>
 </p>
 
 #### Photos
@@ -565,7 +565,7 @@ Photo formatting is made simple using [Bootstrap's grid system](https://getboots
 Easily create beautiful grids within your blog posts and project pages:
 
 <p align="center">
-  <a href="https://alshedivat.github.io/al-folio/projects/1_project/">
+  <a href="https://george-gca.github.io/multi-language-al-folio/projects/1_project/">
     <img src="https://raw.githubusercontent.com/alshedivat/al-folio/master/assets/img/photos-screenshot.png" width="75%">
   </a>
 </p>
