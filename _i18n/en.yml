@@ -70,7 +70,9 @@ months:
     december: Dec
 news:
   titles:
+    news1: A simple inline announcement.
     news2: A long announcement with details
+    news3: "A simple inline announcement with Markdown emoji! :sparkles: :smile:"
 pagination:
   newer: Newer
   older: Older

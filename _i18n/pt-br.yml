@@ -70,7 +70,9 @@ months:
     december: Dez
 news:
   titles:
+    news1: Um anúncio simples em uma linha.
     news2: Um anúncio longo com detalhes
+    news3: "Um anúncio simples em uma linha com Markdown emoji! :sparkles: :smile:"
 pagination:
   newer: Recentes
   older: Antigas
