@@ -274,11 +274,7 @@
 
     <script type="application/ld+json">
     {
-        "author":
-        {
-          "@type": "Person",
-          "name": "{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}"
-        },
+        "author": {"@type": "Person", "name": "{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}"},
         "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
         "@type": "{%- if is_blog_post -%}BlogPosting{%- else -%}WebSite{%- endif -%}",
         "description": "{%- if page.description -%}{{ page.description }}{%- else if site.description -%}{{ site.description }}{%- endif -%}",
