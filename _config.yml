@@ -98,13 +98,14 @@ instagram_id: # your instagram id
 facebook_id: # your facebook id
 youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 discord_id: # your discord id (18-digit unique numerical identifier)
+zotero_username: # your zotero username
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
 # -----------------------------------------------------------------------------
 
 google_analytics:  # your Google Analytics measurement ID (format: G-XXXXXXXXXX)
-panelbear_analytics:  # panelbear analytics site ID (format: XXXXXXXXX)
+cronitor_analytics:  # cronitor RUM analytics site ID (format: XXXXXXXXX)
 
 google_site_verification:  # your google-site-verification ID (Google Search Console)
 bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
@@ -130,8 +131,8 @@ related_blog_posts:
 giscus:
   repo: george-gca/multi-language-al-folio      # <your-github-user-name>/<your-github-repo-name>
   repo_id: R_kgDOI6hBvA
-  category: Announcements             # name of the category under which discussions will be created
-  category_id: DIC_kwDOI6hBvM4CUML1
+  category: Comments             # name of the category under which discussions will be created
+  category_id: DIC_kwDOI6hBvM4CYHn3
   mapping: title                 # identify discussions by post title
   strict: 1                      # use strict identification mode
   reactions_enabled: 1           # enable (1) or disable (0) emoji reactions
@@ -209,6 +210,7 @@ plugins:
   - jekyll-diagrams
   - jekyll-email-protect
   - jekyll-feed
+  - jekyll-get-json
   - jekyll-imagemagick
   - jekyll-jupyter-notebook
   - jekyll-link-attributes
@@ -219,7 +221,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-toc
   - jekyll-twitter-plugin
-  - jekyll-get-json
   - jemoji
 
 # Sitemap settings
@@ -231,7 +232,7 @@ defaults:
 
 # multi language settings
 default_locale_in_subfolder: false
-exclude_from_localizations: ["js", "css"]
+exclude_from_localizations: ["assets"]
 languages: ["en", "pt-br"]
 
 # -----------------------------------------------------------------------------
@@ -350,7 +351,7 @@ jekyll-diagrams:
 # -----------------------------------------------------------------------------
 
 enable_google_analytics:    false  # enables google analytics
-enable_panelbear_analytics: false  # enables panelbear analytics
+enable_cronitor_analytics: false  # enables cronitor RUM analytics
 enable_google_verification: false  # enables google site verification
 enable_bing_verification:   false  # enables bing site verification
 enable_masonry:             true   # enables automatic project cards arrangement
