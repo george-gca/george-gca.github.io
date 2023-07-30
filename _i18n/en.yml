@@ -86,7 +86,7 @@ projects:
     project6: Project 6
   descriptions:
     project1: a project with a background image
-    project2: a project with a background image
+    project2: a project with a background image and giscus comments
     project3: a project that redirects to another website
     project4: another without an image
     project5: a project with a background image

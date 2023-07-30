@@ -78,7 +78,7 @@ orcid_id: 0000-0002-7658-2786 # your ORCID ID
 medium_username: # your Medium username
 quora_username: # your Quora username
 publons_id: # your ID on Publons
-lattes_id: # your ID on Lattes (Brazilian Lattes CV)
+lattes_id: 8522827733075951 # your ID on Lattes (Brazilian Lattes CV)
 osf_id: # your OSF ID
 research_gate_profile: George-De-Araujo # your profile on ResearchGate
 blogger_url: # your blogger URL
@@ -97,14 +97,14 @@ instagram_id: # your instagram id
 facebook_id: # your facebook id
 youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 discord_id: # your discord id (18-digit unique numerical identifier)
-lattes_id: 8522827733075951 # your lattes id
+zotero_username: # your zotero username
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
 # -----------------------------------------------------------------------------
 
 google_analytics: G-J7KHS011G7 # your Goole Analytics measurement ID (format: G-XXXXXXXXXX)
-panelbear_analytics:  # panelbear analytics site ID (format: XXXXXXXXX)
+cronitor_analytics:  # cronitor RUM analytics site ID (format: XXXXXXXXX)
 
 google_site_verification: g-X-aUUud1gtIVUgKEAx9T7VKpcQw1Ymd8aQ-hlIIY8 # your google-site-verification ID (Google Search Console)
 bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
@@ -211,6 +211,7 @@ plugins:
   - jekyll-diagrams
   - jekyll-email-protect
   - jekyll-feed
+  - jekyll-get-json
   - jekyll-imagemagick
   - jekyll-jupyter-notebook
   - jekyll-link-attributes
@@ -232,7 +233,7 @@ defaults:
 
 # multi language settings
 default_locale_in_subfolder: false
-exclude_from_localizations: ["js", "css"]
+exclude_from_localizations: ["assets"]
 languages: ["en", "pt-br"]
 
 # -----------------------------------------------------------------------------
@@ -260,7 +261,7 @@ jekyll-archives:
     category: '/blog/category/:name/'
 
 display_tags: ['al-folio', 'localization', 'code', 'research', 'improvement', 'python'] # this tags will be displayed on the front page of your blog
-# display_tags: 5 # set how many tags are going to be displayed in the blog part
+display_categories: ['blockquotes'] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
@@ -350,7 +351,7 @@ jekyll-diagrams:
 # -----------------------------------------------------------------------------
 
 enable_google_analytics:    true  # enables google analytics
-enable_panelbear_analytics: false  # enables panelbear analytics
+enable_cronitor_analytics: false  # enables cronitor RUM analytics
 enable_google_verification: true  # enables google site verification
 enable_bing_verification:   false  # enables bing site verification
 enable_masonry:             true   # enables automatic project cards arrangement
@@ -399,3 +400,26 @@ mdb:
 medium_zoom:
   version: "1.0.8"
   integrity: "sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8="
+
+# -----------------------------------------------------------------------------
+# Get external JSON data
+# -----------------------------------------------------------------------------
+
+# jekyll_get_json:
+#   - data: resume_en
+#     json: "assets/json/resume_en.json"
+#   - data: resume_pt-br
+#     json: "assets/json/resume_pt-br.json"
+# jsonresume:
+#   - basics
+#   - work
+#   - education
+#   - publications
+#   - projects
+#   - volunteer
+#   - awards
+#   - certificates
+#   - skills
+#   - languages
+#   - interests
+#   - references
