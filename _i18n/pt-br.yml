@@ -7,7 +7,6 @@ main:
     <p>123 seu endereço</p>
     <p>Sua cidade, estado 12345</p>
   contact_note: Você pode até adicionar uma pequena observação sobre qual dessas é a melhor maneira de entrar em contato com você.
-  description: Um tema simples para acadêmicos. Baseado no design do [*folio](https://github.com/bogoli/-folio).
   footer_text: > # the ">" symbol means to ignore newlines until "titles:"
     Desenvolvido em <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> com o tema <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>.
     Hospedado por <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -27,11 +26,11 @@ titles:
   submenus: submenus
   unk: página não encontrada
 descriptions:
-  about: sobre
+  about: Um tema simples para acadêmicos. Baseado no design do [*folio](https://github.com/bogoli/-folio).
   archive-category: um arquivo de postagens desta categoria
   archive-tag: um arquivo de postagens com este marcador
   archive-year: um arquivo de postagens deste ano
-  blog: blogging
+  blog: um tema simples para acadêmicos
   cv: Esta é uma descrição da página. Você pode modificá-la em '_pages/cv.md'. Também pode alterar ou remover o botão no topo de download de pdf.
   publications: publicações por categoria em ordem cronológica reversa. gerado pelo jekyll-scholar.
   projects: Uma crescente coleção de seus projetos interessantes.
