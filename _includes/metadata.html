@@ -68,7 +68,29 @@
     {%- endif -%}
     </title>
     <meta name="author" content="{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}" />
-    <meta name="description" content="{%- if page.description -%}{{ page.description }}{%- else -%}{{ site.description }}{%- endif -%}" />
+    {%- capture description -%}
+        {%- if page.description -%}
+            {%- assign current_variable = site.translations[site.lang] -%}
+            {%- assign splitted_description = page.description | split: "." -%}
+            {%- assign contains_localization = true -%}
+            {%- for part in splitted_description -%}
+                {%- if current_variable contains part -%}
+                    {%- assign current_variable = current_variable[part] -%}
+                {%- else -%}
+                    {%- assign contains_localization = false -%}
+                    {%- break -%}
+                {%- endif -%}
+            {%- endfor -%}
+            {%- if contains_localization -%}
+                {%- t page.description -%}
+            {%- else -%}
+                {{ page.description }}
+            {%- endif -%}
+        {%- else -%}
+            {{ site.description }}
+        {%- endif -%}
+    {%- endcapture -%}
+    <meta name="description" content="{{ description }}" />
 {%- if page.keywords or site.keywords %}
     <meta name="keywords" content="{%- if page.keywords -%}{{ page.keywords }}{%- else -%}{{ site.keywords }}{%- endif -%}" />
 {%- endif %}

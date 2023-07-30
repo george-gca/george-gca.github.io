@@ -4,7 +4,6 @@ not_found:
 main:
   address: ''
   contact_note: ''
-  description: Personal information, tutorials, and open repositories.
   footer_text: > # the ">" symbol means to ignore newlines until "titles:"
     Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a> theme.
     Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -23,11 +22,11 @@ titles:
   submenus: Submenus
   unk: Page not found
 descriptions:
-  about: About me
+  about: Personal information, tutorials, and open repositories.
   archive-category: an archive of posts in this category
   archive-tag: an archive of posts with this tag
   archive-year: an archive of posts from this year
-  blog: Blogging
+  blog: Tutorials, thoughts, publications, random stuff
   cv: Curriculum Vitae
   publications: Selected publications
   projects: Selected projects

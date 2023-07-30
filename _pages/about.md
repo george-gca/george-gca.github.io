@@ -1,6 +1,7 @@
 ---
 layout: about
 title: titles.about
+description: descriptions.about
 subtitle: main.subtitle
 permalink: /
 

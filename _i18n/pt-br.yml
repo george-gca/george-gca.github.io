@@ -4,7 +4,6 @@ not_found:
 main:
   address: ''
   contact_note: ''
-  description: Informações pessoais, tutoriais e repositórios abertos.
   footer_text: > # the ">" symbol means to ignore newlines until "titles:"
     Desenvolvido em <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> com o tema <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>.
     Hospedado por <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -23,11 +22,11 @@ titles:
   submenus: Submenus
   unk: Página não encontrada
 descriptions:
-  about: Sobre
+  about: Informações pessoais, tutoriais e repositórios abertos.
   archive-category: um arquivo de postagens desta categoria
   archive-tag: um arquivo de postagens com este marcador
   archive-year: um arquivo de postagens deste ano
-  blog: Blogging
+  blog: Tutoriais, pensamentos, publicações, coisas aleatórias
   cv: Curriculum Vitae
   publications: Publicações selecionadas
   projects: Projetos selecionados
