@@ -343,7 +343,7 @@ footer.fixed-bottom {
     color: var(--global-footer-link-color);
 
     &:hover {
-      color: var(--global-theme-color);
+      color: var(--global-footer-hover-text-color);
       text-decoration: none;
     }
   }
