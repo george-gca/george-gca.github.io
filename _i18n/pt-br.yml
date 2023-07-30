@@ -90,7 +90,7 @@ projects:
     project6: Projeto 6
   descriptions:
     project1: um projeto com imagem de fundo
-    project2: um projeto com imagem de fundo
+    project2: um projeto com imagem de fundo e comentários do giscus
     project3: um projeto que redireciona pra outro website
     project4: outro sem imagem
     project5: um projeto com imagem de fundo
