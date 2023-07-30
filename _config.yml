@@ -231,6 +231,9 @@ defaults:
     values:
       sitemap: false
 
+sass:
+  style: compressed
+
 # multi language settings
 default_locale_in_subfolder: false
 exclude_from_localizations: ["assets"]
