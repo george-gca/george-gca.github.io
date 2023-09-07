@@ -120,6 +120,13 @@ Feel free to add your own page(s) by sending a PR.
 <a href="https://lucasresck.github.io/" target="_blank">★</a>
 <a href="https://users.wpi.edu/~lfichera/" target="_blank">★</a>
 <a href="https://anmspro.github.io/" target="_blank">★</a>
+<a href="https://berlyne.net/" target="_blank">★</a>
+<a href="https://filippomazzoli.github.io/" target="_blank">★</a>
+<a href="https://www.escontrela.me/" target="_blank">★</a>
+<a href="https://raffaem.github.io/" target="_blank">★</a>
+<a href="https://cbueth.de/" target="_blank">★</a>
+<a href="https://kyleaoman.github.io/" target="_blank">★</a>
+<a href="https://decwest.github.io/" target="_blank">★</a>
 </td>
 </tr>
 <tr>
@@ -170,29 +177,30 @@ Medical Robotics Junior Faculty Forum (ISMR: <a href="https://junior-forum-ismr.
 
   * [User community](#user-community)
   * [Lighthouse PageSpeed Insights](#lighthouse-pagespeed-insights)
+  * [Table Of Contents](#table-of-contents)
   * [Getting started](#getting-started)
-    + [Installation](#installation)
-      - [Local setup using Docker (Recommended on Windows)](#local-setup-using-docker-recommended-on-windows)
-      - [Local Setup (Standard)](#local-setup-standard)
+    - [Installation](#installation)
+      - [Local setup using Docker (Recommended)](#local-setup-using-docker-recommended)
+      - [Local Setup (Legacy)](#local-setup-legacy)
       - [Deployment](#deployment)
       - [Upgrading from a previous version](#upgrading-from-a-previous-version)
-    + [FAQ](#faq)
-  * [Features](#features)
-    + [Publications](#publications)
-    + [Collections](#collections)
-    + [Layouts](#layouts)
+    - [FAQ](#faq)
+  - [Features](#features)
+    - [Publications](#publications)
+    - [Collections](#collections)
+    - [Layouts](#layouts)
       - [The iconic style of Distill](#the-iconic-style-of-distill)
-      - [Full support for math & code](#full-support-for-math--code)
+      - [Full support for math \& code](#full-support-for-math--code)
       - [Photos](#photos)
-    + [Other features](#other-features)
-      - [GitHub repositories and user stats](#github-repositories-and-user-stats)
+    - [Other features](#other-features)
+      - [GitHub's repositories and user stats](#githubs-repositories-and-user-stats)
       - [Theming](#theming)
       - [Social media previews](#social-media-previews)
       - [Atom (RSS-like) Feed](#atom-rss-like-feed)
       - [Related posts](#related-posts)
-  * [Contributing](#contributing)
-    + [Core Contributors](#core-contributors)
-  * [License](#license)
+  - [Contributing](#contributing)
+    - [Maintainers](#maintainers)
+  - [License](#license)
 
 ## Getting started
 
@@ -216,18 +224,19 @@ $ cd <your-repo-name>
 
 ---
 
-#### Local setup using Docker (Recommended on Windows)
+#### Local setup using Docker (Recommended)
+Using Docker to install Jekyll and Ruby dependencies is the easiest way.
 
-You need to take the following steps to get `al-folio` up and running in your local machine:
+You need to take the following steps to get `al-folio` up and running on your local machine:
 
 - First, install [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/).
-- Finally, run the following command that will pull a pre-built image from DockerHub and will run your website.
+- Finally, run the following command that will pull the latest pre-built image from DockerHub and will run your website.
 
 ```bash
 $ docker-compose up
 ```
 
-Note that when you run it for the first time, it will download a docker image of size 300MB or so.
+Note that when you run it for the first time, it will download a docker image of size 400MB or so. 
 
 Now, feel free to customize the theme however you like (don't forget to change the name!). After you are done, you can use the same command (`docker-compose up`) to render the webpage with all you changes. Also, make sure to commit your final changes.
 
@@ -249,12 +258,14 @@ $ docker-compose -f docker-local.yml up
 
 ---
 
-#### Local Setup (Standard)
+#### Local Setup (Legacy)
 
-Assuming you have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Bundler](https://bundler.io/) installed on your system (*hint: for ease of managing ruby gems, consider using [rbenv](https://github.com/rbenv/rbenv)*).
+Assuming you have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Bundler](https://bundler.io/) installed on your system (*hint: for ease of managing ruby gems, consider using [rbenv](https://github.com/rbenv/rbenv)*), and also [Python](https://www.python.org/) and [pip](https://pypi.org/project/pip/) (*hint: for ease of managing python packages, consider using a virtual environment, like [venv](https://docs.python.org/pt-br/3/library/venv.html) or [conda](https://docs.conda.io/en/latest/). If you will use only `jupyter`, you can use [pipx](https://pypa.github.io/pipx/)*).
 
 ```bash
 $ bundle install
+# assuming pip is your Python package manager
+$ pip install jupyter
 $ bundle exec jekyll serve --lsi
 ```
 
@@ -621,7 +632,7 @@ A variety of beautiful theme colors have been selected for you to choose from.
 The default is purple, but you can quickly change it by editing the
 `--global-theme-color` variable in the `_sass/_themes.scss` file.
 Other color variables are listed there as well.
-The stock theme color options available can be found at `_sass/variables.scss`.
+The stock theme color options available can be found at `_sass/_variables.scss`.
 You can also add your own colors to this file assigning each a name for ease of
 use across the template.
 
@@ -680,6 +691,14 @@ If you are interested, please reach out!
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+### All Contributors
+
+<a href="https://github.com/alshedivat/al-folio/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=alshedivat/al-folio&max=36" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
 
 ## License
 
