@@ -43,6 +43,37 @@
     {%- assign page_title = nil -%}
 {%- endif -%}
 
+{%- if page_title -%}
+    {% assign title_array = "" | split: ',' %}
+    {%- assign splitted_description_by_space = page_title | split: " " -%}
+    {%- for outer_part in splitted_description_by_space -%}
+        {%- if outer_part contains '.' -%}
+            {%- assign current_variable = site.translations[site.lang] -%}
+            {%- assign splitted_description = outer_part | split: "." -%}
+            {%- assign contains_localization = true -%}
+            {%- for part in splitted_description -%}
+                {%- if current_variable contains part -%}
+                    {%- assign current_variable = current_variable[part] -%}
+                {%- else -%}
+                    {%- assign contains_localization = false -%}
+                    {%- break -%}
+                {%- endif -%}
+            {%- endfor -%}
+            {%- if contains_localization -%}
+                {%- capture temp_var -%}{% t outer_part %}{%- endcapture -%}
+                {% assign title_array = title_array | push: temp_var %}
+            {%- else -%}
+                {%- capture temp_var -%}{{ outer_part }}{%- endcapture -%}
+                {% assign title_array = title_array | push: temp_var %}
+            {%- endif -%}
+        {%- else -%}
+            {%- capture temp_var -%}{{ outer_part }}{%- endcapture -%}
+            {% assign title_array = title_array | push: temp_var %}
+        {%- endif -%}
+    {%- endfor -%}
+    {% assign page_title = title_array | join: ' ' %}
+{%- endif -%}
+
     <!-- Standard metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

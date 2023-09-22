@@ -79,6 +79,7 @@ news:
 pagination:
   newer: Recentes
   older: Antigas
+  page: página
 projects:
   titles:
     project1: Projeto 1

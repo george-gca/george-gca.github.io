@@ -79,6 +79,7 @@ news:
 pagination:
   newer: Newer
   older: Older
+  page: page
 projects:
   titles:
     project1: Project 1
