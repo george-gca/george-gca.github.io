@@ -1,10 +1,9 @@
 ---
 layout: profiles
-title: people
-permalink: /people/
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+title: titles.profiles
 nav: true
 nav_order: 6
+permalink: /people/
 
 profiles:
   # if you want to include more than one profile, just replicate the following block
