@@ -29,9 +29,10 @@ layout: default
               alt=page.profile.image
               cache_bust=true -%}
             {% endif -%}
-            {%- if page.profile.more_info %}
+            {% assign more_info_size = site.translations[site.lang].main.more_info | size %}
+            {% if more_info_size > 0 %}
             <div class="more-info">
-              {% t main.profile.more_info }}
+              {% t main.more_info %}
             </div>
             {%- endif %}
           </div>
