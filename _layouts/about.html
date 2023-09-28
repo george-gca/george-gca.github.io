@@ -29,9 +29,9 @@ layout: default
               alt=page.profile.image
               cache_bust=true -%}
             {% endif -%}
-            {%- if page.profile.address %}
-            <div class="address">
-              {% t main.address %}
+            {%- if page.profile.more_info %}
+            <div class="more-info">
+              {% t main.profile.more_info }}
             </div>
             {%- endif %}
           </div>
@@ -42,7 +42,7 @@ layout: default
           </div>
 
           <!-- News -->
-          {% if page.news -%}
+          {% if page.news and site.announcements.enabled -%}
             <h2><a href="{{ '/news/' | prepend: site.baseurl }}" style="color: inherit;">{%t titles.news %}</a></h2>
             {%- include news.html limit=true %}
           {%- endif %}
