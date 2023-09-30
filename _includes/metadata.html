@@ -43,6 +43,42 @@
     {%- assign page_title = nil -%}
 {%- endif -%}
 
+{%- if page_title -%}
+    {% assign title_array = "" | split: ',' %}
+    {%- assign splitted_description_by_space = page_title | split: " " -%}
+    {%- for outer_part in splitted_description_by_space -%}
+        {%- if outer_part contains '.' -%}
+            {%- capture contains_localization -%}{%- localization_exists {{ outer_part }} -%}{%- endcapture -%}
+            {%- if contains_localization == "true" -%}
+                {%- capture temp_var -%}{% t outer_part %}{%- endcapture -%}
+                {% assign title_array = title_array | push: temp_var %}
+            {%- else -%}
+                {%- capture temp_var -%}{{ outer_part }}{%- endcapture -%}
+                {% assign title_array = title_array | push: temp_var %}
+            {%- endif -%}
+        {%- else -%}
+            {%- capture temp_var -%}{{ outer_part }}{%- endcapture -%}
+            {% assign title_array = title_array | push: temp_var %}
+        {%- endif -%}
+    {%- endfor -%}
+    {% assign page_title = title_array | join: ' ' %}
+{%- endif -%}
+
+{%- if page.description -%}
+    {%- capture contains_localization -%}{%- localization_exists {{ page.description }} -%}{%- endcapture -%}
+    {%- if contains_localization == "true" -%}
+        {%- capture description -%}{% t page.description %}{%- endcapture -%}
+    {%- else -%}
+        {%- capture description -%}{{ page.description }}{%- endcapture -%}
+    {%- endif -%}
+{%- elsif site.description -%}
+    {%- capture contains_localization -%}{%- localization_exists {{ site.description }} -%}{%- endcapture -%}
+    {%- if contains_localization == "true" -%}
+        {%- capture description -%}{% t site.description %}{%- endcapture -%}
+    {%- else -%}
+        {%- capture description -%}{{ site.description }}{%- endcapture -%}
+    {%- endif -%}
+{%- endif -%}
     <!-- Standard metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -68,28 +104,6 @@
     {%- endif -%}
     </title>
     <meta name="author" content="{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}" />
-    {%- capture description -%}
-        {%- if page.description -%}
-            {%- assign current_variable = site.translations[site.lang] -%}
-            {%- assign splitted_description = page.description | split: "." -%}
-            {%- assign contains_localization = true -%}
-            {%- for part in splitted_description -%}
-                {%- if current_variable contains part -%}
-                    {%- assign current_variable = current_variable[part] -%}
-                {%- else -%}
-                    {%- assign contains_localization = false -%}
-                    {%- break -%}
-                {%- endif -%}
-            {%- endfor -%}
-            {%- if contains_localization -%}
-                {%- t page.description -%}
-            {%- else -%}
-                {{ page.description }}
-            {%- endif -%}
-        {%- else -%}
-            {{ site.description }}
-        {%- endif -%}
-    {%- endcapture -%}
     <meta name="description" content="{{ description }}" />
 {%- if page.keywords or site.keywords %}
     <meta name="keywords" content="{%- if page.keywords -%}{{ page.keywords }}{%- else -%}{{ site.keywords }}{%- endif -%}" />
@@ -108,7 +122,7 @@
     <meta property="og:type" content="{%- if is_blog_post -%}article{%- else -%}website{%- endif -%}" />
     <meta property="og:title" content="{%- if page.title -%}{{ title }} | {{ page_title }}{%- else -%}{{ title }}{%- endif -%}" />
     <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url | remove_first: 'index.html' }}" />
-    <meta property="og:description" content="{%- if page.description -%}{{ page.description }}{%- else -%}{{ site.description }}{%- endif -%}" />
+    <meta property="og:description" content="{{ description }}" />
     {% if page.og_image or site.og_image -%}
     <meta property="og:image" content="{%- if page.og_image -%}{{ page.og_image }}{%- else -%}{{ site.og_image }}{%- endif -%}" />
     {%- endif %}
@@ -117,7 +131,7 @@
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="{%- if page.title -%}{{ page_title }}{%- else -%}{{ title }}{%- endif -%}" />
-    <meta name="twitter:description" content="{%- if page.description -%}{{ page.description }}{%- else -%}{{ site.description }}{%- endif -%}" />
+    <meta name="twitter:description" content="{{ description }}" />
     {% if page.og_image or site.og_image -%}
     <meta name="twitter:image" content="{%- if page.og_image -%}{{ page.og_image }}{%- else -%}{{ site.og_image }}{%- endif -%}" />
     {%- endif %}
@@ -281,7 +295,7 @@
         },
         "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
         "@type": "{%- if is_blog_post -%}BlogPosting{%- else -%}WebSite{%- endif -%}",
-        "description": "{%- if page.description -%}{{ page.description }}{%- else if site.description -%}{{ site.description }}{%- endif -%}",
+        "description": "{{ description }}",
         "headline": "{%- if page.title -%}{{ page_title }}{%- else -%}{{ site.title }}{%- endif -%}",
         {% if sameaslinks != blank -%}
         "sameAs": {{ sameaslinks }},
