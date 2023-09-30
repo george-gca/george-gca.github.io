@@ -2,11 +2,11 @@ not_found:
   message: You will be redirected to the main page within 3 seconds. If not redirected, please go back to the
   main_page: home page
 main:
-  address: ''
   contact_note: ''
   footer_text: > # the ">" symbol means to ignore newlines until "titles:"
     Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a> theme.
     Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+  more_info: ''
   subtitle: ''
 titles:
   about: Bio
@@ -28,8 +28,8 @@ descriptions:
   archive-year: an archive of posts from this year
   blog: Tutorials, thoughts, publications, random stuff
   cv: Curriculum Vitae
-  publications: Selected publications
   projects: Selected projects
+  publications: Selected publications
   repositories: My public repositories and Github statistics
   teaching: Teaching
   unk: Looks like there has been a mistake. Nothing exists here.

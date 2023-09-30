@@ -22,9 +22,10 @@ layout: default
               alt=page.profile.image
               cache_bust=true -%}
             {% endif -%}
-            {%- if page.profile.address %}
-            <div class="address">
-              {% t main.address %}
+            {% assign more_info_size = site.translations[site.lang].main.more_info | size %}
+            {% if more_info_size > 0 %}
+            <div class="more-info">
+              {% t main.more_info %}
             </div>
             {%- endif %}
           </div>
@@ -42,7 +43,7 @@ layout: default
           </div>
 
           <!-- News -->
-          {% if page.news -%}
+          {% if page.news and site.announcements.enabled -%}
             <h2><a href="{{ '/news/' | prepend: site.baseurl }}" style="color: inherit;">{%t titles.news %}</a></h2>
             {%- include news.html limit=true %}
           {%- endif %}

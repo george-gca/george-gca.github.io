@@ -3,7 +3,8 @@
 
     <!-- Bootstrap & MDB -->
     <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url | bust_file_cache }}">
-    <link rel="stylesheet" href="{{ '/assets/css/mdb.min.css' | relative_url | bust_file_cache }}">
+    <!-- <link rel="stylesheet" href="{{ '/assets/css/mdb.min.css' | relative_url | bust_file_cache }}"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@{{ site.mdb.version }}/css/mdb.min.css" integrity="{{ site.mdb.integrity.css }}" crossorigin="anonymous" />
 
     <!-- Bootstrap Table -->
     <link defer rel="stylesheet" href="https://unpkg.com/bootstrap-table@{{ site.bootstrap-table.version }}/dist/bootstrap-table.min.css">
@@ -24,7 +25,7 @@
     {% if site.icon.size <= 4 %}
     <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>{{ site.icon }}</text></svg>">
     {% elsif site.icon != blank %}
-    <link rel="shortcut icon" href="{{ site.icon | prepend: '/assets/img/' | relative_url }}"/>
+    <link rel="shortcut icon" href="{{ site.icon | prepend: '/assets/img/' | relative_url | bust_file_cache}}"/>
     {% endif %}
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url | bust_css_cache }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
