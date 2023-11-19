@@ -373,11 +373,11 @@ footer.fixed-bottom {
   }
 
   a {
-    color: var(--global-footer-link-color);
+    color: var(--global-footer-hover-text-color);
 
     &:hover {
       color: var(--global-footer-hover-text-color);
-      text-decoration: none;
+      text-decoration: underline;
     }
   }
 }
@@ -510,11 +510,12 @@ footer.sticky-bottom {
 
       &:hover {
         color: $black-color;
+        background-color: var(--global-pagination-hover-color);
       }
     }
 
     &.active .page-link {
-      color: $white-color;
+      color: var(--global-text-inverted-color);
       background-color: var(--global-theme-color);
 
       &:hover {
