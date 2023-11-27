@@ -10,22 +10,23 @@ related_posts: true
 ---
 
 In this post we will investigate the performance of regex and Python string methods. More specifically, we will compare different
-forms of searching for a substring in a given string. We will test it with a variety of strings and substrings sizes and positions,
-and also when the substring can't be found. Later, we will also test the performance of the same operations when searching for a large
-number of substrings of varied sizes and positions. The code for all these experiments is [available here](https://gist.github.com/george-gca/29cc3af8e1fa5061c6246eefa3476bd1).
+forms of searching for a substring in a given string. We will test it with a variety of strings and substrings sizes and positions, and also when the substring can't be found. Later, we will also test the performance of the same operations when searching for a large number of substrings of varied sizes and positions. The code for all these experiments is [available here](https://gist.github.com/george-gca/29cc3af8e1fa5061c6246eefa3476bd1).
 
 ## Experiments config
 
-To generate the strings I created a function that cycles through all the lowercase letters of the alphabet and returns a string of the desired length. This way we can test the performance of the search in a string of a given size.
+To generate the strings I created a function that cycles through all the lowercase letters of the alphabet and returns a string of the desired length. This way we can test the performance of the search in a string of any given size.
 
 ```python
+from itertools import cycle, islice
+from string import ascii_lowercase
+
 def get_string(length):
   return  ''.join(c for c in islice(cycle(ascii_lowercase), length))
 ```
 
 To generate the substrings, I simply selected a slice of the string in the desired position and size. To use substrings that could not be found in the string, I simply reversed the substrings. Since they are generated in alphabetical order, this ensures that it will not be found.
 
-I used a string of length 30 with substrings of size 10 when searching in small strings. For searching in a large string, we used a string of size 10k, with substrings with size 10 when using small substrings and 5k when using large ones. For groups of substrings, when searching in small string we used a group of 3, while for the large string we used a group of 10 when searching in a small group and 5k when searching in a large group.
+I used a string of length 30 with substrings of size 10 when searching in small strings. For searching in a large string, I used a string of size 10k, with substrings with size 10 when using small substrings and 5k when using large ones. For groups of substrings, when searching in small string I used a group of 3, while for the large string I used a group of 10 when searching in a small group and 5k when searching in a large group.
 
 For all the runs I let the `timeit` function decide the number of loops to run, and it ran 7 times to get the average and standard deviation. Basically, 10 experiments were made for each case, being 3 using regexes and the rest pure python string methods. All the experiments were run for two situations: case sensitive and insensitive. The experiments were made for the following cases:
 
@@ -43,7 +44,7 @@ For all the runs I let the `timeit` function decide the number of loops to run, 
   - slicing the end of the string with the same size as `sub` then using `==` operator
   - slicing the end of the string with the same size as `sub` then using `endswith`
 
-When looking for more than one substring, we used the same cases as above, but giving the list of substring to search for. When using regexes, we used the `|` operator to search for all the substrings at once.
+When looking for more than one substring, I used the same cases as above, but giving the list of substring to search for. When using regexes, we used the `|` operator to search for all the substrings at once.
 
 <script>
   function convertScale(value) {
