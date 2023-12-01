@@ -74,6 +74,7 @@ months:
     november: Nov
     december: Dez
 news:
+  empty: Nenhuma novidade no momento...
   titles:
     news1: Um anúncio simples em uma linha.
     news2: Um anúncio longo com detalhes
