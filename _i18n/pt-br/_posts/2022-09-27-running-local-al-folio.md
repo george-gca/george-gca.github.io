@@ -76,12 +76,20 @@ gem install bundle
 bundle install
 ```
 
+Também é necessário instalar o pacote `jupyter`, já que o al-folio suporta `jupyter` notebooks. Se você não planeja usar notebooks com tanta frequência, pode instalar via [pipx](https://github.com/pypa/pipx). Para instalar o `pipx` e o `jupyter`, execute os seguintes comandos:
+
+```bash
+# também é possível instalar via apt com o comando `sudo apt install -y pipx`
+python3 -m pip install --user pipx
+pipx install jupyter
+```
+
 ## Executando o al-folio localmente
 
 Agora você pode executar o site localmente. Tudo o que você precisa fazer é abrir o diretório do al-folio e executar o Jekyll:
 
 ```bash
-bundle exec jekyll serve
+bundle exec jekyll serve --lsi
 ```
 
 Boa programação!

@@ -66,7 +66,7 @@ rbenv install 3.1.2
 
 ## Installing al-folio dependencies
 
-Now that you have Ruby installed, you can install the al-folio dependencies. First, clone the al-folio repository to your local machine. Then, enter the repository directory and create a local Ruby environment with the installed Ruby version. Next, install the `bundle` package, so it will take care of installing the rest of the dependencies. To do all of this, run the following commands:
+Now that you have Ruby installed, you can install al-folio dependencies. First, clone the al-folio repository to your local machine. Then, enter the repository directory and create a local Ruby environment with the installed Ruby version. Next, install the `bundle` package, so it will take care of installing the rest of the dependencies. To do all of this, run the following commands:
 
 ```bash
 git clone ~/git@github.com:alshedivat/al-folio.git
@@ -76,12 +76,20 @@ gem install bundle
 bundle install
 ```
 
+Since al-folio supports `jupyter` notebooks, we also need to install it. If you are not planning to use notebooks that much, you can install it via [pipx](https://github.com/pypa/pipx). To install both `pipx` and `jupyter`, run the following commands:
+
+```bash
+# this can also be done via apt with `sudo apt install -y pipx`
+python3 -m pip install --user pipx
+pipx install jupyter
+```
+
 ## Running al-folio locally
 
 From now on, you can run the site locally. All you need to do is to open the al-folio directory and call Jekyll:
 
 ```bash
-bundle exec jekyll serve
+bundle exec jekyll serve --lsi
 ```
 
 Happy coding!
