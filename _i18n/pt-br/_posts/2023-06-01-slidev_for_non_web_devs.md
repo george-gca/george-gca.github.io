@@ -165,3 +165,39 @@ Por fim, execute o comando:
 ```bash
 npm run-script export_slides
 ```
+
+## Atualizando as dependências
+
+Para atualizar o `node` para a versão mais recente, execute:
+
+```bash
+nvm install $(nvm ls-remote | grep -i latest | tail -n 1 |
+  sed -ne 's/[^v0-9]*\(\([0-9]*\.\)\{0,4\}[0-9][^.]\).*/\1/p' | xargs) --reinstall-packages-from=current
+```
+
+Para verificar as dependências que precisam ser atualizadas, execute:
+
+```bash
+npm outdated
+```
+
+que irá produzir algo como:
+
+```txt
+Package      Current   Wanted  Latest  Location                  Depended by
+@slidev/cli  0.43.11  0.43.15  0.46.1  node_modules/@slidev/cli  xxxxxxxx
+```
+
+Para atualizar as dependências instaladas, basta executar:
+
+```bash
+npm update
+```
+
+Tenha em mente que o `npm update` nunca atualizará para uma versão de quebra de compatibilidade, apenas para uma versão menor. O que isso significa é que ele usará a versão `Wanted` na tabela acima em vez da versão `Latest`. Para obter a versão `Latest`, chame o comando de instalação com `@latest` anexado ao nome do pacote. Por exemplo, para atualizar o `@slidev/cli` para a versão mais recente, execute:
+
+```bash
+npm install @slidev/cli@latest
+```
+
+

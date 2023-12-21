@@ -165,3 +165,37 @@ To export the slides, run:
 ```bash
 npm run-script export_slides
 ```
+
+## Updating dependencies
+
+To update `node` to the latest LTS release, run:
+
+```bash
+nvm install $(nvm ls-remote | grep -i latest | tail -n 1 |
+  sed -ne 's/[^v0-9]*\(\([0-9]*\.\)\{0,4\}[0-9][^.]\).*/\1/p' | xargs) --reinstall-packages-from=current
+```
+
+To check for dependencies that need to be updated, run:
+
+```bash
+npm outdated
+```
+
+which will output something like this:
+
+```txt
+Package      Current   Wanted  Latest  Location                  Depended by
+@slidev/cli  0.43.11  0.43.15  0.46.1  node_modules/@slidev/cli  xxxxxxxx
+```
+
+To updated installed dependencies, simply run:
+
+```bash
+npm update
+```
+
+Keep in mind that `npm update` will never update to a major breaking-changes version, only to a minor one. What this means is, it will use the `Wanted` version in the table above instead of the `Latest` version. To obtain the `Latest` version, call the install command with `@latest` appended to the package name. For example, to update `@slidev/cli` to the latest version, run:
+
+```bash
+npm install @slidev/cli@latest
+```
