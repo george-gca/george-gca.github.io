@@ -63,7 +63,7 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 
 github_username: george-gca # your GitHub user name
 gitlab_username: # your GitLab user name
-twitter_username: # your Twitter handle
+x_username: # your X handle
 mastodon_username: # your mastodon instance+username in the format instance.tld/@username
 linkedin_username: georgecdearaujo # your LinkedIn user name
 telegram_username: # your Telegram user name
@@ -295,17 +295,20 @@ scholar:
   group_by: year
   group_order: descending
 
-badges: # Display different badges for your publications
-  altmetric_badge: true # Altmetric badge (https://www.altmetric.com/products/altmetric-badges/)
-  dimensions_badge: true # Dimensions badge (https://badge.dimensions.ai/)
+# Display different badges withs stats for your publications
+enable_publication_badges:
+  altmetric: true # Altmetric badge (https://www.altmetric.com/products/altmetric-badges/)
+  dimensions: true # Dimensions badge (https://badge.dimensions.ai/)
 
 # Filter out certain bibtex entry keywords used internally from the bib output
-filtered_bibtex_keywords: [abbr, abstract, arxiv, bibtex_show, html, pdf, selected, supp, blog, code, poster, slides, website, preview, altmetric]
+filtered_bibtex_keywords: [abbr, abstract, arxiv, bibtex_show, html, pdf, selected, supp, blog, code, poster, video, slides, website, preview, altmetric]
 
 # Maximum number of authors to be shown for each publication (more authors are visible on click)
 max_author_limit: 3  # leave blank to always show all authors
 more_authors_animation_delay: 10  # more authors are revealed on click using animation; smaller delay means faster animation
 
+# Enables publication thumbnails. If disabled, none of the publications will display thumbnails, even if specified in the bib entry.
+enable_publication_thumbnails: true
 
 # -----------------------------------------------------------------------------
 # Jekyll Link Attributes

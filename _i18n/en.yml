@@ -68,6 +68,7 @@ months:
     november: Nov
     december: Dec
 news:
+  empty: No news so far...
   titles:
     news1: A simple inline announcement.
     news2: A long announcement with details

@@ -3,10 +3,12 @@ name: deploy
 on:
   push:
     branches:
-      - gca
+      - master
+      - main
   pull_request:
     branches:
-      - gca
+      - master
+      - main
   workflow_dispatch:
 
 permissions:
@@ -14,7 +16,7 @@ permissions:
 
 jobs:
   deploy:
-    # available images: https://github.com/actions/runner-images#available-images
+    available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
     steps:
     - name: Checkout 🛎️
@@ -24,6 +26,13 @@ jobs:
       with:
         ruby-version: '3.2.2'
         bundler-cache: true
+    - name: Update _config.yml ⚙️
+      uses: fjogeleit/yaml-update-action@v0.13.1
+      with:
+        commitChange: false
+        valueFile: '_config.yml'
+        propertyPath: 'giscus.repo'
+        value: ${{ github.repository }}
     - name: Install and Build 🔧
       run: |
         pip3 install --upgrade jupyter

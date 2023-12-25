@@ -4,7 +4,7 @@ title: titles.repositories
 description: descriptions.repositories
 permalink: /repositories/
 nav: true
-nav_order: 3
+nav_order: 4
 ---
 
 ## {% t repositories.users %}
