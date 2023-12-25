@@ -199,5 +199,3 @@ Tenha em mente que o `npm update` nunca atualizará para uma versão de quebra d
 ```bash
 npm install @slidev/cli@latest
 ```
-
-
