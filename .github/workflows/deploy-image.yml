@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ gca ]
 
 jobs:
 
@@ -17,7 +17,7 @@ jobs:
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
-      
+
     - name: Buildx
       uses: docker/setup-buildx-action@v2
 
