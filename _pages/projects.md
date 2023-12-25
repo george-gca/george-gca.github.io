@@ -4,7 +4,7 @@ title: titles.projects
 description: descriptions.projects
 permalink: /projects/
 nav: true
-nav_order: 2
+nav_order: 3
 display_categories: [work, fun]
 horizontal: false
 ---
