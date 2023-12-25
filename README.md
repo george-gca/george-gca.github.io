@@ -44,6 +44,7 @@ Feel free to add your own page(s) by sending a PR.
 <tr>
 <td>Academics</td>
 <td>
+<a href="https://martinbulla.github.io" target="_blank">★</a>
 <a href="https://maruan.alshedivat.com" target="_blank">★</a>
 <a href="https://www.cs.columbia.edu/~chen1ru/" target="_blank">★</a>
 <a href="https://maithraraghu.com" target="_blank">★</a>
@@ -132,6 +133,12 @@ Feel free to add your own page(s) by sending a PR.
 <a href="https://kudhru.github.io/" target="_blank">★</a>
 <a href="https://mbarbetti.github.io/" target="_blank">★</a>
 <a href="https://www.zhivotenko.com/" target="_blank">★</a>
+<a href="https://giordanodaloisio.github.io/" target="_blank">★</a>
+<a href="https://aadityaura.github.io/" target="_blank">★</a>
+<a href="https://abhinav-mehta.github.io/" target="_blank">★</a>
+<a href="https://shubhashisroydipta.com/" target="_blank">★</a>
+<a href="https://astanziola.github.io" target="_blank">★</a>
+<a href="https://tinkerer.in" target="_blank">★</a>
 </td>
 </tr>
 <tr>
@@ -160,7 +167,7 @@ CMU Distributed Systems (<a href="https://andrew.cmu.edu/course/15-440/" target=
 <tr>
 <td>Conferences & workshops</td>
 <td>
-ICLR Blog Post Track (<a href="https://iclr-blogposts.github.io/2023/" target="_blank">2023</a>) <br>
+ICLR Blog Post Track (<a href="https://iclr-blogposts.github.io/2023/" target="_blank">2023</a>, <a href="https://iclr-blogposts.github.io/2024/about" target="_blank">2024</a>) <br>
 ML Retrospectives (NeurIPS: <a href="https://ml-retrospectives.github.io/neurips2019/" target="_blank">2019</a>, <a href="https://ml-retrospectives.github.io/neurips2020/" target="_blank">2020</a>; ICML: <a href="https://ml-retrospectives.github.io/icml2020/" target="_blank">2020</a>) <br>
 HAMLETS (NeurIPS: <a href="https://hamlets-workshop.github.io/" target="_blank">2020</a>) <br>
 ICBINB (NeurIPS: <a href="https://i-cant-believe-its-not-better.github.io/" target="_blank">2020</a>, <a href="https://i-cant-believe-its-not-better.github.io/neurips2021/" target="_blank">2021</a>) <br>
@@ -168,7 +175,8 @@ Neural Compression (ICLR: <a href="https://neuralcompression.github.io/" target=
 Score Based Methods (NeurIPS: <a href="https://score-based-methods-workshop.github.io/" target="_blank">2022</a>)<br>
 Images2Symbols (CogSci: <a href="https://images2symbols.github.io/" target="_blank"> 2022</a>) <br>
 Medical Robotics Junior Faculty Forum (ISMR: <a href="https://junior-forum-ismr.github.io/" target="_blank"> 2023</a>)<br>
-Beyond Vision: Physics meets AI (ICIAP: <a href="https://physicsmeetsai.github.io/beyond-vision/" target="_blank">2023</a>)
+Beyond Vision: Physics meets AI (ICIAP: <a href="https://physicsmeetsai.github.io/beyond-vision/" target="_blank">2023</a>) <br>
+Workshop on Diffusion Models (NeurIPS: <a href="https://diffusionworkshop.github.io/" target="_blank">2023</a>)
 </td>
 </tr>
 </table>
@@ -181,6 +189,7 @@ Beyond Vision: Physics meets AI (ICIAP: <a href="https://physicsmeetsai.github.i
 
 ## Table Of Contents
 
+- [al-folio](#al-folio)
   - [User community](#user-community)
   - [Lighthouse PageSpeed Insights](#lighthouse-pagespeed-insights)
   - [Table Of Contents](#table-of-contents)
@@ -192,6 +201,7 @@ Beyond Vision: Physics meets AI (ICIAP: <a href="https://physicsmeetsai.github.i
       - [Upgrading from a previous version](#upgrading-from-a-previous-version)
     - [FAQ](#faq)
   - [Features](#features)
+    - [CV](#cv)
     - [Publications](#publications)
     - [Collections](#collections)
     - [Layouts](#layouts)
@@ -206,6 +216,7 @@ Beyond Vision: Physics meets AI (ICIAP: <a href="https://physicsmeetsai.github.i
       - [Related posts](#related-posts)
   - [Contributing](#contributing)
     - [Maintainers](#maintainers)
+    - [All Contributors](#all-contributors)
   - [License](#license)
 
 ## Getting started
@@ -216,21 +227,24 @@ Why Jekyll? Read [Andrej Karpathy's blog post](https://karpathy.github.io/2014/0
 
 ### Installation
 
-For a hands-on walkthrough of al-folio installation, check out [this cool video tutorial](https://www.youtube.com/watch?v=g6AJ9qPPoyc) by one of the community members! 🎬 🍿
+The recommended approach for using **al-folio** is to first create your own site using the template with as few changes as possible, and only when it is up and running customize it however you like. This way it is easier to pinpoint what causes a potential issue in case of a bug. The minimum steps required to create your own site are:
 
-The preferred way of using this template is by clicking in [Use this template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template) above the file list.
-Then, create a new repository at `github.com:<your-username>/<your-repo-name>`. If you plan to upload your site to `<your-github-username>.github.io`,
-note that the name of your repository must be `<your-github-username>.github.io` or `<your-github-orgname>.github.io`, as stated in the [GitHub pages docs](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites).
-For more information on how to deploy your site, check the [Deployment](#deployment) section below. After you created your new repository, just download it to your machine:
+1. Create a new repository using this template. For this, click on `Use this template -> Create a new repository` above the file list. If you plan to upload your site to `<your-github-username>.github.io`, note that the name of your repository MUST BE `<your-github-username>.github.io` or `<your-github-orgname>.github.io`, as stated in the [GitHub pages docs](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites).
+2. In this new repository, go to `Settings -> Actions -> General -> Workflow permissions` and give `Read and write permissions` to GitHub Actions.
+3. Open file `_config.yml`, set `url` to `https://<your-github-username>.github.io` and leave `baseurl` **empty**.
+4. Finally, in the repository page go to `Settings -> Pages -> Build and deployment`, make sure that `Source` is set to `Deploy from a branch` and set the branch to `gh-pages` (NOT to master).
+5. Wait until the GitHub actions finish, then simply navigate to `https://<your-github-username>.github.io` in your browser. At this point you should see a copy of the theme's demo website.
+
+After everything is set up, you can download the repository to your machine and start customizing it. To do so, run the following commands:
 
 ```bash
 $ git clone git@github.com:<your-username>/<your-repo-name>.git
-$ cd <your-repo-name>
 ```
 
 ---
 
 #### Local setup using Docker (Recommended)
+
 Using Docker to install Jekyll and Ruby dependencies is the easiest way.
 
 You need to take the following steps to get `al-folio` up and running on your local machine:
@@ -239,12 +253,13 @@ You need to take the following steps to get `al-folio` up and running on your lo
 - Finally, run the following command that will pull the latest pre-built image from DockerHub and will run your website.
 
 ```bash
-$ docker-compose up
+$ docker compose pull
+$ docker compose up
 ```
 
-Note that when you run it for the first time, it will download a docker image of size 400MB or so. 
+Note that when you run it for the first time, it will download a docker image of size 400MB or so. To see the template running, open your browser and go to `http://localhost:8888`. You should see a copy of the theme's demo website.
 
-Now, feel free to customize the theme however you like (don't forget to change the name!). After you are done, you can use the same command (`docker-compose up`) to render the webpage with all you changes. Also, make sure to commit your final changes.
+Now, feel free to customize the theme however you like (don't forget to change the name!). After you are done, you can use the same command (`docker compose up`) to render the webpage with all you changes. Also, make sure to commit your final changes.
 
 > To change port number, you can edit `docker-compose.yml` file.
 
@@ -255,16 +270,23 @@ Now, feel free to customize the theme however you like (don't forget to change t
 Build and run a new docker image using:
 
 ```bash
-$ docker-compose -f docker-local.yml up
+$ docker compose up --build
 ```
 
-> If you want to update jekyll, install new ruby packages, etc., all you have to do is build the image again using `--force-recreate` argument at the end of previous command! It will download ruby and jekyll and install all ruby packages again from scratch.
+> If you want to update jekyll, install new ruby packages, etc., all you have to do is build the image again using `--force-recreate` argument at the end of the previous command! It will download Ruby and Jekyll and install all Ruby packages again from scratch.
+
+If you want to use a specific docker version, you can do so by changing `latest` tag to `your_version` in `docker-compose.yaml`. For example, you might have created your website on `v0.10.0` and you want to stick with that.
+
+- Beta
+You can also change the docker image tag to slim! It is a slimmed docker image with a size of below 100MBs (same functionality).
 
 </details>
 
 ---
 
 #### Local Setup (Legacy)
+
+For a hands-on walkthrough of running al-folio locally without using Docker, check out [this cool blog post](https://george-gca.github.io/blog/2022/running-local-al-folio/) by one of the community members!
 
 Assuming you have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Bundler](https://bundler.io/) installed on your system (*hint: for ease of managing ruby gems, consider using [rbenv](https://github.com/rbenv/rbenv)*), and also [Python](https://www.python.org/) and [pip](https://pypi.org/project/pip/) (*hint: for ease of managing python packages, consider using a virtual environment, like [venv](https://docs.python.org/pt-br/3/library/venv.html) or [conda](https://docs.conda.io/en/latest/). If you will use only `jupyter`, you can use [pipx](https://pypa.github.io/pipx/)*).
 
@@ -275,8 +297,7 @@ $ pip install jupyter
 $ bundle exec jekyll serve --lsi
 ```
 
-Now, feel free to customize the theme however you like (don't forget to change the name!).
-After you are done, **commit** your final changes.
+To see the template running, open your browser and go to `http://localhost:4000`. You should see a copy of the theme's demo website. Now, feel free to customize the theme however you like. After you are done, remember to **commit** your final changes.
 
 ---
 
@@ -303,7 +324,7 @@ Starting version [v0.3.5](https://github.com/alshedivat/al-folio/releases/tag/v0
 **To enable automatic deployment:**
 
 1. Click on **Actions** tab and **Enable GitHub Actions**; do not worry about creating any workflows as everything has already been set for you.
-2. Go to Settings -> Actions -> General -> Workflow permissions, and give **Read and write permissions** to GitHub Actions
+2. Go to `Settings -> Actions -> General -> Workflow permissions`, and give `Read and write permissions` to GitHub Actions
 3. Make any other changes to your webpage, commit, and push. This will automatically trigger the **Deploy** action.
 4. Wait for a few minutes and let the action complete. You can see the progress in the **Actions** tab. If completed successfully, in addition to the `master` branch, your repository should now have a newly built `gh-pages` branch.
 5. Finally, in the **Settings** of your repository, in the Pages section, set the branch to `gh-pages` (**NOT** to `master`). For more details, see [Configuring a publishing source for your GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source).
@@ -475,7 +496,16 @@ If you have a different question, please ask using [Discussions](https://github.
    made for every `post`, which means every page that uses `layout: post`, including the announcements. To change this behavior, simply add
    `related_posts: false` to the front matter of the page you don't want to display related posts on.
 
+7. **Q:** When trying to deploy, it's asking for github login credentials, which github disabled password authentication and it exits with an error. How to fix?     <br>
+   **A:** Open .git/config file using your preferred editor. Change the `https` portion of the `url` variable to `ssh`. Try deploying again.
+
 ## Features
+
+### CV
+
+There are currently 2 different ways of generating the CV page content. The first one is by using a json file located in `assets/json/resume.json`. It is a [known standard](https://jsonresume.org/) for creating a CV programmatically. The second one, currently used as a fallback when the json file is not found, is by using a yml file located in `_data/cv.yml`. This was the original way of creating the CV page content and since it is more human readable than a json file we decided to keep it as an option.
+
+What this means is, if there is no resume data defined in `_config.yml` and loaded via a json file, it will load the contents of `_data/cv.yml` as fallback.
 
 ### Publications
 
