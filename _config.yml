@@ -270,8 +270,8 @@ display_categories: ['blockquotes'] # these categories will be displayed on the 
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [de Araújo]
-  first_name: [George C., G. C., George]
+  last_name: [C. de Araújo, C. Araújo, Corrêa de Araújo, Corrêa Araújo, C. de Araujo, C. Araujo, Correa de Araujo, Correa Araujo]
+  first_name: [George, G.]
 
   style: apa
   locale: en
