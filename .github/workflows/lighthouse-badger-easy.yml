@@ -27,7 +27,7 @@ env:
 
 # TRIGGERS
 on:
-  page_build:
+  # page_build:
   # schedule: # Check your schedule here => https://crontab.guru/
   #   - cron: '55 23 * * 0' # e.g. every Sunday at 23:55
   #
@@ -49,6 +49,8 @@ jobs:
           BRANCH=`expr "${{ env.REPO_BRANCH }}" : ".* \([^ ]*\)"`
           echo "REPOSITORY=$REPOSITORY" >> $GITHUB_ENV
           echo "BRANCH=$BRANCH" >> $GITHUB_ENV
+        env:
+          REPO_BRANCH: ${{ github.event.inputs.repo_branch || env.REPO_BRANCH || env.DEFAULT_REPO_BRANCH }}
       - uses: actions/checkout@v3
         with:
           repository: ${{ env.REPOSITORY }}
