@@ -16,15 +16,15 @@ The project is structured as follows, focusing on the main components that you w
 │   └── 📄 papers.bib: bibliography in BibTeX format
 ├── 📄 _config.yml: the configuration file of the template
 ├── 📂 _data/: contains some of the data used in the template
-|   ├── 📂 LANG/: data for the LANG version. Must have one for each language defined in _config.yml
-│   |   └── 📄 cv.yml: CV in YAML format, used when assets/json/resume_LANG.json is not found
+│   ├── 📂 LANG/: data for the LANG version. Must have one for each language defined in _config.yml
+│   │   └── 📄 cv.yml: CV in YAML format, used when assets/json/resume_LANG.json is not found
 │   └── 📄 repositories.yml: users and repositories info in YAML format
 ├── 📂 _i18n/: contains the translations of the template
-|   ├── 📂 LANG/: must have one for each language defined in _config.yml
-|   |   ├── 📂 _news/: the localized content of the news that will appear in the news section in the about page
-|   |   ├── 📂 _pages/: the localized content of some pages
-|   |   ├── 📂 _posts/: contains the localized blog posts
-|   |   ├── 📂 _projects/: contains the localized content of the projects
+│   ├── 📂 LANG/: must have one for each language defined in _config.yml
+│   │   ├── 📂 _news/: the localized content of the news that will appear in the news section in the about page
+│   │   ├── 📂 _pages/: the localized content of some pages
+│   │   ├── 📂 _posts/: contains the localized blog posts
+│   │   ├── 📂 _projects/: contains the localized content of the projects
 │   └── 📄 LANG.yml: localized variables (placeholders). Must have one for each language defined in _config.yml
 ├── 📂 _includes/: contains code parts that are included in the main HTML file
 ├── 📂 _layouts/: contains the layouts to choose from in the frontmatter of the Markdown files
