@@ -16,7 +16,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/amirpourmand/al-folio?color=blueviolet)](https://hub.docker.com/r/amirpourmand/al-folio)
 
 [![GitHub release](https://img.shields.io/github/v/release/alshedivat/al-folio)](https://github.com/alshedivat/al-folio/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/alshedivat/al-folio?color=blue)](https://github.com/george-gca/multi-language-al-folio/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/george-gca/multi-language-al-folio?color=blue)](https://github.com/george-gca/multi-language-al-folio/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/alshedivat/al-folio)](https://github.com/alshedivat/al-folio)
 [![GitHub forks](https://img.shields.io/github/forks/alshedivat/al-folio)](https://github.com/alshedivat/al-folio/fork)
 
@@ -189,11 +189,14 @@ Run the test yourself: [Google Lighthouse PageSpeed Insights](https://pagespeed.
 - [multi-language-al-folio](#multi-language-al-folio)
   - [User community](#user-community)
   - [Lighthouse PageSpeed Insights](#lighthouse-pagespeed-insights)
+    - [Desktop](#desktop)
+    - [Mobile](#mobile)
   - [Table Of Contents](#table-of-contents)
   - [Getting started](#getting-started)
   - [Installing](#installing)
   - [Customizing](#customizing)
   - [Features](#features)
+    - [Multi Language Support](#multi-language-support)
     - [Light/Dark Mode](#lightdark-mode)
     - [CV](#cv)
     - [People](#people)
@@ -233,12 +236,16 @@ For customization details please refer to [CUSTOMIZE.md](CUSTOMIZE.md).
 
 The default language will be the first in the list of languages in the [_config.yml](_config.yml) file. When using two languages, the theme will show a button in the header that switches to the other language directly.
 
-![Switch language](assets/img/multi-language-diff-1.png)
-![Switch back language](assets/img/multi-language-diff-2.png)
+![Switch language](assets/img/readme_preview/multi-language-diff-1.png)
+![Switch back language](assets/img/readme_preview/multi-language-diff-2.png)
 
 When using three or more, it will be created a dropdown menu with all the available languages.
 
-![Switch language between 3 or more](assets/img/multi-language-3-or-more.png)
+![Switch language between 3 or more](assets/img/readme_preview/multi-language-3-or-more.png)
+
+Note that throughout the [README.md](README.md) and [CUSTOMIZE.md](CUSTOMIZE.md) files, the default language is English (LANG = en). You must have an equivalent file or path for each language you have defined in [_config.yml](_config.yml). For example, if you have defined `languages: ["en", "pt-br"]`, you must have 2 versions of the file `_data/LANG/cv.yml`: [_data/en/cv.yml](_data/en/cv.yml) and [_data/pt-br/cv.yml](_data/pt-br/cv.yml).
+
+---
 
 ### Light/Dark Mode
 
@@ -253,9 +260,9 @@ This template has a built-in light/dark mode. It detects the user preferred colo
 
 ### CV
 
-There are currently 2 different ways of generating the CV page content. The first one is by using a json file located in [assets/json/resume.json](assets/json/resume.json). It is a [known standard](https://jsonresume.org/) for creating a CV programmatically. The second one, currently used as a fallback when the json file is not found, is by using a yml file located in [_data/cv.yml](_data/cv.yml). This was the original way of creating the CV page content and since it is more human readable than a json file we decided to keep it as an option.
+There are currently 2 different ways of generating the CV page content. The first one is by using a json file located in [assets/json/resume_LANG.json](assets/json/resume_en.json). It is a [known standard](https://jsonresume.org/) for creating a CV programmatically. The second one, currently used as a fallback when the json file is not found, is by using a yml file located in [_data/LANG/cv.yml](_data/en/cv.yml). This was the original way of creating the CV page content and since it is more human readable than a json file we decided to keep it as an option.
 
-What this means is, if there is no resume data defined in [_config.yml](_config.yml) and loaded via a json file, it will load the contents of [_data/cv.yml](_data/cv.yml) as fallback.
+What this means is, if there is no resume data defined in [_config.yml](_config.yml) and loaded via a json file, it will load the contents of [_data/LANG/cv.yml](_data/en/cv.yml) as fallback.
 
 [![CV Preview](assets/img/readme_preview/cv.png)](https://alshedivat.github.io/al-folio/cv/)
 

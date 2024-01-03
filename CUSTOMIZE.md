@@ -1,6 +1,6 @@
 # Customize
 
-Here we will give you some tips on how to customize the website.
+Here we will give you some tips on how to customize the website. Note that throughout the [README.md](README.md) and [CUSTOMIZE.md](CUSTOMIZE.md) files, the default language is English (LANG = en). You must have an equivalent file or path for each language you have defined in [_config.yml](_config.yml). For example, if you have defined `languages: ["en", "pt-br"]`, you must have 2 versions of the file `_data/LANG/cv.yml`: [_data/en/cv.yml](_data/en/cv.yml) and [_data/pt-br/cv.yml](_data/pt-br/cv.yml).
 
 ## Project structure
 
@@ -11,19 +11,26 @@ The project is structured as follows, focusing on the main components that you w
 ├── 📄 404.html: 404 page (page not found)
 ├── 📂 assets/: contains the assets that are displayed in the website
 │   └── 📂 json/
-    │   └── 📄 resume.json: CV in JSON format (https://jsonresume.org/)
+    │   └── 📄 resume_LANG.json: CV in JSON format (https://jsonresume.org/)
 ├── 📂 _bibliography/
 │   └── 📄 papers.bib: bibliography in BibTeX format
 ├── 📄 _config.yml: the configuration file of the template
 ├── 📂 _data/: contains some of the data used in the template
-│   ├── 📄 cv.yml: CV in YAML format, used when assets/json/resume.json is not found
+|   ├── 📂 LANG/: data for the LANG version. Must have one for each language defined in _config.yml
+│   |   └── 📄 cv.yml: CV in YAML format, used when assets/json/resume_LANG.json is not found
 │   └── 📄 repositories.yml: users and repositories info in YAML format
+├── 📂 _i18n/: contains the translations of the template
+|   ├── 📂 LANG/: must have one for each language defined in _config.yml
+|   |   ├── 📂 _news/: the localized content of the news that will appear in the news section in the about page
+|   |   ├── 📂 _pages/: the localized content of some pages
+|   |   ├── 📂 _posts/: contains the localized blog posts
+|   |   ├── 📂 _projects/: contains the localized content of the projects
+│   └── 📄 LANG.yml: localized variables (placeholders). Must have one for each language defined in _config.yml
 ├── 📂 _includes/: contains code parts that are included in the main HTML file
 ├── 📂 _layouts/: contains the layouts to choose from in the frontmatter of the Markdown files
 ├── 📂 _news/: the news that will appear in the news section in the about page
 ├── 📄 news.html: defines the news section layout in the about page
 ├── 📂 _pages/: contains the pages of the website that are shown in the header
-├── 📂 _posts/: contains the blog posts
 ├── 📂 _projects/: contains the projects
 └── 📂 _sass/: contains the SASS files that define the style of the website
     ├── 📄 _base.scss: base style of the website
@@ -44,9 +51,9 @@ All changes made to this file are only visible after you rebuild the website. Th
 
 ## Modifying the CV information
 
-There are currently 2 different ways of generating the CV page content. The first one is by using a json file located in [assets/json/resume.json](assets/json/resume.json). It is a [known standard](https://jsonresume.org/) for creating a CV programmatically. The second one, currently used as a fallback when the json file is not found, is by using a yml file located in [_data/cv.yml](_data/cv.yml). This was the original way of creating the CV page content and since it is more human readable than a json file we decided to keep it as an option.
+There are currently 2 different ways of generating the CV page content. The first one is by using a json file located in [assets/json/resume_LANG.json](assets/json/resume_en.json). It is a [known standard](https://jsonresume.org/) for creating a CV programmatically. The second one, currently used as a fallback when the json file is not found, is by using a yml file located in [_data/LANG/cv.yml](_data/en/cv.yml). This was the original way of creating the CV page content and since it is more human readable than a json file we decided to keep it as an option.
 
-What this means is, if there is no resume data defined in [_config.yml](_config.yml) and loaded via a json file, it will load the contents of [_data/cv.yml](_data/cv.yml). If you want to use the [_data/cv.yml](_data/cv.yml) file as the source of your CV, you must delete the [assets/json/resume.json](assets/json/resume.json) file.
+What this means is, if there is no resume data defined in [_config.yml](_config.yml) and loaded via a json file, it will load the contents of [_data/LANG/cv.yml](_data/en/cv.yml). If you want to use the [_data/LANG/cv.yml](_data/en/cv.yml) file as the source of your CV, you must delete the [assets/json/resume_LANG.json](assets/json/resume_en.json) file.
 
 ## Modifying the user and repository information
 
@@ -58,7 +65,7 @@ You can create new pages by adding new Markdown files in the [_pages](_pages/) d
 
 ## Creating new blog posts
 
-To create a new blog post, you can add a new Markdown file in the [_posts](_posts/) directory. The name of the file must follow the format `YYYY-MM-DD-title.md`. The easiest way to do this is to copy an existing blog post and modify it. Note that some blog posts have optional fields in the [frontmatter](https://jekyllrb.com/docs/front-matter/) that are used to enable specific behaviors or functions.
+To create a new blog post, you can add a new Markdown file in the [_i18n/LANG/_posts](_i18n/en/_posts/) directory. The name of the file must follow the format `YYYY-MM-DD-title.md`. The easiest way to do this is to copy an existing blog post and modify it. Note that some blog posts have optional fields in the [frontmatter](https://jekyllrb.com/docs/front-matter/) that are used to enable specific behaviors or functions.
 
 If you want to create blog posts that are not ready to be published, but you want to track it with git, you can create a [_drafts](https://jekyllrb.com/docs/posts/#drafts) directory and store them there.
 
