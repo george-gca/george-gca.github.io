@@ -1,11 +1,11 @@
-"Artur":
-  - firstname: ["Artur Jordão", "Artur Jordao", "Artur J.", "J. Artur", "Jordão, A.", "Jordao, A.", "Jordao, Artur", "Jordão, Artur"]
+"Jordao":
+  - firstname: ["Artur", "Artur Jordão", "Artur Jordao", "Artur J.", "J. Artur", "Jordão, A.", "Jordao, A.", "Jordao, Artur", "Jordão, Artur"]
     url: https://arturjordao.github.io/
 
-"Helena":
+"Almeida Maia":
   - firstname: ["Helena", "H. A. Maia", "A. M. Helena", "Helena Almeida Maia", "Maia, H. A.", "de Almeida Maia, Helena"]
     url: https://www.ic.unicamp.br/~helena.maia/
 
-"Helio":
+"Pedrini":
   - firstname: ["Helio", "H.", "H. P.", "Helio Pedrini", "P. Helio", "Pedrini, H.", "Pedrini, Helio"]
     url: https://ic.unicamp.br/~helio/
