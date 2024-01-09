@@ -17,7 +17,7 @@ env:
   URLS: https://george-gca.github.io/
   TOKEN_NAME: LIGHTHOUSE_BADGER_TOKEN_SECRET
   # If any of the following env is blank, a default value is used instead
-  REPO_BRANCH: gca # target repository & branch e.g. 'dummy/mytargetrepo main'
+  REPO_BRANCH: 'george-gca/george-gca.github.io gca' # target repository & branch e.g. 'dummy/mytargetrepo main'
   MOBILE_LIGHTHOUSE_PARAMS: '--only-categories=performance,accessibility,best-practices,seo --throttling.cpuSlowdownMultiplier=2'
   DESKTOP_LIGHTHOUSE_PARAMS: '--only-categories=performance,accessibility,best-practices,seo --preset=desktop --throttling.cpuSlowdownMultiplier=1'
   # THAT'S IT; JUMP TO THE TRIGGERS;
