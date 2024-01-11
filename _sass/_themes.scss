@@ -35,12 +35,12 @@
   --global-warning-block-title: #b29400;
 
   .fa-sun {
-    display : none;
+    display: none;
   }
   .fa-moon {
     padding-left: 10px;
     padding-top: 12px;
-    display : block;
+    display: block;
   }
 
   .repo-img-light {
@@ -51,7 +51,7 @@
   }
 }
 
-html[data-theme='dark'] {
+html[data-theme="dark"] {
   --global-bg-color: #{$grey-color-dark};
   --global-card-bg-color: #{$grey-900};
   --global-code-bg-color: #{$code-bg-color-dark};
@@ -85,10 +85,10 @@ html[data-theme='dark'] {
   .fa-sun {
     padding-left: 10px;
     padding-top: 12px;
-    display : block;
+    display: block;
   }
   .fa-moon {
-    display : none;
+    display: none;
   }
 
   .repo-img-light {
