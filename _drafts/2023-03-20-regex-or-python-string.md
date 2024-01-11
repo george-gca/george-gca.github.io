@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  What is faster when searching? Regex or Python string?
-date:   2023-03-20 21:13:11
+title: What is faster when searching? Regex or Python string?
+date: 2023-03-20 21:13:11
 description: Comparing the search performance of regex and Python string methods.
 tags: programming code improvement python
 categories: python

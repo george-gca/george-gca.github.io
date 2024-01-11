@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  sli.dev for non-web developers
-date:   2023-06-01 17:19:10
+title: sli.dev for non-web developers
+date: 2023-06-01 17:19:10
 description: How to setup and use sli.dev for non-web developers
 tags: programming code slides sli.dev web
 categories: web presentation
@@ -116,6 +116,7 @@ theme: academic
 ```
 
 {% include figure.liquid path="assets/img/blog/2023-06-01-slidev_for_non_web_devs/change_theme.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+
 <div class="caption">
     sli.dev installing new theme.
 </div>
@@ -125,7 +126,7 @@ theme: academic
 I am not a hardcore sli.dev user or web developer. So there were some things that took some time for me to figure out, and I think it is worth mentioning. The first one is forcing the slides to be in dark mode. To do that, add the following line to the front matter of `slides.md`:
 
 ```yaml
-colorSchema: 'dark'
+colorSchema: "dark"
 ```
 
 While using the `academic` theme, by default every slide with a `# title` will be added to the table of contents. To hide a slide from the table of contents, add the following line to the front matter of the slide:

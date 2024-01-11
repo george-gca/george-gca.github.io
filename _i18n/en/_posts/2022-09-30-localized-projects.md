@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Creating localized Projects pages
-date:   2022-09-30 11:57:13
+title: Creating localized Projects pages
+date: 2022-09-30 11:57:13
 description: How to create localized Projects pages on your al-folio website.
 tags: al-folio website jekyll localization languages
 categories: website development
@@ -127,6 +127,7 @@ Also, update `_layouts/cv.html` and `_layouts/page.html` to only display the tra
 Now the descriptions should also be localized. The titles and the descriptions of the projects when a project is opened should also be localized, but not in the projects overview page. So, let's fix this.
 
 {% include figure.liquid path="assets/img/blog/2022-09-30-localized-projects/not_localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+
 <div class="caption">
     Projects overview still not working.
 </div>
@@ -139,19 +140,11 @@ When you look inside `_pages/projects.md`, you will see more code than in your r
 
 ```html
 {% if page.horizontal -%}
-  <div class="container">
-    <div class="row row-cols-2">
-    {%- for project in sorted_projects -%}
-      {% include projects_horizontal.html %}
-    {%- endfor %}
-    </div>
-  </div>
+<div class="container">
+  <div class="row row-cols-2">{%- for project in sorted_projects -%} {% include projects_horizontal.html %} {%- endfor %}</div>
+</div>
 {%- else -%}
-  <div class="grid">
-    {%- for project in sorted_projects -%}
-      {% include projects.html %}
-    {%- endfor %}
-  </div>
+<div class="grid">{%- for project in sorted_projects -%} {% include projects.html %} {%- endfor %}</div>
 {%- endif -%}
 ```
 
@@ -164,12 +157,12 @@ These parts mean that there is a horizontal and a vertical layout for the projec
 ```html
 <!-- <a href="{{ project.url | relative_url }}"> -->
 <a href="{{ project.url | prepend: site.baseurl }}">
-
-<!-- <h3 class="card-title text-lowercase">{{ project.title }}</h3>
+  <!-- <h3 class="card-title text-lowercase">{{ project.title }}</h3>
 <p class="card-text">{{ project.description }}</p> -->
 
-<h3 class="card-title text-lowercase">{% t project.title %}</h3>
-<p class="card-text">{% t project.description %}</p>
+  <h3 class="card-title text-lowercase">{% t project.title %}</h3>
+  <p class="card-text">{% t project.description %}</p></a
+>
 ```
 
 {% endraw %}
@@ -177,6 +170,7 @@ These parts mean that there is a horizontal and a vertical layout for the projec
 Now, the projects overview is displayed correctly. But, if you look closely, you'll notice that the projects categories have not been translated. Let's fix this.
 
 {% include figure.liquid path="assets/img/blog/2022-09-30-localized-projects/localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+
 <div class="caption">
     Projects overview now working.
 </div>
@@ -227,6 +221,7 @@ Now, in `_pages/projects.md`, we need to get the correct category inside the loo
 Now, everything is localized. The projects overview page, the projects categories, and the projects pages.
 
 {% include figure.liquid path="assets/img/blog/2022-09-30-localized-projects/correct_localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+
 <div class="caption">
     Projects overview with localized categories.
 </div>

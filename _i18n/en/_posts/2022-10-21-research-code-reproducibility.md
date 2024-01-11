@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  The problem of research code reproducibility
-date:   2022-10-21 15:13:16
+title: The problem of research code reproducibility
+date: 2022-10-21 15:13:16
 description: A brief overview of the problem of research code reproducibility.
 tags: research programming reproducibility code
 categories: research-code

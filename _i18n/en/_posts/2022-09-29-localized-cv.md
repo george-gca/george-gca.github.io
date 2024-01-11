@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Creating localized CV pages
-date:   2022-09-29 21:40:13
+title: Creating localized CV pages
+date: 2022-09-29 21:40:13
 description: How to create localized CV pages on your al-folio website.
 tags: al-folio website jekyll localization languages
 categories: website development
@@ -25,11 +25,11 @@ We already [created a local al-folio website]({{ site.baseurl_root }}{% post_url
 
 The current structure of the cv page is composed of 3 main files: `_pages/cv.md`, `_layouts/cv.html`, and `_data/cv.yml`. The first one is the definition of the page, the second one is the layout of the page, and the third one is the data that is used to populate it. We will create a new folder for each language inside the `_data/` directory, and copy the file `_data/cv.yml` to both of them. The new `_data/` directory will look like this:
 
-- _data/en/cv.yml
-- _data/pt-br/cv.yml
-- _data/coauthors.yml
-- _data/repositories.yml
-- _data/venues.yml
+- \_data/en/cv.yml
+- \_data/pt-br/cv.yml
+- \_data/coauthors.yml
+- \_data/repositories.yml
+- \_data/venues.yml
 
 Now, lets replace the content of the `_data/pt-br/cv.yml` file with the following:
 
@@ -156,7 +156,15 @@ Now, lets update the link to the localized pdf file. We will use the same name f
 
 ```html
 <!-- <h1 class="post-title">{% t page.title %} {% if page.cv_pdf %}<a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf"></i></a>{% endif %}</h1> -->
-<h1 class="post-title">{% t page.title %} {% if page.cv_pdf %}<a href="{{ page.cv_pdf | prepend: '/' | prepend: site.lang | prepend: 'assets/pdf/' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf"></i></a>{% endif %}</h1>
+<h1 class="post-title">
+  {% t page.title %} {% if page.cv_pdf %}<a
+    href="{{ page.cv_pdf | prepend: '/' | prepend: site.lang | prepend: 'assets/pdf/' | relative_url}}"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="float-right"
+    ><i class="fas fa-file-pdf"></i></a
+  >{% endif %}
+</h1>
 ```
 
 {% endraw %}

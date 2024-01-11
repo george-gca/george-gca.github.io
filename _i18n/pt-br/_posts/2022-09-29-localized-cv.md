@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Criando páginas de CV traduzidas
-date:   2022-09-29 21:40:13
+title: Criando páginas de CV traduzidas
+date: 2022-09-29 21:40:13
 description: Como criar páginas de CV por idioma no seu site al-folio.
 tags: al-folio website jekyll localization languages
 categories: website development
@@ -25,11 +25,11 @@ Já [criamos um site al-folio local]({{ site.baseurl_root }}{% post_url 2022-09-
 
 A estrutura atual da página cv é composta por 3 arquivos principais: `_pages/cv.md`, `_layouts/cv.html` e `_data/cv.yml`. A primeira é a definição da página, a segunda é o layout da página e a terceira são os dados que são usados ​​para preenchê-la. Vamos criar uma nova pasta para cada idioma dentro do diretório `_data/`, e copiar o arquivo `_data/cv.yml` para ambos. O novo diretório `_data/` ficará assim:
 
-- _data/en/cv.yml
-- _data/pt-br/cv.yml
-- _data/coauthors.yml
-- _data/repositories.yml
-- _data/venues.yml
+- \_data/en/cv.yml
+- \_data/pt-br/cv.yml
+- \_data/coauthors.yml
+- \_data/repositories.yml
+- \_data/venues.yml
 
 Agora, vamos substituir o conteúdo do arquivo `_data/pt-br/cv.yml` pelo seguinte:
 
@@ -156,7 +156,15 @@ Agora, vamos atualizar o link para o arquivo pdf no idioma correto. Usaremos o m
 
 ```html
 <!-- <h1 class="post-title">{% t page.title %} {% if page.cv_pdf %}<a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf"></i></a>{% endif %}</h1> -->
-<h1 class="post-title">{% t page.title %} {% if page.cv_pdf %}<a href="{{ page.cv_pdf | prepend: '/' | prepend: site.lang | prepend: 'assets/pdf/' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf"></i></a>{% endif %}</h1>
+<h1 class="post-title">
+  {% t page.title %} {% if page.cv_pdf %}<a
+    href="{{ page.cv_pdf | prepend: '/' | prepend: site.lang | prepend: 'assets/pdf/' | relative_url}}"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="float-right"
+    ><i class="fas fa-file-pdf"></i></a
+  >{% endif %}
+</h1>
 ```
 
 {% endraw %}

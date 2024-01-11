@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Turning your al-folio into a dual-language website
-date:   2022-09-28 11:29:13
+title: Turning your al-folio into a dual-language website
+date: 2022-09-28 11:29:13
 description: Adding support for another language in your al-folio.
 tags: al-folio website jekyll localization languages
 categories: website development
@@ -49,10 +49,10 @@ Setting `default_locale_in_subfolder` to `false` will make your main language be
 
 Create a folder called `_i18n` and add sub-folders for each language, using the same names used on the `languages` setting on the `_config.yml` we just added. Also, create a `yml` file for each language. For example, for `pt-br`, create a folder called `_i18n/pt-br`. Then, create a file called `_i18n/pt-br.yml`. Our directory structure should look like this:
 
-- _i18n/en.yml
-- _i18n/pt-br.yml
-- _i18n/en/
-- _i18n/pt-br/
+- \_i18n/en.yml
+- \_i18n/pt-br.yml
+- \_i18n/en/
+- \_i18n/pt-br/
 
 ## Adding language toggle
 
@@ -63,11 +63,11 @@ Now, we need to add a language toggle to our website. We will add it to the navi
 ```html
 <!-- Toogle language -->
 <li class="nav-item active">
-{% if site.lang == "en" %}
-    <a class="nav-link" href="{{site.baseurl_root}}/pt-br{{page.url}}"> PT-BR </a>
-{% elsif site.lang == "pt-br" %}
-    <a class="nav-link" href="{{site.baseurl_root}}{{page.url}}"> EN </a>
-{% endif %}
+  {% if site.lang == "en" %}
+  <a class="nav-link" href="{{site.baseurl_root}}/pt-br{{page.url}}"> PT-BR </a>
+  {% elsif site.lang == "pt-br" %}
+  <a class="nav-link" href="{{site.baseurl_root}}{{page.url}}"> EN </a>
+  {% endif %}
 </li>
 ```
 
@@ -76,6 +76,7 @@ Now, we need to add a language toggle to our website. We will add it to the navi
 This will add a link to the other language. The `page.url` will keep the current page, so the user will not be redirected to the home page. Note that `site.baseurl_root` is a variable introduced by the Jekyll Multiple Languages Plugin, and it points to the root of the page without the language path. More information about the newly added variables can be found [here](https://github.com/kurtsson/jekyll-multiple-languages-plugin#55-link-between-languages).
 
 {% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/header_en.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+
 <div class="caption">
     Header with language toggle.
 </div>
@@ -126,16 +127,20 @@ If you run your website now, you'll see that the titles are shown as `titles.abo
 
 ```html
 <!-- <a class="nav-link" href="{{ '/' | relative_url }}">{{ about_title }} -->
-<a class="nav-link" href="{{ '/' | relative_url }}">{% t about_title %}
+<a class="nav-link" href="{{ '/' | relative_url }}"
+  >{% t about_title %}
 
-<!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ p.title }} -->
-<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{% t p.title %}
+  <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ p.title }} -->
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+    >{% t p.title %}
 
-<!-- <a class="dropdown-item" href="{{ child.permalink | relative_url }}">{{ child.title }}</a> -->
-<a class="dropdown-item" href="{{ child.permalink | relative_url }}">{% t child.title %}</a>
+    <!-- <a class="dropdown-item" href="{{ child.permalink | relative_url }}">{{ child.title }}</a> -->
+    <a class="dropdown-item" href="{{ child.permalink | relative_url }}">{% t child.title %}</a>
 
-<!-- <a class="nav-link" href="{{ p.url | relative_url }}">{{ p.title }} -->
-<a class="nav-link" href="{{ p.url | relative_url }}">{% t p.title %}
+    <!-- <a class="nav-link" href="{{ p.url | relative_url }}">{{ p.title }} -->
+    <a class="nav-link" href="{{ p.url | relative_url }}">{% t p.title %}</a></a
+  ></a
+>
 ```
 
 {%endraw%}
@@ -143,6 +148,7 @@ If you run your website now, you'll see that the titles are shown as `titles.abo
 Now run your website again and you'll see that the titles have the correct values. You can even change the language on the toggle and see that the titles change accordingly.
 
 {% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/header_pt-br.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+
 <div class="caption">
     Header in Portuguese.
 </div>
@@ -155,7 +161,7 @@ Everything seems to work fine, except not. If you click in the `PT-BR` toggle in
 
 ```html
 <!-- <a class="nav-link" href="{{ '/' | relative_url }}">{% t about_title %} -->
-<a class="nav-link" href="{{ '/' | prepend: site.baseurl}}">{% t about_title %}
+<a class="nav-link" href="{{ '/' | prepend: site.baseurl}}">{% t about_title %}</a>
 ```
 
 {%endraw%}
@@ -166,13 +172,15 @@ Now, if you are in another page, for example, the `repositories` page, and click
 
 ```html
 <!-- <a class="nav-link" href="{{ '/blog/' | relative_url }}">{{ site.blog_nav_title }} -->
-<a class="nav-link" href="{{ '/blog/' | prepend: site.baseurl }}">{{ site.blog_nav_title }}
+<a class="nav-link" href="{{ '/blog/' | prepend: site.baseurl }}"
+  >{{ site.blog_nav_title }}
 
-<!-- <a class="dropdown-item" href="{{ child.permalink | relative_url }}">{% t child.title %}</a> -->
-<a class="dropdown-item" href="{{ child.permalink | prepend: site.baseurl }}">{% t child.title %}</a>
+  <!-- <a class="dropdown-item" href="{{ child.permalink | relative_url }}">{% t child.title %}</a> -->
+  <a class="dropdown-item" href="{{ child.permalink | prepend: site.baseurl }}">{% t child.title %}</a>
 
-<!-- <a class="nav-link" href="{{ p.url | relative_url }}">{% t p.title %} -->
-<a class="nav-link" href="{{ p.url | prepend: site.baseurl }}">{% t p.title %}
+  <!-- <a class="nav-link" href="{{ p.url | relative_url }}">{% t p.title %} -->
+  <a class="nav-link" href="{{ p.url | prepend: site.baseurl }}">{% t p.title %}</a></a
+>
 ```
 
 {%endraw%}
@@ -182,6 +190,7 @@ Now, if you are in another page, for example, the `repositories` page, and click
 Now everything is working fine! The sun is rising, and the world is colorful again :rainbow:. But wait, there is still stuff missing. If you click in the `PT-BR` toggle, then click in the `publicações` page, you'll see that the title of the page is still `titles.publications`.
 
 {% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/publications_title_wrong.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+
 <div class="caption">
     What should be a translated title.
 </div>
@@ -207,17 +216,17 @@ Now, if you run your website, it will not work. This happens because the `t` fun
 
 - 404.html
 - news.html
-- _pages/dropdown.md
-- _pages/projects.md
-- _pages/publications.md
-- _pages/repositories.md
-- _pages/teaching.md
-- _projects/1_project.md
-- _projects/2_project.md
-- _projects/3_project.md
-- _projects/4_project.md
-- _projects/5_project.md
-- _projects/6_project.md
+- \_pages/dropdown.md
+- \_pages/projects.md
+- \_pages/publications.md
+- \_pages/repositories.md
+- \_pages/teaching.md
+- \_projects/1_project.md
+- \_projects/2_project.md
+- \_projects/3_project.md
+- \_projects/4_project.md
+- \_projects/5_project.md
+- \_projects/6_project.md
 
 You need to change the `title` for **ALL** these pages. We already did it for the pages inside `_pages/`, so let's do it for the rest. Open the file `404.html` and change its `title: "Page not found"` to `title: titles.unk`, since we already defined `titles.unk` in both `_i18n/en.yml` and `_i18n/pt-br.yml`. To keep the projects section more organized, let's create new attributes for it inside each of the translation files. So, the new `_i18n/en.yml` and `_i18n/pt-br.yml` will look like this, respectively:
 
@@ -274,6 +283,7 @@ title: projects.titles.project1
 Finally, we can run our website again and it will work as expected. :tada:.
 
 {% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/publications_title_fixed.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+
 <div class="caption">
     Now THIS is a translated title.
 </div>
@@ -284,7 +294,15 @@ Don't forget to do the same for the other pages that use different layouts, like
 
 ```html
 <!-- <h1 class="post-title">{{ page.title }} {% if page.cv_pdf %}<a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf"></i></a>{% endif %}</h1> -->
-<h1 class="post-title">{% t page.title %} {% if page.cv_pdf %}<a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf"></i></a>{% endif %}</h1>
+<h1 class="post-title">
+  {% t page.title %} {% if page.cv_pdf %}<a
+    href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="float-right"
+    ><i class="fas fa-file-pdf"></i></a
+  >{% endif %}
+</h1>
 ```
 
 {%endraw%}
@@ -311,9 +329,9 @@ profile:
     <p>123 your address street</p>
     <p>Your City, State 12345</p>
 
-news: true  # includes a list of news items
+news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true  # includes social icons at the bottom of the page
+social: true # includes social icons at the bottom of the page
 ---
 
 {% translate_file pages/about.md %}
@@ -322,6 +340,7 @@ social: true  # includes social icons at the bottom of the page
 {%endraw%}
 
 {% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/about_pt-br.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+
 <div class="caption">
     Biography in Portuguese.
 </div>
@@ -334,11 +353,11 @@ Currently, when you open a section of your site, in the browser tab the section 
 
 ```liquid
 {% if page.url == '/blog/index.html' %}
-    {{ site.blog_nav_title }} | {{ title }}
-{%- elsif page.title != "blank" and page.url != "/" -%}
-    {{ page.title }} | {{ title }}
+  {{ site.blog_nav_title }} | {{ title }}
+{%- elsif page.title != 'blank' and page.url != '/' -%}
+  {{ page.title }} | {{ title }}
 {%- else -%}
-    {{ title }}
+  {{ title }}
 {%- endif -%}
 ```
 
@@ -350,15 +369,15 @@ for this code:
 
 ```liquid
 {% if page.url == '/blog/index.html' %}
-    {{ site.blog_nav_title }} | {{ title }}
+  {{ site.blog_nav_title }} | {{ title }}
 {% elsif page.url contains '/blog/' %}
-    {{ page.title }} | {{ title }}
+  {{ page.title }} | {{ title }}
 {%- elsif page.title contains 'Announcement' -%}
-    {{ title }}
-{%- elsif page.title != "blank" and page.url != "/" -%}
-    {% t page.title %} | {{ title }}
+  {{ title }}
+{%- elsif page.title != 'blank' and page.url != '/' -%}
+  {% t page.title %} | {{ title }}
 {%- else -%}
-    {{ title }}
+  {{ title }}
 {%- endif -%}
 ```
 

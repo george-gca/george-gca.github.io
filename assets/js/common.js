@@ -10,12 +10,12 @@ $(document).ready(function () {
     $(this).parent().parent().find(".abstract.hidden.open").toggleClass("open");
     $(this).parent().parent().find(".tldr.hidden.open").toggleClass("open");
   });
-  $("a.tldr").click(function() {
+  $("a.tldr").click(function () {
     $(this).parent().parent().find(".abstract.hidden.open").toggleClass("open");
     $(this).parent().parent().find(".bibtex.hidden.open").toggleClass("open");
     $(this).parent().parent().find(".tldr.hidden").toggleClass("open");
   });
-  $('a').removeClass('waves-effect waves-light');
+  $("a").removeClass("waves-effect waves-light");
 
   // bootstrap-toc
   if ($("#toc-sidebar").length) {
@@ -54,4 +54,3 @@ $(document).ready(function () {
     }
   });
 });
-

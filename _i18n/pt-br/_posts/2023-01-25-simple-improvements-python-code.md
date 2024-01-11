@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Melhorando seu código Python com truques simples
-date:   2023-01-25 13:28:15
+title: Melhorando seu código Python com truques simples
+date: 2023-01-25 13:28:15
 description: Como usar funções da biblioteca padrão para melhorar seu código.
 tags: programming code improvement python
 categories: python
@@ -115,10 +115,10 @@ tmp = list(range(10_000_000))
 
 Para validar isso, vamos comparar o código para 7 execuções, 10 loops cada:
 
-| | loop | list comprehension | construtor de lista |
-| :---: | :---: | :---: | :---: |
-| média ± desvio padrão. por loop | 1.04 s ± 89.8 ms | 731 ms ± 71.6 ms | 301 ms ± 18.4 ms |
-| incremento de memória | 293.57 MiB | 285.82 MiB | 75.12 MiB |
+|                                 |       loop       | list comprehension | construtor de lista |
+| :-----------------------------: | :--------------: | :----------------: | :-----------------: |
+| média ± desvio padrão. por loop | 1.04 s ± 89.8 ms |  731 ms ± 71.6 ms  |  301 ms ± 18.4 ms   |
+|      incremento de memória      |    293.57 MiB    |     285.82 MiB     |      75.12 MiB      |
 
 Por que o construtor `list()` é mais rápido? De acordo com [esta resposta no StackOverflow](https://stackoverflow.com/a/29356931):
 
@@ -621,24 +621,24 @@ print(tmp)
 
 ### [itertools](https://docs.python.org/3/library/itertools.html?highlight=itertools#module-itertools) tem todas as funções combinatórias implementadas
 
-| arranjo | permutação  | combinação com repetição   | combinação  |
-| :-----: | :---------: | :------------------------: | :---------: |
-|   AA    |             |            AA              |             |
-|   AB    |     AB      |            AB              |      AB     |
-|   AC    |     AC      |            AC              |      AC     |
-|   AD    |     AD      |            AD              |      AD     |
-|   BA    |     BA      |                            |             |
-|   BB    |             |            BB              |             |
-|   BC    |     BC      |            BC              |      BC     |
-|   BD    |     BD      |            BD              |      BD     |
-|   CA    |     CA      |                            |             |
-|   CB    |     CB      |                            |             |
-|   CC    |             |            CC              |             |
-|   CD    |     CD      |            CD              |      CD     |
-|   DA    |     DA      |                            |             |
-|   DB    |     DB      |                            |             |
-|   DC    |     DC      |                            |             |
-|   DD    |             |            DD              |             |
+| arranjo | permutação | combinação com repetição | combinação |
+| :-----: | :--------: | :----------------------: | :--------: |
+|   AA    |            |            AA            |            |
+|   AB    |     AB     |            AB            |     AB     |
+|   AC    |     AC     |            AC            |     AC     |
+|   AD    |     AD     |            AD            |     AD     |
+|   BA    |     BA     |                          |            |
+|   BB    |            |            BB            |            |
+|   BC    |     BC     |            BC            |     BC     |
+|   BD    |     BD     |            BD            |     BD     |
+|   CA    |     CA     |                          |            |
+|   CB    |     CB     |                          |            |
+|   CC    |            |            CC            |            |
+|   CD    |     CD     |            CD            |     CD     |
+|   DA    |     DA     |                          |            |
+|   DB    |     DB     |                          |            |
+|   DC    |     DC     |                          |            |
+|   DD    |            |            DD            |            |
 
 ## Melhorando o código com [functools](https://docs.python.org/3/library/functools.html?highlight=functools#module-functools)
 

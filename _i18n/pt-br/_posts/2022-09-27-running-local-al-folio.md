@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Executando localmente seu próprio site al-folio
-date:   2022-09-27 22:13:16
+title: Executando localmente seu próprio site al-folio
+date: 2022-09-27 22:13:16
 description: Passo a passo sobre como executar seu próprio al-folio localmente.
 tags: al-folio website jekyll local
 categories: website development

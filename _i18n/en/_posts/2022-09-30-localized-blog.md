@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Creating localized blog posts
-date:   2022-09-30 17:40:13
+title: Creating localized blog posts
+date: 2022-09-30 17:40:13
 description: How to create localized blog on your al-folio website.
 tags: al-folio website jekyll localization languages
 categories: website development
@@ -25,29 +25,29 @@ We [created a local al-folio website]({{ site.baseurl_root }}{% post_url 2022-09
 
 If you go to the blog section of your al-folio site, you'll realize that it is quite empty, although there are posts in the template. Actually, the [Jekyll Multiple Languages Plugin](https://github.com/kurtsson/jekyll-multiple-languages-plugin) already support [localized blog posts](https://github.com/kurtsson/jekyll-multiple-languages-plugin#57-creating-posts). It is not displaying them because it is not finding them. So, let's create the correct structure for them. Create a `_posts/` directory inside each language under the `_i18n/` directory, and copy the content of the `_posts/` directory from the root of the website to the language directories. So, for example, if you have a `_posts/` directory with the following content:
 
-- _posts/2015-03-15-formatting-and-links.md
-- _posts/2015-05-15-images.md
-- _posts/2015-07-15-code.md
-- _posts/2015-10-20-comments.md
-- _posts/2015-10-20-math.md
-- _posts/2018-12-22-distill.md
-- _posts/2020-09-28-github-metadata.md
-- _posts/2020-09-28-twitter.md
-- _posts/2021-07-04-diagrams.md
-- _posts/2022-02-01-redirect.md
+- \_posts/2015-03-15-formatting-and-links.md
+- \_posts/2015-05-15-images.md
+- \_posts/2015-07-15-code.md
+- \_posts/2015-10-20-comments.md
+- \_posts/2015-10-20-math.md
+- \_posts/2018-12-22-distill.md
+- \_posts/2020-09-28-github-metadata.md
+- \_posts/2020-09-28-twitter.md
+- \_posts/2021-07-04-diagrams.md
+- \_posts/2022-02-01-redirect.md
 
 You should create the following structure for all your languages, in this example, the English language:
 
-- _i18n/en/_posts/2015-03-15-formatting-and-links.md
-- _i18n/en/_posts/2015-05-15-images.md
-- _i18n/en/_posts/2015-07-15-code.md
-- _i18n/en/_posts/2015-10-20-comments.md
-- _i18n/en/_posts/2015-10-20-math.md
-- _i18n/en/_posts/2018-12-22-distill.md
-- _i18n/en/_posts/2020-09-28-github-metadata.md
-- _i18n/en/_posts/2020-09-28-twitter.md
-- _i18n/en/_posts/2021-07-04-diagrams.md
-- _i18n/en/_posts/2022-02-01-redirect.md
+- \_i18n/en/\_posts/2015-03-15-formatting-and-links.md
+- \_i18n/en/\_posts/2015-05-15-images.md
+- \_i18n/en/\_posts/2015-07-15-code.md
+- \_i18n/en/\_posts/2015-10-20-comments.md
+- \_i18n/en/\_posts/2015-10-20-math.md
+- \_i18n/en/\_posts/2018-12-22-distill.md
+- \_i18n/en/\_posts/2020-09-28-github-metadata.md
+- \_i18n/en/\_posts/2020-09-28-twitter.md
+- \_i18n/en/\_posts/2021-07-04-diagrams.md
+- \_i18n/en/\_posts/2022-02-01-redirect.md
 
 Create that, translate the pages contents, and it will now show the missing blog posts. Easy, right? Errr, you are missing a few small details: the date format, the reading time, and the link when clicking on a tag in the header of the blog section. The bad news is that Jekyll doesn't natively support localized date formats. The good news is that it is not that hard to create it though. Let's start with the date format.
 
@@ -90,12 +90,17 @@ Since the dates are used in a variety of locations, let's create a function to r
 {% raw %}
 
 ```liquid
-{% assign months = "january|february|march|april|may|june|july|august|september|october|november|december" | split: "|" %}
-{% assign m = include.date_from.date | date: "%-m" | minus: 1 %}
-{% assign day = include.date_from.date | date: "%d" %}
+{% assign months = 'january|february|march|april|may|june|july|august|september|october|november|december' | split: '|' %}
+{% assign m = include.date_from.date | date: '%-m' | minus: 1 %}
+{% assign day = include.date_from.date | date: '%d' %}
 {% capture month %}months.{{ include.format }}.{{ months[m] }}{% endcapture %}
-{% assign year = include.date_from.date | date: "%Y" %}
-{% if site.lang == 'en' %}{% t month %} {{day}}, {{year}}{% else %}{{day}} de {% t month %}, {{year}}{% endif %}
+{% assign year = include.date_from.date | date: '%Y' %}
+{% if site.lang == 'en' -%}
+  {%- t month %}
+  {{ day }}, {{ year -}}
+{%- else -%}
+  {{- day }} de {% t month %}, {{ year -}}
+{%- endif %}
 ```
 
 {% endraw %}
@@ -185,14 +190,20 @@ Next, we change all uses of `relative_url` for `prepend: site.baseurl` in the fi
   <ul class="pagination pagination-lg justify-content-center">
     <li class="page-item {% unless paginator.previous_page %}disabled{% endunless %}">
       <!-- <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}" tabindex="-1" aria-disabled="{{ paginator.previous_page }}">Newer</a> -->
-      <a class="page-link" href="{{ paginator.previous_page_path |  prepend: site.baseurl }}" tabindex="-1" aria-disabled="{{ paginator.previous_page }}">{% t pagination.newer %}</a>
+      <a
+        class="page-link"
+        href="{{ paginator.previous_page_path |  prepend: site.baseurl }}"
+        tabindex="-1"
+        aria-disabled="{{ paginator.previous_page }}"
+        >{% t pagination.newer %}</a
+      >
     </li>
-    {%- if paginator.page_trail -%}
-      {% for trail in paginator.page_trail -%}
-        <!-- <li class="page-item {% if page.url == trail.path %}active{% endif %}"><a class="page-link" href="{{ trail.path | relative_url }}" title="{{trail.title}}">{{ trail.num }}</a></li> -->
-        <li class="page-item {% if page.url == trail.path %}active{% endif %}"><a class="page-link" href="{{ trail.path | prepend: site.baseurl }}" title="{{trail.title}}">{{ trail.num }}</a></li>
-      {% endfor -%}
-    {%- endif -%}
+    {%- if paginator.page_trail -%} {% for trail in paginator.page_trail -%}
+    <!-- <li class="page-item {% if page.url == trail.path %}active{% endif %}"><a class="page-link" href="{{ trail.path | relative_url }}" title="{{trail.title}}">{{ trail.num }}</a></li> -->
+    <li class="page-item {% if page.url == trail.path %}active{% endif %}">
+      <a class="page-link" href="{{ trail.path | prepend: site.baseurl }}" title="{{trail.title}}">{{ trail.num }}</a>
+    </li>
+    {% endfor -%} {%- endif -%}
     <li class="page-item {% unless paginator.next_page %}disabled{% endunless %}">
       <!-- <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">Older</a> -->
       <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl }}">{% t pagination.older %}</a>
@@ -208,20 +219,19 @@ Next, we change all uses of `relative_url` for `prepend: site.baseurl` in the fi
 
 If you filter your blog posts by year, you'll notice that the year is not displayed in the browser title. To fix this, modify the following lines in the file `_includes/metadata.html`:
 
-
 {% raw %}
 
 ```liquid
 {% if page.url == '/blog/index.html' %}
-    {{ site.blog_nav_title }} | {{ title }}
+  {{ site.blog_nav_title }} | {{ title }}
 {% elsif page.url contains '/blog/' %}
-    {{ page.title }} | {{ title }}
+  {{ page.title }} | {{ title }}
 {%- elsif page.title contains 'Announcement' -%}
-    {{ title }}
-{%- elsif page.title != "blank" and page.url != "/" -%}
-    {% t page.title %} | {{ title }}
+  {{ title }}
+{%- elsif page.title != 'blank' and page.url != '/' -%}
+  {% t page.title %} | {{ title }}
 {%- else -%}
-    {{ title }}
+  {{ title }}
 {%- endif -%}
 ```
 
@@ -233,22 +243,22 @@ for these:
 
 ```liquid
 {% if page.url == '/blog/index.html' %}
-    {{ site.blog_nav_title }} | {{ title }}
+  {{ site.blog_nav_title }} | {{ title }}
 {% elsif page.url contains '/blog/' %}
-    {%- capture blog_year -%}{{ page.url | slice: 0, 11 }}{%- endcapture -%}
-    {%- if page.url == blog_year -%}
-        {{ page.date | date: "%Y" }} | {{ title }}
-    {%- else -%}
-        {{ page.title }} | {{ title }}
-    {%- endif -%}
-{%- elsif page.title != "blank" and page.url != "/" -%}
-    {%- if page.title contains 'Announcement' -%}
-        {{ title }}
-    {%- else -%}
-        {% t page.title %} | {{ title }}
-    {%- endif -%}
-{%- else -%}
+  {%- capture blog_year -%}{{ page.url | slice: 0, 11 }}{%- endcapture -%}
+  {%- if page.url == blog_year -%}
+    {{ page.date | date: '%Y' }} | {{ title }}
+  {%- else -%}
+    {{ page.title }} | {{ title }}
+  {%- endif -%}
+{%- elsif page.title != 'blank' and page.url != '/' -%}
+  {%- if page.title contains 'Announcement' -%}
     {{ title }}
+  {%- else -%}
+    {% t page.title %} | {{ title }}
+  {%- endif -%}
+{%- else -%}
+  {{ title }}
 {%- endif -%}
 ```
 

@@ -2,12 +2,12 @@ not_found:
   message: Você será redirecionado para a página principal em 3 segundos. Se não for redirecionado, por favor volte para a
   main_page: página principal
 main:
-  contact_note: ''
+  contact_note: ""
   footer_text: > # the ">" symbol means to ignore newlines until "titles:"
     Desenvolvido em <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> com o tema <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>.
     Hospedado por <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  more_info: ''
-  subtitle: ''
+  more_info: ""
+  subtitle: ""
 titles:
   about: Bio
   blog: Blog
@@ -34,8 +34,8 @@ descriptions:
   teaching:
   unk: Parece que ocorreu um erro. Não existe nada aqui.
 blog:
-  description: ''
-  name: '' # blog_name will be displayed in your blog page
+  description: ""
+  name: "" # blog_name will be displayed in your blog page
   nav_title: Blog # your blog must have a title for it to be displayed in the nav bar
   related_posts:
     description: "Aqui estão alguns artigos relacionados que você pode gostar de ler:"

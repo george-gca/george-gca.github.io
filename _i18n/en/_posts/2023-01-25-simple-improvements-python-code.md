@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Improving your python code with simple tricks
-date:   2023-01-25 13:28:15
+title: Improving your python code with simple tricks
+date: 2023-01-25 13:28:15
 description: How to use functions from the default library to improve your code.
 tags: programming code improvement python
 categories: python
@@ -115,10 +115,10 @@ tmp = list(range(10_000_000))
 
 To validate this, let's compare the code for 7 runs, 10 loops each:
 
-| | loop | list comprehension | list constructor |
-| :---: | :---: | :---: | :---: |
-| mean ± std. dev. per loop | 1.04 s ± 89.8 ms | 731 ms ± 71.6 ms | 301 ms ± 18.4 ms |
-| memory increment | 293.57 MiB | 285.82 MiB | 75.12 MiB |
+|                           |       loop       | list comprehension | list constructor |
+| :-----------------------: | :--------------: | :----------------: | :--------------: |
+| mean ± std. dev. per loop | 1.04 s ± 89.8 ms |  731 ms ± 71.6 ms  | 301 ms ± 18.4 ms |
+|     memory increment      |    293.57 MiB    |     285.82 MiB     |    75.12 MiB     |
 
 Why is the `list()` constructor faster? According to [this answer in StackOverflow](https://stackoverflow.com/a/29356931):
 
@@ -623,22 +623,22 @@ print(tmp)
 
 | product | permutation | combination w/ replacement | combination |
 | :-----: | :---------: | :------------------------: | :---------: |
-|   AA    |             |            AA              |             |
-|   AB    |     AB      |            AB              |      AB     |
-|   AC    |     AC      |            AC              |      AC     |
-|   AD    |     AD      |            AD              |      AD     |
+|   AA    |             |             AA             |             |
+|   AB    |     AB      |             AB             |     AB      |
+|   AC    |     AC      |             AC             |     AC      |
+|   AD    |     AD      |             AD             |     AD      |
 |   BA    |     BA      |                            |             |
-|   BB    |             |            BB              |             |
-|   BC    |     BC      |            BC              |      BC     |
-|   BD    |     BD      |            BD              |      BD     |
+|   BB    |             |             BB             |             |
+|   BC    |     BC      |             BC             |     BC      |
+|   BD    |     BD      |             BD             |     BD      |
 |   CA    |     CA      |                            |             |
 |   CB    |     CB      |                            |             |
-|   CC    |             |            CC              |             |
-|   CD    |     CD      |            CD              |      CD     |
+|   CC    |             |             CC             |             |
+|   CD    |     CD      |             CD             |     CD      |
 |   DA    |     DA      |                            |             |
 |   DB    |     DB      |                            |             |
 |   DC    |     DC      |                            |             |
-|   DD    |             |            DD              |             |
+|   DD    |             |             DD             |             |
 
 ## Improving code with [functools](https://docs.python.org/3/library/functools.html?highlight=functools#module-functools)
 

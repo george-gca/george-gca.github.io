@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Running locally your own al-folio website
-date:   2022-09-27 22:13:16
+title: Running locally your own al-folio website
+date: 2022-09-27 22:13:16
 description: Step by step on how to run your own al-folio locally.
 tags: al-folio website jekyll local
 categories: website development

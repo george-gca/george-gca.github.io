@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  sli.dev para desenvolvedores não web
-date:   2023-06-01 17:19:10
+title: sli.dev para desenvolvedores não web
+date: 2023-06-01 17:19:10
 description: Como configurar e usar sli.dev para desenvolvedores que não são web
 tags: programming code slides sli.dev web
 categories: web presentation
@@ -116,6 +116,7 @@ theme: academic
 ```
 
 {% include figure.liquid path="assets/img/blog/2023-06-01-slidev_for_non_web_devs/change_theme.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+
 <div class="caption">
     Instalando o novo tema no sli.dev.
 </div>
@@ -125,7 +126,7 @@ theme: academic
 Não sou um usuário avançado do sli.dev ou um programador Web. Por isso, demorei algum tempo para descobrir algumas coisas, e acho que vale a pena mencioná-las. A primeira é forçar os slides a ficarem em modo escuro. Para fazer isso, adicione a seguinte linha ao cabeçalho do `slides.md`:
 
 ```yaml
-colorSchema: 'dark'
+colorSchema: "dark"
 ```
 
 Ao utilizar o tema `academic`, por padrão, cada slide com um `# título` será adicionado ao índice. Para ocultar um slide do índice, adicione a seguinte linha ao cabeçalho do slide:

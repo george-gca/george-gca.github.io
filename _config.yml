@@ -15,7 +15,7 @@ icon: 👨🏽‍💻 # the emoji used as the favicon (alternatively, provide im
 url: https://george-gca.github.io # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/
 last_updated: false # set to true if you want to display last updated in the footer
-impressum_path:  # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
+impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 
 # -----------------------------------------------------------------------------
 # Theme
@@ -105,11 +105,11 @@ wechat_qr: # filename of your wechat qr-code saved as an image (e.g., wechat-qr.
 # For Google Analytics, see https://support.google.com/analytics/answer/10447272?hl=en&ref_topic=14088998&sjid=5129943941510317771-SA#zippy=%2Cgoogle-sites
 # and follow the instructions for Google Sites. You will need to create a Google Analytics property and copy the Google tag ID.
 google_analytics: G-J7KHS011G7 # your Goole Analytics measurement ID (format: G-XXXXXXXXXX)
-cronitor_analytics:  # cronitor RUM analytics site ID (format: XXXXXXXXX)
+cronitor_analytics: # cronitor RUM analytics site ID (format: XXXXXXXXX)
 
 # For Google Search Console, see https://support.google.com/webmasters/answer/9008080?hl=en#meta_tag_verification&zippy=%2Chtml-tag
 google_site_verification: g-X-aUUud1gtIVUgKEAx9T7VKpcQw1Ymd8aQ-hlIIY8 # your google-site-verification ID (Google Search Console)
-bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
+bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 
 # -----------------------------------------------------------------------------
 # Blog
@@ -130,15 +130,15 @@ related_blog_posts:
 # Giscus comments (RECOMMENDED)
 # Follow instructions on https://giscus.app/ to setup for your repo to fill out the information below.
 giscus:
-  repo: george-gca/george-gca.github.io      # <your-github-user-name>/<your-github-repo-name>
+  repo: george-gca/george-gca.github.io # <your-github-user-name>/<your-github-repo-name>
   repo_id: R_kgDOI66tbw
-  category: Announcements             # name of the category under which discussions will be created
+  category: Announcements # name of the category under which discussions will be created
   category_id: DIC_kwDOI66tb84CUDq6
-  mapping: title                 # identify discussions by post title
-  strict: 1                      # use strict identification mode
-  reactions_enabled: 1           # enable (1) or disable (0) emoji reactions
-  input_position: bottom         # whether to display input form below (bottom) or above (top) the comments
-  theme: preferred_color_scheme  # name of the color scheme (preferred works well with al-folio light/dark mode)
+  mapping: title # identify discussions by post title
+  strict: 1 # use strict identification mode
+  reactions_enabled: 1 # enable (1) or disable (0) emoji reactions
+  input_position: bottom # whether to display input form below (bottom) or above (top) the comments
+  theme: preferred_color_scheme # name of the color scheme (preferred works well with al-folio light/dark mode)
   emit_metadata: 0
   lang: en
   loading: lazy
@@ -272,7 +272,21 @@ display_categories: ["blockquotes"] # these categories will be displayed on the 
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Araújo, Araujo, C. de Araújo, C. de Araujo, C. Araújo, C. Araujo, Corrêa de Araújo, Correa de Araujo, Corrêa Araújo, Correa Araujo, de Araújo, de Araujo]
+  last_name:
+    [
+      Araújo,
+      Araujo,
+      C. de Araújo,
+      C. de Araujo,
+      C. Araújo,
+      C. Araujo,
+      Corrêa de Araújo,
+      Correa de Araujo,
+      Corrêa Araújo,
+      Correa Araujo,
+      de Araújo,
+      de Araujo,
+    ]
   first_name: [George, G., George Corrêa, George Correa, George C., George]
 
   style: apa
@@ -347,24 +361,23 @@ imagemagick:
   output_formats:
     webp: "-quality 85"
 
-
 # -----------------------------------------------------------------------------
 # Optional Features
 # -----------------------------------------------------------------------------
 
-enable_google_analytics:    true  # enables google analytics
-enable_cronitor_analytics:  false  # enables cronitor RUM analytics
-enable_google_verification: true  # enables google site verification
-enable_bing_verification:   false  # enables bing site verification
-enable_masonry:             true   # enables automatic project cards arrangement
-enable_math:                true   # enables math typesetting (uses MathJax)
-enable_tooltips:            false  # enables automatic tooltip links generated for each section titles on pages and posts
-enable_darkmode:            true   # enables switching between light/dark modes
-enable_localization:        true   # enables switching between languages
-enable_navbar_social:       false  # enables displaying social links in the navbar on the about page
-enable_project_categories:  true   # enables categorization of projects into multiple categories
-enable_medium_zoom:         true   # enables image zoom feature (as on medium.com)
-enable_progressbar:         true   # enables a horizontal progress bar linked to the vertical scroll position
+enable_google_analytics: true # enables google analytics
+enable_cronitor_analytics: false # enables cronitor RUM analytics
+enable_google_verification: true # enables google site verification
+enable_bing_verification: false # enables bing site verification
+enable_masonry: true # enables automatic project cards arrangement
+enable_math: true # enables math typesetting (uses MathJax)
+enable_tooltips: false # enables automatic tooltip links generated for each section titles on pages and posts
+enable_darkmode: true # enables switching between light/dark modes
+enable_localization: true # enables switching between languages
+enable_navbar_social: false # enables displaying social links in the navbar on the about page
+enable_project_categories: true # enables categorization of projects into multiple categories
+enable_medium_zoom: true # enables image zoom feature (as on medium.com)
+enable_progressbar: true # enables a horizontal progress bar linked to the vertical scroll position
 
 # -----------------------------------------------------------------------------
 # Library versions
@@ -388,7 +401,6 @@ mdb:
 medium_zoom:
   version: "1.0.8"
   integrity: "sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8="
-
 # -----------------------------------------------------------------------------
 # Get external JSON data
 # -----------------------------------------------------------------------------

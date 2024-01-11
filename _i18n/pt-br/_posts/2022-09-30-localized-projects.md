@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Criando páginas de projetos traduzidas
-date:   2022-09-30 11:57:13
+title: Criando páginas de projetos traduzidas
+date: 2022-09-30 11:57:13
 description: Como criar páginas de projetos traduzidas em seu site al-folio.
 tags: al-folio website jekyll localization languages
 categories: website development
@@ -127,6 +127,7 @@ Além disso, atualize o `_layouts/cv.html` e `_layouts/page.html` para exibir ap
 Agora as descrições também devem aparecer traduzidas. Os títulos e as descrições dos projetos quando um projeto é aberto também devem estar traduzidos, mas não na página de visão geral dos projetos. Então, vamos corrigir isso.
 
 {% include figure.liquid path="assets/img/blog/2022-09-30-localized-projects/not_localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable= verdadeiro %}
+
 <div class="caption">
     A visão geral dos projetos ainda não está funcionando.
 </div>
@@ -139,19 +140,11 @@ Quando você abre o arquivo `_pages/projects.md`, percebe que ele possui mais c�
 
 ```html
 {% if page.horizontal -%}
-  <div class="container">
-    <div class="row row-cols-2">
-    {%- for project in sorted_projects -%}
-      {% include projects_horizontal.html %}
-    {%- endfor %}
-    </div>
-  </div>
+<div class="container">
+  <div class="row row-cols-2">{%- for project in sorted_projects -%} {% include projects_horizontal.html %} {%- endfor %}</div>
+</div>
 {%- else -%}
-  <div class="grid">
-    {%- for project in sorted_projects -%}
-      {% include projects.html %}
-    {%- endfor %}
-  </div>
+<div class="grid">{%- for project in sorted_projects -%} {% include projects.html %} {%- endfor %}</div>
 {%- endif -%}
 ```
 
@@ -164,12 +157,12 @@ Essas partes significam que há um layout horizontal e vertical para a página d
 ```html
 <!-- <a href="{{ project.url | relative_url }}"> -->
 <a href="{{ project.url | prepend: site.baseurl }}">
-
-<!-- <h3 class="card-title text-lowercase">{{ project.title }}</h3>
+  <!-- <h3 class="card-title text-lowercase">{{ project.title }}</h3>
 <p class="card-text">{{ project.description }}</p> -->
 
-<h3 class="card-title text-lowercase">{% t project.title %}</h3>
-<p class="card-text">{% t project.description %}</p>
+  <h3 class="card-title text-lowercase">{% t project.title %}</h3>
+  <p class="card-text">{% t project.description %}</p></a
+>
 ```
 
 {% endraw %}
@@ -177,6 +170,7 @@ Essas partes significam que há um layout horizontal e vertical para a página d
 Agora, a visão geral dos projetos é exibida corretamente. Mas, se você olhar de perto, notará que as categorias de projetos não foram traduzidas. Vamos consertar isso.
 
 {% include figure.liquid path="assets/img/blog/2022-09-30-localized-projects/localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable= verdadeiro %}
+
 <div class="caption">
     Visão geral dos projetos agora funcionando.
 </div>
@@ -227,6 +221,7 @@ Agora, em `_pages/projects.md`, precisamos pegar a categoria correta dentro do l
 Agora, tudo está traduzido. A página de visão geral de projetos, as categorias dos projetos e as páginas dos projetos.
 
 {% include figure.liquid path="assets/img/blog/2022-09-30-localized-projects/correct_localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+
 <div class="caption">
     Visão geral dos projetos com categorias traduzidas.
 </div>
