@@ -126,7 +126,7 @@ Além disso, atualize o `_layouts/cv.html` e `_layouts/page.html` para exibir ap
 
 Agora as descrições também devem aparecer traduzidas. Os títulos e as descrições dos projetos quando um projeto é aberto também devem estar traduzidos, mas não na página de visão geral dos projetos. Então, vamos corrigir isso.
 
-{% include figure.html path="assets/img/blog/2022-09-30-localized-projects/not_localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable= verdadeiro %}
+{% include figure.liquid path="assets/img/blog/2022-09-30-localized-projects/not_localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable= verdadeiro %}
 <div class="caption">
     A visão geral dos projetos ainda não está funcionando.
 </div>
@@ -176,7 +176,7 @@ Essas partes significam que há um layout horizontal e vertical para a página d
 
 Agora, a visão geral dos projetos é exibida corretamente. Mas, se você olhar de perto, notará que as categorias de projetos não foram traduzidas. Vamos consertar isso.
 
-{% include figure.html path="assets/img/blog/2022-09-30-localized-projects/localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable= verdadeiro %}
+{% include figure.liquid path="assets/img/blog/2022-09-30-localized-projects/localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable= verdadeiro %}
 <div class="caption">
     Visão geral dos projetos agora funcionando.
 </div>
@@ -226,7 +226,7 @@ Agora, em `_pages/projects.md`, precisamos pegar a categoria correta dentro do l
 
 Agora, tudo está traduzido. A página de visão geral de projetos, as categorias dos projetos e as páginas dos projetos.
 
-{% include figure.html path="assets/img/blog/2022-09-30-localized-projects/correct_localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2022-09-30-localized-projects/correct_localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     Visão geral dos projetos com categorias traduzidas.
 </div>

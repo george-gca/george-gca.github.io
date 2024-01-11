@@ -115,7 +115,7 @@ You can change the presentation theme simply by editing the `theme` attribute on
 theme: academic
 ```
 
-{% include figure.html path="assets/img/blog/2023-06-01-slidev_for_non_web_devs/change_theme.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2023-06-01-slidev_for_non_web_devs/change_theme.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     sli.dev installing new theme.
 </div>

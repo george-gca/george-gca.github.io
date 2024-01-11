@@ -126,7 +126,7 @@ Also, update `_layouts/cv.html` and `_layouts/page.html` to only display the tra
 
 Now the descriptions should also be localized. The titles and the descriptions of the projects when a project is opened should also be localized, but not in the projects overview page. So, let's fix this.
 
-{% include figure.html path="assets/img/blog/2022-09-30-localized-projects/not_localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2022-09-30-localized-projects/not_localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     Projects overview still not working.
 </div>
@@ -176,7 +176,7 @@ These parts mean that there is a horizontal and a vertical layout for the projec
 
 Now, the projects overview is displayed correctly. But, if you look closely, you'll notice that the projects categories have not been translated. Let's fix this.
 
-{% include figure.html path="assets/img/blog/2022-09-30-localized-projects/localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2022-09-30-localized-projects/localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     Projects overview now working.
 </div>
@@ -226,7 +226,7 @@ Now, in `_pages/projects.md`, we need to get the correct category inside the loo
 
 Now, everything is localized. The projects overview page, the projects categories, and the projects pages.
 
-{% include figure.html path="assets/img/blog/2022-09-30-localized-projects/correct_localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2022-09-30-localized-projects/correct_localized_projects_overview.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     Projects overview with localized categories.
 </div>

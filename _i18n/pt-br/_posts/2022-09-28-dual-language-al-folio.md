@@ -75,7 +75,7 @@ Agora, precisamos adicionar uma forma de mudar o idioma do nosso site. Vamos adi
 
 Isso adiciona um link para o outro idioma. O `page.url` mantém a informação da página atual, para que o usuário não seja redirecionado para a página inicial. Observe que `site.baseurl_root` é uma variável introduzida pelo Jekyll Multiple Languages ​​Plugin e aponta para a raiz da página sem o caminho do idioma. Mais informações sobre as variáveis ​​recém-adicionadas podem ser encontradas [aqui](https://github.com/kurtsson/jekyll-multiple-languages-plugin#55-link-between-languages).
 
-{% include figure.html path="assets/img/blog/2022-09-28-dual-language-al-folio/header_en.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/header_en.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     Cabeçalho com botão para mudar de idioma.
 </div>
@@ -142,7 +142,7 @@ Se você executar seu site agora, verá que os títulos são mostrados como `tit
 
 Agora execute seu site novamente e você verá que os títulos têm os valores corretos. Você pode até alterar o idioma clicando no link e ver que os títulos mudam de acordo.
 
-{% include figure.html path="assets/img/blog/2022-09-28-dual-language-al-folio/header_pt-br.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/header_pt-br.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     Cabeçalho em português.
 </div>
@@ -181,7 +181,7 @@ Agora, se você estiver em outra página, por exemplo, a página `repositories`,
 
 Agora tudo funciona! O sol está nascendo e o mundo está colorido novamente :rainbow:. Mas espera, ainda faltam algumas coisas. Se você clicar no botão `PT-BR`, depois clicar na página `publicações`, você verá que o título da página ainda é `titles.publications`.
 
-{% include figure.html path="assets/img/blog/2022-09-28-dual-language-al-folio/publications_title_wrong.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/publications_title_wrong.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     O que deveria ser um título traduzido.
 </div>
@@ -273,7 +273,7 @@ title: projects.titles.project1
 
 Finalmente, podemos executar nosso site novamente e ele funcionará conforme o esperado. :tada:.
 
-{% include figure.html path="assets/img/blog/2022-09-28-dual-language-al-folio/publications_title_fixed.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/publications_title_fixed.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     Agora ISSO é um título traduzido.
 </div>
@@ -321,7 +321,7 @@ social: true  # includes social icons at the bottom of the page
 
 {%endraw%}
 
-{% include figure.html path="assets/img/blog/2022-09-28-dual-language-al-folio/about_pt-br.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/about_pt-br.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     Biografia em português.
 </div>

@@ -115,7 +115,7 @@ Para alterar o tema da apresentação, basta editar o atributo `theme` no cabeç
 theme: academic
 ```
 
-{% include figure.html path="assets/img/blog/2023-06-01-slidev_for_non_web_devs/change_theme.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2023-06-01-slidev_for_non_web_devs/change_theme.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     Instalando o novo tema no sli.dev.
 </div>

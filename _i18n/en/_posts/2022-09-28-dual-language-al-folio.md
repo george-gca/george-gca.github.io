@@ -75,7 +75,7 @@ Now, we need to add a language toggle to our website. We will add it to the navi
 
 This will add a link to the other language. The `page.url` will keep the current page, so the user will not be redirected to the home page. Note that `site.baseurl_root` is a variable introduced by the Jekyll Multiple Languages Plugin, and it points to the root of the page without the language path. More information about the newly added variables can be found [here](https://github.com/kurtsson/jekyll-multiple-languages-plugin#55-link-between-languages).
 
-{% include figure.html path="assets/img/blog/2022-09-28-dual-language-al-folio/header_en.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/header_en.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     Header with language toggle.
 </div>
@@ -142,7 +142,7 @@ If you run your website now, you'll see that the titles are shown as `titles.abo
 
 Now run your website again and you'll see that the titles have the correct values. You can even change the language on the toggle and see that the titles change accordingly.
 
-{% include figure.html path="assets/img/blog/2022-09-28-dual-language-al-folio/header_pt-br.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/header_pt-br.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     Header in Portuguese.
 </div>
@@ -181,7 +181,7 @@ Now, if you are in another page, for example, the `repositories` page, and click
 
 Now everything is working fine! The sun is rising, and the world is colorful again :rainbow:. But wait, there is still stuff missing. If you click in the `PT-BR` toggle, then click in the `publicações` page, you'll see that the title of the page is still `titles.publications`.
 
-{% include figure.html path="assets/img/blog/2022-09-28-dual-language-al-folio/publications_title_wrong.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/publications_title_wrong.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     What should be a translated title.
 </div>
@@ -273,7 +273,7 @@ title: projects.titles.project1
 
 Finally, we can run our website again and it will work as expected. :tada:.
 
-{% include figure.html path="assets/img/blog/2022-09-28-dual-language-al-folio/publications_title_fixed.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/publications_title_fixed.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     Now THIS is a translated title.
 </div>
@@ -321,7 +321,7 @@ social: true  # includes social icons at the bottom of the page
 
 {%endraw%}
 
-{% include figure.html path="assets/img/blog/2022-09-28-dual-language-al-folio/about_pt-br.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
+{% include figure.liquid path="assets/img/blog/2022-09-28-dual-language-al-folio/about_pt-br.png" class="img-fluid rounded z-depth-1 mx-auto d-block" zoomable=true %}
 <div class="caption">
     Biography in Portuguese.
 </div>
