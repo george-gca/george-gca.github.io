@@ -2,9 +2,14 @@
   <nav aria-label="Blog page naviation">
     <ul class="pagination pagination-lg justify-content-center">
       <li class="page-item {% unless paginator.previous_page %}disabled{% endunless %}">
-        <a class="page-link" href="{{ paginator.previous_page_path |  prepend: site.baseurl }}" tabindex="-1" aria-disabled="{{ paginator.previous_page }}"
-          >{% t pagination.newer %}</a
+        <a
+          class="page-link"
+          href="{{ paginator.previous_page_path |  prepend: site.baseurl }}"
+          tabindex="-1"
+          aria-disabled="{{ paginator.previous_page }}"
         >
+          {%- t pagination.newer -%}
+        </a>
       </li>
       {% if paginator.page_trail %}
         {% for trail in paginator.page_trail %}
