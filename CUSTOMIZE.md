@@ -1,6 +1,6 @@
 # Customize
 
-Here we will give you some tips on how to customize the website. Note that throughout the [README.md](README.md) and [CUSTOMIZE.md](CUSTOMIZE.md) files, the default language is English (LANG = en). You must have an equivalent file or path for each language you have defined in [\_config.yml](_config.yml). For example, if you have defined `languages: ["en", "pt-br"]`, you must have 2 versions of the file `_data/LANG/cv.yml`: [_data/en/cv.yml](_data/en/cv.yml) and [_data/pt-br/cv.yml](_data/pt-br/cv.yml).
+Here we will give you some tips on how to customize the website. Note that throughout the [README.md](README.md) and [CUSTOMIZE.md](CUSTOMIZE.md) files, the default language is English (LANG = en). You must have an equivalent file or path for each language you have defined in [\_config.yml](_config.yml). For example, if you have defined `languages: ["en", "pt-br"]`, you must have 2 versions of the file `_data/LANG/cv.yml`: [\_data/en/cv.yml](_data/en/cv.yml) and [\_data/pt-br/cv.yml](_data/pt-br/cv.yml).
 
 ## Project structure
 
