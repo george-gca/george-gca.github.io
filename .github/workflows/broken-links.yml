@@ -14,4 +14,4 @@ jobs:
         uses: lycheeverse/lychee-action@v1.9.0
         with:
           fail: true
-          args: --exclude-path _pages/404.md --exclude-path _pages/blog.md
+          args: --exclude-path _pages/404.md --exclude-path _pages/blog.md --verbose --no-progress './**/*.md' './**/*.html'
