@@ -1,5 +1,4 @@
-- name: Web Accessibility Evaluation
-  uses: a11ywatch/github-action@v2.1.9
+- uses: a11ywatch/github-action@v2.1.9
   with:
     WEBSITE_URL: https://george-gca.github.io/
     SITE_WIDE: true
