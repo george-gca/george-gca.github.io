@@ -1,0 +1,17 @@
+- name: Web Accessibility Evaluation
+  uses: a11ywatch/github-action@v2.1.9
+  with:
+    WEBSITE_URL: https://george-gca.github.io/
+    SITE_WIDE: true
+    SUBDOMAINS: true
+    TLD: true
+    SITEMAP: true
+    FAIL_ERRORS_COUNT: 15
+    LIST: true
+    FIX: false
+    UPGRADE: false
+    UPLOAD: true
+  env:
+    DEFAULT_RUNNERS: htmlcs,axe
+    PAGEMIND_IGNORE_WARNINGS: false
+    AI_DISABLED: false
