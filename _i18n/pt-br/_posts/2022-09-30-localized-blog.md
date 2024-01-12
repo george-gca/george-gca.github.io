@@ -23,7 +23,7 @@ Nós [criamos um site al-folio local]({{ site.baseurl_root }}{% post_url 2022-09
 
 ## Criando a estrutura
 
-Se você for para a seção de blog do seu site al-folio, perceberá que ela está bastante vazia, embora haja postagens no modelo. Na verdade, o [Jekyll Multiple Languages ​​Plugin](https://github.com/kurtsson/jekyll-multiple-languages-plugin) já suporta [postagens de blog localizadas](https://github.com/kurtsson/jekyll-multiple-language-plugin#57-creating-posts). Ele só não está exibindo porque não está encontrando as postagens. Então, vamos criar a estrutura correta para eles. Crie um diretório `_posts/` dentro de cada idioma no diretório `_i18n/` e copie o conteúdo do diretório `_posts/` da raiz do site para os diretórios de idioma. Então, por exemplo, se você tiver um diretório `_posts/` com o seguinte conteúdo:
+Se você for para a seção de blog do seu site al-folio, perceberá que ela está bastante vazia, embora haja postagens no modelo. Na verdade, o [Jekyll Multiple Languages ​​Plugin](https://github.com/kurtsson/jekyll-multiple-languages-plugin) já suporta [postagens de blog localizadas](https://github.com/kurtsson/jekyll-multiple-languages-plugin#57-creating-posts). Ele só não está exibindo porque não está encontrando as postagens. Então, vamos criar a estrutura correta para eles. Crie um diretório `_posts/` dentro de cada idioma no diretório `_i18n/` e copie o conteúdo do diretório `_posts/` da raiz do site para os diretórios de idioma. Então, por exemplo, se você tiver um diretório `_posts/` com o seguinte conteúdo:
 
 - \_posts/2015-03-15-formatting-and-links.md
 - \_posts/2015-05-15-images.md
