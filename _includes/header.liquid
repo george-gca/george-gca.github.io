@@ -51,7 +51,7 @@
           <!-- About -->
           <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
             <a class="nav-link" href="{{ '/' | prepend: site.baseurl }}">
-              {%- t about_title %}
+              {%- t about_title -%}
               {% if page.permalink == '/' %}
                 <span class="sr-only">(current)</span>
               {% endif %}
@@ -79,7 +79,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    {%- t p.title %}
+                    {%- t p.title -%}
                     {% if page.title == p.title or has_active_child %}
                       <span class="sr-only">(current)</span>
                     {% endif %}
@@ -103,7 +103,7 @@
                 <li class="nav-item {% if page.url contains p.permalink %}active{% endif %}">
                   {% if p.permalink contains '/blog/' %}{% assign url = '/blog/' %} {% else %}{% assign url = p.url %}{% endif %}
                   <a class="nav-link" href="{{ url | prepend: site.baseurl }}">
-                    {%- t p.title %}
+                    {%- t p.title -%}
                     {% if page.url contains p.url %}
                       <span class="sr-only">(current)</span>
                     {% endif %}
@@ -133,7 +133,7 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  {{- site.lang | upcase }}
+                  {{- site.lang | upcase -}}
                   {% if page.title == p.title %}
                     <span class="sr-only">(current)</span>
                   {% endif %}
@@ -160,7 +160,7 @@
           {% if site.enable_darkmode %}
             <!-- Toogle theme mode -->
             <li class="toggle-container">
-              <button id="light-toggle" title="Change theme">
+              <button id="light-toggle" title="Change site theme" aria-label="Change site theme">
                 <i class="fa-solid fa-moon"></i>
                 <i class="fa-solid fa-sun"></i>
               </button>
