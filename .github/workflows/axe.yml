@@ -43,6 +43,5 @@ jobs:
         run: |
           npm install -g @axe-core/cli
           npm install -g http-server
-          npm install -g wait-on
-          http-server _site/ & npx wait-on http://localhost:8080
-          axe http://localhost:8080 --exit
+          http-server _site/ &
+          axe http://localhost:8080 --load-delay=1500 --exit
