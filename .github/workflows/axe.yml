@@ -1,0 +1,43 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - gca
+  pull_request:
+    branches:
+      - gca
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    # available images: https://github.com/actions/runner-images#available-images
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2.2"
+          bundler-cache: true
+      - name: Update _config.yml ⚙️
+        uses: fjogeleit/yaml-update-action@v0.13.1
+        with:
+          commitChange: false
+          valueFile: "_config.yml"
+          propertyPath: "giscus.repo"
+          value: ${{ github.repository }}
+      - name: Install and Build 🔧
+        run: |
+          pip3 install --upgrade jupyter
+          npm install -g mermaid.cli
+          export JEKYLL_ENV=production
+          bundle exec jekyll serve --lsi & npx wait-on http://localhost:4000
+      - name: Run axe
+        run: |
+          npm install -g @axe-core/cli
+          axe http://localhost:4000 --exit
