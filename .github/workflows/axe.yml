@@ -1,4 +1,4 @@
-name: deploy
+name: Axe
 
 on:
   push:
@@ -31,13 +31,14 @@ jobs:
           valueFile: "_config.yml"
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
-      - name: Install and Build 🔧
+      - name: Build and Run 🔧
         run: |
           pip3 install --upgrade jupyter
           npm install -g mermaid.cli
           export JEKYLL_ENV=production
-          bundle exec jekyll serve --lsi & npx wait-on http://localhost:4000
-      - name: Run axe
+          bundle exec jekyll serve --lsi &
+          npx wait-on http://localhost:4000
+      - name: Run axe 🪓
         run: |
           npm install -g @axe-core/cli
           axe http://localhost:4000 --exit
