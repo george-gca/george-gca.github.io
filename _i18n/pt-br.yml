@@ -4,8 +4,8 @@ not_found:
 main:
   contact_note: ""
   footer_text: > # the ">" symbol means to ignore newlines until "titles:"
-    Desenvolvido em <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> com o tema <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>.
-    Hospedado por <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+    Desenvolvido em Jekyll com o tema <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio <small><i class="fa-solid fa-arrow-up-right-from-square"></i></small></a>.
+    Hospedado por <a href="https://pages.github.com/" target="_blank">GitHub Pages <small><i class="fa-solid fa-arrow-up-right-from-square"></i></small></a>.
   more_info: ""
   subtitle: ""
 titles:
