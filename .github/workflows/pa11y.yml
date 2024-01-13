@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 jobs:
-  deploy:
+  check:
     # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
     steps:
@@ -44,4 +44,4 @@ jobs:
           npm install -g pa11y
           npm install -g http-server
           http-server _site/ &
-          pa11y http://localhost:8080 --wait=1500 --exit
+          pa11y http://localhost:8080 --wait=1500
