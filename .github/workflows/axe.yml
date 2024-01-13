@@ -31,14 +31,15 @@ jobs:
           valueFile: "_config.yml"
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
-      - name: Build and Run 🔧
+      - name: Install and Build 🔧
         run: |
           pip3 install --upgrade jupyter
           npm install -g mermaid.cli
+          npm install -g purgecss
           export JEKYLL_ENV=production
-          bundle exec jekyll serve --lsi &
-          npx wait-on http://localhost:4000
+          bundle exec jekyll build --lsi
+          purgecss -c purgecss.config.js
       - name: Run axe 🪓
         run: |
           npm install -g @axe-core/cli
-          axe http://localhost:4000 --exit
+          axe _site/index.html --exit
