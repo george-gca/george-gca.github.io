@@ -41,5 +41,7 @@ jobs:
           purgecss -c purgecss.config.js
       - name: Run axe 🪓
         run: |
+          npm install -g http-server
           npm install -g @axe-core/cli
-          axe _site/index.html --exit
+          http-server _site/ & npx wait-on http://localhost:8080
+          axe http://localhost:8080 --exit
