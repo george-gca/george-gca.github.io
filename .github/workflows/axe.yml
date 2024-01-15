@@ -8,9 +8,16 @@ on:
     branches:
       - gca
   workflow_dispatch:
+    inputs:
+      url:
+        description: "URL to be checked (e.g.: blog/)"
+        required: false
 
 permissions:
   contents: write
+
+env:
+  URL: ""
 
 jobs:
   check:
@@ -44,4 +51,4 @@ jobs:
           npm install -g @axe-core/cli
           npm install -g http-server
           http-server _site/ &
-          axe http://localhost:8080 --load-delay=1500 --exit
+          axe http://localhost:8080/${{ github.event.inputs.url || env.URL }} --load-delay=1500 --exit
