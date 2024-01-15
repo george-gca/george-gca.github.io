@@ -1,12 +1,13 @@
-name: Axe
+name: Axe accessibility testing
 
 on:
-  push:
-    branches:
-      - gca
-  pull_request:
-    branches:
-      - gca
+  # if you want to run this on every push uncomment the following lines
+  # push:
+  #   branches:
+  #     - gca
+  # pull_request:
+  #   branches:
+  #     - gca
   workflow_dispatch:
     inputs:
       url:
@@ -36,8 +37,11 @@ jobs:
         with:
           commitChange: false
           valueFile: "_config.yml"
-          propertyPath: "giscus.repo"
-          value: ${{ github.repository }}
+          changes: |
+            {
+              "giscus.repo": "${{ github.repository }}",
+              "baseurl": ""
+            }
       - name: Install and Build 🔧
         run: |
           pip3 install --upgrade jupyter
@@ -47,6 +51,7 @@ jobs:
           bundle exec jekyll build --lsi
           purgecss -c purgecss.config.js
       - name: Run axe 🪓
+        # https://github.com/dequelabs/axe-core-npm/tree/develop/packages/cli
         run: |
           npm install -g @axe-core/cli
           npm install -g http-server
