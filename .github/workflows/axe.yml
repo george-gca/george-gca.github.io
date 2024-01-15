@@ -1,21 +1,29 @@
-name: Deploy site
+name: Axe accessibility testing
 
 on:
-  push:
-    branches:
-      - master
-      - main
-  pull_request:
-    branches:
-      - master
-      - main
+  # if you want to run this on every push uncomment the following lines
+  # push:
+  #   branches:
+  #     - master
+  #     - main
+  # pull_request:
+  #   branches:
+  #     - master
+  #     - main
   workflow_dispatch:
+    inputs:
+      url:
+        description: "URL to be checked (e.g.: blog/)"
+        required: false
 
 permissions:
   contents: write
 
+env:
+  URL: ""
+
 jobs:
-  deploy:
+  check:
     # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
     steps:
@@ -31,8 +39,11 @@ jobs:
         with:
           commitChange: false
           valueFile: "_config.yml"
-          propertyPath: "giscus.repo"
-          value: ${{ github.repository }}
+          changes: |
+            {
+              "giscus.repo": "${{ github.repository }}",
+              "baseurl": ""
+            }
       - name: Install and Build 🔧
         run: |
           pip3 install --upgrade jupyter
@@ -41,8 +52,10 @@ jobs:
           export JEKYLL_ENV=production
           bundle exec jekyll build --lsi
           purgecss -c purgecss.config.js
-      - name: Deploy 🚀
-        if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: _site
+      - name: Run axe 🪓
+        # https://github.com/dequelabs/axe-core-npm/tree/develop/packages/cli
+        run: |
+          npm install -g @axe-core/cli
+          npm install -g http-server
+          http-server _site/ &
+          axe http://localhost:8080/${{ github.event.inputs.url || env.URL }} --load-delay=1500 --exit
