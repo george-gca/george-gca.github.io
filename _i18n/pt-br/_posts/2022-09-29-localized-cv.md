@@ -19,7 +19,7 @@ Este post faz parte de uma série de posts que explicam como configurar seu pró
 
 ---
 
-Já [criamos um site al-folio local]({{ site.baseurl_root }}{% post_url 2022-09-27-running-local-al-folio %}) e [adicionamos suporte para outro idioma nele]({ { site.baseurl_root }}{% post_url 2022-09-28-dual-language-al-folio %}). Se você olhar a aba `cv`, ela é bem bonita e também dá a opção de baixar um arquivo pdf. Vamos ver como podemos criar uma versão "localizada" (com tradução por idioma) dela.
+Já [criamos um site al-folio local]({{ site.baseurl_root }}{% post_url 2022-09-27-running-local-al-folio %}) e [adicionamos suporte para outro idioma nele]({{ site.baseurl_root }}{% post_url 2022-09-28-dual-language-al-folio %}). Se você olhar a aba `cv`, ela é bem bonita e também dá a opção de baixar um arquivo pdf. Vamos ver como podemos criar uma versão "localizada" (com tradução por idioma) dela.
 
 ## Criando a estrutura
 
