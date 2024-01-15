@@ -1,14 +1,12 @@
-# name: deploy
+# name: Deploy site
 
 # on:
 #   push:
 #     branches:
-#       - master
-#       - main
+#       - gca
 #   pull_request:
 #     branches:
-#       - master
-#       - main
+#       - gca
 #   workflow_dispatch:
 
 # permissions:
