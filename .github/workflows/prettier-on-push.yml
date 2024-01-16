@@ -25,9 +25,9 @@ jobs:
         if: ${{ failure() }}
         run: |
           npx prettier . --write
-          git diff > diff.txt
+          git diff -- . ':(exclude)package-lock.json' ':(exclude)package.json' > diff.txt
           npm install -g diff2html-cli
-          diff2html -i file -s side -F diff.html --ig package-lock.json --ig package.json -- diff.txt
+          diff2html -i file -s side -F diff.html -- diff.txt
       - name: Upload html diff
         if: ${{ failure() && steps.prettier.conclusion == 'failure' }}
         uses: actions/upload-artifact@v3
