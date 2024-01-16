@@ -30,10 +30,13 @@ jobs:
           git diff > diff.txt
           npm install -g diff2html-cli
           diff2html -i file -s side -F diff.html -- diff.txt
+          npm install -g diff-so-fancy
+          git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+          git diff
       - name: Upload html diff
         if: ${{ failure() && steps.prettier.conclusion == 'failure' }}
         uses: actions/upload-artifact@v3
         with:
           name: prettier_diff
           path: diff.html
-          retention-days: 3
+            retention-days: 3
