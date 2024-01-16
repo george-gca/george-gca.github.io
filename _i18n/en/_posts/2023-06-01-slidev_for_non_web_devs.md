@@ -109,7 +109,7 @@ If you want to modify any of these commands (or create more, like exporting pres
 
 ## Changing sli.dev template
 
-You can change the presentation theme simply by editing the `theme` attribute on the [front matter](https://daily-dev-tips.com/posts/what-exactly-is-frontmatter/) of `slides.md` file. When you change and save it, the cli interface will automatically download and apply the new theme.
+You can change the presentation theme simply by editing the `theme` attribute on the [front matter](https://sli.dev/guide/syntax.html#front-matter-layouts) of `slides.md` file. When you change and save it, the cli interface will automatically download and apply the new theme.
 
 ```yaml
 theme: academic

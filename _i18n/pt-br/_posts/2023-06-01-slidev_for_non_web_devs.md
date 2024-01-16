@@ -109,7 +109,7 @@ Se você quiser modificar qualquer um desses comandos (ou criar mais, como expor
 
 ## Mudando o tema do sli.dev
 
-Para alterar o tema da apresentação, basta editar o atributo `theme` no cabeçalho (ou [front matter](https://daily-dev-tips.com/posts/what-exactly-is-frontmatter/)) do arquivo `slides.md`. Após a alteração, a interface cli baixa automaticamente e aplica o novo tema.
+Para alterar o tema da apresentação, basta editar o atributo `theme` no cabeçalho (ou [front matter](https://sli.dev/guide/syntax.html#front-matter-layouts)) do arquivo `slides.md`. Após a alteração, a interface cli baixa automaticamente e aplica o novo tema.
 
 ```yaml
 theme: academic
