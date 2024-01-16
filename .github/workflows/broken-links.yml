@@ -4,9 +4,25 @@ on:
   push:
     branches:
       - gca
+    paths:
+      - "assets/**"
+      - "**.html"
+      - "**.js"
+      - "**.liquid"
+      - "**/*.md"
+      - "**.yml"
+      - "!*.md"
   pull_request:
     branches:
       - gca
+    paths:
+      - "assets/**"
+      - "**.html"
+      - "**.js"
+      - "**.liquid"
+      - "**/*.md"
+      - "**.yml"
+      - "!*.md"
 
 jobs:
   link-checker:
