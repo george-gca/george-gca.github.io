@@ -39,4 +39,4 @@ jobs:
         with:
           name: prettier_diff
           path: diff.html
-            retention-days: 3
+          retention-days: 3
