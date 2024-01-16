@@ -27,7 +27,7 @@ jobs:
           npx prettier . --write
           git diff > diff.txt
           npm install -g diff2html-cli
-          diff2html -i file -s side -F diff.html -- diff.txt
+          diff2html -i file -s side -F diff.html --ig package-lock.json --ig package.json -- diff.txt
       - name: PR comment with html diff
         # https://docs.github.com/en/actions/learn-github-actions/expressions#failure-with-conditions
         if: ${{ failure() && steps.prettier.conclusion == 'failure' }}

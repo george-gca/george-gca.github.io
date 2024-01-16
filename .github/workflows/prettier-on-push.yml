@@ -1,7 +1,5 @@
 name: Prettier code formatter (Push)
 
-
-
 on:
   push:
     branches:
@@ -29,11 +27,11 @@ jobs:
           npx prettier . --write
           git diff > diff.txt
           npm install -g diff2html-cli
-          diff2html -i file -s side -F diff.html -- diff.txt
+          diff2html -i file -s side -F diff.html --ig package-lock.json --ig package.json -- diff.txt
       - name: Upload html diff
         if: ${{ failure() && steps.prettier.conclusion == 'failure' }}
         uses: actions/upload-artifact@v3
         with:
-          name: prettier_diff
+          name: HTML Diff
           path: diff.html
           retention-days: 3
