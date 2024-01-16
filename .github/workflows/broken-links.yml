@@ -2,7 +2,11 @@ name: Check for broken links
 
 on:
   push:
+    branches:
+      - gca
   pull_request:
+    branches:
+      - gca
 
 jobs:
   link-checker:
