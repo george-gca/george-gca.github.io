@@ -11,7 +11,7 @@ on:
       - "**.liquid"
       - "**/*.md"
       - "**.yml"
-      - "!*.md"
+      # - "!*.md"
   pull_request:
     branches:
       - gca
@@ -22,7 +22,7 @@ on:
       - "**.liquid"
       - "**/*.md"
       - "**.yml"
-      - "!*.md"
+      # - "!*.md"
 
 jobs:
   link-checker:
