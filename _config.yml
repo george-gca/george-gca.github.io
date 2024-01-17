@@ -199,13 +199,23 @@ kramdown:
 include: ["_pages"]
 exclude:
   - bin
+  - CONTRIBUTING.md
+  - docker-compose.yml
+  - Dockerfile
+  - FAQ.md
   - Gemfile
   - Gemfile.lock
+  - LICENSE
+  - lighthouse_results
+  - package-lock.json
+  - package.json
+  - purgecss.config.js
+  - README.md
   - vendor
 keep_files:
   - CNAME
-  - .nojekyll
   - .git
+  - .nojekyll
 
 # Plug-ins
 plugins:
@@ -237,7 +247,7 @@ sass:
 
 # multi language settings
 default_locale_in_subfolder: false
-exclude_from_localizations: ["assets"]
+exclude_from_localizations: ["assets", "purgecss.config.js", "package-lock.json", "package.json"]
 languages: ["en", "pt-br"]
 
 # -----------------------------------------------------------------------------
