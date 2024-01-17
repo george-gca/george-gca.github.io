@@ -12,6 +12,7 @@ on:
       - "**/*.md"
       - "**.yml"
       - "!.github/**.md"
+      - ".github/workflows/deploy.yml"
   pull_request:
     branches:
       - gca
@@ -23,6 +24,7 @@ on:
       - "**/*.md"
       - "**.yml"
       - "!.github/**.md"
+      - ".github/workflows/deploy.yml"
 
 jobs:
   link-checker:
