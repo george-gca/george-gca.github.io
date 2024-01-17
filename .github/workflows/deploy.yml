@@ -34,10 +34,16 @@ jobs:
         run: |
           pip3 install --upgrade jupyter
           npm install -g mermaid.cli
-          npm install -g purgecss
           export JEKYLL_ENV=production
           bundle exec jekyll build --lsi
+      - name: Purge unused CSS 🧹
+        run: |
+          npm install -g purgecss
           purgecss -c purgecss.config.js
+      - name: Inline critical CSS 🧵
+        run: |
+          npm install -g critical
+          critical _site/index.html --base _site --css _site/assets/css/*.css --inline > _site/index.html
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
