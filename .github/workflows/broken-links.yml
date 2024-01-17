@@ -11,8 +11,14 @@ on:
       - "**.liquid"
       - "**/*.md"
       - "**.yml"
-      - "!.github/**.md"
-      - ".github/workflows/deploy.yml"
+      - "!.github/workflows/axe.yml"
+      - "!.github/workflows/deploy-docker-tag.yml"
+      - "!.github/workflows/deploy-image.yml"
+      - "!.github/workflows/docker-slim.yml"
+      - "!.github/workflows/lightouse-badger-easy.yml"
+      - "!.github/workflows/prettier-on-pr.yml"
+      - "!.github/workflows/prettier-on-push.yml"
+      - "!.github/workflows/template-sync.yml"
   pull_request:
     branches:
       - gca
@@ -23,8 +29,14 @@ on:
       - "**.liquid"
       - "**/*.md"
       - "**.yml"
-      - "!.github/**.md"
-      - ".github/workflows/deploy.yml"
+      - "!.github/workflows/axe.yml"
+      - "!.github/workflows/deploy-docker-tag.yml"
+      - "!.github/workflows/deploy-image.yml"
+      - "!.github/workflows/docker-slim.yml"
+      - "!.github/workflows/lightouse-badger-easy.yml"
+      - "!.github/workflows/prettier-on-pr.yml"
+      - "!.github/workflows/prettier-on-push.yml"
+      - "!.github/workflows/template-sync.yml"
 
 jobs:
   link-checker:
