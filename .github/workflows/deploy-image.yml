@@ -31,4 +31,4 @@ jobs:
           context: .
           push: true
           platforms: linux/amd64,linux/arm64/v8
-          tags: george-gca/multi-language-al-folio
+          tags: georgegca/multi-language-al-folio

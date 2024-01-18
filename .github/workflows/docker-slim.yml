@@ -15,7 +15,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.repository_owner == 'alshedivat'
+    if: github.repository_owner == 'george-gca'
 
     defaults:
       run:
@@ -34,7 +34,7 @@ jobs:
       - name: update docker-compose
         shell: bash
         run: |
-          sed -i "s|\.:|${{ github.workspace }}:|g" ${{ github.workspace }}/docker-compose.yml 
+          sed -i "s|\.:|${{ github.workspace }}:|g" ${{ github.workspace }}/docker-compose.yml
           cat ${{ github.workspace }}/docker-compose.yml
 
       - uses: kitabisa/docker-slim-action@v1.0.3
@@ -44,8 +44,8 @@ jobs:
           DSLIM_TARGET_COMPOSE_SVC: jekyll
           DSLIM_CONTINUE_AFTER: signal
         with:
-          target: amirpourmand/al-folio
+          target: georgegca/multi-language-al-folio
           tag: "slim"
 
       # Push to the registry
-      - run: docker image push amirpourmand/al-folio:slim
+      - run: docker image push georgegca/multi-language-al-folio:slim
