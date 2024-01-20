@@ -15,7 +15,7 @@ name: "Lighthouse Badger Easy"
 # INPUTS as environmental variables (env) for not manually triggered workflows
 env:
   URLS: https://george-gca.github.io/
-  TOKEN_NAME: LIGHTHOUSE_BADGER_TOKEN_SECRET
+  TOKEN_NAME: LIGHTHOUSE_BADGER_TOKEN_SECRET # name of the secret that contains the token
   # If any of the following env is blank, a default value is used instead
   REPO_BRANCH: "george-gca/george-gca.github.io gca" # target repository & branch e.g. 'dummy/mytargetrepo main'
   MOBILE_LIGHTHOUSE_PARAMS: "--only-categories=performance,accessibility,best-practices,seo --throttling.cpuSlowdownMultiplier=2"
@@ -51,12 +51,12 @@ jobs:
           echo "BRANCH=$BRANCH" >> $GITHUB_ENV
         env:
           REPO_BRANCH: ${{ github.event.inputs.repo_branch || env.REPO_BRANCH || env.DEFAULT_REPO_BRANCH }}
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           repository: ${{ env.REPOSITORY }}
           token: ${{ secrets[github.event.inputs.token_name] || secrets[env.TOKEN_NAME] }}
           ref: ${{ env.BRANCH }}
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           repository: "myactionway/lighthouse-badges"
           path: temp_lighthouse_badges_nested

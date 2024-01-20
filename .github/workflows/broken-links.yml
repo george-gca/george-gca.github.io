@@ -19,6 +19,7 @@ on:
       - "!.github/workflows/prettier-on-pr.yml"
       - "!.github/workflows/prettier-on-push.yml"
       - "!.github/workflows/template-sync.yml"
+      - "!lighthouse_results/**"
   pull_request:
     branches:
       - gca
@@ -37,13 +38,16 @@ on:
       - "!.github/workflows/prettier-on-pr.yml"
       - "!.github/workflows/prettier-on-push.yml"
       - "!.github/workflows/template-sync.yml"
+      - "!lighthouse_results/**"
 
 jobs:
   link-checker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+        with:
+          ref: gca
       - name: Link Checker 🔗
         uses: lycheeverse/lychee-action@v1.9.0
         with:
