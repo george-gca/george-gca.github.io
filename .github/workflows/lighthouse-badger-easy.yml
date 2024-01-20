@@ -15,7 +15,7 @@ name: "Lighthouse Badger Easy"
 # INPUTS as environmental variables (env) for not manually triggered workflows
 env:
   URLS: https://george-gca.github.io/
-  TOKEN_NAME: LIGHTHOUSE_BADGER_TOKEN_SECRET
+  TOKEN_NAME: LIGHTHOUSE_BADGER_TOKEN_SECRET # name of the secret that contains the token
   # If any of the following env is blank, a default value is used instead
   REPO_BRANCH: "george-gca/george-gca.github.io gca" # target repository & branch e.g. 'dummy/mytargetrepo main'
   MOBILE_LIGHTHOUSE_PARAMS: "--only-categories=performance,accessibility,best-practices,seo --throttling.cpuSlowdownMultiplier=2"
