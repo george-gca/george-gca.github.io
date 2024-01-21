@@ -4,7 +4,11 @@ layout: default
 <div class="post">
   <header class="post-header">
     {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}" style="--stagger: {{ animation_count }};" data-animate>
+      <div
+        class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}"
+        style="--stagger: {{ animation_count }};"
+        data-animate
+      >
         {% assign animation_count = animation_count | plus: 1 %}
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}

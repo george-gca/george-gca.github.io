@@ -8,6 +8,7 @@ nav_order: 4
 ---
 
 ## {% t repositories.users %}
+
 {: style="--stagger: {{ animation_count }};" data-animate}
 {% assign animation_count = animation_count | plus: 1 %}
 
@@ -42,6 +43,7 @@ nav_order: 4
 {% endif %}
 
 ## {% t repositories.repos %}
+
 {: style="--stagger: {{ animation_count }};" data-animate}
 {% assign animation_count = animation_count | plus: 1 %}
 
