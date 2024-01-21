@@ -123,6 +123,7 @@
   <meta property="og:description" content="{{ description }}">
   {% if page.og_image or site.og_image %}
     <meta property="og:image" content="{% if page.og_image %}{{ page.og_image }}{% else %}{{ site.og_image }}{% endif %}">
+    <meta property="og:image:alt" content="{% t main.profile_picture_alt %}">
   {% endif %}
   <meta property="og:locale" content="{{ site.lang }}">
 
