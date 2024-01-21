@@ -15,7 +15,8 @@ layout: default
 {% assign url_beginning = page.url | slice: 0, 6 %}
 
 <div class="post">
-  <header class="post-header animated_section">
+  <header class="post-header" style="--stagger: {{ animation_count }};" data-animate>
+    {% assign animation_count = animation_count | plus: 1 %}
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-meta">
       {% include date_format.liquid format='long' date_from=page %}
@@ -58,19 +59,23 @@ layout: default
 
   <article class="post-content">
     {% if page.toc and page.toc.beginning %}
-      <div id="table-of-contents animated_section">
+      <div id="table-of-contents" style="--stagger: {{ animation_count }};" data-animate>
+        {% assign animation_count = animation_count | plus: 1 %}
         {% toc %}
       </div>
       <hr>
     {% endif %}
-    <div id="markdown-content animated_section">
+    <div id="markdown-content" style="--stagger: {{ animation_count }};" data-animate>
+      {% assign animation_count = animation_count | plus: 1 %}
       {{ content }}
     </div>
   </article>
 
   {% if page.related_publications %}
-    <h2 class="animated_section">References</h2>
-    <div class="publications animated_section">
+    <h2 style="--stagger: {{ animation_count }};" data-animate>References</h2>
+    {% assign animation_count = animation_count | plus: 1 %}
+    <div class="publications" style="--stagger: {{ animation_count }};" data-animate>
+      {% assign animation_count = animation_count | plus: 1 %}
       {% bibliography --cited_in_order %}
     </div>
   {% endif %}

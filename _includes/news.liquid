@@ -7,7 +7,8 @@
         style="max-height: 60vw"
       {% endif %}
     >
-      <table class="table table-sm table-borderless animated_section">
+      <table class="table table-sm table-borderless" style="--stagger: {{ animation_count }};" data-animate>
+        {% assign animation_count = animation_count | plus: 1 %}
         {% assign news = site.news | reverse %}
         {% if include.limit and site.announcements.limit %}
           {% assign news_limit = site.announcements.limit %}
@@ -29,6 +30,7 @@
       </table>
     </div>
   {% else %}
-    <p class="animated_section">{% t news.empty %}</p>
+    <p style="--stagger: {{ animation_count }};" data-animate>{% t news.empty %}</p>
+    {% assign animation_count = animation_count | plus: 1 %}
   {% endif %}
 </div>

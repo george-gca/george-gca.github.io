@@ -1,8 +1,3 @@
-$(".animated_section").each(function (index) {
-  $(this).attr("style", "--stagger: " + (index + 1));
-  $(this).attr("data-animate", "");
-});
-
 $(document).ready(function () {
   // add bootstrap classes to tables
   $("table").each(function () {

@@ -1,6 +1,7 @@
 ---
 ---
-<div class="row">
+<div class="row" style="--stagger: {{ animation_count }};" data-animate>
+  {% assign animation_count = animation_count | plus: 1 %}
   {% if site.enable_publication_thumbnails %}
     <div class="col-sm-2 {% if entry.preview %}preview{% else %}abbr{% endif %}">
       {% if entry.preview %}

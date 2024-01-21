@@ -10,6 +10,7 @@
 
   <!-- Body -->
   <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+    {% assign animation_count = 1 %}
     <!-- Header -->
     {% include header.liquid %}
 
@@ -19,24 +20,29 @@
         {% if page.toc.sidebar == 'right' %}
           <div class="row">
             <!-- main content area -->
-            <div class="col-sm-9 animated_section">{{ content }}</div>
+            <div class="col-sm-9" style="--stagger: {{ animation_count }};" data-animate>{{ content }}</div>
+            {% assign animation_count = animation_count | plus: 1 %}
             <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3 animated_section">
+            <div class="col-sm-3" style="--stagger: {{ animation_count }};" data-animate>
+              {% assign animation_count = animation_count | plus: 1 %}
               <nav id="toc-sidebar" class="sticky-top"></nav>
             </div>
           </div>
         {% else %}
           <div class="row">
             <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3 animated_section">
+            <div class="col-sm-3" style="--stagger: {{ animation_count }};" data-animate>
+              {% assign animation_count = animation_count | plus: 1 %}
               <nav id="toc-sidebar" class="sticky-top"></nav>
             </div>
             <!-- main content area -->
-            <div class="col-sm-9 animated_section">{{ content }}</div>
+            <div class="col-sm-9" style="--stagger: {{ animation_count }};" data-animate>{{ content }}</div>
+            {% assign animation_count = animation_count | plus: 1 %}
           </div>
         {% endif %}
       {% else %}
-        <div class="animated_section">
+        <div style="--stagger: {{ animation_count }};" data-animate>
+          {% assign animation_count = animation_count | plus: 1 %}
           {{ content }}
         </div>
       {% endif %}

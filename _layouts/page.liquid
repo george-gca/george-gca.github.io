@@ -2,7 +2,8 @@
 layout: default
 ---
 <div class="post">
-  <header class="post-header animated_section">
+  <header class="post-header" style="--stagger: {{ animation_count }};" data-animate>
+    {% assign animation_count = animation_count | plus: 1 %}
     <h1 class="post-title">{% t page.title %}</h1>
     <p class="post-description">
       {% if page.description %}{% t page.description %}{% endif %}

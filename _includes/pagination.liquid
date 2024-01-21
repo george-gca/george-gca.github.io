@@ -1,6 +1,7 @@
 {% if paginator.total_pages > 1 %}
   <nav aria-label="Blog page naviation">
-    <ul class="pagination pagination-lg justify-content-center animated_section">
+    <ul class="pagination pagination-lg justify-content-center" style="--stagger: {{ animation_count }};" data-animate>
+      {% assign animation_count = animation_count | plus: 1 %}
       <li class="page-item {% unless paginator.previous_page %}disabled{% endunless %}">
         <a
           class="page-link"

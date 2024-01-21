@@ -1,4 +1,5 @@
-<div id="giscus_thread" style="max-width: {{ site.max_width }}; margin: 0 auto;" class="animated_section">
+<div id="giscus_thread" style="max-width: {{ site.max_width }}; margin: 0 auto; --stagger: {{ animation_count }};" data-animate>
+  {% assign animation_count = animation_count | plus: 1 %}
   {% if site.giscus.repo %}
     <script>
       let giscusTheme = localStorage.getItem('theme');

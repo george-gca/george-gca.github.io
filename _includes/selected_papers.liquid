@@ -1,3 +1,4 @@
-<div class="publications animated_section">
+<div class="publications" style="--stagger: {{ animation_count }};" data-animate>
+  {% assign animation_count = animation_count | plus: 1 %}
   {% bibliography --group_by none --query @*[selected=true]* %}
 </div>

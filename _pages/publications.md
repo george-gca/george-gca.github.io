@@ -8,7 +8,8 @@ nav_order: 2
 ---
 
 <!-- _pages/publications.md -->
-<div class="publications animated_section">
+<div class="publications" style="--stagger: {{ animation_count }};" data-animate>
+{% assign animation_count = animation_count | plus: 1 %}
 
 {% bibliography %}
 
