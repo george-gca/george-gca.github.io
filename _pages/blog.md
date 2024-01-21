@@ -24,7 +24,7 @@ pagination:
 
 {% if blog_name_size > 0 or blog_description_size > 0 %}
 
-  <div class="header-bar">
+  <div class="header-bar animated_section">
     <h1>{% t blog.name %}</h1>
     <h2>{% t blog.description %}</h2>
   </div>
@@ -32,7 +32,7 @@ pagination:
 
 {% if site.display_tags or site.display_categories %}
 
-  <div class="tag-category-list">
+  <div class="tag-category-list animated_section">
     <ul class="p-0 m-0">
       {% for tag in site.display_tags %}
         <li>
@@ -61,7 +61,7 @@ pagination:
 {% if featured_posts.size > 0 %}
 <br>
 
-<div class="container featured-posts">
+<div class="container featured-posts animated_section">
 {% assign is_even = featured_posts.size | modulo: 2 %}
 <div class="row row-cols-{% if featured_posts.size <= 2 or is_even == 0 %}2{% else %}3{% endif %}">
 {% for post in featured_posts %}
@@ -121,7 +121,7 @@ pagination:
     {% assign tags = post.tags | join: "" %}
     {% assign categories = post.categories | join: "" %}
 
-    <li>
+    <li class="animated_section">
 
 {% if post.thumbnail %}
 

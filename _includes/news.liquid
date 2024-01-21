@@ -7,7 +7,7 @@
         style="max-height: 60vw"
       {% endif %}
     >
-      <table class="table table-sm table-borderless">
+      <table class="table table-sm table-borderless animated_section">
         {% assign news = site.news | reverse %}
         {% if include.limit and site.announcements.limit %}
           {% assign news_limit = site.announcements.limit %}
@@ -29,6 +29,6 @@
       </table>
     </div>
   {% else %}
-    <p>{% t news.empty %}</p>
+    <p class="animated_section">{% t news.empty %}</p>
   {% endif %}
 </div>

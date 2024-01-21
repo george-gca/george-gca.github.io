@@ -7,11 +7,11 @@
     <ul class="list-disc pl-8"></ul>
 
     <!-- Adds related posts to the end of an article -->
-    <h2 class="text-3xl font-semibold mb-4 mt-12">{% t blog.related_posts.title %}</h2>
-    <p class="mb-2">{% t blog.related_posts.description %}</p>
+    <h2 class="text-3xl font-semibold mb-4 mt-12 animated_section">{% t blog.related_posts.title %}</h2>
+    <p class="mb-2 animated_section">{% t blog.related_posts.description %}</p>
   {% endunless %}
 
-  <li class="my-2">
+  <li class="my-2 animated_section">
     <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
   </li>
 {% endfor %}

@@ -4,7 +4,7 @@ layout: default
 <div class="post">
   <header class="post-header">
     {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %} animated_section">
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
           {% if page.profile.image_circular %}
@@ -25,7 +25,7 @@ layout: default
         {% endif %}
       </div>
     {% endif %}
-    <h1 class="post-title">
+    <h1 class="post-title animated_section">
       {% if site.title == 'blank' %}
         <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
         {{ site.last_name }}
@@ -33,15 +33,15 @@ layout: default
         {{ site.title }}
       {% endif %}
     </h1>
-    <p class="desc">{% t main.subtitle %}</p>
+    <p class="desc animated_section">{% t main.subtitle %}</p>
   </header>
 
   <article>
-    <div class="clearfix">{{ content }}</div>
+    <div class="clearfix animated_section">{{ content }}</div>
 
     <!-- News -->
     {% if page.news and site.announcements.enabled %}
-      <h2>
+      <h2 class="animated_section">
         <a href="{{ '/news/' | prepend: site.baseurl }}" style="color: inherit;">{% t titles.news %}</a>
       </h2>
       {% include news.liquid limit=true %}
@@ -49,7 +49,7 @@ layout: default
 
     <!-- Latest posts -->
     {% if page.latest_posts %}
-      <h2>
+      <h2 class="animated_section">
         <a href="{{ '/blog/' | prepend: site.baseurl }}" style="color: inherit;">{% t titles.latest_posts %}</a>
       </h2>
       {% include latest_posts.liquid %}
@@ -57,7 +57,7 @@ layout: default
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2>
+      <h2 class="animated_section">
         <a href="{{ '/publications/' | prepend: site.baseurl }}" style="color: inherit;">{% t titles.selected_publications %}</a>
       </h2>
       {% include selected_papers.liquid %}
@@ -65,7 +65,7 @@ layout: default
 
     <!-- Social -->
     {% if page.social %}
-      <div class="social">
+      <div class="social animated_section">
         <div class="contact-icons">{% include social.liquid %}</div>
 
         <div class="contact-note">{% t main.contact_note %}</div>

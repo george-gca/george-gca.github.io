@@ -5,7 +5,7 @@ layout: default
 {% unless site.data[localized_resume] %}
   <!-- use data from _data/LANG/cv.yml -->
   <div class="post">
-    <header class="post-header">
+    <header class="post-header animated_section">
       <h1 class="post-title">
         {% t page.title %}
         {% if page.cv_pdf %}
@@ -26,8 +26,8 @@ layout: default
     <article>
       <div class="cv">
         {% for entry in site.data[site.lang].cv %}
-          <a class="anchor" id="{{ entry.title }}"></a>
-          <div class="card mt-3 p-3">
+          <a class="anchor animated_section" id="{{ entry.title }}"></a>
+          <div class="card mt-3 p-3 animated_section">
             <h3 class="card-title font-weight-medium">{{ entry.title }}</h3>
             <div>
               {% if entry.type == 'list' %}
@@ -52,7 +52,7 @@ layout: default
 {% else %}
   <!-- use data from assets/json/resume_LANG.json -->
   <div class="post">
-    <header class="post-header">
+    <header class="post-header animated_section">
       <h1 class="post-title">
         {% t page.title %}
         {% if page.cv_pdf %}
@@ -80,8 +80,8 @@ layout: default
           {% endif %}
           {% if data[0] == 'meta' or data[1].size == 0 %} {% continue %} {% endif %}
           {% assign localized_title = data[0] | prepend: 'cv.' %}
-          <a class="anchor" id="{% t localized_title %}"></a>
-          <div class="card mt-3 p-3">
+          <a class="anchor animated_section" id="{% t localized_title %}"></a>
+          <div class="card mt-3 p-3 animated_section">
             <h3 class="card-title font-weight-medium">{% t localized_title %}</h3>
             <div>
               {% case data[0] %}

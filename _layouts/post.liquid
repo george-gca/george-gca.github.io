@@ -15,7 +15,7 @@ layout: default
 {% assign url_beginning = page.url | slice: 0, 6 %}
 
 <div class="post">
-  <header class="post-header">
+  <header class="post-header animated_section">
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-meta">
       {% include date_format.liquid format='long' date_from=page %}
@@ -58,19 +58,19 @@ layout: default
 
   <article class="post-content">
     {% if page.toc and page.toc.beginning %}
-      <div id="table-of-contents">
+      <div id="table-of-contents animated_section">
         {% toc %}
       </div>
       <hr>
     {% endif %}
-    <div id="markdown-content">
+    <div id="markdown-content animated_section">
       {{ content }}
     </div>
   </article>
 
   {% if page.related_publications %}
-    <h2>References</h2>
-    <div class="publications">
+    <h2 class="animated_section">References</h2>
+    <div class="publications animated_section">
       {% bibliography --cited_in_order %}
     </div>
   {% endif %}

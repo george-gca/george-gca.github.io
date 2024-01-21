@@ -19,24 +19,26 @@
         {% if page.toc.sidebar == 'right' %}
           <div class="row">
             <!-- main content area -->
-            <div class="col-sm-9">{{ content }}</div>
+            <div class="col-sm-9 animated_section">{{ content }}</div>
             <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3">
+            <div class="col-sm-3 animated_section">
               <nav id="toc-sidebar" class="sticky-top"></nav>
             </div>
           </div>
         {% else %}
           <div class="row">
             <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3">
+            <div class="col-sm-3 animated_section">
               <nav id="toc-sidebar" class="sticky-top"></nav>
             </div>
             <!-- main content area -->
-            <div class="col-sm-9">{{ content }}</div>
+            <div class="col-sm-9 animated_section">{{ content }}</div>
           </div>
         {% endif %}
       {% else %}
-        {{ content }}
+        <div class="animated_section">
+          {{ content }}
+        </div>
       {% endif %}
     </div>
 
