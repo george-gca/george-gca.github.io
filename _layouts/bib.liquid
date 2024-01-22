@@ -39,7 +39,12 @@
   {% endif %}
 
   <!-- Entry bib key -->
-  <div id="{{entry.key}}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}" style="--stagger: {{ animation_count }};" data-animate>
+  <div
+    id="{{entry.key}}"
+    class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}"
+    style="--stagger: {{ animation_count }};"
+    data-animate
+  >
     {% assign animation_count = animation_count | plus: 1 %}
     <!-- Title -->
     <div class="title">{{ entry.title }}</div>
