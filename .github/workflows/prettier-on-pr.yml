@@ -42,5 +42,4 @@ jobs:
         with:
           comment_tag: prettier-failed
           message: |
-            Failed [prettier code check](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}).
-            Check [this file](${{ steps.artifact-upload.outputs.artifact-url }}) for more information.
+            Failed [prettier code check](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}). Check [this file](${{ steps.artifact-upload.outputs.artifact-url }}) for more information.
