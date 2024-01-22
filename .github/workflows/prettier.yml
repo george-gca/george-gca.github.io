@@ -32,10 +32,20 @@ jobs:
           git diff -- . ':(exclude)package-lock.json' ':(exclude)package.json' > diff.txt
           npm install -g diff2html-cli
           diff2html -i file -s side -F diff.html -- diff.txt
+      - name: Save PR number
+        if: ${{ failure() && steps.prettier.conclusion == 'failure' }}
+        run: |
+          echo ${{ github.event.number }} > PR.txt
+      - uses: actions/upload-artifact@v4
+        if: ${{ failure() && steps.prettier.conclusion == 'failure' }}
+        with:
+          name: PR
+          path: PR.txt
+          retention-days: 1
       - name: Upload html diff
         if: ${{ failure() && steps.prettier.conclusion == 'failure' }}
         uses: actions/upload-artifact@v4
         with:
-          name: HTML Diff
+          name: HTML_Diff
           path: diff.html
           retention-days: 3
