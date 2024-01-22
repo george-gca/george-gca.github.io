@@ -21,8 +21,13 @@ jobs:
           workflow: prettier.yml
           workflow_conclusion: failure
           event: pull_request
+      - name: Read PR number
+        id: pr
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: PR/PR.txt
       - name: PR comment with html diff
         uses: thollander/actions-comment-pull-request@v2
         with:
           filePath: HTML_Diff/diff.html
-          pr_number: $(cat PR/PR.txt)
+          pr_number: ${{ steps.pr.outputs.content }}
