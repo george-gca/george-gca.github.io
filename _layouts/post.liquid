@@ -15,7 +15,7 @@ layout: default
 {% assign url_beginning = page.url | slice: 0, 6 %}
 
 <div class="post">
-  <header class="post-header" style="--stagger: {{ animation_count }};" data-animate>
+  <header class="post-header" style="--stagger: 1;" data-animate>
     {% assign animation_count = animation_count | plus: 1 %}
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-meta">
@@ -65,8 +65,7 @@ layout: default
       </div>
       <hr>
     {% endif %}
-    <div id="markdown-content" style="--stagger: {{ animation_count }};" data-animate>
-      {% assign animation_count = animation_count | plus: 1 %}
+    <div id="markdown-content">
       {{ content }}
     </div>
   </article>
