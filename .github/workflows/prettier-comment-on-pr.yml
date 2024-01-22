@@ -1,33 +1,18 @@
 name: Comment on pull request
 
 on:
-  workflow_run:
-    workflows: [Prettier code formatter]
-    types:
-      - completed
+  repository_dispatch:
+    types: [prettier-failed-on-pr]
 
 jobs:
   comment:
     # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
-    if: >
-      github.event.workflow_run.event == 'pull_request' &&
-      github.event.workflow_run.conclusion == 'failure'
     steps:
-      - name: Download artifacts
-        id: download-artifact
-        uses: dawidd6/action-download-artifact@v3
-        with:
-          workflow: prettier.yml
-          workflow_conclusion: failure
-          event: pull_request
-      - name: Read PR number
-        id: pr
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: PR/PR.txt
       - name: PR comment with html diff
         uses: thollander/actions-comment-pull-request@v2
         with:
-          filePath: HTML_Diff/diff.html
-          pr_number: ${{ steps.pr.outputs.content }}
+          comment_tag: prettier-failed
+          pr_number: ${{ github.event.client_payload.pr_number }}
+          message: |
+            Failed prettier code verification. Check [this file](${{ github.event.client_payload.artifact_url }}) for more information.
