@@ -15,7 +15,9 @@ horizontal: false
   <!-- Display categorized projects -->
   {% for category in page.display_categories %}
   {% capture localized_category %}projects.categories.{{category}}{% endcapture %}
-  <h2 class="category">{% t localized_category %}</h2>
+  <a id="{% t localized_category %}" href=".#{% t localized_category %}">
+    <h2 class="category">{% t localized_category %}</h2>
+  </a>
   {% assign categorized_projects = site.projects | where: "category", category %}
   {% assign sorted_projects = categorized_projects | sort: "importance" %}
   <!-- Generate cards for each project -->
