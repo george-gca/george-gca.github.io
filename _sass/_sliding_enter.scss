@@ -1,6 +1,6 @@
 // based on https://antfu.me/posts/sliding-enter-animation
 @keyframes enter {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(10px);
   }
