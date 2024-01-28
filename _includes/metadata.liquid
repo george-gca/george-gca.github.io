@@ -20,12 +20,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>
-  {% if site.title == 'blank' %}
-    {% capture title %}{{ author_name }}{% endcapture %}
-  {% else %}
-    {% capture title %}{{ site.title }}{% endcapture %}
-  {% endif %}
+{% if site.title == 'blank' %}
+  {% capture title %}{{ author_name }}{% endcapture %}
+{% else %}
+  {% capture title %}{{ site.title }}{% endcapture %}
+{% endif %}
+{% if page.title != null and page.title != '' %}
   {% if page.url == '/blog/index.html' %}
     {% capture page_title %}{% t blog.nav_title %}{% endcapture %}
   {% elsif page.url contains '/blog/' %}
