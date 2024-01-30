@@ -50,13 +50,18 @@ jobs:
         run: |
           npm install -g purgecss
           purgecss -c purgecss.config.js
+      - name: Get Chromium version 🌐
+        run: |
+          CHROMIUM_VERSION=$(wget -qO- https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE | cut -d. -f1)
+          echo "Chromium version: $CHROMIUM_VERSION"
+          echo "CHROMIUM_VERSION=$CHROMIUM_VERSION" >> $GITHUB_ENV
       - name: Setup Chrome 🌐
         id: setup-chrome
         uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: ${{ env.CHROMIUM_VERSION }}
       - name: Install chromedriver 🚗
         run: |
-          CHROMIUM_VERSION=$(${{ steps.setup-chrome.outputs.chrome-path }} --version | awk '{print $2}')
-          echo "Chromium version: $CHROMIUM_VERSION"
           npm install -g chromedriver@$CHROMIUM_VERSION
       - name: Run axe 🪓
         # https://github.com/dequelabs/axe-core-npm/tree/develop/packages/cli
