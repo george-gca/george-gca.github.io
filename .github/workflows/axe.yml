@@ -16,9 +16,6 @@ on:
         description: "URL to be checked (e.g.: blog/)"
         required: false
 
-permissions:
-  contents: write
-
 env:
   URL: ""
 
