@@ -31,33 +31,34 @@ jobs:
         with:
           ruby-version: "3.2.2"
           bundler-cache: true
-      # - name: Update _config.yml ⚙️
-      #   uses: fjogeleit/yaml-update-action@main
-      #   with:
-      #     commitChange: false
-      #     valueFile: "_config.yml"
-      #     changes: |
-      #       {
-      #         "giscus.repo": "${{ github.repository }}",
-      #         "baseurl": ""
-      #       }
-      # - name: Install and Build 🔧
-      #   run: |
-      #     pip3 install --upgrade jupyter
-      #     export JEKYLL_ENV=production
-      #     bundle exec jekyll build --lsi
-      # - name: Purge unused CSS 🧹
-      #   run: |
-      #     npm install -g purgecss
-      #     purgecss -c purgecss.config.js
+      - name: Update _config.yml ⚙️
+        uses: fjogeleit/yaml-update-action@main
+        with:
+          commitChange: false
+          valueFile: "_config.yml"
+          changes: |
+            {
+              "giscus.repo": "${{ github.repository }}",
+              "baseurl": ""
+            }
+      - name: Install and Build 🔧
+        run: |
+          pip3 install --upgrade jupyter
+          export JEKYLL_ENV=production
+          bundle exec jekyll build --lsi
+      - name: Purge unused CSS 🧹
+        run: |
+          npm install -g purgecss
+          purgecss -c purgecss.config.js
       - name: Setup Chrome 🌐
+        id: setup-chrome
         uses: browser-actions/setup-chrome@v1
       - run: ${{ steps.setup-chrome.outputs.chrome-path }} --version
       - run: chrome --version
-      # - name: Run axe 🪓
-      #   # https://github.com/dequelabs/axe-core-npm/tree/develop/packages/cli
-      #   run: |
-      #     npm install -g @axe-core/cli
-      #     npm install -g http-server
-      #     http-server _site/ &
-      #     axe http://localhost:8080/${{ github.event.inputs.url || env.URL }} --load-delay=1500 --exit
+      - name: Run axe 🪓
+        # https://github.com/dequelabs/axe-core-npm/tree/develop/packages/cli
+        run: |
+          npm install -g @axe-core/cli
+          npm install -g http-server
+          http-server _site/ &
+          axe http://localhost:8080/${{ github.event.inputs.url || env.URL }} --load-delay=1500 --exit
