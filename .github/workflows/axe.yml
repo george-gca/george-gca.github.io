@@ -51,6 +51,7 @@ jobs:
           npm install -g purgecss
           purgecss -c purgecss.config.js
       - name: Get Chromium version 🌐
+        # https://github.com/GoogleChromeLabs/chrome-for-testing?tab=readme-ov-file#other-api-endpoints
         run: |
           CHROMIUM_VERSION=$(wget -qO- https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE | cut -d. -f1)
           echo "Chromium version: $CHROMIUM_VERSION"
