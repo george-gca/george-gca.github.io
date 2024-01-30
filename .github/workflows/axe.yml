@@ -52,7 +52,6 @@ jobs:
           purgecss -c purgecss.config.js
       - name: Setup Chrome 🌐
         uses: browser-actions/setup-chrome@v1
-        run: chrome --version
       - name: Run axe 🪓
         # https://github.com/dequelabs/axe-core-npm/tree/develop/packages/cli
         run: |
