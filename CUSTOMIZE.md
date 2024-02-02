@@ -49,6 +49,10 @@ The configuration file [\_config.yml](_config.yml) contains the main configurati
 
 All changes made to this file are only visible after you rebuild the website. That means that you need to run `bundle exec jekyll serve --lsi` again if you are running the website locally or push your changes to GitHub if you are using GitHub Pages. All other changes are visible immediately, you only need to refresh the page.
 
+## Displaying countries flags
+
+To display countries flags instead of the language initials in the header, you can set `country_flag: true` in the [\_config.yml](_config.yml) file. You should also add the countries' svg flags in the [assets/img/flags/](assets/img/flags/) directory. You can find the flags in the [flag-icons repository](https://github.com/lipis/flag-icons/tree/main/flags). When selecting the flags, the code uses the last part (after the `-`) of the site languages. So when looking for the flag of the language `pt-br`, the code will look for the file `br.svg` in the [assets/img/flags/](assets/img/flags/) directory.
+
 ## Modifying the CV information
 
 There are currently 2 different ways of generating the CV page content. The first one is by using a json file located in [assets/json/resume_LANG.json](assets/json/resume_en-us.json). It is a [known standard](https://jsonresume.org/) for creating a CV programmatically. The second one, currently used as a fallback when the json file is not found, is by using a yml file located in [\_data/LANG/cv.yml](_data/en-us/cv.yml). This was the original way of creating the CV page content and since it is more human readable than a json file we decided to keep it as an option.
