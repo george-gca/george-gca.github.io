@@ -244,6 +244,10 @@ The default language will be the first in the list of languages in the [\_config
 ![Switch language](assets/img/readme_preview/multi-language-diff-1.png)
 ![Switch back language](assets/img/readme_preview/multi-language-diff-2.png)
 
+It is also possible to display the country flag instead of the language name.
+
+![Use country flag instead of language name](assets/img/readme_preview/country_flag.png)
+
 When using three or more, it will be created a dropdown menu with all the available languages.
 
 ![Switch language between 3 or more](assets/img/readme_preview/multi-language-3-or-more.png)
