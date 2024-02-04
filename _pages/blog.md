@@ -137,7 +137,12 @@ pagination:
             <path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
         {% else %}
-          <a class="post-title" href="{{ post.redirect | prepend: site.baseurl }}">{{ post.title }}</a>
+          {% assign is_asset = post.redirect | startswith: "/assets/" %}
+          {% if is_asset %}
+            <a class="post-title" href="{{ post.redirect | prepend: site.baseurl_root }}">{{ post.title }}</a>
+          {% else %}
+            <a class="post-title" href="{{ post.redirect | prepend: site.baseurl }}">{{ post.title }}</a>
+          {% endif %}
         {% endif %}
       </h3>
       <p>{{ post.description }}</p>
