@@ -8,7 +8,7 @@
       {% elsif page.redirect contains '://' %}
         {% assign redirect = page.redirect %}
       {% else %}
-        {% assign is_asset = page.redirect | startswith: "/assets/" %}
+        {% assign is_asset = page.redirect | startswith: '/assets/' %}
         {% if is_asset %}
           {% assign redirect = page.redirect | prepend: site.baseurl_root %}
         {% else %}
