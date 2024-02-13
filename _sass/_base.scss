@@ -237,6 +237,8 @@ blockquote {
 .navbar .dropdown-menu {
   background-color: var(--global-bg-color);
   border: 1px solid var(--global-divider-color);
+  min-width: 1rem;
+  width: fit-content;
 
   a:not(.active) {
     color: var(--global-text-color);
