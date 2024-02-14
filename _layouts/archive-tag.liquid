@@ -19,7 +19,17 @@ layout: default
               {% elsif post.redirect contains '://' %}
                 <a class="post-link" href="{{ post.redirect }}" target="_blank">{{ post.title }}</a>
               {% else %}
-                <a class="post-link" href="{{ post.redirect | prepend: site.baseurl }}">{{ post.title }}</a>
+                {% assign is_asset = post.redirect | startswith: '/assets/' %}
+                {% if is_asset %}
+                  <a class="post-link" href="{{ post.redirect | prepend: site.baseurl_root }}">{{ post.title }}</a>
+                {% else %}
+                  {% assign is_asset = post.redirect | startswith: '/assets/' %}
+                  {% if is_asset %}
+                    <a class="post-link" href="{{ post.redirect | prepend: site.baseurl_root }}">{{ post.title }}</a>
+                  {% else %}
+                    <a class="post-link" href="{{ post.redirect | prepend: site.baseurl }}">{{ post.title }}</a>
+                  {% endif %}
+                {% endif %}
               {% endif %}
             </td>
           </tr>
