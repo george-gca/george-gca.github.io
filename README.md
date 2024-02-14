@@ -131,6 +131,9 @@ Feel free to add your own page(s) by sending a PR.
 <a href="https://sam-bieberich.github.io/" target="_blank">★</a>
 <a href="https://afraniomelo.github.io/en/" target="_blank">★</a>
 <a href="https://jonaruthardt.github.io" target="_blank">★</a>
+<a href="https://www.zla.app/" target="_blank">★</a>
+<a href="https://stavros.github.io" target="_blank">★</a>
+<a href="https://ericslyman.com" target="_blank">★</a>
 </td>
 </tr>
 <tr>
@@ -244,11 +247,15 @@ The default language will be the first in the list of languages in the [\_config
 ![Switch language](assets/img/readme_preview/multi-language-diff-1.png)
 ![Switch back language](assets/img/readme_preview/multi-language-diff-2.png)
 
+It is also possible to display the country flag instead of the language name.
+
+![Use country flag instead of language name](assets/img/readme_preview/country_flag.png)
+
 When using three or more, it will be created a dropdown menu with all the available languages.
 
 ![Switch language between 3 or more](assets/img/readme_preview/multi-language-3-or-more.png)
 
-Note that throughout the [README.md](README.md) and [CUSTOMIZE.md](CUSTOMIZE.md) files, the default language is English (LANG = en). You must have an equivalent file or path for each language you have defined in [\_config.yml](_config.yml). For example, if you have defined `languages: ["en", "pt-br"]`, you must have 2 versions of the file `_data/LANG/cv.yml`: [\_data/en/cv.yml](_data/en/cv.yml) and [\_data/pt-br/cv.yml](_data/pt-br/cv.yml).
+Note that throughout the [README.md](README.md) and [CUSTOMIZE.md](CUSTOMIZE.md) files, the default language is English (LANG = en). You must have an equivalent file or path for each language you have defined in [\_config.yml](_config.yml). For example, if you have defined `languages: ["en-us", "pt-br"]`, you must have 2 versions of the file `_data/LANG/cv.yml`: [\_data/en-us/cv.yml](_data/en-us/cv.yml) and [\_data/pt-br/cv.yml](_data/pt-br/cv.yml).
 
 ---
 
@@ -265,9 +272,9 @@ This template has a built-in light/dark mode. It detects the user preferred colo
 
 ### CV
 
-There are currently 2 different ways of generating the CV page content. The first one is by using a json file located in [assets/json/resume_LANG.json](assets/json/resume_en.json). It is a [known standard](https://jsonresume.org/) for creating a CV programmatically. The second one, currently used as a fallback when the json file is not found, is by using a yml file located in [\_data/LANG/cv.yml](_data/en/cv.yml). This was the original way of creating the CV page content and since it is more human readable than a json file we decided to keep it as an option.
+There are currently 2 different ways of generating the CV page content. The first one is by using a json file located in [assets/json/resume_LANG.json](assets/json/resume_en-us.json). It is a [known standard](https://jsonresume.org/) for creating a CV programmatically. The second one, currently used as a fallback when the json file is not found, is by using a yml file located in [\_data/LANG/cv.yml](_data/en-us/cv.yml). This was the original way of creating the CV page content and since it is more human readable than a json file we decided to keep it as an option.
 
-What this means is, if there is no resume data defined in [\_config.yml](_config.yml) and loaded via a json file, it will load the contents of [\_data/LANG/cv.yml](_data/en/cv.yml) as fallback.
+What this means is, if there is no resume data defined in [\_config.yml](_config.yml) and loaded via a json file, it will load the contents of [\_data/LANG/cv.yml](_data/en-us/cv.yml) as fallback.
 
 [![CV Preview](assets/img/readme_preview/cv.png)](https://george-gca.github.io/multi-language-al-folio/cv/)
 
@@ -315,7 +322,7 @@ For more details on how to create distill-styled posts using `<d-*>` tags, pleas
 
 #### Full support for math & code
 
-**al-folio** supports fast math typesetting through [MathJax](https://www.mathjax.org/) and code syntax highlighting using [GitHub style](https://github.com/jwarby/jekyll-pygments-themes). Also supports [mermaid diagrams](https://mermaid-js.github.io/mermaid/#/) and [TikZ figures](https://tikzjax.com/).
+**al-folio** supports fast math typesetting through [MathJax](https://www.mathjax.org/) and code syntax highlighting using [GitHub style](https://github.com/jwarby/jekyll-pygments-themes). Also supports [chartjs charts](https://www.chartjs.org/), [mermaid diagrams](https://mermaid-js.github.io/mermaid/#/), and [TikZ figures](https://tikzjax.com/).
 
 <p align="center">
 <a href="https://george-gca.github.io/multi-language-al-folio/blog/2015/math/" target="_blank"><img src="assets/img/readme_preview/math.png" width=400></a>
