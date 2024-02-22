@@ -3,4 +3,5 @@
 assets/css/main.scss
 assets/plotly/demo.html
 lighthouse_results/**
-_posts/2015-10-20-math.md
+_i18n/en-us/_posts/2015-10-20-math.md
+_i18n/pt-br/_posts/2015-10-20-math.md
