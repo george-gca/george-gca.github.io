@@ -27,23 +27,9 @@
 {% endif %}
 {% if page.title != null and page.title != '' %}
   {% if page.url == '/blog/index.html' %}
-    {% capture page_title %}{% t blog.nav_title %}{% endcapture %}
-  {% elsif page.url contains '/blog/' %}
-    {% assign page_title = page.title %}
+    {% capture page_title %}{{ site.data[site.active_lang].strings.blog.navigation_title }}{% endcapture %}
   {% else %}
-    {% assign is_collection = false %}
-    {% for collection in site.collections %}
-      {% assign collection_url_part = '/' | append: collection.label | append: '/' %}
-      {% if page.url contains contains_collection_url_part %}
-        {% assign is_collection = true %}
-        {% break %}
-      {% endif %}
-    {% endfor %}
-    {% if is_collection %}
-      {% assign page_title = page.title %}
-    {% else %}
-      {% capture page_title %}{% t page.title %}{% endcapture %}
-    {% endif %}
+    {% assign page_title = page.title %}
   {% endif %}
 {% else %}
   {% assign page_title = null %}
@@ -55,7 +41,9 @@
     {% if outer_part contains '.' %}
       {% capture contains_localization %}{% localization_exists {{ outer_part }} %}{% endcapture %}
       {% if contains_localization == 'true' %}
-        {% capture temp_var %}{% t outer_part %}{% endcapture %}
+        {% assign first_part = outer_part | split: '.' | first %}
+        {% assign last_part = outer_part | split: '.' | last %}
+        {% capture temp_var %}{{ site.data[site.active_lang].strings[first_part][last_part] }}{% endcapture %}
         {% assign title_array = title_array | push: temp_var %}
       {% else %}
         {% capture temp_var %}{{ outer_part }}{% endcapture %}
@@ -69,23 +57,13 @@
   {% assign page_title = title_array | join: ' ' %}
 {% endif %}
 {% if page.description %}
-  {% capture contains_localization %}{% localization_exists {{ page.description }} %}{% endcapture %}
-  {% if contains_localization == 'true' %}
-    {% capture description %}{% t page.description %}{% endcapture %}
-  {% else %}
-    {% capture description %}{{ page.description }}{% endcapture %}
-  {% endif %}
+  {% assign description = page.description %}
 {% elsif site.description %}
-  {% capture contains_localization %}{% localization_exists {{ site.description }} %}{% endcapture %}
-  {% if contains_localization == 'true' %}
-    {% capture description %}{% t site.description %}{% endcapture %}
-  {% else %}
-    {% capture description %}{{ site.description }}{% endcapture %}
-  {% endif %}
+  {% assign description = site.data[site.active_lang].strings.site_description %}
 {% endif %}
 <title>
   {% if page.url == '/blog/index.html' %}
-    {% t blog.nav_title %} | {{ title }}
+    {{ page.title }} | {{ title }}
   {% elsif page.url contains '/blog/' %}
     {% capture blog_year %}{{ page.url | slice: 0, 11 }}{% endcapture %}
     {% if page.url == blog_year %}
@@ -104,7 +82,7 @@
   {% endif %}
 </title>
 <meta name="author" content="{{ author_name }}">
-<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<meta name="description" content="{{ description }}">
 {% if page.keywords or site.keywords %}
   <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ site.keywords }}{% endif %}">
 {% endif %}
@@ -126,7 +104,7 @@
   {% if page.og_image or site.og_image %}
     <meta property="og:image" content="{% if page.og_image %}{{ page.og_image }}{% else %}{{ site.og_image }}{% endif %}">
   {% endif %}
-  <meta property="og:locale" content="{{ site.lang }}">
+  <meta property="og:locale" content="{{ site.active_lang }}">
 
   <!-- Twitter card -->
   <meta name="twitter:card" content="summary">
