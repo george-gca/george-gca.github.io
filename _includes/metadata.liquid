@@ -58,7 +58,7 @@
 {% endif %}
 {% if page.description %}
   {% assign description = page.description %}
-{% elsif site.description %}
+{% else %}
   {% assign description = site.data[site.active_lang].strings.site_description %}
 {% endif %}
 <title>
