@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://george-gca.github.io/pt-br/sitemap.xml
+Sitemap: https://george-gca.github.io/sitemap.xml
