@@ -1,5 +1,5 @@
-{% if site.lang == 'en-us' %}
+{% if site.active_lang == 'en-us' %}
   {{ include.read_time }} min read
-{% elsif site.lang == 'pt-br' %}
+{% elsif site.active_lang == 'pt-br' %}
   Leitura de {{ include.read_time }} min
 {% endif %}

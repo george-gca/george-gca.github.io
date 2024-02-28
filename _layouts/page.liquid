@@ -4,10 +4,8 @@ layout: default
 <div class="post">
   <header class="post-header" style="--stagger: {{ animation_count }};" data-animate>
     {% assign animation_count = animation_count | plus: 1 %}
-    <h1 class="post-title">{% t page.title %}</h1>
-    <p class="post-description">
-      {% if page.description %}{% t page.description %}{% endif %}
-    </p>
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-description">{{ page.description }}</p>
   </header>
 
   <article>
@@ -15,7 +13,7 @@ layout: default
   </article>
 
   {% if page.related_publications %}
-    <h2>References</h2>
+    <h2>{{ site.data[site.active_lang].strings.references }}</h2>
     <div class="publications">
       {% bibliography --cited_in_order %}
     </div>

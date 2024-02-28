@@ -71,7 +71,7 @@ layout: default
   </article>
 
   {% if page.related_publications %}
-    <h2 style="--stagger: {{ animation_count }};" data-animate>References</h2>
+    <h2 style="--stagger: {{ animation_count }};" data-animate>{{ site.data[site.active_lang].strings.references }}</h2>
     {% assign animation_count = animation_count | plus: 1 %}
     <div class="publications" style="--stagger: {{ animation_count }};" data-animate>
       {% assign animation_count = animation_count | plus: 1 %}

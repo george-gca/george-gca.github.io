@@ -4,11 +4,7 @@ layout: default
 <div class="post">
   <header class="post-header">
     {% if page.profile %}
-      <div
-        class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}"
-        style="--stagger: {{ animation_count }};"
-        data-animate
-      >
+      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}" style="--stagger: {{ animation_count }};" data-animate>
         {% assign animation_count = animation_count | plus: 1 %}
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
@@ -24,9 +20,8 @@ layout: default
             cache_bust=true
           %}
         {% endif %}
-        {% assign more_info_size = site.translations[site.lang].main.more_info | size %}
-        {% if more_info_size > 0 %}
-          <div class="more-info">{% t main.more_info %}</div>
+        {% if page.profile.more_info %}
+          <div class="more-info">{{ page.profile.more_info }}</div>
         {% endif %}
       </div>
     {% endif %}
@@ -39,7 +34,7 @@ layout: default
         {{ site.title }}
       {% endif %}
     </h1>
-    <p class="desc" style="--stagger: {{ animation_count }};" data-animate>{% t main.subtitle %}</p>
+    <p class="desc" style="--stagger: {{ animation_count }};" data-animate>{{ page.subtitle }}</p>
     {% assign animation_count = animation_count | plus: 1 %}
   </header>
 
@@ -51,7 +46,7 @@ layout: default
     {% if page.news and site.announcements.enabled %}
       <h2 style="--stagger: {{ animation_count }};" data-animate>
         {% assign animation_count = animation_count | plus: 1 %}
-        <a href="{{ '/news/' | prepend: site.baseurl }}" style="color: inherit;">{% t titles.news %}</a>
+        <a href="{{ '/news/' | relative_url }}" style="color: inherit;">{{ site.data[site.active_lang].strings.news }}</a>
       </h2>
       {% include news.liquid limit=true %}
     {% endif %}
@@ -60,16 +55,15 @@ layout: default
     {% if page.latest_posts %}
       <h2 style="--stagger: {{ animation_count }};" data-animate>
         {% assign animation_count = animation_count | plus: 1 %}
-        <a href="{{ '/blog/' | prepend: site.baseurl }}" style="color: inherit;">{% t titles.latest_posts %}</a>
+        <a href="{{ '/blog/' | relative_url }}" style="color: inherit;">{{ site.data[site.active_lang].strings.latest_posts }}</a>
       </h2>
       {% include latest_posts.liquid %}
     {% endif %}
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2 style="--stagger: {{ animation_count }};" data-animate>
-        {% assign animation_count = animation_count | plus: 1 %}
-        <a href="{{ '/publications/' | prepend: site.baseurl }}" style="color: inherit;">{% t titles.selected_publications %}</a>
+      <h2>
+        <a href="{{ '/publications/' | relative_url }}" style="color: inherit;">{{ site.data[site.active_lang].strings.selected_publications }}</a>
       </h2>
       {% include selected_papers.liquid %}
     {% endif %}
@@ -80,7 +74,7 @@ layout: default
         {% assign animation_count = animation_count | plus: 1 %}
         <div class="contact-icons">{% include social.liquid %}</div>
 
-        <div class="contact-note">{% t main.contact_note %}</div>
+        <div class="contact-note">{{ site.data[site.active_lang].strings.contact_note }}</div>
       </div>
     {% endif %}
   </article>

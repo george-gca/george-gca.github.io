@@ -22,7 +22,7 @@
               {% if item.inline %}
                 {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
               {% else %}
-                <a class="news-title" href="{{ item.url | prepend: site.baseurl }}">{% t item.title %}</a>
+                <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
               {% endif %}
             </td>
           </tr>
@@ -30,7 +30,7 @@
       </table>
     </div>
   {% else %}
-    <p style="--stagger: {{ animation_count }};" data-animate>{% t news.empty %}</p>
+    <p style="--stagger: {{ animation_count }};" data-animate>{{ site.data[site.active_lang].strings.no_news }}</p>
     {% assign animation_count = animation_count | plus: 1 %}
   {% endif %}
 </div>
