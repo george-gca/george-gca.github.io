@@ -2,13 +2,13 @@
 page_id: repositories
 layout: page
 permalink: /repositories/
-title: repositories
-description: Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.
+title: Repositories
+description: My public repositories and Github statistics
 nav: true
-nav_order: 4
+nav_order: 3
 ---
 
-## GitHub users
+## GitHub Statistics
 
 {: style="--stagger: {{ animation_count }};" data-animate}
 {% assign animation_count = animation_count | plus: 1 %}

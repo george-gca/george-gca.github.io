@@ -1,20 +1,19 @@
 blog:
-  navigation_title: blog
+  navigation_title: Blog
 categories:
   fun: diversão
   work: trabalho
-contact_note: Você pode até adicionar uma pequena observação sobre qual dessas é a melhor maneira de entrar em contato com você.
+contact_note: ""
 footer_text: > # the ">" symbol means to ignore newlines until "titles:"
-  Desenvolvido em <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> com o tema <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>.
+  Desenvolvido em Jekyll com o tema <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>.
   Hospedado por <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Fotos do <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-latest_posts: últimas postagens
-news: novidades
-selected_publications: publicações selecionadas
-site_description: Um tema simples para acadêmicos. Baseado no design do [*folio](https://github.com/bogoli/-folio).
-archive_category: um arquivo de postagens desta categoria
-archive_tag: um arquivo de postagens com este marcador
-archive_year: um arquivo de postagens deste ano
+latest_posts: Últimas postagens
+news: Novidades
+selected_publications: Publicações selecionadas
+site_description: Informações pessoais, tutoriais e repositórios abertos.
+archive_category: Arquivo de postagens desta categoria
+archive_tag: Arquivo de postagens com este marcador
+archive_year: Arquivo de postagens deste ano
 related_posts:
   description: "Aqui estão alguns artigos relacionados que você pode gostar de ler:"
   title: Gostou de Ler este Artigo?
@@ -51,6 +50,7 @@ pagination:
   newer: Recentes
   older: Antigas
   page: página
+profile_picture_alt: Foto de perfil
 cv:
   address: Endereço
   area: Área

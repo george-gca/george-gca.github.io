@@ -2,9 +2,9 @@
 page_id: blog
 layout: default
 permalink: /blog/
-title: blog
-blog_name: al-folio em português brasileiro
-description: um tema simples para acadêmicos
+title: Blog
+blog_name: ""
+description: ""
 nav: true
 nav_order: 1
 pagination:
@@ -26,7 +26,8 @@ pagination:
 
 {% if blog_name_size > 0 or blog_description_size > 0 %}
 
-  <div class="header-bar">
+  <div class="header-bar" style="--stagger: {{ animation_count }};" data-animate>
+    {% assign animation_count = animation_count | plus: 1 %}
     <h1>{{ page.blog_name }}</h1>
     <h2>{{ page.description }}</h2>
   </div>
@@ -34,7 +35,8 @@ pagination:
 
 {% if site.display_tags or site.display_categories %}
 
-  <div class="tag-category-list">
+  <div class="tag-category-list" style="--stagger: {{ animation_count }};" data-animate>
+    {% assign animation_count = animation_count | plus: 1 %}
     <ul class="p-0 m-0">
       {% for tag in site.display_tags %}
         <li>
@@ -63,7 +65,8 @@ pagination:
 {% if featured_posts.size > 0 %}
 <br>
 
-<div class="container featured-posts">
+<div class="container featured-posts" style="--stagger: {{ animation_count }};" data-animate>
+{% assign animation_count = animation_count | plus: 1 %}
 {% assign is_even = featured_posts.size | modulo: 2 %}
 <div class="row row-cols-{% if featured_posts.size <= 2 or is_even == 0 %}2{% else %}3{% endif %}">
 {% for post in featured_posts %}
@@ -123,7 +126,8 @@ pagination:
     {% assign tags = post.tags | join: "" %}
     {% assign categories = post.categories | join: "" %}
 
-    <li>
+    <li style="--stagger: {{ animation_count }};" data-animate>
+    {% assign animation_count = animation_count | plus: 1 %}
 
 {% if post.thumbnail %}
 
@@ -151,13 +155,13 @@ pagination:
         {% endif %}
       </p>
       <p class="post-tags">
-        <a href="{{ year | prepend: '/blog/' | prepend: site.baseurl}}">
+        <a href="{{ year | prepend: '/blog/' | prepend: site.baseurl }}">
           <i class="fa-solid fa-calendar fa-sm"></i> {{ year }} </a>
 
           {% if tags != "" %}
           &nbsp; &middot; &nbsp;
             {% for tag in post.tags %}
-            <a href="{{ tag | slugify | prepend: '/blog/tag/' | prepend: site.baseurl}}">
+            <a href="{{ tag | slugify | prepend: '/blog/tag/' | prepend: site.baseurl }}">
               <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a> &nbsp;
               {% endfor %}
           {% endif %}
@@ -165,7 +169,7 @@ pagination:
           {% if categories != "" %}
           &nbsp; &middot; &nbsp;
             {% for category in post.categories %}
-            <a href="{{ category | slugify | prepend: '/blog/category/' | prepend: site.baseurl}}">
+            <a href="{{ category | slugify | prepend: '/blog/category/' | prepend: site.baseurl }}">
               <i class="fa-solid fa-tag fa-sm"></i> {{ category }}</a> &nbsp;
               {% endfor %}
           {% endif %}

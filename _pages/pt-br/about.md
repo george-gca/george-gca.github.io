@@ -1,18 +1,15 @@
 ---
 page_id: about
 layout: about
-title: sobre
+title: Bio
 permalink: /
-subtitle: <a href='#'>Afiliações</a>. Endereço. Contatos. Lema. Etc.
+subtitle: ""
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: profile_pic.png
   image_circular: true # crops the image to make it circular
-  more_info: >
-    <p>555 seu telefone do trabalho</p>
-    <p>123 seu endereço</p>
-    <p>Sua cidade, estado 12345</p>
+  more_info: ""
 
 news: false # includes a list of news items
 latest_posts: true # includes a list of the newest posts
