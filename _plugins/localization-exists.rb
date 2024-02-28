@@ -8,11 +8,12 @@ module Jekyll
     def render(context)
       content = Liquid::Template.parse(@key).render context
       exists = true
-      if !content.include? "." or context.registers[:site].config['translations'] == nil
+      language = context.registers[:site].config['languages'].first
+      if !content.include? "." or context.registers[:site].data[language] == nil
         exists = false
       end
 
-      current_element = context.registers[:site].config['translations'].first[1]
+      current_element = context.registers[:site].data[language]['strings']
       splittedKey = content.split('.')
 
       if exists

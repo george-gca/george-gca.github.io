@@ -5,9 +5,9 @@
   {% assign show_owner = true %}
 {% endif %}
 
-{% assign lang = site.lang | split: '-' | first %}
+{% assign lang = site.active_lang | split: '-' | first %}
 {% if lang == 'pt' %}
-  {% assign lang = site.lang %}
+  {% assign lang = site.active_lang %}
 {% endif %}
 
 <div class="repo p-2 text-center">

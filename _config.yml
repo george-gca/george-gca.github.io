@@ -8,8 +8,6 @@ middle_name: R.
 last_name: Name
 email: you@example.com
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
-
-lang: en-us # the main language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://george-gca.github.io # the base hostname & protocol for your site
@@ -115,7 +113,6 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_nav_title: true
 permalink: /blog/:year/:title/
 
 # Pagination
@@ -161,10 +158,10 @@ collections:
     defaults:
       layout: post
     output: true
-    permalink: /news/:path/
+    permalink: /:collection/:title/
   projects:
     output: true
-    permalink: /projects/:path/
+    permalink: /:collection/:title/
 
 announcements:
   enabled: true
@@ -226,8 +223,8 @@ plugins:
   - jekyll-jupyter-notebook
   - jekyll-link-attributes
   - jekyll-minifier
-  - jekyll-multiple-languages-plugin
   - jekyll-paginate-v2
+  - jekyll-polyglot
   - jekyll/scholar
   - jekyll-sitemap
   - jekyll-toc
@@ -242,13 +239,8 @@ defaults:
       sitemap: false
 
 sass:
+  sourcemap: never
   style: compressed
-
-# multi language settings
-default_locale_in_subfolder: false
-exclude_from_localizations: ["assets"]
-languages: ["en-us", "pt-br"]
-country_flag: false # set true for allowing flag symbol in language toggle
 
 # -----------------------------------------------------------------------------
 # Jekyll Minifier
@@ -335,6 +327,17 @@ external_links:
   exclude:
 
 # -----------------------------------------------------------------------------
+# Jekyll Polyglot
+# -----------------------------------------------------------------------------
+
+languages: ["en-us", "pt-br"]
+default_lang: "en-us"
+exclude_from_localization: ["assets"]
+lang_from_path: true
+country_flag: false # set true for allowing flag symbol in language toggle
+parallel_localization: false
+
+# -----------------------------------------------------------------------------
 # Responsive WebP Images
 # -----------------------------------------------------------------------------
 
@@ -377,7 +380,6 @@ enable_masonry: true # enables automatic project cards arrangement
 enable_math: true # enables math typesetting (uses MathJax)
 enable_tooltips: false # enables automatic tooltip links generated for each section titles on pages and posts
 enable_darkmode: true # enables switching between light/dark modes
-enable_localization: true # enables switching between languages
 enable_navbar_social: false # enables displaying social links in the navbar on the about page
 enable_project_categories: true # enables categorization of projects into multiple categories
 enable_medium_zoom: true # enables image zoom feature (as on medium.com)
@@ -459,7 +461,7 @@ vega-lite:
 # -----------------------------------------------------------------------------
 
 jekyll_get_json:
-  - data: resume_en
+  - data: resume_en-us
     json: assets/json/resume_en-us.json # it can also be an url
   - data: resume_pt-br
     json: assets/json/resume_pt-br.json # it can also be an url
