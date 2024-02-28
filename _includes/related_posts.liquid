@@ -8,7 +8,9 @@
     <ul class="list-disc pl-8"></ul>
 
     <!-- Adds related posts to the end of an article -->
-    <h2 class="text-3xl font-semibold mb-4 mt-12" style="--stagger: {{ animation_count }};" data-animate>{{ site.data[site.active_lang].strings.related_posts.title }}</h2>
+    <h2 class="text-3xl font-semibold mb-4 mt-12" style="--stagger: {{ animation_count }};" data-animate>
+      {{ site.data[site.active_lang].strings.related_posts.title }}
+    </h2>
     {% assign animation_count = animation_count | plus: 1 %}
     <p class="mb-2" style="--stagger: {{ animation_count }};" data-animate>{{ site.data[site.active_lang].strings.related_posts.description }}</p>
     {% assign animation_count = animation_count | plus: 1 %}

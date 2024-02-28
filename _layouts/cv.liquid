@@ -84,7 +84,12 @@ layout: default
           {% endif %}
           {% if data[0] == 'meta' or data[1].size == 0 %} {% continue %} {% endif %}
           {% assign localized_title = data[0] %}
-          <a class="anchor" id="{{ site.data[site.active_lang].strings.cv[localized_title] }}" style="--stagger: {{ animation_count }};" data-animate></a>
+          <a
+            class="anchor"
+            id="{{ site.data[site.active_lang].strings.cv[localized_title] }}"
+            style="--stagger: {{ animation_count }};"
+            data-animate
+          ></a>
           {% assign animation_count = animation_count | plus: 1 %}
           <div class="card mt-3 p-3" style="--stagger: {{ animation_count }};" data-animate>
             {% assign animation_count = animation_count | plus: 1 %}
