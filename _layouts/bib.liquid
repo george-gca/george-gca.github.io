@@ -1,9 +1,8 @@
 ---
 ---
-<div class="row" style="--stagger: {{ animation_count }};" data-animate>
+<div class="row">
   {% if site.enable_publication_thumbnails %}
-    <div class="col-sm-2 {% if entry.preview %}preview{% else %}abbr{% endif %}" style="--stagger: {{ animation_count }};" data-animate>
-      {% assign animation_count = animation_count | plus: 1 %}
+    <div class="col-sm-2 {% if entry.preview %}preview{% else %}abbr{% endif %}">
       {% if entry.preview %}
         {% if entry.preview contains '://' %}
           <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
@@ -40,13 +39,7 @@
   {% endif %}
 
   <!-- Entry bib key -->
-  <div
-    id="{{entry.key}}"
-    class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}"
-    style="--stagger: {{ animation_count }};"
-    data-animate
-  >
-    {% assign animation_count = animation_count | plus: 1 %}
+  <div id="{{entry.key}}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
     <!-- Title -->
     <div class="title">{{ entry.title }}</div>
     <!-- Author -->

@@ -22,7 +22,6 @@
 
   <!-- Body -->
   <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
-    {% assign animation_count = 1 %}
     <!-- Header -->
     {% include header.liquid %}
 
@@ -34,17 +33,15 @@
             <!-- main content area -->
             <div class="col-sm-9">{{ content }}</div>
             <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3" style="--stagger: {{ animation_count }};" data-animate>
-              {% assign animation_count = animation_count | plus: 1 %}
-              <nav id="toc-sidebar" class="sticky-top"></nav>
+            <div class="col-sm-3">
+                    <nav id="toc-sidebar" class="sticky-top"></nav>
             </div>
           </div>
         {% else %}
           <div class="row">
             <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3" style="--stagger: {{ animation_count }};" data-animate>
-              {% assign animation_count = animation_count | plus: 1 %}
-              <nav id="toc-sidebar" class="sticky-top"></nav>
+            <div class="col-sm-3">
+                    <nav id="toc-sidebar" class="sticky-top"></nav>
             </div>
             <!-- main content area -->
             <div class="col-sm-9">{{ content }}</div>

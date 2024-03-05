@@ -7,8 +7,7 @@
         style="max-height: 60vw"
       {% endif %}
     >
-      <table class="table table-sm table-borderless" style="--stagger: {{ animation_count }};" data-animate>
-        {% assign animation_count = animation_count | plus: 1 %}
+      <table class="table table-sm table-borderless">
         {% assign news = site.news | reverse %}
         {% if include.limit and site.announcements.limit %}
           {% assign news_limit = site.announcements.limit %}
@@ -30,7 +29,6 @@
       </table>
     </div>
   {% else %}
-    <p style="--stagger: {{ animation_count }};" data-animate>{{ site.data[site.active_lang].strings.no_news }}</p>
-    {% assign animation_count = animation_count | plus: 1 %}
-  {% endif %}
+    <p>{{ site.data[site.active_lang].strings.no_news }}</p>
+    {% endif %}
 </div>

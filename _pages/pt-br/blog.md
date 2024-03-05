@@ -26,8 +26,7 @@ pagination:
 
 {% if blog_name_size > 0 or blog_description_size > 0 %}
 
-  <div class="header-bar" style="--stagger: {{ animation_count }};" data-animate>
-    {% assign animation_count = animation_count | plus: 1 %}
+  <div class="header-bar">
     <h1>{{ page.blog_name }}</h1>
     <h2>{{ page.description }}</h2>
   </div>
@@ -35,8 +34,7 @@ pagination:
 
 {% if site.display_tags or site.display_categories %}
 
-  <div class="tag-category-list" style="--stagger: {{ animation_count }};" data-animate>
-    {% assign animation_count = animation_count | plus: 1 %}
+  <div class="tag-category-list">
     <ul class="p-0 m-0">
       {% for tag in site.display_tags %}
         <li>
@@ -65,8 +63,7 @@ pagination:
 {% if featured_posts.size > 0 %}
 <br>
 
-<div class="container featured-posts" style="--stagger: {{ animation_count }};" data-animate>
-{% assign animation_count = animation_count | plus: 1 %}
+<div class="container featured-posts">
 {% assign is_even = featured_posts.size | modulo: 2 %}
 <div class="row row-cols-{% if featured_posts.size <= 2 or is_even == 0 %}2{% else %}3{% endif %}">
 {% for post in featured_posts %}
@@ -126,8 +123,7 @@ pagination:
     {% assign tags = post.tags | join: "" %}
     {% assign categories = post.categories | join: "" %}
 
-    <li style="--stagger: {{ animation_count }};" data-animate>
-    {% assign animation_count = animation_count | plus: 1 %}
+    <li>
 
 {% if post.thumbnail %}
 
