@@ -4,12 +4,7 @@ layout: default
 <div class="post">
   <header class="post-header">
     {% if page.profile %}
-      <div
-        class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}"
-        style="--stagger: {{ animation_count }};"
-        data-animate
-      >
-        {% assign animation_count = animation_count | plus: 1 %}
+      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
           {% if page.profile.image_circular %}
@@ -29,8 +24,7 @@ layout: default
         {% endif %}
       </div>
     {% endif %}
-    <h1 class="post-title" style="--stagger: {{ animation_count }};" data-animate>
-      {% assign animation_count = animation_count | plus: 1 %}
+    <h1 class="post-title">
       {% if site.title == 'blank' %}
         <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
         {{ site.last_name }}
@@ -38,18 +32,15 @@ layout: default
         {{ site.title }}
       {% endif %}
     </h1>
-    <p class="desc" style="--stagger: {{ animation_count }};" data-animate>{{ page.subtitle }}</p>
-    {% assign animation_count = animation_count | plus: 1 %}
+    <p class="desc">{{ page.subtitle }}</p>
   </header>
 
   <article>
-    <div class="clearfix" style="--stagger: {{ animation_count }};" data-animate>{{ content }}</div>
-    {% assign animation_count = animation_count | plus: 1 %}
+    <div class="clearfix">{{ content }}</div>
 
     <!-- News -->
     {% if page.news and site.announcements.enabled %}
-      <h2 style="--stagger: {{ animation_count }};" data-animate>
-        {% assign animation_count = animation_count | plus: 1 %}
+      <h2>
         <a href="{{ '/news/' | relative_url }}" style="color: inherit;">{{ site.data[site.active_lang].strings.news }}</a>
       </h2>
       {% include news.liquid limit=true %}
@@ -57,8 +48,7 @@ layout: default
 
     <!-- Latest posts -->
     {% if site.latest_posts.enabled %}
-      <h2 style="--stagger: {{ animation_count }};" data-animate>
-        {% assign animation_count = animation_count | plus: 1 %}
+      <h2>
         <a href="{{ '/blog/' | relative_url }}" style="color: inherit;">{{ site.data[site.active_lang].strings.latest_posts }}</a>
       </h2>
       {% include latest_posts.liquid %}
@@ -74,8 +64,7 @@ layout: default
 
     <!-- Social -->
     {% if page.social %}
-      <div class="social" style="--stagger: {{ animation_count }};" data-animate>
-        {% assign animation_count = animation_count | plus: 1 %}
+      <div class="social">
         <div class="contact-icons">{% include social.liquid %}</div>
 
         <div class="contact-note">{{ site.data[site.active_lang].strings.contact_note }}</div>
