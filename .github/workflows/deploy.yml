@@ -82,6 +82,14 @@ jobs:
         run: |
           npm install -g purgecss
           purgecss -c purgecss.config.js
+      - name: Fix CSS animations 🎨
+        run: |
+          ruby -e 'text = File.read("_site/assets/css/main.css")
+            text.gsub! "animation-delay:calc(var(--stagger)*var(--delay)+var(--start))", "animation-delay: calc(var(--stagger) * var(--delay) + var(--start))"
+            text.gsub! "--start:0", "--start:0ms"
+            text.gsub! "animation-delay:var(--fa-animation-delay,0)", "animation-delay:var(--fa-animation-delay,0s)"
+            puts text' > _site/assets/css/main2.css
+          mv _site/assets/css/main2.css _site/assets/css/main.css
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
