@@ -56,7 +56,7 @@ layout: default
     {% endif %}
 
     <!-- Latest posts -->
-    {% if page.latest_posts %}
+    {% if site.latest_posts.enabled %}
       <h2 style="--stagger: {{ animation_count }};" data-animate>
         {% assign animation_count = animation_count | plus: 1 %}
         <a href="{{ '/blog/' | relative_url }}" style="color: inherit;">{{ site.data[site.active_lang].strings.latest_posts }}</a>
