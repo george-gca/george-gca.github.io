@@ -383,6 +383,14 @@ imagemagick:
 lazy_loading_images: true # enables lazy loading of images (recommended)
 
 # -----------------------------------------------------------------------------
+# Fade In Animation of Elements
+# -----------------------------------------------------------------------------
+
+animation:
+  enabled: true # enables fade in animation of elements
+  max_elements: 20 # maximum number of elements to animate (set to -1 or delete it to animate all elements)
+
+# -----------------------------------------------------------------------------
 # Optional Features
 # -----------------------------------------------------------------------------
 
