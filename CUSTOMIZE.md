@@ -52,7 +52,7 @@ All changes made to this file are only visible after you rebuild the website. Th
 
 To display countries flags instead of the language initials in the header, you can set `country_flag: true` in the [\_config.yml](_config.yml) file. You should also add the countries' svg flags in the [assets/img/flags/](assets/img/flags/) directory. You can find the flags in the [flag-icons repository](https://github.com/lipis/flag-icons/tree/main/flags). When selecting the flags, the code uses the last part (after the `-`) of the site languages. So when looking for the flag of the language `pt-br`, the code will look for the file `br.svg` in the [assets/img/flags/](assets/img/flags/) directory.
 
-![Use country flag instead of language name](assets/img/readme_preview/country_flag.png)
+![Use country flag instead of language name](readme_preview/country_flag.png)
 
 ## Modifying the CV information
 
