@@ -1,8 +1,6 @@
 {% if page.name == "about.md" %}
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js" integrity="sha256-qXBd/EfAdjOA2FGrGAG+b3YBn2tn5A6bhz+LSgYD96k=" crossorigin="anonymous"></script>
   <script type="text/javascript">
-    console.log("Chegou aqui");
-
     function hexToRGB(h) {
       let r = 0, g = 0, b = 0;
 
@@ -69,15 +67,6 @@
       return {h: h, s: s, l: l};
     }
 
-    var globalStyle = getComputedStyle(document.documentElement);
-    var globalThemeColor = globalStyle.getPropertyValue('--global-theme-color');
-    var globalThemeColorHSL = hexToHSL(globalThemeColor);
-    // console.log(globalThemeColorHSL);
-
-    var globalBackgroundColor = globalStyle.getPropertyValue('--global-bg-color');
-    var globalBackgroundColorRGB = hexToRGB(globalBackgroundColor);
-    // console.log(globalBackgroundColorRGB);
-
     /**
      * @author Alex Andrix <alex@alexandrix.com>
      * @url https://codepen.io/alexandrix/pen/oQOvYp
@@ -86,13 +75,11 @@
 
     var App = {};
     App.setup = function() {
-      // var canvas = document.createElement('canvas');
       var canvas = document.getElementsByTagName('canvas')[0];
-      this.filename = "spipa";
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      this.filename = "spipa";
       this.canvas = canvas;
-      // document.getElementsByTagName('body')[0].appendChild(canvas);
       this.ctx = this.canvas.getContext('2d');
       this.width = this.canvas.width;
       this.height = this.canvas.height;
@@ -101,37 +88,28 @@
       this.ctx.webkitImageSmoothingEnabled = false;
       this.ctx.msImageSmoothingEnabled = false;
       this.zoom = 1.4;
-      // this.zoom = 3.6;
-      // this.xC = this.width / 2;
-      // this.yC = this.height / 2;
+
+      let globalStyle = getComputedStyle(document.documentElement);
+      let globalThemeColor = globalStyle.getPropertyValue('--global-theme-color');
+      this.globalThemeColorHSL = hexToHSL(globalThemeColor);
+
+      this.globalBackgroundColor = globalStyle.getPropertyValue('--global-bg-color');
+      this.globalBackgroundColorRGB = hexToRGB(this.globalBackgroundColor);
 
       // Get profile photo element to use as reference
       var profilePhoto = document.getElementById('profile-photo');
       let style = window.getComputedStyle(profilePhoto);
-      // console.log(style);
       let photoWidth = parseInt(style.getPropertyValue('width'));
       let photoMargin = parseInt(style.getPropertyValue('margin-left'));
-      // let photoTop = parseInt(style.getPropertyValue('perspective-origin').split(' ')[0]);
-      // let photoLeft = parseInt(style.getPropertyValue('perspective-origin').split(' ')[1]);
-      // console.log(photoWidth, photoLeft, photoTop);
 
-      var siteMaxWidth = parseInt("{{ site.max_width }}");
-      // this.xC = Math.min(this.width - photoMargin - photoWidth / 2, siteMaxWidth - photoMargin - photoWidth / 2);
-      // this.xC = this.width - photoMargin - this.dataToImageRatio * photoWidth / 2;
-      // this.yC = this.dataToImageRatio * photoWidth / 2;
       this.xC = this.width - Math.max(1, this.dataToImageRatio) * photoMargin - Math.max(1, this.dataToImageRatio) * photoWidth / 2;
       this.yC = Math.max(1, this.dataToImageRatio) * photoWidth / 2;
-      // this.radius = photoWidth / 2 - photoMargin / 2;
+
       if (this.dataToImageRatio < 1) {
         this.radius = 3 * photoWidth / 5;
       } else {
         this.radius = photoWidth / 2 - photoMargin / 2;
       }
-      // this.radius = photoWidth / 2 - Math.min(1, this.dataToImageRatio) * photoMargin / 2;
-      console.log(this.xC, this.yC);
-      console.log(this.width, this.height);
-      console.log(this.radius);
-      console.log(this.dataToImageRatio);
 
       this.stepCount = 0;
       this.particles = [];
@@ -175,18 +153,12 @@
           i++;
         }
       }
+
       this.gridMaxIndex = i;
-
-      // // Counters for UI
-      // this.drawnInLastFrame = 0;
-      // this.deathCount = 0;
-
       this.initDraw();
     };
 
     App.evolve = function() {
-      var time1 = performance.now();
-
       this.stepCount++;
 
       // Increment all grid ages
@@ -199,15 +171,6 @@
       }
       App.move();
       App.draw();
-
-      var time2 = performance.now();
-
-      // // Update UI
-      // document.getElementsByClassName('dead')[0].textContent = this.deathCount;
-      // document.getElementsByClassName('alive')[0].textContent = this.particles.length;
-      // document.getElementsByClassName('fps')[0].textContent = Math.floor(1000 / (time2 - time1));
-      // document.getElementsByClassName('drawn')[0].textContent = this.drawnInLastFrame;
-
     };
 
     App.birth = function() {
@@ -217,12 +180,6 @@
           x = gridSpot.x, y = gridSpot.y;
 
       var particle = {
-        // hue: 200,// + Math.floor(50*Math.random()),
-        // sat: 95,//30 + Math.floor(70*Math.random()),
-        // lum: 20 + Math.floor(40*Math.random()),
-        hue: globalThemeColorHSL.h, // + Math.floor(50*Math.random()),
-        sat: globalThemeColorHSL.s, // + Math.floor(70*Math.random()),
-        lum: globalThemeColorHSL.l, // + Math.floor(40*Math.random()),
         x: x, y: y,
         xLast: x, yLast: y,
         xSpeed: 0, ySpeed: 0,
@@ -328,7 +285,7 @@
     App.initDraw = function() {
       this.ctx.beginPath();
       this.ctx.rect(0, 0, this.width, this.height);
-      this.ctx.fillStyle = globalBackgroundColor;
+      this.ctx.fillStyle = this.globalBackgroundColor;
       this.ctx.fill();
       this.ctx.closePath();
     };
@@ -339,11 +296,7 @@
 
       this.ctx.beginPath();
       this.ctx.rect(0, 0, this.width, this.height);
-      // this.ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-      // this.ctx.fillStyle = 'rgba(' + globalBackgroundColorRGB.r + ', ' + globalBackgroundColorRGB.g + ', ' + globalBackgroundColorRGB.b + ', 0.01)';
-      // this.ctx.fillStyle = 'rgba(' + globalBackgroundColorRGB.r + ', ' + globalBackgroundColorRGB.g + ', ' + globalBackgroundColorRGB.b + ', 0.25)'; // the alpha here sets the length of the trail, the lower the longer
-      this.ctx.fillStyle = 'rgba(' + globalBackgroundColorRGB.r + ', ' + globalBackgroundColorRGB.g + ', ' + globalBackgroundColorRGB.b + ', 0.25)'; // the alpha here sets the length of the trail, the lower the longer
-      //this.ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+      this.ctx.fillStyle = 'rgba(' + this.globalBackgroundColorRGB.r + ', ' + this.globalBackgroundColorRGB.g + ', ' + this.globalBackgroundColorRGB.b + ', 0.25)'; // the alpha here sets the length of the trail, the lower the longer
       this.ctx.fill();
       this.ctx.closePath();
 
@@ -353,9 +306,9 @@
 
         var h, s, l, a;
 
-        h = p.hue; // + this.stepCount/100; // higher the denominator, longer takes to change color
-        s = p.sat;
-        l = p.lum;
+        h = this.globalThemeColorHSL.h;
+        s = this.globalThemeColorHSL.s;
+        l = this.globalThemeColorHSL.l;
         a = 0.05; // particle opacity
 
         var last = this.dataXYtoCanvasXY(p.xLast, p.yLast),
@@ -369,8 +322,6 @@
 
         this.ctx.strokeStyle = 'hsla(' + h + ', ' + s + '%, ' + l + '%, ' + a + ')';
         this.ctx.fillStyle = 'hsla(' + h + ', ' + s + '%, ' + l + '%, ' + a + ')';
-        // this.ctx.strokeStyle = 'hsla(250, 50%, 50%, 1)';
-        // this.ctx.fillStyle = 'hsla(250, 50%, 50%, 1)';
 
         // Particle trail
         this.ctx.moveTo(last.x, last.y);
@@ -390,57 +341,45 @@
         //a /= 20;
         this.ctx.strokeStyle = 'hsla(' + h + ', ' + s + '%, ' + l + '%, ' + a + ')';
         this.ctx.fillStyle = 'hsla(' + h + ', ' + s + '%, ' + l + '%, ' + a + ')';
-        // this.ctx.strokeStyle = 'hsla(250, 50%, 50%, 1)';
-        // this.ctx.fillStyle = 'hsla(250, 50%, 50%, 1)';
         this.ctx.stroke();
         this.ctx.fill();
 
         this.ctx.closePath();
-
-        // UI counter
-        // this.drawnInLastFrame++;
       }
 
     };
 
     App.dataXYtoCanvasXY = function(x, y) {
-      // var zoom = 1.6;
-      // var zoom = 5;
       var xx = this.xC + x * this.zoom * this.dataToImageRatio,
           yy = this.yC + y * this.zoom * this.dataToImageRatio;
 
       return {x: xx, y: yy};
     };
 
-    // Function to update height and width
-    function updateSize() {
-      var canvas = document.getElementsByTagName('canvas')[0];
-      // this.filename = "spipa";
-      // canvas.width = window.innerWidth;
-      // canvas.height = window.innerHeight;
-      // this.canvas = canvas;
-      // document.getElementsByTagName('body')[0].appendChild(canvas);
-      // this.ctx = this.canvas.getContext('2d');
-      // this.width = this.canvas.width;
-      // this.height = this.canvas.height;
+    function toggleBGAnimationTheme() {
+      transTheme();
+      let globalStyle = getComputedStyle(document.documentElement);
 
-      // console.log("Atualizou: ", this.width, this.height);
-      // var zoom = 1.6;
-      this.zoom += this.width / canvas.width
+      let globalThemeColor = globalStyle.getPropertyValue('--global-theme-color');
+      App.globalThemeColorHSL = hexToHSL(globalThemeColor);
+
+      App.globalBackgroundColor = globalStyle.getPropertyValue('--global-bg-color');
+      App.globalBackgroundColorRGB = hexToRGB(App.globalBackgroundColor);
     }
 
     document.addEventListener('DOMContentLoaded', function() {
       App.setup();
       App.draw();
 
-      // Add event listener for window resize
-      window.addEventListener('resize', updateSize);
-
       var frame = function() {
         App.evolve();
         requestAnimationFrame(frame);
       };
       frame();
+
+      const mode_toggle = document.getElementById("light-toggle");
+
+      mode_toggle.addEventListener("click", toggleBGAnimationTheme);
     });
 
 
