@@ -1,0 +1,482 @@
+{% if page.name == "about.md" %}
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js" integrity="sha256-qXBd/EfAdjOA2FGrGAG+b3YBn2tn5A6bhz+LSgYD96k=" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    console.log("Chegou aqui");
+
+    function hexToRGB(h) {
+      let r = 0, g = 0, b = 0;
+
+      // 3 digits
+      if (h.length == 4) {
+        r = "0x" + h[1] + h[1];
+        g = "0x" + h[2] + h[2];
+        b = "0x" + h[3] + h[3];
+
+      // 6 digits
+      } else if (h.length == 7) {
+        r = "0x" + h[1] + h[2];
+        g = "0x" + h[3] + h[4];
+        b = "0x" + h[5] + h[6];
+      }
+
+      // return "rgb("+ +r + "," + +g + "," + +b + ")";
+      return {r: +r, g: +g, b: +b};
+    }
+
+    function hexToHSL(H) {
+      // Convert hex to RGB first
+      let r = 0, g = 0, b = 0;
+      if (H.length == 4) {
+        r = "0x" + H[1] + H[1];
+        g = "0x" + H[2] + H[2];
+        b = "0x" + H[3] + H[3];
+      } else if (H.length == 7) {
+        r = "0x" + H[1] + H[2];
+        g = "0x" + H[3] + H[4];
+        b = "0x" + H[5] + H[6];
+      }
+      // Then to HSL
+      r /= 255;
+      g /= 255;
+      b /= 255;
+      let cmin = Math.min(r,g,b),
+          cmax = Math.max(r,g,b),
+          delta = cmax - cmin,
+          h = 0,
+          s = 0,
+          l = 0;
+
+      if (delta == 0)
+        h = 0;
+      else if (cmax == r)
+        h = ((g - b) / delta) % 6;
+      else if (cmax == g)
+        h = (b - r) / delta + 2;
+      else
+        h = (r - g) / delta + 4;
+
+      h = Math.round(h * 60);
+
+      if (h < 0)
+        h += 360;
+
+      l = (cmax + cmin) / 2;
+      s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+      s = +(s * 100).toFixed(1);
+      l = +(l * 100).toFixed(1);
+
+      // return "hsl(" + h + "," + s + "%," + l + "%)";
+      return {h: h, s: s, l: l};
+    }
+
+    var globalStyle = getComputedStyle(document.documentElement);
+    var globalThemeColor = globalStyle.getPropertyValue('--global-theme-color');
+    var globalThemeColorHSL = hexToHSL(globalThemeColor);
+    // console.log(globalThemeColorHSL);
+
+    var globalBackgroundColor = globalStyle.getPropertyValue('--global-bg-color');
+    var globalBackgroundColorRGB = hexToRGB(globalBackgroundColor);
+    // console.log(globalBackgroundColorRGB);
+
+    /**
+     * @author Alex Andrix <alex@alexandrix.com>
+     * @url https://codepen.io/alexandrix/pen/oQOvYp
+     * @since 2018-12-02
+     */
+
+    var App = {};
+    App.setup = function() {
+      // var canvas = document.createElement('canvas');
+      var canvas = document.getElementsByTagName('canvas')[0];
+      this.filename = "spipa";
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      this.canvas = canvas;
+      // document.getElementsByTagName('body')[0].appendChild(canvas);
+      this.ctx = this.canvas.getContext('2d');
+      this.width = this.canvas.width;
+      this.height = this.canvas.height;
+      this.dataToImageRatio = this.width / 1000;
+      this.ctx.imageSmoothingEnabled = false;
+      this.ctx.webkitImageSmoothingEnabled = false;
+      this.ctx.msImageSmoothingEnabled = false;
+      this.zoom = 1.4;
+      // this.zoom = 3.6;
+      // this.xC = this.width / 2;
+      // this.yC = this.height / 2;
+
+      // Get profile photo element to use as reference
+      var profilePhoto = document.getElementById('profile-photo');
+      let style = window.getComputedStyle(profilePhoto);
+      // console.log(style);
+      let photoWidth = parseInt(style.getPropertyValue('width'));
+      let photoMargin = parseInt(style.getPropertyValue('margin-left'));
+      // let photoTop = parseInt(style.getPropertyValue('perspective-origin').split(' ')[0]);
+      // let photoLeft = parseInt(style.getPropertyValue('perspective-origin').split(' ')[1]);
+      // console.log(photoWidth, photoLeft, photoTop);
+
+      var siteMaxWidth = parseInt("{{ site.max_width }}");
+      // this.xC = Math.min(this.width - photoMargin - photoWidth / 2, siteMaxWidth - photoMargin - photoWidth / 2);
+      // this.xC = this.width - photoMargin - this.dataToImageRatio * photoWidth / 2;
+      // this.yC = this.dataToImageRatio * photoWidth / 2;
+      this.xC = this.width - Math.max(1, this.dataToImageRatio) * photoMargin - Math.max(1, this.dataToImageRatio) * photoWidth / 2;
+      this.yC = Math.max(1, this.dataToImageRatio) * photoWidth / 2;
+      // this.radius = photoWidth / 2 - photoMargin / 2;
+      if (this.dataToImageRatio < 1) {
+        this.radius = 3 * photoWidth / 5;
+      } else {
+        this.radius = photoWidth / 2 - photoMargin / 2;
+      }
+      // this.radius = photoWidth / 2 - Math.min(1, this.dataToImageRatio) * photoMargin / 2;
+      console.log(this.xC, this.yC);
+      console.log(this.width, this.height);
+      console.log(this.radius);
+      console.log(this.dataToImageRatio);
+
+      this.stepCount = 0;
+      this.particles = [];
+      this.lifespan = 10000;
+      this.popPerBirth = 1;
+      this.maxPop = 300;
+      this.birthFreq = 20; // 10 higher generates less particles
+      this.moveProbability = 0.2;
+
+      // Build grid
+      this.gridSize = 8;// Motion coords
+      this.gridSteps = Math.floor(1000 / this.gridSize);
+      this.grid = [];
+      var i = 0;
+      for (var xx = -500; xx < 500; xx += this.gridSize) {
+        for (var yy = -500; yy < 500; yy += this.gridSize) {
+          // Radial field, triangular function of r with max around r0
+          var r = Math.sqrt(xx*xx+yy*yy),
+              r0 = this.radius,
+              field;
+
+          if (r < r0) field = 255 / r0 * r;
+          else if (r > r0) field = 255 - Math.min(255, (r - r0)/2);
+
+          this.grid.push({
+            x: xx,
+            y: yy,
+            busyAge: 0,
+            spotIndex: i,
+            isEdge: (xx == -500 ? 'left' :
+                    (xx == (-500 + this.gridSize * (this.gridSteps-1)) ? 'right' :
+                      (yy == -500 ? 'top' :
+                      (yy == (-500 + this.gridSize *(this.gridSteps-1)) ? 'bottom' :
+                        false
+                      )
+                      )
+                    )
+                    ),
+            field: field
+          });
+          i++;
+        }
+      }
+      this.gridMaxIndex = i;
+
+      // // Counters for UI
+      // this.drawnInLastFrame = 0;
+      // this.deathCount = 0;
+
+      this.initDraw();
+    };
+
+    App.evolve = function() {
+      var time1 = performance.now();
+
+      this.stepCount++;
+
+      // Increment all grid ages
+      this.grid.forEach(function(e) {
+        if (e.busyAge > 0) e.busyAge++;
+      });
+
+      if (this.stepCount % this.birthFreq == 0 && (this.particles.length + this.popPerBirth) < this.maxPop) {
+        this.birth();
+      }
+      App.move();
+      App.draw();
+
+      var time2 = performance.now();
+
+      // // Update UI
+      // document.getElementsByClassName('dead')[0].textContent = this.deathCount;
+      // document.getElementsByClassName('alive')[0].textContent = this.particles.length;
+      // document.getElementsByClassName('fps')[0].textContent = Math.floor(1000 / (time2 - time1));
+      // document.getElementsByClassName('drawn')[0].textContent = this.drawnInLastFrame;
+
+    };
+
+    App.birth = function() {
+      var x, y;
+      var gridSpotIndex = Math.floor(Math.random() * this.gridMaxIndex),
+          gridSpot = this.grid[gridSpotIndex],
+          x = gridSpot.x, y = gridSpot.y;
+
+      var particle = {
+        // hue: 200,// + Math.floor(50*Math.random()),
+        // sat: 95,//30 + Math.floor(70*Math.random()),
+        // lum: 20 + Math.floor(40*Math.random()),
+        hue: globalThemeColorHSL.h, // + Math.floor(50*Math.random()),
+        sat: globalThemeColorHSL.s, // + Math.floor(70*Math.random()),
+        lum: globalThemeColorHSL.l, // + Math.floor(40*Math.random()),
+        x: x, y: y,
+        xLast: x, yLast: y,
+        xSpeed: 0, ySpeed: 0,
+        age: 0,
+        ageSinceStuck: 0,
+        attractor: {
+          oldIndex: gridSpotIndex,
+          gridSpotIndex: gridSpotIndex,// Pop at random position on grid
+        },
+        name: 'seed-' + Math.ceil(10000000 * Math.random())
+      };
+      this.particles.push(particle);
+    };
+
+    App.kill = function(particleName) {
+      var newArray = _.reject(this.particles, function(seed) {
+        return (seed.name == particleName);
+      });
+      this.particles = _.cloneDeep(newArray);
+    };
+
+    App.move = function() {
+      for (var i = 0; i < this.particles.length; i++) {
+        // Get particle
+        var p = this.particles[i];
+
+        // Save last position
+        p.xLast = p.x; p.yLast = p.y;
+
+        // Attractor and corresponding grid spot
+        var index = p.attractor.gridSpotIndex,
+            gridSpot = this.grid[index];
+
+        // Maybe move attractor and with certain constraints
+        if (Math.random() < this.moveProbability) { // this sets the probability of the attractor moving 0.25
+          // Move attractor
+          if (!gridSpot.isEdge) {
+            // Change particle's attractor grid spot and local move function's grid spot
+            var topIndex = index - 1,
+                bottomIndex = index + 1,
+                leftIndex = index - this.gridSteps,
+                rightIndex = index + this.gridSteps,
+                topSpot = this.grid[topIndex],
+                bottomSpot = this.grid[bottomIndex],
+                leftSpot = this.grid[leftIndex],
+                rightSpot = this.grid[rightIndex];
+
+            // Choose neighbour with highest field value (with some desobedience...)
+            var chaos = 30; // higher values make difficult for particles to reach center
+            var maxFieldSpot = _.maxBy([topSpot, bottomSpot, leftSpot, rightSpot], function(e) {
+              return e.field + chaos * Math.random()
+            });
+
+            var potentialNewGridSpot = maxFieldSpot;
+            if (potentialNewGridSpot.busyAge == 0 || potentialNewGridSpot.busyAge > 15) {// Allow wall fading
+            //if (potentialNewGridSpot.busyAge == 0) {// Spots busy forever
+              // Ok it's free let's go there
+              p.ageSinceStuck = 0;// Not stuck anymore yay
+              p.attractor.oldIndex = index;
+              p.attractor.gridSpotIndex = potentialNewGridSpot.spotIndex;
+              gridSpot = potentialNewGridSpot;
+              gridSpot.busyAge = 1;
+            } else p.ageSinceStuck++;
+
+          } else p.ageSinceStuck++;
+
+          if (p.ageSinceStuck == 10) this.kill(p.name);
+        }
+
+        // Spring attractor to center with viscosity
+        var k = 8, visc = 0.4;
+        var dx = p.x - gridSpot.x,
+            dy = p.y - gridSpot.y,
+            dist = Math.sqrt(dx*dx + dy*dy);
+
+        // Spring
+        var xAcc = -k * dx,
+            yAcc = -k * dy;
+
+        p.xSpeed += xAcc; p.ySpeed += yAcc;
+
+        // Calm the f*ck down
+        p.xSpeed *= visc; p.ySpeed *= visc;
+
+        // Store stuff in particle brain
+        p.speed = Math.sqrt(p.xSpeed * p.xSpeed + p.ySpeed * p.ySpeed);
+        p.dist = dist;
+
+        // Update position
+        p.x += 0.1 * p.xSpeed; p.y += 0.1 * p.ySpeed;
+
+        // Get older
+        p.age++;
+
+        // Kill if too old
+        if (p.age > this.lifespan) {
+          this.kill(p.name);
+          // this.deathCount++;
+        }
+      }
+    };
+
+    App.initDraw = function() {
+      this.ctx.beginPath();
+      this.ctx.rect(0, 0, this.width, this.height);
+      this.ctx.fillStyle = globalBackgroundColor;
+      this.ctx.fill();
+      this.ctx.closePath();
+    };
+
+    App.draw = function() {
+      // this.drawnInLastFrame = 0;
+      if (!this.particles.length) return false;
+
+      this.ctx.beginPath();
+      this.ctx.rect(0, 0, this.width, this.height);
+      // this.ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+      // this.ctx.fillStyle = 'rgba(' + globalBackgroundColorRGB.r + ', ' + globalBackgroundColorRGB.g + ', ' + globalBackgroundColorRGB.b + ', 0.01)';
+      // this.ctx.fillStyle = 'rgba(' + globalBackgroundColorRGB.r + ', ' + globalBackgroundColorRGB.g + ', ' + globalBackgroundColorRGB.b + ', 0.25)'; // the alpha here sets the length of the trail, the lower the longer
+      this.ctx.fillStyle = 'rgba(' + globalBackgroundColorRGB.r + ', ' + globalBackgroundColorRGB.g + ', ' + globalBackgroundColorRGB.b + ', 0.25)'; // the alpha here sets the length of the trail, the lower the longer
+      //this.ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+      this.ctx.fill();
+      this.ctx.closePath();
+
+      for (var i = 0; i < this.particles.length; i++) {
+        // Draw particle
+        var p = this.particles[i];
+
+        var h, s, l, a;
+
+        h = p.hue; // + this.stepCount/100; // higher the denominator, longer takes to change color
+        s = p.sat;
+        l = p.lum;
+        a = 0.05; // particle opacity
+
+        var last = this.dataXYtoCanvasXY(p.xLast, p.yLast),
+            now = this.dataXYtoCanvasXY(p.x, p.y);
+        var attracSpot = this.grid[p.attractor.gridSpotIndex],
+            attracXY = this.dataXYtoCanvasXY(attracSpot.x, attracSpot.y);
+        var oldAttracSpot = this.grid[p.attractor.oldIndex],
+            oldAttracXY = this.dataXYtoCanvasXY(oldAttracSpot.x, oldAttracSpot.y);
+
+        this.ctx.beginPath();
+
+        this.ctx.strokeStyle = 'hsla(' + h + ', ' + s + '%, ' + l + '%, ' + a + ')';
+        this.ctx.fillStyle = 'hsla(' + h + ', ' + s + '%, ' + l + '%, ' + a + ')';
+        // this.ctx.strokeStyle = 'hsla(250, 50%, 50%, 1)';
+        // this.ctx.fillStyle = 'hsla(250, 50%, 50%, 1)';
+
+        // Particle trail
+        this.ctx.moveTo(last.x, last.y);
+        this.ctx.lineTo(now.x, now.y);
+
+        this.ctx.lineWidth = 1.5 * this.dataToImageRatio; // 3
+        this.ctx.stroke();
+        this.ctx.closePath();
+
+        // Attractor positions
+        this.ctx.beginPath();
+        this.ctx.lineWidth = 1.5 * this.dataToImageRatio; // 0.1
+        this.ctx.moveTo(oldAttracXY.x, oldAttracXY.y);
+        this.ctx.lineTo(attracXY.x, attracXY.y);
+        this.ctx.arc(attracXY.x, attracXY.y, 1.5 * this.dataToImageRatio, 0, 2 * Math.PI, false);
+
+        //a /= 20;
+        this.ctx.strokeStyle = 'hsla(' + h + ', ' + s + '%, ' + l + '%, ' + a + ')';
+        this.ctx.fillStyle = 'hsla(' + h + ', ' + s + '%, ' + l + '%, ' + a + ')';
+        // this.ctx.strokeStyle = 'hsla(250, 50%, 50%, 1)';
+        // this.ctx.fillStyle = 'hsla(250, 50%, 50%, 1)';
+        this.ctx.stroke();
+        this.ctx.fill();
+
+        this.ctx.closePath();
+
+        // UI counter
+        // this.drawnInLastFrame++;
+      }
+
+    };
+
+    App.dataXYtoCanvasXY = function(x, y) {
+      // var zoom = 1.6;
+      // var zoom = 5;
+      var xx = this.xC + x * this.zoom * this.dataToImageRatio,
+          yy = this.yC + y * this.zoom * this.dataToImageRatio;
+
+      return {x: xx, y: yy};
+    };
+
+    // Function to update height and width
+    function updateSize() {
+      var canvas = document.getElementsByTagName('canvas')[0];
+      // this.filename = "spipa";
+      // canvas.width = window.innerWidth;
+      // canvas.height = window.innerHeight;
+      // this.canvas = canvas;
+      // document.getElementsByTagName('body')[0].appendChild(canvas);
+      // this.ctx = this.canvas.getContext('2d');
+      // this.width = this.canvas.width;
+      // this.height = this.canvas.height;
+
+      // console.log("Atualizou: ", this.width, this.height);
+      // var zoom = 1.6;
+      this.zoom += this.width / canvas.width
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      App.setup();
+      App.draw();
+
+      // Add event listener for window resize
+      window.addEventListener('resize', updateSize);
+
+      var frame = function() {
+        App.evolve();
+        requestAnimationFrame(frame);
+      };
+      frame();
+    });
+
+
+    /**
+     * Some old util I use at times
+     *
+     * @param {Number} Xstart X value of the segment starting point
+     * @param {Number} Ystart Y value of the segment starting point
+     * @param {Number} Xtarget X value of the segment target point
+     * @param {Number} Ytarget Y value of the segment target point
+     * @param {Boolean} realOrWeb true if Real (Y towards top), false if Web (Y towards bottom)
+     * @returns {Number} Angle between 0 and 2PI
+     */
+    segmentAngleRad = function(Xstart, Ystart, Xtarget, Ytarget, realOrWeb) {
+      var result;// Will range between 0 and 2PI
+      if (Xstart == Xtarget) {
+        if (Ystart == Ytarget) {
+          result = 0;
+        } else if (Ystart < Ytarget) {
+          result = Math.PI/2;
+        } else if (Ystart > Ytarget) {
+          result = 3*Math.PI/2;
+        } else {}
+      } else if (Xstart < Xtarget) {
+        result = Math.atan((Ytarget - Ystart)/(Xtarget - Xstart));
+      } else if (Xstart > Xtarget) {
+        result = Math.PI + Math.atan((Ytarget - Ystart)/(Xtarget - Xstart));
+      }
+
+      result = (result + 2*Math.PI)%(2*Math.PI);
+
+      if (!realOrWeb) {
+        result = 2*Math.PI - result;
+      }
+
+      return result;
+    }
+  </script>
+{% endif %}
