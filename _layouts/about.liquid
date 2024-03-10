@@ -2,7 +2,9 @@
 layout: default
 ---
 <div class="post about-canvas">
-  <canvas id="canvas" style="position: fixed; width: -webkit-fill-available"></canvas>
+  {% if page.animated_background %}
+    <canvas id="canvas" style="position: fixed; width: -webkit-fill-available"></canvas>
+  {% endif %}
   <header class="post-header">
     {% if page.profile %}
       <div id="profile-photo" class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
