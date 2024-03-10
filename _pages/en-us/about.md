@@ -14,6 +14,7 @@ profile:
 news: false # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
+animated_background: true # includes an animated background
 ---
 
 I'm a PhD student in the [Visual Informatics Laboratory](https://liv.ic.unicamp.br/) and [Reasoning for Complex Data](https://recod.ai/) groups at [Instituto de Computação](https://ic.unicamp.br/), [Unicamp](https://www.unicamp.br/).
