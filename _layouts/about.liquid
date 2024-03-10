@@ -1,10 +1,11 @@
 ---
 layout: default
 ---
-<div class="post">
+<div class="post about-canvas">
+  <canvas id="canvas" style="position: fixed; width: -webkit-fill-available"></canvas>
   <header class="post-header">
     {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+      <div id="profile-photo" class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
           {% if page.profile.image_circular %}
