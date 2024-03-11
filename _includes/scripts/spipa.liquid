@@ -103,11 +103,12 @@
       // Get profile photo element to use as reference
       var profilePhoto = document.getElementById('profile-photo');
       let style = window.getComputedStyle(profilePhoto);
+      // use only width since the image is a square
       let photoWidth = parseInt(style.getPropertyValue('width'));
       let photoMargin = parseInt(style.getPropertyValue('margin-left'));
 
       this.xC = this.width - Math.max(1, this.dataToImageRatio) * photoMargin - (Math.max(1, this.dataToImageRatio) * photoWidth) / 2;
-      this.yC = (Math.max(1, this.dataToImageRatio) * photoWidth) / 2;
+      this.yC = (Math.max(1, this.dataToImageRatio) * photoWidth) / 4;
 
       if (this.dataToImageRatio < 1) {
         this.radius = (3 * photoWidth) / 5;
