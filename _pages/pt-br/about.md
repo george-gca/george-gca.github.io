@@ -14,7 +14,7 @@ profile:
 news: false # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
-animated_background: true # includes an animated background
+animated_background: false # includes an animated background
 ---
 
 Atualmente faço doutorado no [Instituto de Computação](https://ic.unicamp.br/), [Unicamp](https://www.unicamp.br/), e faço parte do [Laboratório de Informática Visual](https://liv.ic.unicamp.br/) e [Reasoning for Complex Data](https://recod.ai/).
