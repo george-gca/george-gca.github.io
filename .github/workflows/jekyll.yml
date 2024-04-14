@@ -50,6 +50,22 @@ jobs:
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
+      
+      - name: Install Node.js for Mermaid CLI
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+
+      - name: Install Mermaid CLI
+        run: npm install -g @mermaid-js/mermaid-cli
+
+      - name: Install Python for Jupyter
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install Jupyter
+        run: pip install jupyter
 
   # Deployment job
   deploy:
