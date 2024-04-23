@@ -2,7 +2,7 @@
 page_id: project_1
 layout: page
 title: projeto 1
-description: um projeto com imagem de fundo
+description: com imagem de fundo
 img: assets/img/12.jpg
 importance: 1
 category: work
