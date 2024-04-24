@@ -145,7 +145,7 @@ pagination:
       <p>{{ post.description }}</p>
       <p class="post-meta">
         Leitura de {{ read_time }} min &nbsp; &middot; &nbsp;
-        {% include date_format.liquid format="long" date_from=post %}
+        {% include date_format.liquid format="long" date=post.date %}
         {% if post.external_source %}
         &nbsp; &middot; &nbsp; {{ post.external_source }}
         {% endif %}
