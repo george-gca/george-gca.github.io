@@ -6,6 +6,9 @@ blog:
 categories:
   fun: fun
   work: work
+citation:
+  bibtex: "or as a BibTeX entry:"
+  introduction: "If you found this useful, please cite this as:"
 contact_note: You can even add a little note about which of these is the best way to reach you.
 cv:
   address: Address
