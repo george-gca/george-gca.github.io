@@ -14,6 +14,7 @@ group :jekyll_plugins do
     gem 'jekyll-polyglot'
     gem 'jekyll-scholar'
     gem 'jekyll-sitemap'
+    gem 'jekyll-tabs'
     gem 'jekyll-toc'
     gem 'jekyll-twitter-plugin'
     gem 'jemoji'

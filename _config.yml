@@ -236,6 +236,7 @@ plugins:
   - jekyll-polyglot
   - jekyll/scholar
   - jekyll-sitemap
+  - jekyll-tabs
   - jekyll-toc
   - jekyll-twitter-plugin
   - jemoji
