@@ -1,56 +1,15 @@
+archive_category: um arquivo de postagens desta categoria
+archive_tag: um arquivo de postagens com este marcador
+archive_year: um arquivo de postagens deste ano
 blog:
   navigation_title: blog
 categories:
   fun: diversão
   work: trabalho
+citation:
+  bibtex: "ou como uma citação em BibTeX:"
+  introduction: "Se você achou isso útil, por favor cite como:"
 contact_note: Você pode até adicionar uma pequena observação sobre qual dessas é a melhor maneira de entrar em contato com você.
-footer_text: > # the ">" symbol means to ignore newlines until "titles:"
-  Desenvolvido em <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> com o tema <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>.
-  Hospedado por <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Fotos do <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-latest_posts: últimas postagens
-news: novidades
-selected_publications: publicações selecionadas
-site_description: Um tema simples para acadêmicos. Baseado no design do [*folio](https://github.com/bogoli/-folio).
-archive_category: um arquivo de postagens desta categoria
-archive_tag: um arquivo de postagens com este marcador
-archive_year: um arquivo de postagens deste ano
-related_posts:
-  description: "Aqui estão alguns artigos relacionados que você pode gostar de ler:"
-  title: Gostou de Ler este Artigo?
-references: Referências
-months:
-  long:
-    january: Janeiro
-    february: Fevereiro
-    march: Março
-    april: Abril
-    may: Maio
-    june: Junho
-    july: Julho
-    august: Agosto
-    september: Setembro
-    october: Outubro
-    november: Novembro
-    december: Dezembro
-  short:
-    january: Jan
-    february: Fev
-    march: Mar
-    april: Abr
-    may: Mai
-    june: Jun
-    july: Jul
-    august: Ago
-    september: Set
-    october: Out
-    november: Nov
-    december: Dez
-no_news: Nenhuma novidade no momento...
-pagination:
-  newer: Recentes
-  older: Antigas
-  page: página
 cv:
   address: Endereço
   area: Área
@@ -102,3 +61,51 @@ cv:
   username: Usuário
   volunteer: Voluntário
   work: Trabalho
+footer_text: > # the ">" symbol means to ignore newlines until "titles:"
+  Desenvolvido em <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> com o tema <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>.
+  Hospedado por <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+  Fotos do <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+latest_posts: últimas postagens
+months:
+  long:
+    january: Janeiro
+    february: Fevereiro
+    march: Março
+    april: Abril
+    may: Maio
+    june: Junho
+    july: Julho
+    august: Agosto
+    september: Setembro
+    october: Outubro
+    november: Novembro
+    december: Dezembro
+  short:
+    january: Jan
+    february: Fev
+    march: Mar
+    april: Abr
+    may: Mai
+    june: Jun
+    july: Jul
+    august: Ago
+    september: Set
+    october: Out
+    november: Nov
+    december: Dez
+news: novidades
+no_news: Nenhuma novidade no momento...
+pagination:
+  newer: Recentes
+  older: Antigas
+  page: página
+post:
+  created_in: Criado em
+  created_by: por
+  last_updated: última atualização em
+references: Referências
+related_posts:
+  description: "Aqui estão alguns artigos relacionados que você pode gostar de ler:"
+  title: Gostou de Ler este Artigo?
+selected_publications: publicações selecionadas
+site_description: Um tema simples para acadêmicos. Baseado no design do [*folio](https://github.com/bogoli/-folio).

@@ -1,7 +1,7 @@
 ---
 page_id: project_3
 layout: page
-title: projeto 3
+title: projeto 3 com um nome bem longo
 description: um projeto que redireciona pra outro website
 img: assets/img/7.jpg
 redirect: https://unsplash.com
