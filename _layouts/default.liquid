@@ -22,6 +22,9 @@
 
   <!-- Body -->
   <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+    {% if page.name == 'about.md' and page.animated_background %}
+      <canvas id="canvas" style="position: fixed; width: -webkit-fill-available; z-index: -1;"></canvas>
+    {% endif %}
     <!-- Header -->
     {% include header.liquid %}
 
