@@ -31,6 +31,12 @@
     ><i class="ai ai-researchgate"></i
   ></a>
 {% endif %}
+{% if site.ieee_id %}
+  <a href="https://ieeexplore.ieee.org/author/{{site.ieee_id}}/" title="IEEE Xplore"><i class="ai ai-ieee"></i></a>
+{% endif %}
+{% if site.acm_id %}
+  <a href="https://dl.acm.org/profile/{{site.acm_id}}/" title="ACM DL"><i class="ai ai-acm"></i></a>
+{% endif %}
 {% if site.scopus_id %}
   <a href="https://www.scopus.com/authid/detail.uri?authorId={{site.scopus_id}}" title="Scopus" aria-label="Scopus"><i class="ai ai-scopus"></i></a>
 {% endif %}
@@ -45,6 +51,9 @@
 {% endif %}
 {% if site.quora_username %}
   <a href="https://www.quora.com/profile/{{ site.quora_username }}" title="Quora" aria-label="Quora"><i class="fa-brands fa-quora"></i></a>
+{% endif %}
+{% if site.flickr_id %}
+  <a href="https://www.flickr.com/{{ site.flickr_id }}" title="Flickr"><i class="fa-brands fa-flickr"></i></a>
 {% endif %}
 {% if site.blogger_url %}
   <a href="{{ site.blogger_url }}" title="Blogger" aria-label="Blogger"><i class="fa-brands fa-blogger-b"></i></a>
@@ -97,6 +106,9 @@
 {% endif %}
 {% if site.facebook_id %}
   <a href="https://facebook.com/{{ site.facebook_id }}" title="Facebook" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+{% endif %}
+{% if site.bluesky_url %}
+  <a href="https://bsky.app/profile/{{ site.bluesky_url }}" title="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
 {% endif %}
 {% if site.youtube_id %}
   <a href="https://youtube.com/@{{ site.youtube_id }}" title="YouTube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>

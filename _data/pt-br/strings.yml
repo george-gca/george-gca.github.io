@@ -1,56 +1,15 @@
+archive_category: Arquivo de postagens desta categoria
+archive_tag: Arquivo de postagens com este marcador
+archive_year: Arquivo de postagens deste ano
 blog:
   navigation_title: Blog
 categories:
   fun: diversão
   work: trabalho
+citation:
+  bibtex: "ou como uma citação em BibTeX:"
+  introduction: "Se você achou isso útil, por favor cite como:"
 contact_note: ""
-footer_text: > # the ">" symbol means to ignore newlines until "titles:"
-  Desenvolvido em Jekyll com o tema <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>.
-  Hospedado por <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-latest_posts: Últimas postagens
-news: Novidades
-selected_publications: Publicações selecionadas
-site_description: Informações pessoais, tutoriais e repositórios abertos.
-archive_category: Arquivo de postagens desta categoria
-archive_tag: Arquivo de postagens com este marcador
-archive_year: Arquivo de postagens deste ano
-related_posts:
-  description: "Aqui estão alguns artigos relacionados que você pode gostar de ler:"
-  title: Gostou de Ler este Artigo?
-references: Referências
-months:
-  long:
-    january: Janeiro
-    february: Fevereiro
-    march: Março
-    april: Abril
-    may: Maio
-    june: Junho
-    july: Julho
-    august: Agosto
-    september: Setembro
-    october: Outubro
-    november: Novembro
-    december: Dezembro
-  short:
-    january: Jan
-    february: Fev
-    march: Mar
-    april: Abr
-    may: Mai
-    june: Jun
-    july: Jul
-    august: Ago
-    september: Set
-    october: Out
-    november: Nov
-    december: Dez
-no_news: Nenhuma novidade no momento...
-pagination:
-  newer: Recentes
-  older: Antigas
-  page: página
-profile_picture_alt: Foto de perfil
 cv:
   address: Endereço
   area: Área
@@ -102,3 +61,51 @@ cv:
   username: Usuário
   volunteer: Voluntário
   work: Trabalho
+footer_text: > # the ">" symbol means to ignore newlines until "titles:"
+  Desenvolvido em <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> com o tema <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>.
+  Hospedado por <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+latest_posts: Últimas postagens
+months:
+  long:
+    january: Janeiro
+    february: Fevereiro
+    march: Março
+    april: Abril
+    may: Maio
+    june: Junho
+    july: Julho
+    august: Agosto
+    september: Setembro
+    october: Outubro
+    november: Novembro
+    december: Dezembro
+  short:
+    january: Jan
+    february: Fev
+    march: Mar
+    april: Abr
+    may: Mai
+    june: Jun
+    july: Jul
+    august: Ago
+    september: Set
+    october: Out
+    november: Nov
+    december: Dez
+news: Novidades
+no_news: Nenhuma novidade no momento...
+pagination:
+  newer: Recentes
+  older: Antigas
+  page: página
+post:
+  created_in: Criado em
+  created_by: por
+  last_updated: última atualização em
+profile_picture_alt: Foto de perfil
+references: Referências
+related_posts:
+  description: "Aqui estão alguns artigos relacionados que você pode gostar de ler:"
+  title: Gostou de Ler este Artigo?
+selected_publications: Publicações selecionadas
+site_description: Informações pessoais, tutoriais e repositórios abertos.
