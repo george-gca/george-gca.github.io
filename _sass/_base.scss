@@ -357,7 +357,8 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-#light-toggle {
+#light-toggle,
+#search-toggle {
   padding: 0;
   border: 0;
   background-color: inherit;
@@ -1110,4 +1111,53 @@ swiper-container {
   .ps-algorithm.with-caption > .ps-line:first-child {
     border-bottom: 2px solid var(--global-text-color);
   }
+}
+
+// Ninja Keys
+// for more options, check https://github.com/ssleptsov/ninja-keys?tab=readme-ov-file#css-variables
+ninja-keys {
+  --ninja-accent-color: var(--global-theme-color);
+  --ninja-icon-size: 0px;
+  --ninja-modal-background: var(--global-bg-color);
+  --ninja-z-index: 1031;
+
+  // modal footer and its components were extracted from assets/js/search/base-styles.min.js
+  .modal-footer {
+    padding: 0.5em 1em;
+    display: flex;
+    /* font-size: 0.75em; */
+    border-top: 1px solid var(--ninja-secondary-background-color);
+    color: var(--ninja-secondary-text-color);
+  }
+
+  .modal-footer .help {
+    display: flex;
+    margin-right: 1em;
+    align-items: center;
+    font-size: 0.75em;
+  }
+
+  .ninja-examplekey {
+    background: var(--ninja-secondary-background-color);
+    padding: 0.06em 0.25em;
+    border-radius: var(--ninja-key-border-radius);
+    color: var(--ninja-secondary-text-color);
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+    font-size: 1.25em;
+    fill: currentColor;
+  }
+  .ninja-examplekey.esc {
+    width: auto;
+    height: auto;
+    font-size: 1.1em;
+  }
+  .ninja-examplekey.backspace {
+    opacity: 0.7;
+  }
+}
+
+ninja-keys::part(ninja-input-wrapper) {
+  background: var(--global-bg-color);
 }
