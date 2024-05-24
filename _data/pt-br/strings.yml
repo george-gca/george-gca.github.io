@@ -113,6 +113,11 @@ search:
     title: Muda o tema para escuro
   dropdown: Outras opções
   email: Enviar um email
+  footer:
+    close: para fechar
+    navigate: para navegar
+    parent: voltar um nível
+    select: para selecionar
   languages: Idiomas
   light_theme:
     description: Muda o tema do site para claro

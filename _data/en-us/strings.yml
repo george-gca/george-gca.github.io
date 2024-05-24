@@ -113,6 +113,11 @@ search:
     title: Change theme to dark
   dropdown: Dropdown
   email: Send an email
+  footer:
+    close: to close
+    navigate: to navigate
+    parent: move to parent
+    select: to select
   languages: Languages
   light_theme:
     description: Change the theme of the site to Light
