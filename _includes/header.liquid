@@ -107,14 +107,6 @@
               {% endif %}
             {% endif %}
           {% endfor %}
-          {% if site.search_enabled %}
-            <!-- Search -->
-            <li class="nav-item">
-              <button id="search-toggle" title="Search" onclick="openSearchModal()">
-                <span class="nav-link">ctrl k <i class="ti ti-search"></i></span>
-              </button>
-            </li>
-          {% endif %}
           <!-- Toogle language -->
           {% if site.languages.size >= 2 %}
             {% if site.languages.size == 2 %}
@@ -192,6 +184,14 @@
                 </div>
               </li>
             {% endif %}
+          {% endif %}
+          {% if site.search_enabled %}
+            <!-- Search -->
+            <li class="nav-item">
+              <button id="search-toggle" title="Search" onclick="openSearchModal()">
+                <span class="nav-link"><i class="ti ti-search"></i> ctrl k</span>
+              </button>
+            </li>
           {% endif %}
           {% if site.enable_darkmode %}
             <!-- Toogle theme mode -->
