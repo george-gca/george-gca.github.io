@@ -145,17 +145,19 @@
           },
         },
       {%- endfor -%}
-      {%- for project in site.projects -%}
-        {
-          {%- assign title = project.title | escape -%}
-          id: "project-{{ title | slugify }}",
-          title: "{{ title }}",
-          description: "{{ project.description | strip_html | strip_newlines | escape }}",
-          section: "{{ site.data[site.active_lang].strings.search.projects }}",
-          handler: () => {
-            window.location.href = "{{ project.url | prepend: lang | relative_url }}";
+      {%- for collection in site.collections -%}
+        {%- for item in collection.docs -%}
+          {
+            {%- assign title = item.title | escape -%}
+            id: "{{ collection.label }}-{{ title | slugify }}",
+            title: "{{ title }}",
+            description: "{{ item.description | strip_html | strip_newlines | escape }}",
+            section: "{{ site.data[site.active_lang].strings.search[collection.label] }}",
+            handler: () => {
+              window.location.href = "{{ item.url | prepend: lang | relative_url }}";
+            },
           },
-        },
+        {%- endfor -%}
       {%- endfor -%}
       {%- if site.socials_in_search -%}
         {%- if site.email -%}
