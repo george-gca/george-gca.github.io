@@ -123,6 +123,7 @@ search:
     description: Change the theme of the site to Light
     title: Change theme to light
   navigation: Navigation menu
+  news: News
   placeholder: Type to start searching
   posts: Posts
   projects: Projects
