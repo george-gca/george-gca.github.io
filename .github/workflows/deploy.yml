@@ -75,8 +75,14 @@ jobs:
         with:
           commitChange: false
           valueFile: "_config.yml"
-          propertyPath: "giscus.repo"
-          value: ${{ github.repository }}
+          changes: |
+            {
+              "giscus.repo": ${{ github.repository }},
+              "giscus.repo_id": ${{ secrets.GISCUS_REPO_ID }},
+              "giscus.category_id": ${{ secrets.GISCUS_CATEGORY_ID }},
+              "google_analytics": ${{ secrets.GOOGLE_ANALYTICS }},
+              "google_site_verification": ${{ secrets.GOOGLE_SITE_VERIFICATION }},
+            }
       - name: Install and Build 🔧
         run: |
           pip3 install --upgrade jupyter

@@ -109,11 +109,11 @@ zotero_username: # your zotero username
 
 # For Google Analytics, see https://support.google.com/analytics/answer/10447272?hl=en&ref_topic=14088998&sjid=5129943941510317771-SA#zippy=%2Cgoogle-sites
 # and follow the instructions for Google Sites. You will need to create a Google Analytics property and copy the Google tag ID.
-google_analytics: G-J7KHS011G7 # your Goole Analytics measurement ID (format: G-XXXXXXXXXX)
+google_analytics: # your Goole Analytics measurement ID (format: G-XXXXXXXXXX)
 cronitor_analytics: # cronitor RUM analytics site ID (format: XXXXXXXXX)
 
 # For Google Search Console, see https://support.google.com/webmasters/answer/9008080?hl=en#meta_tag_verification&zippy=%2Chtml-tag
-google_site_verification: g-X-aUUud1gtIVUgKEAx9T7VKpcQw1Ymd8aQ-hlIIY8 # your google-site-verification ID (Google Search Console)
+google_site_verification: # your google-site-verification ID (Google Search Console)
 bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 
 # -----------------------------------------------------------------------------
@@ -136,9 +136,9 @@ related_blog_posts:
 # Follow instructions on https://giscus.app/ to setup for your repo to fill out the information below.
 giscus:
   repo: george-gca/george-gca.github.io # <your-github-user-name>/<your-github-repo-name>
-  repo_id: R_kgDOI66tbw # leave empty or specify your repo_id (see https://giscus.app/)
+  repo_id: # leave empty or specify your repo_id (see https://giscus.app/)
   category: Announcements # name of the category under which discussions will be created
-  category_id: DIC_kwDOI66tb84CUDq6 # leave empty or specify your category_id (see https://giscus.app/)
+  category_id: # leave empty or specify your category_id (see https://giscus.app/)
   mapping: title # identify discussions by post title
   strict: 1 # use strict identification mode
   reactions_enabled: 1 # enable (1) or disable (0) emoji reactions
