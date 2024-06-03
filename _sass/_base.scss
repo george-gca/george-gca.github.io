@@ -487,6 +487,11 @@ footer.sticky-bottom {
   color: var(--global-text-color);
 }
 
+.date-column {
+  width: 75px;
+  transform: translateX(-15px) translateY(-5px);
+}
+
 // Repositories
 
 @media (min-width: 768px) {
@@ -1185,7 +1190,9 @@ ninja-keys {
     opacity: 0.7;
   }
 }
-
+ninja-keys::part(ninja-input) {
+  color: var(--ninja-selected-text-color);
+}
 ninja-keys::part(ninja-input-wrapper) {
   background: var(--global-bg-color);
 }
