@@ -23,7 +23,7 @@
       class="newsletter-form-button"
       style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}"
     >
-      subscribe
+    {{ site.data[site.active_lang].strings.newsletter.subscribe }}
     </button>
 
     <button
@@ -31,7 +31,7 @@
       class="newsletter-loading-button"
       style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}"
     >
-      Please wait...
+    {{ site.data[site.active_lang].strings.newsletter.wait }}
     </button>
   </form>
 
@@ -39,14 +39,14 @@
     class="newsletter-success"
     style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}"
   >
-    <p class="newsletter-success-message">You're subscribed!</p>
+    <p class="newsletter-success-message">{{ site.data[site.active_lang].strings.newsletter.subscribed }}</p>
   </div>
 
   <div
     class="newsletter-error"
     style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}"
   >
-    <p class="newsletter-error-message">Oops! Something went wrong, please try again</p>
+    <p class="newsletter-error-message">{{ site.data[site.active_lang].strings.newsletter.error }}</p>
   </div>
 
   <button
@@ -55,7 +55,7 @@
     onmouseout='this.style.textDecoration="none"'
     onmouseover='this.style.textDecoration="underline"'
   >
-    &larr; Back
+    &larr; {{ site.data[site.active_lang].strings.newsletter.back }}
   </button>
 </div>
 
@@ -74,7 +74,7 @@
 
     const rateLimit = () => {
       errorContainer.style.display = 'flex';
-      errorMessage.innerText = 'Too many signups, please try again in a little while';
+      errorMessage.innerText = '{{ site.data[site.active_lang].strings.newsletter.too_many_signups }}';
       submitButton.style.display = 'none';
       formInput.style.display = 'none';
       backButton.style.display = 'block';
@@ -149,7 +149,7 @@
 
     success.style.display = 'none';
     errorContainer.style.display = 'none';
-    errorMessage.innerText = 'Oops! Something went wrong, please try again';
+    errorMessage.innerText = '{{ site.data[site.active_lang].strings.newsletter.error }}';
     backButton.style.display = 'none';
     formInput.style.display = 'flex';
     submitButton.style.display = 'flex';
