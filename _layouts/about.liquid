@@ -73,5 +73,9 @@ layout: default
         <div class="contact-note">{{ site.data[site.active_lang].strings.contact_note }}</div>
       </div>
     {% endif %}
+
+    {% if site.newsletter.enabled and site.footer_fixed %}
+      {% include scripts/newsletter.liquid center=true %}
+    {% endif %}
   </article>
 </div>

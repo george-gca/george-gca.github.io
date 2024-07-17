@@ -93,6 +93,14 @@ months:
     november: Nov
     december: Dec
 news: News
+newsletter:
+  back: Back
+  error: "Oops! Something went wrong, please try again."
+  subscribe: subscribe
+  subscribed: "You have successfully subscribed to the newsletter."
+  subscribe_to_receive: "Subscribe to be notified of future articles:"
+  too_many_signups: "Too many signups, please try again in a little while"
+  wait: "Please wait..."
 no_news: No news so far...
 pagination:
   newer: Newer
