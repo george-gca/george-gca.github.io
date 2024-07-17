@@ -6,6 +6,7 @@ on:
       - gca
     paths:
       - "assets/**"
+      - "**.bib"
       - "**.html"
       - "**.js"
       - "**.liquid"
@@ -31,6 +32,7 @@ on:
       - gca
     paths:
       - "assets/**"
+      - "**.bib"
       - "**.html"
       - "**.js"
       - "**.liquid"

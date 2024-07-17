@@ -94,6 +94,14 @@ months:
     november: Nov
     december: Dez
 news: novidades
+newsletter:
+  back: Voltar
+  error: "Oops! Algo deu errado, por favor tente novamente."
+  subscribe: inscrever-se
+  subscribed: "Você se inscreveu com sucesso na newsletter."
+  subscribe_to_receive: "Inscreva-se para ser notificado de futuros artigos:"
+  too_many_signups: "Muitas inscrições, por favor tente novamente em breve"
+  wait: "Por favor, aguarde..."
 no_news: Nenhuma novidade no momento...
 pagination:
   newer: Recentes
