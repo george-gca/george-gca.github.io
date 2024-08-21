@@ -8,12 +8,12 @@ nav: true
 nav_order: 3
 ---
 
-## Estatísticas do GitHub
-
 {% if site.data.repositories.github_users %}
 
+## Estatísticas do GitHub
+
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-{% for user in site.data.repositories.github_users %}
+  {% for user in site.data.repositories.github_users %}
     {% include repository/repo_user.liquid username=user %}
     {% include repository/repo_languages.liquid username=user %}
   {% endfor %}
@@ -37,12 +37,12 @@ nav_order: 3
 {% endif %}
 {% endif %}
 
-## Repositórios do GitHub
-
 {% if site.data.repositories.github_repos %}
 
+## Repositórios do GitHub
+
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-{% for repo in site.data.repositories.github_repos %}
+  {% for repo in site.data.repositories.github_repos %}
     {% include repository/repo.liquid repository=repo %}
   {% endfor %}
 </div>

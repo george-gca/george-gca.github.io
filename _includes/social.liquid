@@ -15,6 +15,9 @@
     ><i class="ai ai-google-scholar"></i
   ></a>
 {% endif %}
+{% if site.inspirehep_id %}
+  <a href="https://inspirehep.net/authors/{{ site.inspirehep_id }}" title="Inspire HEP"><i class="ai ai-inspire"></i></a>
+{% endif %}
 {% if site.semanticscholar_id %}
   <a href="https://www.semanticscholar.org/author/{{ site.semanticscholar_id }}" title="Semantic Scholar" aria-label="Semantic Scholar"
     ><i class="ai ai-semantic-scholar"></i
