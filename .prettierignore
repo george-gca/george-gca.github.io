@@ -10,3 +10,4 @@ lighthouse_results/**
 _posts/en-us/2015-10-20-math.md
 _posts/pt-br/2015-10-20-math.md
 _sass/font-awesome/*.scss
+_sass/tabler-icons/*.scss

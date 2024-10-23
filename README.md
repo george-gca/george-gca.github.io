@@ -17,7 +17,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/georgegca/multi-language-al-folio?color=blueviolet)](https://hub.docker.com/r/georgegca/multi-language-al-folio)
 
 [![GitHub release](https://img.shields.io/github/v/release/alshedivat/al-folio)](https://github.com/alshedivat/al-folio/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/george-gca/multi-language-al-folio?color=blue)](https://github.com/george-gca/multi-language-al-folio/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/george-gca/multi-language-al-folio?color=blue)](https://github.com/george-gca/multi-language-al-folio/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/alshedivat/al-folio)](https://github.com/alshedivat/al-folio)
 [![GitHub forks](https://img.shields.io/github/forks/alshedivat/al-folio)](https://github.com/alshedivat/al-folio/fork)
 
@@ -158,6 +158,7 @@ Feel free to add your own page(s) by sending a PR.
 <a href="https://shlee-lab.github.io/" target="_blank">★</a>
 <a href="https://devos50.github.io/" target="_blank">★</a>
 <a href="https://kocikowski.com/" target="_blank">★</a>
+<a href="https://vmooers.github.io/" target="_blank">★</a>
 </td>
 </tr>
 <tr>
@@ -453,7 +454,7 @@ For frequently asked questions, please refer to [FAQ.md](FAQ.md).
 
 Contributions to multi-language-al-folio are very welcome! Before you get started, please take a look at [the guidelines](CONTRIBUTING.md).
 
-If you would like to improve documentation or fix a minor inconsistency or bug, please feel free to send a PR directly to `master`. For more complex issues/bugs or feature requests, please open an issue using the appropriate template.
+If you would like to improve documentation or fix a minor inconsistency or bug, please feel free to send a PR directly to `main`. For more complex issues/bugs or feature requests, please open an issue using the appropriate template.
 
 ### Maintainers
 
@@ -496,6 +497,6 @@ Our most active contributors are welcome to join the maintainers team. If you ar
 
 ## License
 
-The theme is available as open source under the terms of the [MIT License](https://github.com/george-gca/multi-language-al-folio/blob/master/LICENSE).
+The theme is available as open source under the terms of the [MIT License](https://github.com/george-gca/multi-language-al-folio/blob/main/LICENSE).
 
 Originally, **al-folio** was based on the [\*folio theme](https://github.com/bogoli/-folio) (published by [Lia Bogoev](https://liabogoev.com) and under the MIT license). Since then, it got a full re-write of the styles and many additional cool features.
