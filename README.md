@@ -16,7 +16,7 @@
 [![Docker Image Size](https://img.shields.io/docker/image-size/georgegca/multi-language-al-folio?sort=date&label=docker%20image%20size&color=blueviolet)](https://hub.docker.com/r/georgegca/multi-language-al-folio)
 [![Docker Pulls](https://img.shields.io/docker/pulls/georgegca/multi-language-al-folio?color=blueviolet)](https://hub.docker.com/r/georgegca/multi-language-al-folio)
 
-[![GitHub release](https://img.shields.io/github/v/release/alshedivat/al-folio)](https://github.com/alshedivat/al-folio/releases/latest)
+[![GitHub release](https://img.shields.io/github/v/release/george-gca/multi-language-al-folio)](https://github.com/george-gca/multi-language-al-folio/releases/latest)
 [![GitHub license](https://img.shields.io/github/license/george-gca/multi-language-al-folio?color=blue)](https://github.com/george-gca/multi-language-al-folio/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/alshedivat/al-folio)](https://github.com/alshedivat/al-folio)
 [![GitHub forks](https://img.shields.io/github/forks/alshedivat/al-folio)](https://github.com/alshedivat/al-folio/fork)
