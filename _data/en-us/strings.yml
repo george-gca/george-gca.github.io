@@ -104,8 +104,6 @@ newsletter:
   wait: "Please wait..."
 no_news: No news so far...
 pagination:
-  newer: Newer
-  older: Older
   page: page
 post:
   created_in: Created in
