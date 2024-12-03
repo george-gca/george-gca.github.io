@@ -24,6 +24,7 @@
         b = '0x' + h[5] + h[6];
       }
 
+      // return "rgb("+ +r + "," + +g + "," + +b + ")";
       return { r: +r, g: +g, b: +b };
     }
 
@@ -66,6 +67,7 @@
       s = +(s * 100).toFixed(1);
       l = +(l * 100).toFixed(1);
 
+      // return "hsl(" + h + "," + s + "%," + l + "%)";
       return { h: h, s: s, l: l };
     }
 
@@ -85,7 +87,19 @@
       this.ctx = this.canvas.getContext('2d');
       this.width = this.canvas.width;
       this.height = this.canvas.height;
-      this.dataToImageRatio = 1;
+
+      // get article dimensions
+      let article = document.getElementsByTagName('article')[0];
+      let articleStyle = getComputedStyle(article);
+      this.articleWidth = parseInt(articleStyle.getPropertyValue('width'));
+      this.articleHeight = parseInt(articleStyle.getPropertyValue('height'));
+
+      // get article starting position
+      let articlePosition = article.getBoundingClientRect();
+      this.articleX = articlePosition.left;
+      this.articleY = articlePosition.top;
+
+      this.dataToImageRatio = this.articleWidth / 1000;
       this.ctx.imageSmoothingEnabled = false;
       this.ctx.webkitImageSmoothingEnabled = false;
       this.ctx.msImageSmoothingEnabled = false;
@@ -104,39 +118,47 @@
       // use only width since the image is a square
       let photoWidth = parseInt(style.getPropertyValue('width'));
       let photoMargin = parseInt(style.getPropertyValue('margin-left'));
+      // get the center of the photo
+      let profilePhotoPosition = profilePhoto.getBoundingClientRect();
+      this.profilePhotoX = profilePhotoPosition.left;
+      this.profilePhotoY = profilePhotoPosition.top;
 
-      let article = document.getElementsByTagName('article')[0];
-      let articleStyle = getComputedStyle(article);
 
-      this.xC = this.width / 2 + parseInt(articleStyle.getPropertyValue('width')) / 2 - photoWidth / 2;
-      // this.yC = this.height / 2 - parseInt(articleStyle.getPropertyValue('height')) / 2 - photoMargin;
-      if (this.width >= parseInt('{{ site.max_width }}')) {
-        this.yC = this.height / 2 - parseInt(articleStyle.getPropertyValue('height')) / 2 - photoMargin;
+      console.log("photoWidth: ", photoWidth);
+      console.log("photoMargin: ", photoMargin);
+      console.log("margin top: ", parseInt(style.getPropertyValue('margin-top')));
+      console.log("articleWidth: ", this.articleWidth);
+      console.log("articleHeight: ", this.articleHeight);
+      console.log("width: ", this.width);
+      console.log("height: ", this.height);
+      console.log("dataToImageRatio: ", this.dataToImageRatio);
+      console.log("articleX: ", this.articleX);
+      console.log("articleY: ", this.articleY);
+      console.log("photoLeft: ", this.profilePhotoX);
+      console.log("photoTop: ", this.profilePhotoY);
+
+      // this.xC = this.width - Math.max(1, this.dataToImageRatio) * photoMargin - (Math.max(1, this.dataToImageRatio) * photoWidth) / 2;
+      // this.yC = (Math.max(1, this.dataToImageRatio) * photoWidth) / 4;
+
+      // this.xC = this.articleX + this.articleWidth - Math.max(1, this.dataToImageRatio) * photoMargin - (Math.max(1, this.dataToImageRatio) * photoWidth) / 2;
+      // this.yC = this.articleY + photoMargin; // - Math.max(1, this.dataToImageRatio) * photoMargin - (Math.max(1, this.dataToImageRatio) * photoWidth) / 2;
+
+      this.xC = this.profilePhotoX + photoWidth / 2;
+      this.yC = this.profilePhotoY + photoWidth / 2;
+
+      if (this.dataToImageRatio < 1) {
+        this.radius = 10 + (3 * photoWidth) / 7;
       } else {
-        // this.yC = this.height / 2 - parseInt(articleStyle.getPropertyValue('height')) / 2 - photoWidth / 2 + 3 * photoMargin / 2;
-        this.yC = this.height / 2 - parseInt(articleStyle.getPropertyValue('height')) / 2 - photoWidth / 2;
+        this.radius = photoWidth / 2 - photoMargin / 2;
       }
-      this.radius = photoWidth / 2 - photoMargin / 2;
-
-      console.log('this.height: ' + this.height);
-      console.log('articleStyle.getPropertyValue("height"): ' + articleStyle.getPropertyValue('height'));
-      console.log('photoMargin: ' + photoMargin);
-      console.log('photoWidth: ' + photoWidth);
-
-      console.log('xC: ' + this.xC);
-      console.log('yC: ' + this.yC);
-      console.log('radius: ' + this.radius);
 
       this.stepCount = 0;
       this.particles = [];
       this.lifespan = 10000;
-      // this.lifespan = 1000;
       this.popPerBirth = 1;
       this.maxPop = 300;
       this.birthFreq = 20; // 10 higher generates less particles
-      // this.birthFreq = 2; // 10 higher generates less particles
       this.moveProbability = 0.2;
-      // this.moveProbability = 0.75;
 
       // Build grid
       this.gridSize = 8; // Motion coords
@@ -145,12 +167,13 @@
       var i = 0;
       for (var xx = -500; xx < 500; xx += this.gridSize) {
         for (var yy = -500; yy < 500; yy += this.gridSize) {
-          // Radial field, triangular function of r with max around this.radius
+          // Radial field, triangular function of r with max around r0
           var r = Math.sqrt(xx * xx + yy * yy),
+            r0 = this.radius,
             field;
 
-          if (r < this.radius) field = (255 / this.radius) * r;
-          else if (r > this.radius) field = 255 - Math.min(255, (r - this.radius) / 2);
+          if (r < r0) field = (255 / r0) * r;
+          else if (r > r0) field = 255 - Math.min(255, (r - r0) / 2);
 
           this.grid.push({
             x: xx,
@@ -396,61 +419,9 @@
       App.globalBackgroundColorRGB = hexToRGB(App.globalBackgroundColor);
     }
 
-    // Function to update height and width
-    function updateSize() {
-      var canvas = document.getElementsByTagName('canvas')[0];
-      // // this.filename = "spipa";
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      // // this.canvas = canvas;
-      // // document.getElementsByTagName('body')[0].appendChild(canvas);
-      // // this.ctx = this.canvas.getContext('2d');
-      App.width = window.innerWidth;
-      App.height = window.innerHeight;
-      // // console.log("Atualizou: ", this.width, this.height);
-      // // var zoom = 1.6;
-      // this.zoom += this.width / canvas.width
-
-      // Get profile photo element to use as reference
-      var profilePhoto = document.getElementById('profile-photo');
-      let style = window.getComputedStyle(profilePhoto);
-      // use only width since the image is a square
-      let photoWidth = parseInt(style.getPropertyValue('width'));
-      let photoMargin = parseInt(style.getPropertyValue('margin-left'));
-
-      let article = document.getElementsByTagName('article')[0];
-      let articleStyle = getComputedStyle(article);
-
-      App.xC = App.width / 2 + parseInt(articleStyle.getPropertyValue('width')) / 2 - photoWidth / 2;
-      // App.yC = App.height / 2 - parseInt(articleStyle.getPropertyValue('height')) / 2 - photoMargin;
-      // if (App.width >= parseInt('{{ site.max_width }}')) {
-      //   App.yC = App.height / 2 - parseInt(articleStyle.getPropertyValue('height')) / 2 - photoMargin;
-      // } else {
-      //   App.yC = App.height / 2 - parseInt(articleStyle.getPropertyValue('height')) / 2 - photoWidth / 2 + 3 * photoMargin / 2;
-      // }
-      App.radius = photoWidth / 2 - photoMargin / 2;
-
-      // if (App.width < parseInt('{{ site.max_width }}')) {
-      // } else {
-      //   console.log('width > {{ site.max_width }}');
-      // }
-      // // this.radius = photoWidth / 2 - photoMargin / 2;
-
-      console.log('xC: ' + App.xC);
-      console.log('yC: ' + App.yC);
-      console.log('App.height: ' + App.height);
-      console.log('articleStyle.getPropertyValue("height"): ' + articleStyle.getPropertyValue('height'));
-      console.log('photoMargin: ' + photoMargin);
-      console.log('photoWidth: ' + photoWidth);
-      console.log('radius: ' + App.radius);
-    }
-
     function startAnimation() {
       App.setup();
       App.draw();
-
-      // Add event listener for window resize
-      window.addEventListener('resize', updateSize);
 
       var frame = function () {
         App.evolve();
@@ -465,7 +436,8 @@
     document.addEventListener('DOMContentLoaded', function () {
       setTimeout(function () {
         startAnimation();
-      }, 15000);
+      // }, 15000);
+      }, 500);
     });
 
     /**
