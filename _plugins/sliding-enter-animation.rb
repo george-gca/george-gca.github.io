@@ -46,9 +46,35 @@ Jekyll::Hooks.register([:pages, :posts], :post_render) do |page|
                     delay = "100ms"
                 end
 
+                if config.key?("name")
+                    name = config["name"]
+                else
+                    name = "enter"
+                end
+
+                if config.key?("from")
+                    from = config["from"]
+                    # transform value to string, if it is a hash
+                    if from.is_a?(Hash)
+                        from = from.map { |k, v| "#{k}:#{v}" }.join(";")
+                    end
+                else
+                    from = "opacity:0;transform:translateY(10px)"
+                end
+
+                if config.key?("to")
+                    to = config["to"]
+                    # transform value to string, if it is a hash
+                    if to.is_a?(Hash)
+                        to = to.map { |k, v| "#{k}:#{v}" }.join(";")
+                    end
+                else
+                    to = "opacity:1;transform:none"
+                end
+
                 css = page.output
-                css += "@keyframes enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}[data-animate]{--stagger:0;--delay:#{delay};--start:0ms}
-@media(prefers-reduced-motion:no-preference){[data-animate]{animation:enter .6s both;animation-delay: calc(var(--stagger) * var(--delay) + var(--start))}}"
+                css += "@keyframes #{name}{from{#{from}}to{#{to}}}[data-animate]{--stagger:0;--delay:#{delay};--start:0.1ms}
+@media(prefers-reduced-motion:no-preference){[data-animate]{animation:#{name} .6s both;animation-delay: calc(var(--stagger) * var(--delay) + var(--start))}}"
                 page.output = css
 
                 if verbose
