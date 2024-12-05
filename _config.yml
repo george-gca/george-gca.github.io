@@ -235,6 +235,7 @@ keep_files:
 
 # Plug-ins
 plugins:
+  - jekyll-animate-elements
   - jekyll-archives
   - jekyll-email-protect
   - jekyll-feed
@@ -431,17 +432,7 @@ lazy_loading_images: true # enables lazy loading of images (recommended)
 # -----------------------------------------------------------------------------
 
 animation:
-  enabled: false # enables css animation of individual elements
-  selector: "audio, blockquote, div.card, div.highlighter-rouge, div.news, div.repositories, div.row, div.social, div.tag-category-list, figure, h2, h3, p, tr, video"
-  name: enter
-  duration: 0.6s
-  from:
-    opacity: 0
-    transform: translateY(10px)
-  to: "opacity:1;transform:none"
-  delay: 100ms # delay before each consecutive animation starts
-  max_elements: 20 # maximum number of elements to animate (set to -1 or delete it to animate all elements)
-  verbose: false
+  enabled: true # enables css animation of individual elements
 
 # -----------------------------------------------------------------------------
 # Optional Features
