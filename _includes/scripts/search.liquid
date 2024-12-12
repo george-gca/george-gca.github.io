@@ -204,7 +204,7 @@
               {%- capture social_url %}"https://discord.com/users/{{ social[1] }}"{% endcapture -%}
             {%- when "email" -%}
               {%- assign social_id = "social-email" -%}
-              {%- assign social_title = "{{ site.data[site.active_lang].strings.search.email }}" -%}
+              {%- assign social_title = site.data[site.active_lang].strings.search.email -%}
               {%- capture social_url %}"mailto:{{ social[1] | encode_email }}"{% endcapture -%}
             {%- when "facebook_id" -%}
               {%- assign social_id = "social-facebook" -%}
@@ -364,7 +364,7 @@
             {%- else -%}
               {%- assign social_id = "social-" | append: social[0] -%}
               {%- assign social_title = social[0] | capitalize -%}
-              {%- assign social_url = social[1].url -%}
+              {%- capture social_url %}"{{ social[1].url }}"{% endcapture -%}
           {%- endcase -%}
           {
             id: '{{ social_id }}',
