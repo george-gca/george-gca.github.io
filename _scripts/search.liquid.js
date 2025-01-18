@@ -1,6 +1,11 @@
 ---
 permalink: /assets/js/search-data.js
 ---
+{% if site.active_lang == site.default_lang %}
+{% assign lang = '' %}
+{% else %}
+{% assign lang = site.active_lang %}
+{% endif %}
 // get the ninja-keys element
 const ninja = document.querySelector('ninja-keys');
 
@@ -12,9 +17,9 @@ ninja.data = [
   {
     id: "nav-{{ about_title | slugify }}",
     title: "{{ about_title | truncatewords: 13 }}",
-    section: "Navigation",
+    section: "{{ site.data[site.active_lang].strings.search.navigation }}",
     handler: () => {
-      window.location.href = "{{ '/' | relative_url }}";
+      window.location.href = "{{ '/' | prepend: lang | relative_url }}";
     },
   },
   {%- assign sorted_pages = site.pages | sort: "nav_order" -%}
@@ -29,14 +34,13 @@ ninja.data = [
               id: "dropdown-{{ title | slugify }}",
               title: "{{ title | truncatewords: 13 }}",
               description: "{{ child.description | strip_html | strip_newlines | escape | strip }}",
-              section: "Dropdown",
+              section: "{{ site.data[site.active_lang].strings.search.dropdown }}",
               handler: () => {
-                window.location.href = "{{ url | relative_url }}";
+                window.location.href = "{{ url | prepend: lang | relative_url }}";
               },
             },
           {%- endunless -%}
         {%- endfor -%}
-
       {%- else -%}
         {
           {%- assign title = p.title | escape | strip -%}
@@ -44,9 +48,9 @@ ninja.data = [
           id: "nav-{{ title | slugify }}",
           title: "{{ title | truncatewords: 13 }}",
           description: "{{ p.description | strip_html | strip_newlines | escape | strip }}",
-          section: "Navigation",
+          section: "{{ site.data[site.active_lang].strings.search.navigation }}",
           handler: () => {
-            window.location.href = "{{ url | relative_url }}";
+            window.location.href = "{{ url | prepend: lang | relative_url }}";
           },
         },
       {%- endif -%}
@@ -64,14 +68,14 @@ ninja.data = [
         title: "{{ title | truncatewords: 13 }}",
       {% endif %}
       description: "{{ post.description | strip_html | strip_newlines | escape | strip }}",
-      section: "Posts",
+      section: "{{ site.data[site.active_lang].strings.search.posts }}",
       handler: () => {
         {% if post.redirect == blank %}
-          window.location.href = "{{ post.url | relative_url }}";
+          window.location.href = "{{ post.url | prepend: lang | relative_url }}";
         {% elsif post.redirect contains '://' %}
           window.open("{{ post.redirect }}", "_blank");
         {% else %}
-          window.location.href = "{{ post.redirect | relative_url }}";
+          window.location.href = "{{ post.redirect | prepend: lang | relative_url }}";
         {% endif %}
       },
     },
@@ -88,10 +92,10 @@ ninja.data = [
           id: "{{ collection.label }}-{{ title | slugify }}",
           title: '{{ title | escape | emojify | truncatewords: 13 }}',
           description: "{{ item.description | strip_html | strip_newlines | escape | strip }}",
-          section: "{{ collection.label | capitalize }}",
+          section: "{{ site.data[site.active_lang].strings.search[collection.label] }}",
           {%- unless item.inline -%}
             handler: () => {
-              window.location.href = "{{ item.url | relative_url }}";
+              window.location.href = "{{ item.url | prepend: lang | relative_url }}";
             },
           {%- endunless -%}
         },
@@ -123,7 +127,7 @@ ninja.data = [
           {%- capture social_url %}"https://discord.com/users/{{ social[1] }}"{% endcapture -%}
         {%- when "email" -%}
           {%- assign social_id = "social-email" -%}
-          {%- assign social_title = "email" -%}
+          {%- assign social_title = site.data[site.active_lang].strings.search.email -%}
           {%- capture social_url %}"mailto:{{ social[1] | encode_email }}"{% endcapture -%}
         {%- when "facebook_id" -%}
           {%- assign social_id = "social-facebook" -%}
@@ -288,37 +292,60 @@ ninja.data = [
       {
         id: '{{ social_id }}',
         title: '{{ social_title }}',
-        section: 'Socials',
+        section: '{{ site.data[site.active_lang].strings.search.socials }}',
         handler: () => {
           window.open({{ social_url }}, "_blank");
         },
       },
     {%- endfor -%}
   {%- endif -%}
+  {%- for l in site.languages -%}
+    {%- if l != site.active_lang -%}
+      {%- if l == site.default_lang -%}
+        {
+          id: 'lang-{{ l }}',
+          title: '{{ l }}',
+          section: '{{ site.data[site.active_lang].strings.search.languages }}',
+          handler: () => {
+            window.location.href = "{{ site.baseurl }}{{ page.url }}";
+          },
+        },
+      {%- else -%}
+        {
+          id: 'lang-{{ l }}',
+          title: '{{ l }}',
+          section: '{{ site.data[site.active_lang].strings.search.languages }}',
+          handler: () => {
+            window.location.href = "{{ site.baseurl }}/{{ l }}{{ page.url }}";
+          },
+        },
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
   {%- if site.enable_darkmode -%}
     {
       id: 'light-theme',
-      title: 'Change theme to light',
-      description: 'Change the theme of the site to Light',
-      section: 'Theme',
+      title: '{{ site.data[site.active_lang].strings.search.light_theme.title }}',
+      description: '{{ site.data[site.active_lang].strings.search.light_theme.description }}',
+      section: '{{ site.data[site.active_lang].strings.search.theme }}',
       handler: () => {
         setThemeSetting("light");
       },
     },
     {
       id: 'dark-theme',
-      title: 'Change theme to dark',
-      description: 'Change the theme of the site to Dark',
-      section: 'Theme',
+      title: '{{ site.data[site.active_lang].strings.search.dark_theme.title }}',
+      description: '{{ site.data[site.active_lang].strings.search.dark_theme.description }}',
+      section: '{{ site.data[site.active_lang].strings.search.theme }}',
       handler: () => {
         setThemeSetting("dark");
       },
     },
     {
       id: 'system-theme',
-      title: 'Use system default theme',
-      description: 'Change the theme of the site to System Default',
-      section: 'Theme',
+      title: '{{ site.data[site.active_lang].strings.search.system_theme.title }}',
+      description: '{{ site.data[site.active_lang].strings.search.system_theme.description }}',
+      section: '{{ site.data[site.active_lang].strings.search.theme }}',
       handler: () => {
         setThemeSetting("system");
       },
