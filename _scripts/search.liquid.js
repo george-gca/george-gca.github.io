@@ -6,6 +6,16 @@ permalink: /assets/js/search-data.js
 {% else %}
 {% assign lang = site.active_lang %}
 {% endif %}
+const currentUrl = window.location.href;
+const siteUrl = "{{ site.url }}"; 
+let updatedUrl = currentUrl.replace("{{ site.url }}{{ site.baseurl }}", "");
+if (currentUrl.length == updatedUrl.length && currentUrl.startsWith("http://127.0.0.1")) {
+  const otherSiteUrl = siteUrl.replace("localhost", "127.0.0.1");
+  updatedUrl = currentUrl.replace(otherSiteUrl + "{{ site.baseurl }}", "");
+}
+if ("{{ lang }}".length > 0) {
+  updatedUrl = updatedUrl.replace("/{{ lang }}", "");
+}
 // get the ninja-keys element
 const ninja = document.querySelector('ninja-keys');
 
@@ -307,7 +317,7 @@ ninja.data = [
           title: '{{ l }}',
           section: '{{ site.data[site.active_lang].strings.search.languages }}',
           handler: () => {
-            window.location.href = "{{ site.baseurl }}{{ page.url }}";
+            window.location.href = "{{ site.baseurl }}" + updatedUrl;
           },
         },
       {%- else -%}
@@ -316,7 +326,7 @@ ninja.data = [
           title: '{{ l }}',
           section: '{{ site.data[site.active_lang].strings.search.languages }}',
           handler: () => {
-            window.location.href = "{{ site.baseurl }}/{{ l }}{{ page.url }}";
+            window.location.href = "{{ site.baseurl }}/{{ l }}" + updatedUrl;
           },
         },
       {%- endif -%}
