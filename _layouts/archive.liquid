@@ -5,13 +5,25 @@ layout: default
   <header class="post-header">
     {% if page.type == 'categories' %}
       <h1 class="post-title"><i class="fa-solid fa-tag fa-sm"></i> {{ page.title }}</h1>
-      <p class="post-description">{{ site.data[site.active_lang].strings.archive.prefix }} {{ site.data[site.active_lang].strings.collections[page.collection_name] }} {{ site.data[site.active_lang].strings.archive.category_suffix }}</p>
+      <p class="post-description">
+        {{ site.data[site.active_lang].strings.archive.prefix }}
+        {{ site.data[site.active_lang].strings.collections[page.collection_name] }}
+        {{ site.data[site.active_lang].strings.archive.category_suffix }}
+      </p>
     {% elsif page.type == 'year' %}
       <h1 class="post-title"><i class="fa-solid fa-calendar fa-sm"></i> {{ page.date | date: '%Y' }}</h1>
-      <p class="post-description">{{ site.data[site.active_lang].strings.archive.prefix }} {{ site.data[site.active_lang].strings.collections[page.collection_name] }} {{ site.data[site.active_lang].strings.archive.year_suffix }}</p>
+      <p class="post-description">
+        {{ site.data[site.active_lang].strings.archive.prefix }}
+        {{ site.data[site.active_lang].strings.collections[page.collection_name] }}
+        {{ site.data[site.active_lang].strings.archive.year_suffix }}
+      </p>
     {% elsif page.type == 'tags' %}
       <h1 class="post-title"><i class="fa-solid fa-hashtag fa-sm"></i> {{ page.title }}</h1>
-      <p class="post-description">{{ site.data[site.active_lang].strings.archive.prefix }} {{ site.data[site.active_lang].strings.collections[page.collection_name] }} {{ site.data[site.active_lang].strings.archive.tag_suffix }}</p>
+      <p class="post-description">
+        {{ site.data[site.active_lang].strings.archive.prefix }}
+        {{ site.data[site.active_lang].strings.collections[page.collection_name] }}
+        {{ site.data[site.active_lang].strings.archive.tag_suffix }}
+      </p>
     {% endif %}
   </header>
 
