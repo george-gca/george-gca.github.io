@@ -1,6 +1,8 @@
-archive_category: um arquivo de postagens desta categoria
-archive_tag: um arquivo de postagens com este marcador
-archive_year: um arquivo de postagens deste ano
+archive:
+  prefix: um arquivo de
+  category_suffix: desta categoria
+  tag_suffix: com este marcador
+  year_suffix: deste ano
 bibliography:
   abstract: Abs
   awarded: Premiado
@@ -21,6 +23,9 @@ categories:
 citation:
   bibtex: "ou como uma citação em BibTeX:"
   introduction: "Se você achou isso útil, por favor cite como:"
+collections:
+  books: livros
+  posts: postagens
 contact_note: Você pode até adicionar uma pequena observação sobre qual dessas é a melhor maneira de entrar em contato com você.
 cv:
   address: Endereço
