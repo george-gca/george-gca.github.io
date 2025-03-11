@@ -1,19 +1,23 @@
+{% capture footer_contents %}
+  &copy;
+  {{- site.data[site.active_lang].strings.footer.copyright -}}
+  {{ site.time | date: '%Y' }}
+  {{ site.first_name }}
+  {{ site.middle_name }}
+  {{ site.last_name }}. {{ site.data[site.active_lang].strings.footer_text }}
+  {% if site.impressum_path %}
+    <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
+  {% endif %}
+  {% if site.last_updated %}
+    {{- site.data[site.active_lang].strings.footer.last_updated }}
+    {{ 'now' | date: '%B %d, %Y' }}.
+  {% endif %}
+{% endcapture %}
+
 {% if site.footer_fixed %}
   <footer class="fixed-bottom" role="contentinfo">
     <div class="container mt-0">
-      &copy;
-      {{- site.data[site.active_lang].strings.footer.copyright -}}
-      {{ site.time | date: '%Y' }}
-      {{ site.first_name }}
-      {{ site.middle_name }}
-      {{ site.last_name }}. {{ site.data[site.active_lang].strings.footer_text }}
-      {% if site.impressum_path %}
-        <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
-      {% endif %}
-      {% if site.last_updated %}
-        {{- site.data[site.active_lang].strings.footer.last_updated }}
-        {{ 'now' | date: '%B %d, %Y' }}.
-      {% endif %}
+      {{ footer_contents }}
     </div>
   </footer>
 {% else %}
@@ -23,19 +27,7 @@
     {% endif %}
 
     <div class="container">
-      &copy;
-      {{- site.data[site.active_lang].strings.footer.copyright -}}
-      {{ site.time | date: '%Y' }}
-      {{ site.first_name }}
-      {{ site.middle_name }}
-      {{ site.last_name }}. {{ site.data[site.active_lang].strings.footer_text }}
-      {% if site.impressum_path %}
-        <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
-      {% endif %}
-      {% if site.last_updated %}
-        {{- site.data[site.active_lang].strings.footer.last_updated }}
-        {{ 'now' | date: '%B %d, %Y' }}.
-      {% endif %}
+      {{ footer_contents }}
     </div>
   </footer>
 {% endif %}
