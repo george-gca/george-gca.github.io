@@ -240,9 +240,9 @@ If you installed **multi-language-al-folio** as described above, you can manuall
 
 ```bash
 # Assuming the current directory is <your-repo-name>
-$ git remote add upstream https://github.com/george-gca/multi-language-al-folio.git
+$ git remote add upstream https://github.com/alshedivat/al-folio.git
 $ git fetch upstream
-$ git rebase v1.14.3
+$ git rebase v1.14.4
 ```
 
 If you have extensively customized a previous version, it might be trickier to upgrade.
