@@ -124,6 +124,8 @@ GEM
       safe_yaml (~> 1.0)
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
+    jekyll-animate-elements (0.0.4)
+      jekyll (>= 3.6, < 5.0)
     jekyll-archives-v2 (0.0.6)
       activesupport
       jekyll (>= 3.6, < 5.0)
@@ -280,6 +282,7 @@ DEPENDENCIES
   feedjira
   httparty
   jekyll
+  jekyll-animate-elements
   jekyll-archives-v2
   jekyll-email-protect
   jekyll-feed

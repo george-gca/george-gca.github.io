@@ -6,7 +6,6 @@ title: blank # the website title (if blank, full name will be used instead)
 first_name: George
 middle_name: C.
 last_name: de Araújo
-email: george.araujo@ic.unicamp.br
 keywords: machine learning, artificial intelligence, deep learning, computer vision, natural language processing # add your own keywords or leave empty
 icon: 👨🏽‍💻 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
@@ -191,6 +190,7 @@ keep_files:
 
 # Plug-ins
 plugins:
+  - jekyll-animate-elements
   - jekyll-archives-v2
   - jekyll-email-protect
   - jekyll-feed
@@ -396,9 +396,9 @@ lazy_loading_images: true # enables lazy loading of images (recommended)
 # -----------------------------------------------------------------------------
 
 animation:
-  delay: 90ms # delay before each consecutive animation starts
+  # delay: 100ms # delay before each consecutive animation starts
   enabled: true # enables fade in animation of elements
-  max_elements: 20 # maximum number of elements to animate (set to -1 or delete it to animate all elements)
+  # max_elements: 20 # maximum number of elements to animate (set to -1 or delete it to animate all elements)
 
 # -----------------------------------------------------------------------------
 # Optional Features
