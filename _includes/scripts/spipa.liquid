@@ -154,11 +154,11 @@
 
       this.stepCount = 0;
       this.particles = [];
-      this.lifespan = 10000;
+      this.lifespan = 100000;
       this.popPerBirth = 1;
-      this.maxPop = 300;
-      this.birthFreq = 20; // 10 higher generates less particles
-      this.moveProbability = 0.2;
+      this.maxPop = 10000; // 300
+      this.birthFreq = 3; // 10 higher generates less particles
+      this.moveProbability = 0.4;
 
       // Build grid
       this.gridSize = 8; // Motion coords
@@ -362,7 +362,7 @@
         h = this.globalThemeColorHSL.h;
         s = this.globalThemeColorHSL.s;
         l = this.globalThemeColorHSL.l;
-        a = 0.05; // particle opacity
+        a = 0.5; //0.05; // particle opacity
 
         var last = this.dataXYtoCanvasXY(p.xLast, p.yLast),
           now = this.dataXYtoCanvasXY(p.x, p.y);
