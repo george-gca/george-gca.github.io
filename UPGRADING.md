@@ -31,7 +31,7 @@ now is:
 
 ### Other information
 
-Due to the usage of the `polyglot` plugin, a lot of the previous workarounds were made unnecessary. For example, the `t` filter was used to translate the `page.title` and `page.description` variables in a lot of different files. Now, the values of these variables can be directly used. The same applies to some solutions regarding page redirects or assets usage. For example, in the file [\_layouts/archive-category.liquid](_layouts/archive-category.liquid), we had this piece of code:
+Due to the usage of the `polyglot` plugin, a lot of the previous workarounds were made unnecessary. For example, the `t` filter was used to translate the `page.title` and `page.description` variables in a lot of different files. Now, the values of these variables can be directly used. The same applies to some solutions regarding page redirects or assets usage. For example, in the old file `_layouts/archive-category.liquid` (currently [\_layouts/archive.liquid](_layouts/archive.liquid)), we had this piece of code:
 
 ```liquid
 {% assign is_asset = post.redirect | startswith: '/assets/' %}

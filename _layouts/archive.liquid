@@ -1,0 +1,50 @@
+---
+layout: default
+---
+<div class="post">
+  <header class="post-header">
+    {% if page.type == 'categories' %}
+      <h1 class="post-title"><i class="fa-solid fa-tag fa-sm"></i> {{ page.title }}</h1>
+      <p class="post-description">
+        {{ site.data[site.active_lang].strings.archive.prefix }}
+        {{ site.data[site.active_lang].strings.collections[page.collection_name] }}
+        {{ site.data[site.active_lang].strings.archive.category_suffix }}
+      </p>
+    {% elsif page.type == 'year' %}
+      <h1 class="post-title"><i class="fa-solid fa-calendar fa-sm"></i> {{ page.date | date: '%Y' }}</h1>
+      <p class="post-description">
+        {{ site.data[site.active_lang].strings.archive.prefix }}
+        {{ site.data[site.active_lang].strings.collections[page.collection_name] }}
+        {{ site.data[site.active_lang].strings.archive.year_suffix }}
+      </p>
+    {% elsif page.type == 'tags' %}
+      <h1 class="post-title"><i class="fa-solid fa-hashtag fa-sm"></i> {{ page.title }}</h1>
+      <p class="post-description">
+        {{ site.data[site.active_lang].strings.archive.prefix }}
+        {{ site.data[site.active_lang].strings.collections[page.collection_name] }}
+        {{ site.data[site.active_lang].strings.archive.tag_suffix }}
+      </p>
+    {% endif %}
+  </header>
+
+  <article class="archive">
+    <div class="table-responsive">
+      <table class="table table-sm table-borderless">
+        {% for document in page.documents %}
+          <tr>
+            <th scope="row">{% include date_format.liquid format='short' date=document.date %}</th>
+            <td>
+              {% if document.redirect == blank %}
+                <a class="post-link" href="{{ document.url | relative_url }}">{{ document.title }}</a>
+              {% elsif document.redirect contains '://' %}
+                <a class="post-link" href="{{ document.redirect }}" target="_blank">{{ document.title }}</a>
+              {% else %}
+                <a class="post-link" href="{{ document.redirect | relative_url }}">{{ document.title }}</a>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </article>
+</div>

@@ -1,6 +1,20 @@
-archive_category: um arquivo de postagens desta categoria
-archive_tag: um arquivo de postagens com este marcador
-archive_year: um arquivo de postagens deste ano
+archive:
+  prefix: um arquivo de
+  category_suffix: desta categoria
+  tag_suffix: com este marcador
+  year_suffix: deste ano
+bibliography:
+  abstract: Abs
+  awarded: Premiado
+  blog: Blog
+  book_prefix: Em
+  code: Código
+  last_author_prefix: e
+  poster: Poster
+  slides: Slides
+  supp: Supl
+  video: Vídeo
+  website: Site
 blog:
   navigation_title: blog
 categories:
@@ -9,6 +23,9 @@ categories:
 citation:
   bibtex: "ou como uma citação em BibTeX:"
   introduction: "Se você achou isso útil, por favor cite como:"
+collections:
+  books: livros
+  posts: postagens
 contact_note: Você pode até adicionar uma pequena observação sobre qual dessas é a melhor maneira de entrar em contato com você.
 cv:
   address: Endereço
@@ -42,6 +59,7 @@ cv:
   phone: Telefone
   position: Posição
   postalCode: Código postal
+  present: Presente
   profiles: Perfis
   projects: Projetos
   publications: Publicações
@@ -61,6 +79,9 @@ cv:
   username: Usuário
   volunteer: Voluntário
   work: Trabalho
+footer:
+  copyright: Direitos autorais
+  last_updated: "Última atualização:"
 footer_text: > # the ">" symbol means to ignore newlines until "titles:"
   Desenvolvido em <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> com o tema <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>.
   Hospedado por <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -103,9 +124,8 @@ newsletter:
   too_many_signups: "Muitas inscrições, por favor tente novamente em breve"
   wait: "Por favor, aguarde..."
 no_news: Nenhuma novidade no momento...
+no_posts: "Nenhuma postagem até agora..."
 pagination:
-  newer: Recentes
-  older: Antigas
   page: página
 post:
   created_in: Criado em
