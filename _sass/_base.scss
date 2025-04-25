@@ -1483,3 +1483,49 @@ figure.cover {
     color: #23212d !important;
   }
 }
+
+div.js-plotly-plot {
+  margin-bottom: 1rem;
+}
+
+details {
+  margin-bottom: 1rem;
+
+  // set details text bottom padding
+  text {
+    padding-bottom: 1rem;
+  }
+
+  figure {
+    margin: 1rem 0;
+  }
+
+  summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: large;
+  }
+
+  // change marker to plus/minus
+  summary::marker, :is(::-webkit-details-marker) {
+    content: "+";
+    font-size: 1.5rem;
+    color: var(--global-theme-color);
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary:focus {
+    outline: none;
+  }
+}
+
+details[open] summary::marker {
+  content: "-";
+  font-size: 1.5rem;
+  color: var(--global-theme-color);
+}
