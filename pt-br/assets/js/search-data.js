@@ -48,7 +48,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/pt-br/cv/";
           },
-        },{id: "post-analizando-o-histórico-do-cvpr",
+        },{id: "post-um-guia-abrangente-de-boas-práticas-em-python",
+        
+          title: "Um guia abrangente de boas práticas em Python",
+        
+        description: "De estilo de código e recursos modernos a como aproveitar a biblioteca padrão e os principais padrões para escrever código Python limpo e eficiente.",
+        section: "Postagens",
+        handler: () => {
+          
+            window.location.href = "/pt-br/blog/2025/python-best-practices/";
+          
+        },
+      },{id: "post-analizando-o-histórico-do-cvpr",
         
           title: "Analizando o histórico do CVPR",
         

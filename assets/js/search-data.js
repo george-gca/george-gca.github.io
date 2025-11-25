@@ -48,7 +48,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-analyzing-the-history-of-cvpr",
+        },{id: "post-a-comprehensive-guide-to-python-best-practices",
+        
+          title: "A comprehensive guide to Python best practices",
+        
+        description: "From code style and modern features to leveraging the standard library and essential idioms for writing clean, efficient Python code.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/python-best-practices/";
+          
+        },
+      },{id: "post-analyzing-the-history-of-cvpr",
         
           title: "Analyzing the history of CVPR",
         
