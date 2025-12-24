@@ -636,44 +636,44 @@ Usage::
 </span><span class="nf">greet</span><span class="p">(</span><span class="n">greeting</span><span class="o">=</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="sh">"</span><span class="s">Hello</span><span class="sh">"</span><span class="p">)</span>  <span class="c1"># Confusing!
 </span></code></pre></div></div> <p><em>Rationale</em>: Explicit parameter types prevent API misuse and make function signatures self-documenting.</p> <h4 id="pattern-matching-structural-pattern-matching---python-310">Pattern Matching (Structural Pattern Matching) - Python 3.10+</h4> <p>The <code class="language-plaintext highlighter-rouge">match</code>/<code class="language-plaintext highlighter-rouge">case</code> statement provides powerful pattern matching similar to switch statements in other languages, but much more flexible.</p> <p><strong>Yes</strong></p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Simple value matching
 </span><span class="k">def</span> <span class="nf">http_status</span><span class="p">(</span><span class="n">status</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">match</span> <span class="n">status</span><span class="p">:</span>
-        <span class="n">case</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="k">match</span> <span class="n">status</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">200</span><span class="p">:</span>
             <span class="k">return</span> <span class="sh">"</span><span class="s">OK</span><span class="sh">"</span>
-        <span class="n">case</span> <span class="mi">404</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">404</span><span class="p">:</span>
             <span class="k">return</span> <span class="sh">"</span><span class="s">Not Found</span><span class="sh">"</span>
-        <span class="n">case</span> <span class="mi">500</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">500</span><span class="p">:</span>
             <span class="k">return</span> <span class="sh">"</span><span class="s">Internal Server Error</span><span class="sh">"</span>
-        <span class="n">case</span> <span class="n">_</span><span class="p">:</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
             <span class="k">return</span> <span class="sh">"</span><span class="s">Unknown Status</span><span class="sh">"</span>
 
 <span class="c1"># Pattern matching with structures
 </span><span class="k">def</span> <span class="nf">process_command</span><span class="p">(</span><span class="n">command</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">match</span> <span class="n">command</span><span class="p">:</span>
+    <span class="k">match</span> <span class="n">command</span><span class="p">:</span>
         <span class="nf">case </span><span class="p">(</span><span class="sh">"</span><span class="s">quit</span><span class="sh">"</span><span class="p">,):</span>
             <span class="k">return</span> <span class="sh">"</span><span class="s">Exiting...</span><span class="sh">"</span>
         <span class="nf">case </span><span class="p">(</span><span class="sh">"</span><span class="s">load</span><span class="sh">"</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
             <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="s">Loading </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="sh">"</span>
         <span class="nf">case </span><span class="p">(</span><span class="sh">"</span><span class="s">save</span><span class="sh">"</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
             <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="s">Saving </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s"> as </span><span class="si">{</span><span class="nb">format</span><span class="si">}</span><span class="sh">"</span>
-        <span class="n">case</span> <span class="n">_</span><span class="p">:</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
             <span class="k">return</span> <span class="sh">"</span><span class="s">Unknown command</span><span class="sh">"</span>
 
 <span class="c1"># Matching objects and types
 </span><span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
-    <span class="n">match</span> <span class="n">obj</span><span class="p">:</span>
-        <span class="n">case</span> <span class="nf">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">match</span> <span class="n">obj</span><span class="p">:</span>
+        <span class="k">case</span> <span class="nf">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="s">Positive integer: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="sh">"</span>
-        <span class="n">case</span> <span class="nf">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">case</span> <span class="nf">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="s">Negative integer: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="sh">"</span>
-        <span class="n">case</span> <span class="nf">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">case</span> <span class="nf">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="s">Non-empty string: </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="sh">"</span>
-        <span class="n">case</span> <span class="nf">list</span><span class="p">([]):</span>
+        <span class="k">case</span> <span class="nf">list</span><span class="p">([]):</span>
             <span class="k">return</span> <span class="sh">"</span><span class="s">Empty list</span><span class="sh">"</span>
-        <span class="n">case</span> <span class="nf">list</span><span class="p">([</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span><span class="p">]):</span>
+        <span class="k">case</span> <span class="nf">list</span><span class="p">([</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span><span class="p">]):</span>
             <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="s">List starting with </span><span class="si">{</span><span class="n">first</span><span class="si">}</span><span class="sh">"</span>
-        <span class="n">case</span> <span class="p">{</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="sh">"</span><span class="s">age</span><span class="sh">"</span><span class="p">:</span> <span class="n">age</span><span class="p">}:</span>
+        <span class="k">case</span> <span class="p">{</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="sh">"</span><span class="s">age</span><span class="sh">"</span><span class="p">:</span> <span class="n">age</span><span class="p">}:</span>
             <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="s">Person: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">, age </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="sh">"</span>
-        <span class="n">case</span> <span class="n">_</span><span class="p">:</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
             <span class="k">return</span> <span class="sh">"</span><span class="s">Something else</span><span class="sh">"</span>
 </code></pre></div></div> <p><strong>No</strong></p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Long if-elif chains (less readable)
 </span><span class="k">def</span> <span class="nf">http_status</span><span class="p">(</span><span class="n">status</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
